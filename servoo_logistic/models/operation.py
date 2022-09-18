@@ -5,7 +5,7 @@ from odoo import api, models, fields, _
 from datetime import datetime
 
 
-class OpenrationNature(models.Model):
+class OperationNature(models.Model):
     _name = 'servoo.logistic.operation.nature'
 
     name = fields.Char('Name', required=True)
@@ -14,6 +14,7 @@ class OpenrationNature(models.Model):
 
 
 class Operation(models.Model):
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _name = 'servoo.logistic.operation'
 
     operation_nature = fields.Many2one('servoo.logistic.operation.nature', 'Operation Nature')
@@ -27,10 +28,12 @@ class Operation(models.Model):
     date_end = fields.Datetime('Date End')
     partner_id = fields.Many2one('res.partner', 'Client', required=True)
     final_partner_id = fields.Many2one('res.partner', 'Final Client')
-    formality_line = fields.One2many('servoo.logistic.formality', 'operation_id', string='Formality Lines', auto_join=True,
-                                     copy=True)
-    document_ids = fields.One2many('servoo.logistic.document', 'operation_id', string='Documents', auto_join=True, copy=True)
-    operation_vehicle_ids = fields.One2many('servoo.logistic.operation.vehicle', 'operation_id', string='Vehicles', auto_join=True, copy=True)
+    formality_line = fields.One2many('servoo.logistic.formality', 'operation_id', string='Formality Lines',
+                                     auto_join=True, tracking=True, copy=True)
+    document_ids = fields.One2many('servoo.logistic.document', 'operation_id', string='Documents', auto_join=True,
+                                   copy=True)
+    operation_vehicle_ids = fields.One2many('servoo.logistic.operation.vehicle', 'operation_id', string='Vehicles',
+                                            tracking=True, auto_join=True, copy=True)
     departure_country_id = fields.Many2one('res.country', 'Departure Country')
     destination_country_id = fields.Many2one('res.country', 'Destination Country')
     parent_id = fields.Many2one('servoo.logistic.operation', 'Parent')
