@@ -1,0 +1,653 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dyen_fleet
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0-20220616\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-06 12:39+0000\n"
+"PO-Revision-Date: 2022-09-06 12:39+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_filling_fuel_tank_wizard_form
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_fuel_tank_view_form
+msgid "<span>Liters</span>"
+msgstr "<span>Litres</span>"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__message_needaction
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__message_needaction
+msgid "Action Needed"
+msgstr "Action nécessaire"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__activity_ids
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__activity_ids
+msgid "Activities"
+msgstr "Activités"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__activity_exception_decoration
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__activity_state
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__activity_state
+msgid "Activity State"
+msgstr "Etat d'activité"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__activity_type_icon
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_fuel_tank_view_form
+msgid "Add Fuel"
+msgstr "Ajouter du carburant"
+
+#. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_filling_fuel_tank_wizard_form
+msgid "Add Liters"
+msgstr "Ajouter des litres"
+
+#. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_vehicle_log_fuel_view_form
+msgid "Additional Details"
+msgstr "Détails supplémentaires"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__amount
+msgid "Amount"
+msgstr "Montant"
+
+#. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_filling_fuel_tank_wizard_form
+msgid "Apply"
+msgstr "Appliquer"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__message_attachment_count
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__message_attachment_count
+msgid "Attachment Count"
+msgstr "Nombre de pièces jointes"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__average_price
+msgid "Average Price"
+msgstr "Prix moyen"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__capacity
+msgid "Capacity"
+msgstr "Capacité"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__company_id
+msgid "Company"
+msgstr "Compagnie"
+
+#. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_fuel_tank_view_form
+msgid "Consumption Details"
+msgstr "Détails de la consommation"
+
+#. module: dyen_fleet
+#: model_terms:ir.actions.act_window,help:dyen_fleet.fleet_vehicle_log_fuel_action
+msgid "Create a new fuel log"
+msgstr "Créer l'historique des consommations de carburant"
+
+#. module: dyen_fleet
+#: model_terms:ir.actions.act_window,help:dyen_fleet.fleet_fuel_tank_action
+msgid "Create a new fuel tank"
+msgstr "Créer un nouveau réservoir de carburant"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_filling_fuel_tank_wizard__create_uid
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__create_uid
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_filling__create_uid
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_filling_fuel_tank_wizard__create_date
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__create_date
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_filling__create_date
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_filling_fuel_tank_wizard__date
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_filling__date
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__date
+msgid "Date"
+msgstr "Date"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_vehicle_log_fuel__date
+msgid "Date when the cost has been executed"
+msgstr "Date à laquelle le coût a été exécuté"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__description
+msgid "Description"
+msgstr "Description"
+
+#. module: dyen_fleet
+#: model:ir.model.fields.selection,name:dyen_fleet.selection__fleet_fuel_tank__fuel_type__diesel
+msgid "Diesel"
+msgstr "Diesel"
+
+#. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_filling_fuel_tank_wizard_form
+msgid "Discard"
+msgstr ""
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_filling_fuel_tank_wizard__display_name
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__display_name
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_filling__display_name
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__display_name
+msgid "Display Name"
+msgstr "Nom Affiché"
+
+#. module: dyen_fleet
+#: model:ir.model.fields.selection,name:dyen_fleet.selection__fleet_fuel_tank__fuel_type__essence
+msgid "Essence"
+msgstr "Essence"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_filling_fuel_tank_wizard__name
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_filling__name
+msgid "External Reference"
+msgstr "Référence externe"
+
+#. module: dyen_fleet
+#: model:ir.model,name:dyen_fleet.model_fleet_filling_fuel_tank_wizard
+msgid "Filling fuel tank"
+msgstr "Remplissage du réservoir de carburant"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__filling_ids
+msgid "Filling history"
+msgstr "Historique des remplissages"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__message_follower_ids
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__message_follower_ids
+msgid "Followers"
+msgstr "Suiveurs"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__message_partner_ids
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Followers (Partenaires)"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_fuel_tank__activity_type_icon
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_vehicle_log_fuel__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: dyen_fleet
+#: model:fleet.service.type,name:dyen_fleet.type_service_service_0
+msgid "Fuel"
+msgstr "Carburant"
+
+#. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_vehicle_log_fuel_view_graph
+msgid "Fuel Costs Per Month"
+msgstr "Coûts de carburant par mois"
+
+#. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_fuel_tank_view_form
+msgid "Fuel Details"
+msgstr "Détails du carburant"
+
+#. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_fuel_tank_view_form
+msgid "Fuel Filling History"
+msgstr "Historique de remplissage de carburant"
+
+#. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_vehicle_log_fuel_view_form
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_vehicle_log_fuel_view_tree
+msgid "Fuel Logs"
+msgstr "Journal de carburant"
+
+#. module: dyen_fleet
+#: model:ir.actions.act_window,name:dyen_fleet.fleet_fuel_tank_action
+#: model:ir.model,name:dyen_fleet.model_fleet_fuel_tank
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_filling_fuel_tank_wizard__tank_id
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_filling__tank_id
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__tank_id
+#: model:ir.ui.menu,name:dyen_fleet.fleet_fuel_tank_menu
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_fuel_tank_view_form
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_fuel_tank_view_tree
+msgid "Fuel Tank"
+msgstr "Réservoir de carburant"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__fuel_level
+msgid "Fuel level"
+msgstr "Niveau de carburant"
+
+#. module: dyen_fleet
+#: model:ir.model,name:dyen_fleet.model_fleet_vehicle_log_fuel
+msgid "Fuel log for vehicles"
+msgstr "Carnet de carburant pour véhicules"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__fuel_type
+msgid "Fuel type"
+msgstr "Type de carburant"
+
+#. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_vehicle_log_fuel_view_search
+msgid "Group By"
+msgstr "Grouper par"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__has_message
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: dyen_fleet
+#: model_terms:ir.actions.act_window,help:dyen_fleet.fleet_vehicle_log_fuel_action
+msgid "Here you can add refuelling entries for all vehicles."
+msgstr "Ici, vous pouvez ajouter des entrées de ravitaillement pour tous les véhicules."
+
+#. module: dyen_fleet
+#: model:ir.model,name:dyen_fleet.model_fleet_fuel_tank_filling
+msgid "History of fuel tank filling"
+msgstr "Historique du remplissage du réservoir de carburant"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_filling_fuel_tank_wizard__id
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__id
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_filling__id
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__id
+msgid "ID"
+msgstr "ID"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__activity_exception_icon
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__activity_exception_icon
+msgid "Icon"
+msgstr "Icône"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_fuel_tank__activity_exception_icon
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_vehicle_log_fuel__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icône pour indiquer une activité d'exception."
+
+#. module: dyen_fleet
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_fuel_tank__message_needaction
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_fuel_tank__message_unread
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_vehicle_log_fuel__message_needaction
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_vehicle_log_fuel__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Si cette case est cochée, de nouveaux messages nécessitent votre attention."
+
+#. module: dyen_fleet
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_fuel_tank__message_has_error
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_vehicle_log_fuel__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__inv_ref
+msgid "Invoice Reference"
+msgstr "Si cette case est cochée, certains messages présentent une erreur de livraison."
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__message_is_follower
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__message_is_follower
+msgid "Is Follower"
+msgstr "Est suiveur"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__last_add_fuel_date
+msgid "Last Added Fuel Date"
+msgstr "Date du dernier carburant ajouté"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__clean_date
+msgid "Last Clean Date"
+msgstr "Date du dernier nettoyage"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__last_fill_date
+msgid "Last Filling Date"
+msgstr "Date du dernier remplissage"
+
+#. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_fuel_tank_view_form
+msgid "Last Filling Details"
+msgstr "Derniers détails de remplissage"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_filling_fuel_tank_wizard____last_update
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank____last_update
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_filling____last_update
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_filling_fuel_tank_wizard__write_uid
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__write_uid
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_filling__write_uid
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_filling_fuel_tank_wizard__write_date
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__write_date
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_filling__write_date
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_filling_fuel_tank_wizard__liter
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__liter
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__liter
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_fuel_tank_view_kanban
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_vehicle_log_fuel_view_kanban
+msgid "Liter"
+msgstr "Litre"
+
+#. module: dyen_fleet
+#: code:addons/dyen_fleet/models/fleet_vehicle_fuel.py:0
+#: code:addons/dyen_fleet/wizard/fleet_filling_fuel_tank_wizard.py:0
+#, python-format
+msgid "Liter must be positive and non zero"
+msgstr "Le litre doit être positif et non nul"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_filling__liter
+msgid "Liters"
+msgstr "Litres"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__location
+msgid "Location"
+msgstr "Emplacement"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__message_main_attachment_id
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Pièce jointe principale"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__message_has_error
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__message_has_error
+msgid "Message Delivery error"
+msgstr "Erreur de livraison du message"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__message_ids
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__message_ids
+msgid "Messages"
+msgstr "Messages"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__my_activity_date_deadline
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Date limite de mon activité"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__activity_calendar_event_id
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Prochain événement du calendrier des activités"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__activity_date_deadline
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Date limite de la prochaine activité"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__activity_summary
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__activity_summary
+msgid "Next Activity Summary"
+msgstr "Résumé de l'activité suivante"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__activity_type_id
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__activity_type_id
+msgid "Next Activity Type"
+msgstr "Type d'activité suivant"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__notes
+msgid "Notes"
+msgstr "Remarques"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__message_needaction_counter
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Nombre d'actions"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__message_has_error_counter
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__message_has_error_counter
+msgid "Number of errors"
+msgstr "Nombre d'erreurs"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_fuel_tank__message_needaction_counter
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_vehicle_log_fuel__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Nombre de messages nécessitant une action"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_fuel_tank__message_has_error_counter
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_vehicle_log_fuel__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Nombre de messages avec erreur de livraison"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_fuel_tank__message_unread_counter
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_vehicle_log_fuel__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Nombre de messages non lus"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__odometer_id
+msgid "Odometer"
+msgstr "Kilométrage"
+
+#. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_vehicle_log_fuel_view_form
+msgid "Odometer Details"
+msgstr "Détail du kilométrage"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__odometer
+msgid "Odometer Value"
+msgstr "Valeur kilométrage"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_vehicle_log_fuel__odometer
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_vehicle_log_fuel__odometer_id
+msgid "Odometer measure of the vehicle at the moment of this log"
+msgstr "Mesure de du kilométrage du véhicule au moment de ce journal"
+
+#. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_vehicle_log_fuel_view_search
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_vehicle_log_fuel_view_tree
+msgid "Price"
+msgstr "Prix"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_filling_fuel_tank_wizard__price_per_liter
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_filling__price_per_liter
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__price_per_liter
+msgid "Price Per Liter"
+msgstr "Prix ​​par litre"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__purchaser_id
+msgid "Purchaser"
+msgstr "Acheteur"
+
+#. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_vehicle_log_fuel_view_form
+msgid "Refueling Details"
+msgstr "Détails de ravitaillement"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__activity_user_id
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__activity_user_id
+msgid "Responsible User"
+msgstr "Utilisateur responsable"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__service_id
+msgid "Service"
+msgstr "Service"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__service_type_id
+msgid "Service Type"
+msgstr "Type de service"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__state
+msgid "Stage"
+msgstr ""
+
+#. module: dyen_fleet
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_fuel_tank__activity_state
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_vehicle_log_fuel__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Statut basé sur les activités\n"
+"En retard : la date d'échéance est déjà dépassée\n"
+"Aujourd'hui : la date d'activité est aujourd'hui\n"
+"Prévu : Activités futures."
+
+#. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_fuel_tank_view_form
+msgid "Tank Details"
+msgstr "Détails du réservoir"
+
+#. module: dyen_fleet
+#: code:addons/dyen_fleet/models/fleet_fuel_tank.py:0
+#, python-format
+msgid "Tank capacity must not be negative"
+msgstr "La capacité du réservoir ne doit pas être négative"
+
+#. module: dyen_fleet
+#: code:addons/dyen_fleet/models/fleet_vehicle_fuel.py:0
+#, python-format
+msgid "The amount of fuel in the tank cannot satisfy this request"
+msgstr "La quantité de carburant dans le réservoir ne peut pas satisfaire cette demande"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_fuel_tank__activity_exception_decoration
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_vehicle_log_fuel__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Type d'activité d'exception enregistrée."
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__odometer_unit
+msgid "Unit"
+msgstr "Unité"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_vehicle_log_fuel__odometer_unit
+msgid "Unit of the odometer "
+msgstr "Unité du kilométrage"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__message_unread
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__message_unread
+msgid "Unread Messages"
+msgstr "Messages non lus"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__message_unread_counter
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Compteur de messages non lus"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__vehicle_id
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_vehicle_log_fuel_view_search
+msgid "Vehicle"
+msgstr "Véhicule"
+
+#. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_vehicle_log_fuel_view_form
+msgid "Vehicle Details"
+msgstr "Détails du véhicule"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,help:dyen_fleet.field_fleet_vehicle_log_fuel__vehicle_id
+msgid "Vehicle concerned by this log"
+msgstr "Véhicule concerné par ce journal"
+
+#. module: dyen_fleet
+#: model:ir.actions.act_window,name:dyen_fleet.fleet_vehicle_log_fuel_action
+#: model:ir.ui.menu,name:dyen_fleet.fleet_vehicle_log_fuel_menu
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_vehicle_log_fuel_view_search
+msgid "Vehicles Fuel Logs"
+msgstr "Journaux de carburant des véhicules"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__vendor_id
+msgid "Vendor"
+msgstr "Vendeur"
+
+#. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_vehicle_log_fuel_view_form
+msgid "Write here any other information"
+msgstr "Écrivez ici toute autre information"
+
+#. module: dyen_fleet
+#: code:addons/dyen_fleet/wizard/fleet_filling_fuel_tank_wizard.py:0
+#, python-format
+msgid "You cannot add fuel beyond the tank's maximum capacity"
+msgstr "Vous ne pouvez pas ajouter de carburant au-delà de la capacité maximale du réservoir"

@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fleet_fuel_tank,fleet.fuel.tank,model_fleet_fuel_tank,base.group_user,1,1,1,0
+access_fleet_fuel_tank_filling,fleet.fuel.tank.filling,model_fleet_fuel_tank_filling,base.group_user,1,1,1,0
+access_fleet_vehicle_log_fuel,fleet.vehicle.log.fuel,model_fleet_vehicle_log_fuel,base.group_user,1,1,1,0
+dyen_fleet.access_fleet_filling_fuel_tank_wizard,access_fleet_filling_fuel_tank_wizard,dyen_fleet.model_fleet_filling_fuel_tank_wizard,base.group_user,1,1,1,0
+
+
+

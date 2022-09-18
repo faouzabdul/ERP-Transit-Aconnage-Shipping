@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+     <record id="fleet_filling_fuel_tank_wizard_form" model="ir.ui.view">
+            <field name="name">fleet.filling.fuel.tank.wizard.view.form</field>
+            <field name="model">fleet.filling.fuel.tank.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Add Liters">
+                    <sheet>
+                        <group col="4">
+                            <field name="date"/>
+                            <label for="liter" />
+                             <div class="o_row">
+                                 <field name="liter"/><span>Liters</span>
+                             </div>
+
+                            <field name="name" />
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="action_filling_fuel_tank" string="Apply" type="object" class="oe_highlight" data-hotkey="q"/>
+                        <button string="Discard" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="fleet_filling_fuel_tank_wizard_action" model="ir.actions.act_window">
+            <field name="name"></field>
+            <field name="res_model">fleet.filling.fuel.tank.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+</odoo>

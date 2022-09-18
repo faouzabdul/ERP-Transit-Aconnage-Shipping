@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="type_service_service_0" model="fleet.service.type">
+          <field name="name">Fuel</field>
+          <field name="category">service</field>
+      </record>
+</odoo>
