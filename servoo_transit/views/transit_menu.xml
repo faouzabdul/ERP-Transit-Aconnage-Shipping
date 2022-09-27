@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+<!--        Top level menu-->
+         <menuitem id="logistic_menu_root" name="Logistic"
+            web_icon="servoo_logistic,static/description/icon.png"/>
+
+        <menuitem id="operation_menu" name="Operations" parent="logistic_menu_root" sequence="1" action="servoo_logistic.action_operations"/>
+    </data>
+</odoo>

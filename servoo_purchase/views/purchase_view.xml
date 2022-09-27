@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_purchase_order_inherit_form">
+            <field name="name">view.purchase.order.inherit.form</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form" />
+            <field name="arch" type="xml">
+                    <button id="draft_confirm" position="replace">
+                        <button name="button_submit" type="object" states="draft" string="Submit" id="draft_submit"/>
+                    </button>
+                <button id="bid_confirm" position="replace">
+                    <button name="button_approve_applicant" type="object" states="submitted" string="Confirm Order" class="oe_highlight" id="bid_approve_applicant" data-hotkey="v" groups="servoo_purchase.group_purchase_applicant_service"/>
+                    <button name="button_approve_supply" type="object" states="approved_applicant" string="Confirm Order" class="oe_highlight" id="bid_approve_applicant" data-hotkey="v" groups="servoo_purchase.group_purchase_supply"/>
+                    <button name="button_approve_accounting" type="object" states="approved_supply" string="Confirm Order" class="oe_highlight" id="bid_approve_applicant" data-hotkey="v" groups="servoo_purchase.group_purchase_accounting"/>
+                    <button name="button_approve_applicant_direction" type="object" states="approved_accounting" string="Confirm Order" class="oe_highlight" id="bid_approve_applicant" data-hotkey="v" groups="servoo_purchase.group_purchase_applicant_direction"/>
+                    <button name="button_approve_control" type="object" states="approved_applicant_direction" string="Confirm Order" class="oe_highlight" id="bid_approve_applicant" data-hotkey="v" groups="servoo_purchase.group_purchase_management_control"/>
+<!--                    <button name="button_cancel" states="submitted,approved_applicant,approved_supply,approved_accounting,approved_applicant_direction" string="Cancel" type="object" data-hotkey="x" />-->
+                </button>
+
+                <field name="state" position="replace">
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,approved_applicant,approved_supply,approved_accounting,approved_applicant_direction,purchase" readonly="1"/>
+                </field>
+
+                <field name="currency_id" position="before">
+                    <field name="need_id" options="{'no_create': True}" domain="[('state', '=', 'approved')]"/>
+                </field>
+                <notebook position="inside">
+                    <page string="Purchase Need Details">
+                        <group col="4">
+                            <field name="need_name" />
+                            <field name="need_date" />
+                            <field name="need_employee_id" />
+                            <field name="need_department_id" />
+                        </group>
+                        <group string="Description">
+                            <field name="need_description" nolabel="1" />
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="servoo_inherit_purchase_order_view_search">
+            <field name="name">servoo.inherit.purchase.order.view.search</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_view_search" />
+            <field name="arch" type="xml">
+                <filter name="my_Orders" position="after">
+                    <filter name="my_Approved_Orders" string="My Approved Orders"
+                            domain="['|', ('applicant_service_agent_id', '=', uid),
+                            ('supply_department_agent_id', '=', uid), ('management_control_agent_id', '=', uid),
+                            ('applicant_direction_agent_id', '=', uid),('accounting_department_agent_id', '=', uid),]" />
+                </filter>
+            </field>
+        </record>
+
+
+        <record id="purchase_to_approve_action" model="ir.actions.act_window">
+            <field name="name">Purchase Orders To Approve</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.order</field>
+            <field name="view_mode">tree,kanban,form,pivot,graph,calendar,activity</field>
+            <field name="view_id" ref="purchase.purchase_order_view_tree"/>
+            <field name="domain">[('state','in',('submitted', 'approved_applicant', 'approved_supply', 'approved_accounting', 'approved_applicant_direction'))]</field>
+            <field name="search_view_id" ref="purchase.purchase_order_view_search"/>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                No purchase order to approve found!
+              </p>
+            </field>
+        </record>
+
+
+        <menuitem id="purchase.menu_procurement_management" parent="purchase.menu_purchase_root" name="Orders"
+                  groups="purchase.group_purchase_manager,purchase.group_purchase_user,servoo_purchase.group_purchase_applicant_service,servoo_purchase.group_purchase_supply,servoo_purchase.group_purchase_accounting,servoo_purchase.group_purchase_applicant_direction,servoo_purchase.group_purchase_management_control" />
+
+        <menuitem action="purchase.purchase_form_action" id="menu_purchase_approved_form_action" parent="purchase.menu_procurement_management" sequence="7" name="Orders validated"
+        groups="servoo_purchase.group_purchase_applicant_service,servoo_purchase.group_purchase_supply,servoo_purchase.group_purchase_accounting,servoo_purchase.group_purchase_applicant_direction,servoo_purchase.group_purchase_management_control"/>
+        <menuitem action="purchase_to_approve_action" id="menu_purchase_to_approve_action" parent="purchase.menu_procurement_management" sequence="6"
+        groups="servoo_purchase.group_purchase_applicant_service,servoo_purchase.group_purchase_supply,servoo_purchase.group_purchase_accounting,servoo_purchase.group_purchase_applicant_direction,servoo_purchase.group_purchase_management_control"/>
+
+<!--        hide other menu-->
+        <menuitem id="purchase.menu_procurement_management_supplier_name" name="Vendors"
+            parent="purchase.menu_procurement_management" groups="purchase.group_purchase_manager,purchase.group_purchase_user"
+            action="account.res_partner_action_supplier" sequence="15"/>
+        <menuitem
+           action="product.product_supplierinfo_type_action" id="purchase.menu_product_pricelist_action2_purchase"
+           groups="purchase.group_purchase_manager,purchase.group_purchase_user"
+           parent="purchase.menu_purchase_config" sequence="1"/>
+        <menuitem
+                groups="purchase.group_purchase_manager,purchase.group_purchase_user"
+            id="purchase.menu_product_in_config_purchase" name="Products"
+            parent="purchase.menu_purchase_config" sequence="30"/>
+        <menuitem action="purchase.purchase_form_action" id="purchase.menu_purchase_form_action"
+                  parent="purchase.menu_procurement_management" sequence="6"
+         groups="purchase.group_purchase_manager,purchase.group_purchase_user"/>
+
+        <menuitem action="purchase.purchase_rfq" id="purchase.menu_purchase_rfq"
+            parent="purchase.menu_procurement_management"
+         groups="purchase.group_purchase_manager,purchase.group_purchase_user"
+            sequence="0"/>
+
+    </data>
+</odoo>

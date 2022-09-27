@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <menuitem id="purchase.menu_purchase_root" name="Purchase"
+            groups="base.group_user"/>
+
+
+<!--        <menuitem id="purchase.menu_purchase_products" groups="purchase.group_purchase_manager,purchase.group_purchase_user"/>-->
+
+
+       <record model="ir.ui.view" id="view_purchase_need_tree">
+           <field name="name">view.purchase.need.tree</field>
+           <field name="model">servoo.purchase.need</field>
+           <field name="arch" type="xml">
+               <tree string="Purchase need">
+                   <field name="name" />
+                   <field name="date" />
+                   <field name="employee_id" />
+                   <field name="department_id" />
+                   <field name="state" />
+               </tree>
+           </field>
+       </record>
+
+        <record model="ir.ui.view" id="view_purchase_need_kanban">
+            <field name="name">view.purchase.need.kanban</field>
+            <field name="model">servoo.purchase.need</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name" />
+                    <field name="date" />
+                    <field name="employee_id" />
+<!--                    <field name="department_id" />-->
+                    <field name="description" />
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_content oe_kanban_global_click">
+                                <div>
+                                    <strong class="o_kanban_record_title"><span><field name="name"/></span></strong>
+                                </div>
+                                <div>
+                                    <span class="o_kanban_record_subtitle">By <field name="employee_id"/> On <field name="date" /> </span>
+                                </div>
+                                <div>
+                                    <field name="description" />
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+<!--        <record model="ir.ui.view" id="view_nocreate_purchase_need_tree">-->
+<!--            <field name="name">view.nocreate.purchase.need.tree</field>-->
+<!--            <field name="model">servoo.purchase.need</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--               <tree string="Purchase need" create="0">-->
+<!--                   <field name="name" />-->
+<!--                   <field name="date" />-->
+<!--                   <field name="employee_id" />-->
+<!--                   <field name="department_id" />-->
+<!--                   <field name="state" />-->
+<!--               </tree>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record model="ir.ui.view" id="view_purchase_need_form" >
+            <field name="name">view.purchase.need.form</field>
+            <field name="model">servoo.purchase.need</field>
+            <field name="arch" type="xml">
+                <form string="Purchase need">
+                    <header>
+                        <button name="action_submit" states="draft" type="object" string="Submit"/>
+                        <button name="action_validate" states="submitted" type="object" string="Validate" groups="servoo_purchase.purchase_need_validator_group_user"/>
+                        <button name="action_super_validate" states="submitted" type="object" string="Validate (super)" groups="servoo_purchase.purchase_need_super_validator_group_user"/>
+                        <button name="action_approve" states="validated" type="object" string="Approve" groups="servoo_purchase.purchase_need_approver_group_user"/>
+                        <button name="action_draft" states="canceled" type="object" string="Open"/>
+                        <button name="action_cancel" states="submitted,validated" type="object" string="Cancel" groups="servoo_purchase.purchase_need_validator_group_user, servoo_purchase.purchase_need_approver_group_user"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,submitted,validated,approved,done"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group col="2">
+                                <field name="name" readonly="1" />
+                                <field name="date" required="1"/>
+                                <field name="employee_id" readonly="1" required="1"/>
+                                <field name="department_id" readonly="1" required="1"/>
+                                <field name="employee_parent_id" readonly="1" />
+                                <field name="our_needs" invisible="1" />
+                            </group>
+                            <group col="4" string="Description">
+                                <field name="description" colspan="4" nolabel="1" required="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                     <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_purchase_need_filter">
+            <field name="name">view.servoo.purchase.need.filter</field>
+            <field name="model">servoo.purchase.need</field>
+            <field name="arch" type="xml">
+                <search string="Purchase need">
+<!--                    <field name="name" sting="Need" filter_domain="['|', ('name', 'ilike', self), ('employee_id', 'child_of', self)]" />-->
+                    <field name="employee_id" operator="child_of" />
+                    <separator/>
+                    <filter string="My Needs" domain="[('user_id', '=', uid)]" name="my_purchase_need" />
+<!--                    <separator/>-->
+<!--                    <group expand="0" string="Group By">-->
+<!--                        <filter string="State" name="state" domain="[]" context="{'group_by': 'state'}" />-->
+<!--                        <filter string="Requesting employee" name="employee_id" domain="[]" context="{'group_by': 'employee_id'}" />-->
+<!--                        <filter name="department_id" string="Department" domain="[]" context="{'group_by': 'department_id'}" />-->
+<!--                    </group>-->
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_purchase_need">
+            <field name="name">Our purchase needs</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">servoo.purchase.need</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_my_purchase_need': 1}</field>
+            <field name="domain">[('our_needs', '=', True)]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new purchase need!
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_all_purchase_need">
+            <field name="name">All purchase needs</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">servoo.purchase.need</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="context">{}</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new purchase need!
+                </p>
+            </field>
+        </record>
+
+<!--        <record model="ir.actions.act_window" id="action_our_purchase_need">-->
+<!--            <field name="sequence" eval="1"/>-->
+<!--            <field name="view_mode">tree</field>-->
+<!--            <field name="view_id" ref="view_nocreate_purchase_need_tree" />-->
+<!--            <field name="act_window_id" ref="action_orders"/>-->
+<!--        </record>-->
+
+        <record id="action_purchase_need_to_validate" model="ir.actions.act_window">
+            <field name="name">Needs to Validate</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">servoo.purchase.need</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'create': False}</field>
+            <field name="domain">[('state','=','submitted')]</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                No needs to validate found
+              </p>
+            </field>
+        </record>
+
+        <record id="action_purchase_need_to_approve" model="ir.actions.act_window">
+            <field name="name">Needs to Approve</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">servoo.purchase.need</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'create': False}</field>
+            <field name="domain">[('state','=','validated')]</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                No needs to approve found
+              </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_purchase_need" name="Purchase needs"
+            parent="purchase.menu_purchase_root" sequence="2"/>
+        <menuitem id="menu_new_purchase_need" parent="menu_purchase_need" sequence="1"
+                  action="action_purchase_need" />
+        <menuitem id="menu_purchase_need_to_validate" parent="menu_purchase_need" sequence="2"
+                  action="action_purchase_need_to_validate" groups="servoo_purchase.purchase_need_validator_group_user"/>
+        <menuitem id="menu_purchase_need_to_approve" parent="menu_purchase_need" sequence="3"
+                  action="action_purchase_need_to_approve" groups="servoo_purchase.purchase_need_approver_group_user"/>
+        <menuitem id="menu_all_purchase_need" parent="menu_purchase_need" sequence="5"
+                  action="action_all_purchase_need" groups="servoo_purchase.purchase_need_super_validator_group_user" />
+    </data>
+</odoo>

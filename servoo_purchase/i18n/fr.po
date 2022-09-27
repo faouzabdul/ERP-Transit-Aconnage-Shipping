@@ -1,0 +1,632 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* servoo_purchase
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0-20220616\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-26 16:47+0000\n"
+"PO-Revision-Date: 2022-09-26 16:47+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__accounting_department_agent_id
+msgid "Accounting Department Agent"
+msgstr "Agent Comptable"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__accounting_department_date
+msgid "Accounting department signature date"
+msgstr "Date signature comptabilité"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__message_needaction
+msgid "Action Needed"
+msgstr "Action nécessaire"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__activity_ids
+msgid "Activities"
+msgstr "Activités"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Décoration d'exception d'activité"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__activity_state
+msgid "Activity State"
+msgstr "État d'activité"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Icône du type d'activité"
+
+#. module: servoo_purchase
+#: model:ir.actions.act_window,name:servoo_purchase.action_all_purchase_need
+#: model:ir.ui.menu,name:servoo_purchase.menu_all_purchase_need
+msgid "All purchase needs"
+msgstr "Tous les besoins"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__applicant_direction_agent_id
+msgid "Applicant Management Agent"
+msgstr "Agent Direction concernée"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__applicant_service_agent_id
+msgid "Applicant Service Agent"
+msgstr "Agent Service demandeur"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__applicant_direction_date
+msgid "Applicant management signature date"
+msgstr "Date signature direction concernée"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__applicant_service_date
+msgid "Applicant service signature date"
+msgstr "Date signature service demandeur"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.view_purchase_need_form
+msgid "Approve"
+msgstr "Approuver"
+
+#. module: servoo_purchase
+#: model:ir.model.fields.selection,name:servoo_purchase.selection__servoo_purchase_need__state__approved
+msgid "Approved"
+msgstr "Approuvé"
+
+#. module: servoo_purchase
+#: model:ir.model.fields.selection,name:servoo_purchase.selection__purchase_order__state__approved_applicant
+msgid "Approved by Applicant Service"
+msgstr "Appouvé par le service demandeur"
+
+#. module: servoo_purchase
+#: model:ir.model.fields.selection,name:servoo_purchase.selection__purchase_order__state__approved_accounting
+msgid "Approved by accounting"
+msgstr "Appouvé par la comptabilité"
+
+#. module: servoo_purchase
+#: model:ir.model.fields.selection,name:servoo_purchase.selection__purchase_order__state__approved_applicant_direction
+msgid "Approved by applicant direction"
+msgstr "Approuvé par la direction concernée"
+
+#. module: servoo_purchase
+#: model:ir.model.fields.selection,name:servoo_purchase.selection__purchase_order__state__approved_management_control
+msgid "Approved by management control"
+msgstr "Appouvé par le contrôle de gestion"
+
+#. module: servoo_purchase
+#: model:ir.model.fields.selection,name:servoo_purchase.selection__purchase_order__state__approved_supply
+msgid "Approved by supply"
+msgstr "Approuvé par les approvisionnements"
+
+#. module: servoo_purchase
+#: model:res.groups,name:servoo_purchase.purchase_need_approver_group_user
+msgid "Approver"
+msgstr "Approbateur"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__message_attachment_count
+msgid "Attachment Count"
+msgstr "Nombre de pièces jointes"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.view_purchase_need_kanban
+msgid "By"
+msgstr "Par"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.view_purchase_need_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: servoo_purchase
+#: model:ir.model.fields.selection,name:servoo_purchase.selection__servoo_purchase_need__state__canceled
+msgid "Canceled"
+msgstr "Annulé"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.view_purchase_order_inherit_form
+msgid "Confirm Order"
+msgstr "Confirmer la commande"
+
+#. module: servoo_purchase
+#: model_terms:ir.actions.act_window,help:servoo_purchase.action_all_purchase_need
+#: model_terms:ir.actions.act_window,help:servoo_purchase.action_purchase_need
+msgid "Create a new purchase need!"
+msgstr "Créer un nouveau besoin d'approvisionnement"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__need_date
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__date
+msgid "Date"
+msgstr "Date"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__need_department_id
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__department_id
+msgid "Department"
+msgstr "Département"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__need_description
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__description
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.view_purchase_need_form
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.view_purchase_order_inherit_form
+msgid "Description"
+msgstr "Description"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__display_name
+msgid "Display Name"
+msgstr "Nom"
+
+#. module: servoo_purchase
+#: model:ir.model.fields.selection,name:servoo_purchase.selection__servoo_purchase_need__state__done
+msgid "Done"
+msgstr "Terminé"
+
+#. module: servoo_purchase
+#: model:ir.model.fields.selection,name:servoo_purchase.selection__servoo_purchase_need__state__draft
+msgid "Draft"
+msgstr "Bruillon"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__message_follower_ids
+msgid "Followers"
+msgstr "Suiveurs"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Suiveurs (Partenaires)"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,help:servoo_purchase.field_servoo_purchase_need__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: servoo_purchase
+#: model:ir.module.category,description:servoo_purchase.module_category_purchase_need_management
+msgid "Helps you manage your purchase needs."
+msgstr "Gérer vos besoins en approvisionnement"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__id
+msgid "ID"
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,help:servoo_purchase.field_servoo_purchase_need__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,help:servoo_purchase.field_servoo_purchase_need__message_needaction
+#: model:ir.model.fields,help:servoo_purchase.field_servoo_purchase_need__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,help:servoo_purchase.field_servoo_purchase_need__message_has_error
+#: model:ir.model.fields,help:servoo_purchase.field_servoo_purchase_need__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__write_uid
+msgid "Last Updated by"
+msgstr "Dernière modification par"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__write_date
+msgid "Last Updated on"
+msgstr "Dernière modification le"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__management_control_agent_id
+msgid "Management Control Agent"
+msgstr "Agent contrôle de gestion"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__management_control_date
+msgid "Management control signature date"
+msgstr "Date signature contrôle de gestion"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__employee_parent_id
+msgid "Manager"
+msgstr "Responsable"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.servoo_inherit_purchase_order_view_search
+msgid "My Approved Orders"
+msgstr "Mes commandes approuvées"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.view_purchase_need_filter
+msgid "My Needs"
+msgstr "Mes besoins"
+
+#. module: servoo_purchase
+#: model:ir.actions.act_window,name:servoo_purchase.action_purchase_need_to_approve
+#: model:ir.ui.menu,name:servoo_purchase.menu_purchase_need_to_approve
+msgid "Needs to Approve"
+msgstr "Besoins à approuver"
+
+#. module: servoo_purchase
+#: model:ir.actions.act_window,name:servoo_purchase.action_purchase_need_to_validate
+#: model:ir.ui.menu,name:servoo_purchase.menu_purchase_need_to_validate
+msgid "Needs to Validate"
+msgstr "Besoins à valider"
+
+#. module: servoo_purchase
+#: code:addons/servoo_purchase/models/purchase_need.py:0
+#: code:addons/servoo_purchase/models/purchase_need.py:0
+#: code:addons/servoo_purchase/models/purchase_need.py:0
+#: code:addons/servoo_purchase/models/purchase_need.py:0
+#: code:addons/servoo_purchase/models/purchase_need.py:0
+#, python-format
+msgid "New"
+msgstr "Nouveau"
+
+#. module: servoo_purchase
+#: code:addons/servoo_purchase/models/purchase_need.py:0
+#, python-format
+msgid "New purchase need %s needs to be approve"
+msgstr "Un nouveau besoin d'achat à approuver %s"
+
+#. module: servoo_purchase
+#: code:addons/servoo_purchase/models/purchase_need.py:0
+#, python-format
+msgid "New purchase need %s needs to be validate"
+msgstr "Un nouveau besoin d'achat à valider %s"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: servoo_purchase
+#: model_terms:ir.actions.act_window,help:servoo_purchase.action_purchase_need_to_approve
+msgid "No needs to approve found"
+msgstr "Aucun besoin à valider"
+
+#. module: servoo_purchase
+#: model_terms:ir.actions.act_window,help:servoo_purchase.action_purchase_need_to_validate
+msgid "No needs to validate found"
+msgstr "Aucun besoin à valider"
+
+#. module: servoo_purchase
+#: model_terms:ir.actions.act_window,help:servoo_purchase.purchase_to_approve_action
+msgid "No purchase order to approve found!"
+msgstr "Aucune commande à approuver!"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__note
+msgid "Notes"
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,help:servoo_purchase.field_servoo_purchase_need__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,help:servoo_purchase.field_servoo_purchase_need__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,help:servoo_purchase.field_servoo_purchase_need__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.view_purchase_need_kanban
+msgid "On"
+msgstr "Le"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.view_purchase_need_form
+msgid "Open"
+msgstr "Ouvrir"
+
+#. module: servoo_purchase
+#: model:ir.ui.menu,name:servoo_purchase.menu_purchase_approved_form_action
+msgid "Orders validated"
+msgstr "Commandes validées"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__our_needs
+msgid "Our Needs"
+msgstr "Nos besoins"
+
+#. module: servoo_purchase
+#: model:ir.actions.act_window,name:servoo_purchase.action_purchase_need
+#: model:ir.ui.menu,name:servoo_purchase.menu_new_purchase_need
+msgid "Our purchase needs"
+msgstr "Besoin en approvisionnement"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__need_id
+msgid "Purchase Need"
+msgstr "Besoin d'achat"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.view_purchase_order_inherit_form
+msgid "Purchase Need Details"
+msgstr "Détails besoin d'achat"
+
+#. module: servoo_purchase
+#: model:ir.model,name:servoo_purchase.model_purchase_order
+msgid "Purchase Order"
+msgstr "Commande fournisseur"
+
+#. module: servoo_purchase
+#: model:ir.actions.act_window,name:servoo_purchase.purchase_to_approve_action
+#: model:ir.ui.menu,name:servoo_purchase.menu_purchase_to_approve_action
+msgid "Purchase Orders To Approve"
+msgstr "Commandes à valider"
+
+#. module: servoo_purchase
+#: model:ir.model,name:servoo_purchase.model_servoo_purchase_need
+#: model:ir.module.category,name:servoo_purchase.module_category_purchase_need_management
+#: model:mail.activity.type,name:servoo_purchase.mail_purchase_need_feedback
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.view_purchase_need_filter
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.view_purchase_need_form
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.view_purchase_need_tree
+msgid "Purchase need"
+msgstr "Besoin en approvisionnement"
+
+#. module: servoo_purchase
+#: model:ir.ui.menu,name:servoo_purchase.menu_purchase_need
+msgid "Purchase needs"
+msgstr "Besoins en approvisionnement"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__need_name
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__name
+msgid "Reference"
+msgstr "Référence"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__need_employee_id
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__employee_id
+msgid "Requesting employee"
+msgstr "Employé demandeur"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: servoo_purchase
+#: model:res.groups,name:servoo_purchase.group_purchase_accounting
+msgid "Signature Accounting Department"
+msgstr "Signataire Comptabilité"
+
+#. module: servoo_purchase
+#: model:res.groups,name:servoo_purchase.group_purchase_applicant_direction
+msgid "Signature Applicant Direction"
+msgstr "Signataire Direction concernée"
+
+#. module: servoo_purchase
+#: model:res.groups,name:servoo_purchase.group_purchase_applicant_service
+msgid "Signature Applicant Service"
+msgstr "Signataire Service demandeur"
+
+#. module: servoo_purchase
+#: model:res.groups,name:servoo_purchase.group_purchase_management_control
+msgid "Signature Management Control"
+msgstr "Signataire Contrôle de gestion"
+
+#. module: servoo_purchase
+#: model:res.groups,name:servoo_purchase.group_purchase_supply
+msgid "Signature Supply Department"
+msgstr "Signataire Approvisionnement"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__state
+msgid "State"
+msgstr "Etat"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__state
+msgid "Status"
+msgstr "État"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,help:servoo_purchase.field_servoo_purchase_need__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.view_purchase_need_form
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.view_purchase_order_inherit_form
+msgid "Submit"
+msgstr "Soumettre"
+
+#. module: servoo_purchase
+#: model:ir.model.fields.selection,name:servoo_purchase.selection__purchase_order__state__submitted
+#: model:ir.model.fields.selection,name:servoo_purchase.selection__servoo_purchase_need__state__submitted
+msgid "Submitted"
+msgstr "Soumis"
+
+#. module: servoo_purchase
+#: model:res.groups,name:servoo_purchase.purchase_need_super_validator_group_user
+msgid "Super Validator"
+msgstr "Supuer validateur"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__supply_department_agent_id
+msgid "Supply Department Agent"
+msgstr "Agent Approvisionnement"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__supply_department_date
+msgid "Supply department signature date"
+msgstr "Date signature Approvisionnement"
+
+#. module: servoo_purchase
+#: code:addons/servoo_purchase/models/purchase_need.py:0
+#, python-format
+msgid "This operator is not supported"
+msgstr "Cette opération n'est pas supportée"
+
+#. module: servoo_purchase
+#: model:ir.model.fields,help:servoo_purchase.field_servoo_purchase_need__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__user_id
+msgid "User"
+msgstr ""
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.view_purchase_need_form
+msgid "Validate"
+msgstr "Valider"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.view_purchase_need_form
+msgid "Validate (super)"
+msgstr "Valider (super)"
+
+#. module: servoo_purchase
+#: model:ir.model.fields.selection,name:servoo_purchase.selection__servoo_purchase_need__state__validated
+msgid "Validated"
+msgstr "Validé"
+
+#. module: servoo_purchase
+#: model:res.groups,name:servoo_purchase.purchase_need_validator_group_user
+msgid "Validator"
+msgstr "Validateur"
+
+#. module: servoo_purchase
+#: code:addons/servoo_purchase/models/purchase_need.py:0
+#, python-format
+msgid "Value should be True or False (not %s)"
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: servoo_purchase
+#: model:ir.model.fields,help:servoo_purchase.field_servoo_purchase_need__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: servoo_purchase
+#: code:addons/servoo_purchase/models/purchase_need.py:0
+#, python-format
+msgid "You are not the validator of this purchase need."
+msgstr "Vous n'ête pas la personne autorisée à valider ce besoin."

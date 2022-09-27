@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+       <record id="seq_servoo_purchase_need" model="ir.sequence">
+            <field name="name">Purchase Need</field>
+            <field name="code">servoo.purchase.need</field>
+            <field name="prefix">PN</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="mail_purchase_need_feedback" model="mail.activity.type">
+            <field name="name">Purchase need</field>
+            <field name="icon">fa-sun-o</field>
+            <field name="res_model">servoo.purchase.need</field>
+        </record>
+    </data>
+</odoo>
