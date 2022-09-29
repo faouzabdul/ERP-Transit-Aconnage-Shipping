@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 class FormalityType(models.Model):
-    _name = 'servoo.logistic.formality.type'
+    _name = 'servoo.transit.formality.type'
     _description = "Formality Type"
 
     name = fields.Char(string='Name', required=True)
@@ -14,7 +14,7 @@ class FormalityType(models.Model):
 
 
 class Formality(models.Model):
-    _name = 'servoo.logistic.formality'
+    _name = 'servoo.transit.formality'
     _description = "Formality"
 
     service_id = fields.Many2one('product.product', 'Service')
@@ -23,9 +23,9 @@ class Formality(models.Model):
     start_date = fields.Datetime('Start Date', default=datetime.now())
     end_date = fields.Datetime('End Date')
     amount = fields.Float('Amount', digits='Product Price')
-    operation_id = fields.Many2one('servoo.logistic.operation', 'Operation', required=True, ondelete='cascade', index=True, copy=False)
+    order_id = fields.Many2one('servoo.transit.order', 'Transit Order', required=True, ondelete='cascade', index=True, copy=False)
     attachment_ids = fields.Many2many(
-        'ir.attachment', 'servoo_logistic_formality_attachment_rel',
+        'ir.attachment', 'servoo_transit_formality_attachment_rel',
         'formality_id', 'attachment_id',
         string='Attachments')
     administration_id = fields.Many2one('res.partner', 'Partner')

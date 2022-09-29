@@ -2,9 +2,21 @@
 <odoo>
     <data>
 <!--        Top level menu-->
-         <menuitem id="logistic_menu_root" name="Logistic"
-            web_icon="servoo_logistic,static/description/icon.png"/>
+         <menuitem id="transit_menu_root" name="Customs Operations"
+                   groups="servoo_transit.transit_group_user"
+            web_icon="servoo_transit,static/description/icon.png"/>
 
-        <menuitem id="operation_menu" name="Operations" parent="logistic_menu_root" sequence="1" action="servoo_logistic.action_operations"/>
+        <menuitem id="transit_order_menu" name="Transit Order" parent="transit_menu_root" sequence="1" action="servoo_transit.action_transit_order"/>
+        <menuitem id="transit_config_menu" name="Configuration" parent="transit_menu_root" sequence="100" groups="servoo_transit.transit_group_manager"/>
+            <menuitem id="locode_config_menu"  parent="transit_config_menu" action="dyen_base.action_res_unlocode" />
+            <menuitem id="transport_mode_config_menu"  parent="transit_config_menu" action="dyen_base.action_res_transport_mode" />
+            <menuitem id="transport_means_config_menu" parent="transit_config_menu" action="dyen_base.action_res_transport_means" />
+            <menuitem id="container_config_menu" parent="transit_config_menu" action="dyen_base.action_res_container" />
+            <menuitem id="container_size_type_config_menu" parent="transit_config_menu" action="dyen_base.action_res_container_size_type" />
+            <menuitem id="hscode_config_menu" parent="transit_config_menu" action="dyen_base.action_res_hscode" />
+            <menuitem id="unit_config_menu" parent="transit_config_menu" action="dyen_base.action_res_unit" />
+            <menuitem id="customs_regime_config_menu" parent="transit_config_menu" action="dyen_base.action_res_customs_regime" />
+
+
     </data>
 </odoo>

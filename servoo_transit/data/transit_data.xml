@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data noupdate="1">
-               <record id="seq_servoo_logistic_operation" model="ir.sequence">
-                    <field name="name">Logistic Operation</field>
-                    <field name="code">servoo.logistic.operation</field>
-                    <field name="prefix">LOP</field>
+               <record id="seq_servoo_transit_operation" model="ir.sequence">
+                    <field name="name">Transit Order</field>
+                    <field name="code">servoo.transit.order</field>
+                    <field name="prefix">OT</field>
                     <field name="padding">6</field>
                     <field name="company_id" eval="False"/>
                 </record>

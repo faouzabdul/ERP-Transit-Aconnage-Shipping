@@ -8,13 +8,14 @@
                 <tree string="Transit Orders">
                     <field name="name" />
                     <field name="external_reference" />
-                    <field name="operation_nature" />
                     <field name="operation_type" />
+                    <field name="operation_type" />
+                    <field name="sub_operation_type" />
                     <field name="partner_id" />
                     <field name="transport_mode_id" />
                     <field name="date_debut" />
                     <field name="volume" />
-                    <field name="weight" />
+                    <field name="gross_weight" />
                     <field name="goods_description" />
                     <field name="state" />
                 </tree>
@@ -51,9 +52,9 @@
                             <group col="4">
                                 <field name="name" readonly="1" colspan="4"/>
                                 <field name="partner_id" widget="res_partner_many2one" context="{'show_address': 1, 'show_vat': True}" options='{"always_reload": True}' colspan="4"/>
-                                <field name="operation_nature" required="1" colspan="4" />
                                 <field name="external_reference" colspan="4"/>
-                                <field name="operation_type" colspan="4"/>
+                                <field name="operation_type" required="1"/>
+                                <field name="sub_operation_type" options="{'no_create': True}" domain="[('operation_type', '=', operation_type)]"/>
                                 <field name="date_debut" />
                                 <field name="date_end" />
                             </group>
@@ -65,38 +66,52 @@
                                 <field name="transport_mode_id" options="{'no_create': True}"/>
                                 <field name="transport_means_id" options="{'no_create': True}"/>
                                 <field name="departure_country_id" options="{'no_create': True}"/>
-                                <field name="destination_country_id" options="{'no_create': True}"/>
                                 <field name="loading_place_id"  options="{'no_create': True}" domain="[('country_id', '=', departure_country_id)]"/>
+                                <field name="transit_country_id" options="{'no_create': True}"/>
+                                <field name="transit_place_id" options="{'no_create': True}" domain="[('country_id', '=', transit_country_id)]" />
+                                <field name="destination_country_id" options="{'no_create': True}"/>
                                 <field name="unloading_place_id" options="{'no_create': True}" domain="[('country_id', '=', destination_country_id)]" />
+                                <field name="delivery_country_id" options="{'no_create': True}" />
                                 <field name="delivery_place" />
                                 <field name="delivery_date" />
                             </group>
-                            <group string="Goods" col="2">
-                                <field name="goods_description" />
-                                <field name="volume" />
-                                <field name="weight" />
-                            </group>
-                            <group string="Trade Terms" col="2">
-                                <field name="proforma_number" />
-                                <field name="proforma_date" />
-                                <field name="total_amount_currency" />
-                                <field name="currency_id" />
+                            <group string="Trade Terms" col="4">
                                 <field name="incoterm_id" />
                                 <field name="custom_regime_id" />
+                                <field name="invoice_number" />
+                                <field name="invoice_date" />
+                                <field name="total_amount_currency" />
+                                <field name="currency_id" />
+                                <field name="fob_value_currency" />
+                                <field name="exchange_rate" />
+                                <field name="fob_value_xaf" readonly="1" />
+                                <field name="fob_charges" />
+                                <field name="freight_amount" />
+                                <field name="insurance_amount" />
                             </group>
+                            <group string="Goods" col="4">
+                                <field name="goods_description" />
+                                <field name="packaging_type_id" />
+                                <field name="gross_weight" />
+                                <field name="net_weight" />
+                                <field name="volume" />
+                            </group>
+
+
                         </group>
                         <notebook>
-                            <page string="Goods">
+                            <page string="Goods Details">
                                 <field name="good_ids" widget="one2many" mode="tree,kanban">
-                                    <tree string="Good Lines" editable="bottom">
-                                        <field name="line_number" readonly="1"/>
+                                    <tree string="Good Lines">
+                                        <field name="line_number" readonly="1" invisible="1"/>
                                         <field name="hscode_id" />
                                         <field name="name" required="1"/>
                                         <field name="quantity" />
                                         <field name="unit_id" />
-                                        <field name="weight" />
+                                        <field name="gross_weight" />
                                         <field name="volume" />
                                         <field name="brand" />
+                                        <field name="fob_value_currency" />
                                     </tree>
                                 </field>
                             </page>
@@ -154,7 +169,7 @@
             </field>
         </record>
 
-        <record id="action_operations" model="ir.actions.act_window">
+        <record id="action_transit_order" model="ir.actions.act_window">
             <field name="name">Transit Orders</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">servoo.transit.order</field>
@@ -165,6 +180,30 @@
                 <p class="o_view_nocontent_smiling_face">
                     Create a new transit order!
                 </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_transit_good_form">
+            <field name="name">view.transit.good.form</field>
+            <field name="model">servoo.transit.good</field>
+            <field name="arch" type="xml">
+                <form string="Good">
+                    <sheet>
+                        <grop>
+                        <group col="4">
+                            <field name="name" required="1" colspan="4"/>
+                            <field name="hscode_id"  colspan="4"/>
+                            <field name="trade_name" />
+                            <field name="brand" />
+                            <field name="quantity" />
+                            <field name="unit_id" />
+                            <field name="gross_weight" />
+                            <field name="net_weight" />
+                            <field name="volume" />
+                            <field name="fob_value_currency" />
+                        </group></grop>
+                    </sheet>
+                </form>
             </field>
         </record>
     </data>
