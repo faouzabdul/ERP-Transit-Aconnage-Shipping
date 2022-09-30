@@ -437,7 +437,7 @@ msgstr "Type"
 #. module: servoo_logistic
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__unloading_place_id
 msgid "Unloading place"
-msgstr "Lieu de chargement"
+msgstr "Lieu de déchargement"
 
 #. module: servoo_logistic
 #: model:res.groups,name:servoo_logistic.logistic_group_user
@@ -472,28 +472,28 @@ msgstr "Véhicules"
 
 #. module: servoo_logistic
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__volume
-msgid "Volume"
-msgstr "Volume"
+msgid "Volume (m3)"
+msgstr "Volume (m3)"
 
 #. module: servoo_logistic
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__weight
-msgid "Weight"
-msgstr "Poids"
+msgid "Weight (kg)"
+msgstr "Poids (kg)"
 
 #. module: servoo_logistic
 #: model:ir.model,name:servoo_logistic.model_servoo_logistic_operation
 msgid "servoo.logistic.operation"
-msgstr ""
+msgstr "Opération Logistique"
 
 #. module: servoo_logistic
 #: model:ir.model,name:servoo_logistic.model_servoo_logistic_operation_nature
 msgid "servoo.logistic.operation.nature"
-msgstr ""
+msgstr "Nature de l'opération logistique"
 
 #. module: servoo_logistic
 #: model:ir.model,name:servoo_logistic.model_servoo_logistic_operation_vehicle
 msgid "servoo.logistic.operation.vehicle"
-msgstr ""
+msgstr "Véhicule de l'opération logistique"
 
 #. module: servoo_logistic
 #: model_terms:ir.ui.view,arch_db:servoo_logistic.view_servoo_logistic_form

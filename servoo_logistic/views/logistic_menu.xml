@@ -3,6 +3,7 @@
     <data>
 <!--        Top level menu-->
          <menuitem id="logistic_menu_root" name="Logistic"
+                   groups="servoo_logistic.logistic_group_user"
             web_icon="servoo_logistic,static/description/icon.png"/>
 
         <menuitem id="operation_menu" name="Operations" parent="logistic_menu_root" sequence="1" action="servoo_logistic.action_operations"/>

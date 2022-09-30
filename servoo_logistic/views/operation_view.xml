@@ -30,8 +30,7 @@
                         <button name="action_open" states="draft" type="object" string="Validate"/>
                         <button name="action_done" states="open" type="object" string="Done"/>
                         <button name="create_invoices" string="Create Invoice"
-                        type="object" class="btn-primary" data-hotkey="q"
-                        attrs="{'invisible': ['|',('state', '!=', 'open'), ('invoice_count', '!=', '0')]}"/>
+                        type="object" class="btn-primary" data-hotkey="q"/>
                         <button name="action_draft" states="cancel" type="object" string="Open" groups="servoo_logistic.logistic_group_manager"/>
                         <button name="action_cancel" states="open,done" type="object" string="Cancel"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,open,done"/>
@@ -99,9 +98,9 @@
                                 <field name="operation_vehicle_ids" widget="one2many" mode="tree,kanban">
                                     <tree string="Vehicles Lines" editable="bottom">
                                         <field name="vehicle_id" required="1"/>
-<!--                                        <field name="category_id" />-->
-<!--                                        <field name="licence_plate" />-->
-<!--                                        <field name="vin_sn" />-->
+                                        <field name="category_id" />
+                                        <field name="license_plate" />
+                                        <field name="vin_sn" />
                                         <field name="driver_id" />
                                     </tree>
                                 </field>

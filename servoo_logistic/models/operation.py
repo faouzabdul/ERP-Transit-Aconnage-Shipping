@@ -3,6 +3,9 @@
 
 from odoo import api, models, fields, _
 from datetime import datetime
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 class OperationNature(models.Model):
@@ -16,6 +19,7 @@ class OperationNature(models.Model):
 class Operation(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _name = 'servoo.logistic.operation'
+    _order = 'id desc'
 
     operation_nature = fields.Many2one('servoo.logistic.operation.nature', 'Operation Nature')
     volume = fields.Float('Volume', digits=(12, 3))
@@ -60,6 +64,10 @@ class Operation(models.Model):
         ('cancel', 'Cancel')
     ], string='Status', default='draft')
 
+    _sql_constraints = [
+        ('name_uniq', 'unique (name)', _('This reference must be unique!'))
+    ]
+
     def _get_invoiced(self):
         invoice = self.env['account.move']
         for record in self:
@@ -68,12 +76,42 @@ class Operation(models.Model):
     @api.model
     def create(self, vals):
         if vals.get('name', _('New')) == _('New'):
-            if 'company_id' in vals:
-                vals['name'] = self.env['ir.sequence'].with_context(force_company=vals['company_id']).next_by_code(
-                    'servoo.logistic.operation') or _('New')
-            else:
-                vals['name'] = self.env['ir.sequence'].next_by_code('servoo.logistic.operation') or _('New')
+            # if 'company_id' in vals:
+            #     vals['name'] = self.env['ir.sequence'].with_context(force_company=vals['company_id']).next_by_code(
+            #         'servoo.logistic.operation') or _('New')
+            # else:
+            #     vals['name'] = self.env['ir.sequence'].next_by_code('servoo.logistic.operation') or _('New')
+            vals['name'] = self.generate_reference(vals)
         return super().create(vals)
+
+    def generate_reference(self, vals):
+        reference = str(datetime.now().year)[-2:]
+        type = self.env['servoo.logistic.operation.nature'].search([('id', '=', vals['operation_nature'])])
+        if type:
+            reference += type.sequence_code
+        transport_mode = self.env['res.transport.mode'].search([('id', '=', vals['transport_mode_id'])])
+        if transport_mode:
+            if transport_mode.code == '10':
+                reference += "M"
+            elif transport_mode.code == "30":
+                reference += "T"
+            elif transport_mode.code == "40":
+                reference += "A"
+            elif vals['operation_type']:
+                reference += str(vals['operation_type'][0].upper())
+        elif vals['operation_type']:
+            reference += str(vals['operation_type'][0].upper())
+        query = "SELECT count(*) FROM servoo_logistic_operation WHERE name LIKE '" + reference + "%'"
+        self._cr.execute(query)
+        res = self._cr.fetchone()
+        record_count = int(res[0]) + 1
+        if len(str(record_count)) == 1:
+            reference += '00'
+        elif len(str(record_count)) == 2:
+            reference += '0'
+        reference += str(record_count)
+        return reference
+
 
     def action_draft(self):
         return self.write({'state': 'draft'})
@@ -185,10 +223,11 @@ class OperationVehicle(models.Model):
 
     operation_id = fields.Many2one('servoo.logistic.operation', 'Operation')
     vehicle_id = fields.Many2one('fleet.vehicle', 'Vehicle', required=True)
-    # licence_plate = fields.Char(related='vehicle_id.licence_plate', store=True)
-    # vin_sn = fields.Char(related='vehicle_id.vin_sn', store=True, readonly=False)
-    driver_id = fields.Many2one('res.partner', 'Driver', copy=False)
-    # category_id = fields.Many2one(related='vehicle_id.model_id.category_id')
+    license_plate = fields.Char(related='vehicle_id.license_plate', store=True, readonly=False)
+    vin_sn = fields.Char(related='vehicle_id.vin_sn', store=True, readonly=True)
+    driver_id = fields.Many2one('res.partner', 'Driver', copy=False, readonly=True)
+    category_id = fields.Many2one('fleet.vehicle.model.category', related='vehicle_id.model_id.category_id', store=True,
+                                  readonly=True)
 
 
 # class AccountMove(models.Model):
