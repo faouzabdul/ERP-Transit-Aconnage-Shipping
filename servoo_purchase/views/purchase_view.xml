@@ -25,6 +25,9 @@
                 <field name="currency_id" position="before">
                     <field name="need_id" options="{'no_create': True}" domain="[('state', '=', 'approved')]"/>
                 </field>
+                <field name="notes" position="after">
+                    <field name="payment_method" />
+                </field>
                 <notebook position="inside">
                     <page string="Purchase Need Details">
                         <group col="4">

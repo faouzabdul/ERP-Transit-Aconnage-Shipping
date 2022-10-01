@@ -24,6 +24,11 @@ class Purchase(models.Model):
     management_control_date = fields.Datetime('Management control signature date')
     applicant_direction_agent_id = fields.Many2one('res.users', 'Applicant Management Agent')
     applicant_direction_date = fields.Datetime('Applicant management signature date')
+    payment_method = fields.Selection([
+        ('check', 'Check'),
+        ('bank_transfer', 'Bank transfer'),
+        ('cash', 'Cash')
+    ], string='Payment method', default='check')
 
     state = fields.Selection(selection_add=[
         ('submitted', 'Submitted'),

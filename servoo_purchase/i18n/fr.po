@@ -6,14 +6,104 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220616\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-26 16:47+0000\n"
-"PO-Revision-Date: 2022-09-26 16:47+0000\n"
+"POT-Creation-Date: 2022-10-01 19:26+0000\n"
+"PO-Revision-Date: 2022-10-01 19:26+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "<span>Conditions / guarantees:</span>"
+msgstr "<span>Conditions / garanties:</span>"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "<span>Payment Condition</span>"
+msgstr "<span>Conditions de paiement</span>"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "<span>Payment Method</span>"
+msgstr "<span>Mode de paiement</span>"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "<span>Site: AGENCE DE PRESTATIONS MARITIMES</span>"
+msgstr "<span>Site: AGENCE DE PRESTATIONS MARITIMES</span>"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr "<strong class=\"mr16\">Sous Total</strong>"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "<strong>Accounting</strong>"
+msgstr "<strong>Comptabilité</strong>"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "<strong>Amount</strong>"
+msgstr ""
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "<strong>Applicant Direction</strong>"
+msgstr "<strong>Direction concernée</strong>"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "<strong>Description</strong>"
+msgstr "<strong>Description</strong>"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "<strong>Management Control</strong>"
+msgstr "<strong>Contrôle</strong>"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "<strong>Order Date</strong>"
+msgstr "<strong>Date Création Bon</strong>"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "<strong>Order Number</strong>"
+msgstr "<strong>Numéro Bon</strong>"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "<strong>Qty</strong>"
+msgstr "<strong>Qté</strong>"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "<strong>Requesting Service</strong>"
+msgstr "<strong>Service Demandeur</strong>"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "<strong>Supplies</strong>"
+msgstr "<strong>Approvisionnements</strong>"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "<strong>Taxes</strong>"
+msgstr ""
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "<strong>Unit Price</strong>"
+msgstr "<strong>Prix Unitaire</strong>"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "<u><span>Supplier reference</span></u>"
+msgstr "<u><span>Référence du fournisseur</span></u>"
 
 #. module: servoo_purchase
 #: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__accounting_department_agent_id
@@ -49,6 +139,11 @@ msgstr "État d'activité"
 #: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__activity_type_icon
 msgid "Activity Type Icon"
 msgstr "Icône du type d'activité"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "Agent:"
+msgstr ""
 
 #. module: servoo_purchase
 #: model:ir.actions.act_window,name:servoo_purchase.action_all_purchase_need
@@ -122,6 +217,11 @@ msgid "Attachment Count"
 msgstr "Nombre de pièces jointes"
 
 #. module: servoo_purchase
+#: model:ir.model.fields.selection,name:servoo_purchase.selection__purchase_order__payment_method__bank_transfer
+msgid "Bank transfer"
+msgstr "Virement"
+
+#. module: servoo_purchase
 #: model_terms:ir.ui.view,arch_db:servoo_purchase.view_purchase_need_kanban
 msgid "By"
 msgstr "Par"
@@ -135,6 +235,16 @@ msgstr "Annuler"
 #: model:ir.model.fields.selection,name:servoo_purchase.selection__servoo_purchase_need__state__canceled
 msgid "Canceled"
 msgstr "Annulé"
+
+#. module: servoo_purchase
+#: model:ir.model.fields.selection,name:servoo_purchase.selection__purchase_order__payment_method__cash
+msgid "Cash"
+msgstr "Espèce"
+
+#. module: servoo_purchase
+#: model:ir.model.fields.selection,name:servoo_purchase.selection__purchase_order__payment_method__check
+msgid "Check"
+msgstr "Chèque"
 
 #. module: servoo_purchase
 #: model_terms:ir.ui.view,arch_db:servoo_purchase.view_purchase_order_inherit_form
@@ -161,7 +271,22 @@ msgstr "Créé le"
 #: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__need_date
 #: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__date
 msgid "Date"
-msgstr "Date"
+msgstr ""
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "Delivery Time:"
+msgstr "Delai de livraison:"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "Delivery date :"
+msgstr "Date de livraison :"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "Delivery place :"
+msgstr "Lieu de livraison :"
 
 #. module: servoo_purchase
 #: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__need_department_id
@@ -175,7 +300,7 @@ msgstr "Département"
 #: model_terms:ir.ui.view,arch_db:servoo_purchase.view_purchase_need_form
 #: model_terms:ir.ui.view,arch_db:servoo_purchase.view_purchase_order_inherit_form
 msgid "Description"
-msgstr "Description"
+msgstr ""
 
 #. module: servoo_purchase
 #: model:ir.model.fields,field_description:servoo_purchase.field_servoo_purchase_need__display_name
@@ -435,6 +560,11 @@ msgid "Our purchase needs"
 msgstr "Besoin en approvisionnement"
 
 #. module: servoo_purchase
+#: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__payment_method
+msgid "Payment method"
+msgstr "Methode de paiement"
+
+#. module: servoo_purchase
 #: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__need_id
 msgid "Purchase Need"
 msgstr "Besoin d'achat"
@@ -446,6 +576,7 @@ msgstr "Détails besoin d'achat"
 
 #. module: servoo_purchase
 #: model:ir.model,name:servoo_purchase.model_purchase_order
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
 msgid "Purchase Order"
 msgstr "Commande fournisseur"
 
@@ -469,6 +600,11 @@ msgstr "Besoin en approvisionnement"
 #: model:ir.ui.menu,name:servoo_purchase.menu_purchase_need
 msgid "Purchase needs"
 msgstr "Besoins en approvisionnement"
+
+#. module: servoo_purchase
+#: model_terms:ir.ui.view,arch_db:servoo_purchase.report_purchase_order_document
+msgid "Quotation N°"
+msgstr "Devis N°"
 
 #. module: servoo_purchase
 #: model:ir.model.fields,field_description:servoo_purchase.field_purchase_order__need_name

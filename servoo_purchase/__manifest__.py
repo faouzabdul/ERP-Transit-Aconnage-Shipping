@@ -14,6 +14,8 @@
         'data/purchase_data.xml',
         'views/purchase_need_view.xml',
         'views/purchase_view.xml',
+        'report/purchase_order_templates.xml',
+        'report/purchase_reports.xml'
     ],
     'installable': True,
     'auto_install': False,
