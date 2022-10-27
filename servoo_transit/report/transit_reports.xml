@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="purchase.action_report_purchase_order" model="ir.actions.report">
-            <field name="name">Purchase Order</field>
-            <field name="model">purchase.order</field>
+        <record id="action_report_transit_order" model="ir.actions.report">
+            <field name="name">Transit Order</field>
+            <field name="model">servoo.transit.order</field>
             <field name="report_type">qweb-pdf</field>
-            <field name="report_name">servoo_purchase.report_purchase_order</field>
-            <field name="report_file">servoo_purchase.report_purchase_order</field>
+            <field name="report_name">servoo_transit.report_transit_order</field>
+            <field name="report_file">servoo_transit.report_transit_order</field>
             <field name="print_report_name">
-                (object.state in ('draft', 'sent') and 'Request for Quotation - %s' % (object.name) or
-                'Purchase Order - %s' % (object.name))</field>
-            <field name="binding_model_id" ref="model_purchase_order"/>
+                ('Transit Order - %s' % (object.name))</field>
+            <field name="binding_model_id" ref="model_servoo_transit_order"/>
             <field name="binding_type">report</field>
         </record>
     </data>

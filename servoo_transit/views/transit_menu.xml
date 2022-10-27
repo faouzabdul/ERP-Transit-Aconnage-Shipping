@@ -16,6 +16,7 @@
             <menuitem id="hscode_config_menu" parent="transit_config_menu" action="dyen_base.action_res_hscode" />
             <menuitem id="unit_config_menu" parent="transit_config_menu" action="dyen_base.action_res_unit" />
             <menuitem id="customs_regime_config_menu" parent="transit_config_menu" action="dyen_base.action_res_customs_regime" />
+            <menuitem id="operation_sub_type_config_menu" parent="transit_config_menu" action="servoo_transit.action_operation_sub_type" />
 
 
     </data>

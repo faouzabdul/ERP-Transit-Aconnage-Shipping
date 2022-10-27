@@ -64,7 +64,7 @@ class TransitOrder(models.Model):
     travel_reference = fields.Char('Travel Number')
     manifest_number = fields.Char('Manifest Number')
     currency_id = fields.Many2one('res.currency', 'Currency')
-    exchange_rate = fields.Float('Exchange rate', digits=(12, 3))
+    exchange_rate = fields.Float('Exchange rate', digits=(12, 4))
     custom_regime_id = fields.Many2one('res.customs.regime', 'Customs regime')
     incoterm_id = fields.Many2one('account.incoterms', 'Incoterm')
     fob_value_currency = fields.Float('FOB Value in currency', digits=(12, 3))
@@ -109,7 +109,7 @@ class TransitOrder(models.Model):
                 vals['name'] = self.env['ir.sequence'].with_context(force_company=vals['company_id']).next_by_code(
                     'servoo.transit.operation') or _('New')
             else:
-                vals['name'] = self.env['ir.sequence'].next_by_code('servoo.transit.operation') or _('New')
+                vals['name'] = self.env['ir.sequence'].next_by_code('servoo.transit.order') or _('New')
         return super().create(vals)
 
     def action_draft(self):

@@ -14,7 +14,9 @@
         'security/ir.model.access.csv',
         'data/transit_data.xml',
         'views/transit_order_view.xml',
-        'views/transit_menu.xml'
+        'views/transit_menu.xml',
+        'report/transit_order_templates.xml',
+        'report/transit_reports.xml',
     ],
     'installable': True,
     'auto_install': False,
