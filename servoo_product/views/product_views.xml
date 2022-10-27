@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_servoo_product_form">
+            <field name="name">servoo.product.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view" />
+            <field name="arch" type="xml">
+                <field name="detailed_type" position="after">
+                    <field name="operation_type" />
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

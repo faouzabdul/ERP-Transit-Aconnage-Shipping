@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_report_pda" model="ir.actions.report">
+            <field name="name">PRO-FORMA DISBURSEMENT ACCOUNT</field>
+            <field name="model">servoo.shipping.pda</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">servoo_shipping.report_pda</field>
+            <field name="report_file">servoo_shipping.report_pda</field>
+            <field name="print_report_name">'PDA - %s' % (object.name)</field>
+            <field name="binding_model_id" ref="model_servoo_shipping_pda"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>
