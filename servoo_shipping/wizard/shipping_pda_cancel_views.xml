@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="sale_order_cancel_view_form" model="ir.ui.view">
-        <field name="name">sale.order.cancel.form</field>
-        <field name="model">sale.order.cancel</field>
+    <record id="servoo_shipping_pda_cancel_view_form" model="ir.ui.view">
+        <field name="name">servoo.shipping.pda.cancel.form</field>
+        <field name="model">servoo.shipping.pda.cancel</field>
         <field name="arch" type="xml">
-            <form>
-                <field name="order_id" invisible="1"/>
+            <form string="PDA Cancel">
+                <field name="pda_id" invisible="1"/>
                 <field name="display_invoice_alert" invisible="1"/>
                 <div attrs="{'invisible': [('display_invoice_alert', '=', False)]}">
                     Draft invoices for this order will be cancelled.

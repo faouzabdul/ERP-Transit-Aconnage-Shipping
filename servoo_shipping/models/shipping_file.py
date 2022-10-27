@@ -8,110 +8,115 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-class OperationNature(models.Model):
-    _name = 'servoo.logistic.operation.nature'
+class ShippingFileType(models.Model):
+    _name = 'servoo.shipping.file.type'
 
     name = fields.Char('Name', required=True)
     description = fields.Char('Description')
     sequence_code = fields.Char('Sequence Code')
 
 
-class Operation(models.Model):
+class ShippingFile(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
-    _name = 'servoo.logistic.operation'
+    _name = 'servoo.shipping.file'
     _order = 'id desc'
 
-    operation_nature = fields.Many2one('servoo.logistic.operation.nature', 'Operation Nature')
-    volume = fields.Float('Volume', digits=(12, 3))
-    weight = fields.Float('Weight', digits=(12, 3))
-    goods_description = fields.Char('Description of goods')
-    bill_of_lading = fields.Char('Bill of lading')
+    file_type_id = fields.Many2one('servoo.shipping.file.type', 'File Type', required=True)
     name = fields.Char(string='Reference', required=True, index=True, default=lambda self: _('New'), copy=False)
-    external_reference = fields.Char(string='External Reference')
-    date_debut = fields.Datetime('Date Debut')
-    date_end = fields.Datetime('Date End')
+    shipping_pda_id = fields.Many2one('servoo.shipping.pda', 'PDA')
     partner_id = fields.Many2one('res.partner', 'Client', required=True)
-    final_partner_id = fields.Many2one('res.partner', 'Final Client')
-    formality_line = fields.One2many('servoo.logistic.formality', 'operation_id', string='Formality Lines',
+    shipowner_id = fields.Many2one('res.partner', 'Shipowner')
+    charterer_id = fields.Many2one('res.partner', 'Charterer')
+    formality_line = fields.One2many('servoo.shipping.formality', 'file_id', string='Formality Lines',
                                      auto_join=True, tracking=True, copy=True)
-    document_ids = fields.One2many('servoo.logistic.document', 'operation_id', string='Documents', auto_join=True,
+    document_ids = fields.One2many('servoo.shipping.document', 'file_id', string='Documents', auto_join=True,
                                    copy=True)
-    operation_vehicle_ids = fields.One2many('servoo.logistic.operation.vehicle', 'operation_id', string='Vehicles',
-                                            tracking=True, auto_join=True, copy=True)
-    departure_country_id = fields.Many2one('res.country', 'Departure Country')
-    destination_country_id = fields.Many2one('res.country', 'Destination Country')
-    parent_id = fields.Many2one('servoo.logistic.operation', 'Parent')
-    child_ids = fields.One2many('servoo.logistic.operation', 'parent_id', string='Sub-operation', auto_join=True, copy=True)
-    loading_place_id = fields.Many2one('res.locode', string='Loading place')
-    unloading_place_id = fields.Many2one('res.locode', string='Unloading place')
-    transport_mode_id = fields.Many2one('res.transport.mode', string='Transport Mode')
-    transport_means_id = fields.Many2one('res.transport.means', string="Mean of transportation")
-    delivery_place = fields.Char('Delivery place')
-    delivery_date = fields.Date('Delivery Date')
-    arrival_date = fields.Date('Arrival Date')
+
+    parent_id = fields.Many2one('servoo.shipping.file', 'Parent')
+    child_ids = fields.One2many('servoo.shipping.file', 'parent_id', string='Sub-file', auto_join=True, copy=True)
     invoice_count = fields.Integer(compute="_get_invoiced", string='Invoices')
     user_id = fields.Many2one('res.users', 'User id')
-    # travel_reference = fields.Char('Travel Number')
-    # manifest_number = fields.Char('Manifest Number')
-    operation_type = fields.Selection([
-        ('import', 'Import'),
-        ('export', 'Export'),
-        ('transit', 'Transit')], 'Type')
     state = fields.Selection([
         ('draft', 'Draft'),
         ('open', 'Open'),
         ('done', 'Done'),
         ('cancel', 'Cancel')
     ], string='Status', default='draft')
+    # FAL 1: General Information
+    vessel = fields.Many2one('res.transport.means', string="Vessel")
+    loa = fields.Float('LOA', digits=(6, 3))
+    beam = fields.Float('Beam', digits=(6, 3), help='Largeur')
+    summer_draft = fields.Float('Summer draft', digits=(6, 3))
+    vessel_volume = fields.Float('Vessel Volume', digits=(6, 3))
+    nrt = fields.Float('NRT', digits=(6, 3), help='NRT')
+    grt = fields.Float('GRT', digits=(12, 4), required=False, tracking=6)
+    cbm_vessel = fields.Float('CBM Vessel', digits=(12, 4), required=False, tracking=6)
+    operation_type = fields.Selection([('arrival', 'Arrival'), ('departure', 'Departure')])
+    imo_number = fields.Char('IMO Number')
+    call_sign = fields.Char('Call Sign')
+    name_of_master = fields.Char('Name of master')
+    voyage_number = fields.Char('Travel Number')
+    port_arrival_departure = fields.Many2one('res.locode', 'Port of loading/discharge')
+    port_previous_next = fields.Many2one('res.locode', 'Last Port/Next Port')
+    date_arrival_departure = fields.Datetime('Date and time of arrival/departure')
+    flag_vessel = fields.Many2one('res.country', 'Flag')
+    gross_weight = fields.Float('Cargo gross tonnage (kg)', digits=(12, 3))
+    net_weight = fields.Float('Cargo net tonnage (kg)', digits=(12, 3))
+    travel_description = fields.Text('Particulars of voyage')
+    goods_description = fields.Text('Description of goods')
+
+    bl_ids = fields.One2many('servoo.shipping.bl', 'shipping_file_id', string='Bill of loading', tracking=True)
+    # crew_count = fields.Integer('Crew Count', compute="_get_crew_count")
+    # passenger_count = fields.Integer('Passenger Count', compute="_get_passenger_count")
+    # FAL 2: Cargo Declaration
+    good_ids = fields.One2many('servoo.shipping.good', 'file_id', string='Goods',
+                               auto_join=True, tracking=True, copy=True)
+    container_ids = fields.One2many('servoo.shipping.container', 'file_id', string='Containers',
+                                    auto_join=True, tracking=True, copy=True)
+    # FAL 3: Ship's stores Declaration
+    store_ids = fields.One2many('servoo.shipping.ship.store', 'file_id', "Ship's stores")
+    # FAL 4: Crew's effects Declaration
+    crew_effect_ids = fields.One2many('servoo.shipping.crew.effect', 'file_id', "Crew's effects")
+    # FAL 5: Crew List
+    crew_ids = fields.One2many('servoo.shipping.crew', 'file_id', 'Crew List')
+    # FAL 6: Passenger List
+    passenger_ids = fields.One2many('servoo.shipping.passenger', 'file_id', 'Passengers List')
+    # FAL 7: Dangerous Goods Manifest
+    dangerous_good_ids = fields.One2many('servoo.shipping.dangerous.good', 'file_id', 'Dangerous Goods')
 
     _sql_constraints = [
         ('name_uniq', 'unique (name)', _('This reference must be unique!'))
     ]
+
+    def name_get(self):
+        result = []
+        for pda in self:
+            name = pda.name + (pda.vessel and (' - ' + pda.vessel.name) or '')
+            result.append((pda.id, name))
+        return result
 
     def _get_invoiced(self):
         invoice = self.env['account.move']
         for record in self:
             record.invoice_count = invoice.search_count([('invoice_origin', '=', record.name)])
 
+    # def _get_crew_count(self):
+    #     for record in self:
+    #         record.crew_count = len(record.crew_ids)
+    #
+    # def _get_passenger_count(self):
+    #     for record in self:
+    #         record.passenger_count = len(record.passenger_ids)
+
     @api.model
     def create(self, vals):
         if vals.get('name', _('New')) == _('New'):
-            # if 'company_id' in vals:
-            #     vals['name'] = self.env['ir.sequence'].with_context(force_company=vals['company_id']).next_by_code(
-            #         'servoo.logistic.operation') or _('New')
-            # else:
-            #     vals['name'] = self.env['ir.sequence'].next_by_code('servoo.logistic.operation') or _('New')
-            vals['name'] = self.generate_reference(vals)
+            if 'company_id' in vals:
+                vals['name'] = self.env['ir.sequence'].with_context(force_company=vals['company_id']).next_by_code(
+                    'servoo.shipping.file') or _('New')
+            else:
+                vals['name'] = self.env['ir.sequence'].next_by_code('servoo.shipping.file') or _('New')
         return super().create(vals)
-
-    def generate_reference(self, vals):
-        reference = str(datetime.now().year)[-2:]
-        type = self.env['servoo.logistic.operation.nature'].search([('id', '=', vals['operation_nature'])])
-        if type:
-            reference += type.sequence_code
-        transport_mode = self.env['res.transport.mode'].search([('id', '=', vals['transport_mode_id'])])
-        if transport_mode:
-            if transport_mode.code == '10':
-                reference += "M"
-            elif transport_mode.code == "30":
-                reference += "T"
-            elif transport_mode.code == "40":
-                reference += "A"
-            elif vals['operation_type']:
-                reference += str(vals['operation_type'][0].upper())
-        elif vals['operation_type']:
-            reference += str(vals['operation_type'][0].upper())
-        query = "SELECT count(*) FROM servoo_logistic_operation WHERE name LIKE '" + reference + "%'"
-        self._cr.execute(query)
-        res = self._cr.fetchone()
-        record_count = int(res[0]) + 1
-        if len(str(record_count)) == 1:
-            reference += '00'
-        elif len(str(record_count)) == 2:
-            reference += '0'
-        reference += str(record_count)
-        return reference
-
 
     def action_draft(self):
         return self.write({'state': 'draft'})
@@ -130,13 +135,13 @@ class Operation(models.Model):
         return self.write({'state': 'open'})
 
     def return_action_to_open(self):
-        """ This opens the xml view specified in xml_id for the current operation """
+        """ This opens the xml view specified in xml_id for the current file """
         self.ensure_one()
         xml_id = self.env.context.get('xml_id')
         if xml_id:
             res = self.env['ir.actions.act_window']._for_xml_id('%s' % xml_id)
             res.update(
-                context=dict(self.env.context, default_operation_id=self.id, group_by=False),
+                context=dict(self.env.context, default_file_id=self.id, group_by=False),
                 domain=[('invoice_origin', '=', self.name)]
             )
             return res
@@ -164,7 +169,7 @@ class Operation(models.Model):
         invoiceable_line_ids = []
         for line in self.formality_line:
             invoiceable_line_ids.append(line.id)
-        return self.env['servoo.logistic.formality'].browse(invoiceable_line_ids)
+        return self.env['servoo.shipping.formality'].browse(invoiceable_line_ids)
 
     def create_invoices(self):
         if not self.env['account.move'].check_access_rights('create', False):
@@ -175,9 +180,9 @@ class Operation(models.Model):
                 return self.env['account.move']
         # 1) Create invoices.
         invoice_vals_list = []
-        for operation in self:
-            invoice_vals = operation._prepare_invoice()
-            invoiceable_lines = operation._get_invoiceable_lines()
+        for file in self:
+            invoice_vals = file._prepare_invoice()
+            invoiceable_lines = file._get_invoiceable_lines()
             invoice_line_vals = []
             for line in invoiceable_lines:
                 invoice_line_vals.append(
@@ -217,20 +222,20 @@ class Operation(models.Model):
         action['context'] = context
         return action
 
+    @api.onchange('shipping_pda_id')
+    def onchange_shipping_pda(self):
+        if self.shipping_pda_id:
+            self.vessel = self.shipping_pda_id.vessel_id.id
+            if not self.partner_id:
+                self.partner_id = self.shipping_pda_id.partner_id.id
+            self.voyage_number = self.shipping_pda_id.voyage_number
+            self.beam = self.shipping_pda_id.beam
+            self.loa = self.shipping_pda_id.loa
+            self.summer_draft = self.shipping_pda_id.summer_draft
+            self.vessel_volume = self.shipping_pda_id.vessel_volume
+            self.nrt = self.shipping_pda_id.nrt
+            self.grt = self.shipping_pda_id.grt
+            self.cbm_vessel = self.shipping_pda_id.cbm_vessel
+            self.gross_weight = self.shipping_pda_id.tonnage_of_goods
 
-class OperationVehicle(models.Model):
-    _name = 'servoo.logistic.operation.vehicle'
 
-    operation_id = fields.Many2one('servoo.logistic.operation', 'Operation')
-    vehicle_id = fields.Many2one('fleet.vehicle', 'Vehicle', required=True)
-    license_plate = fields.Char(related='vehicle_id.license_plate', store=True, readonly=False)
-    vin_sn = fields.Char(related='vehicle_id.vin_sn', store=True, readonly=True)
-    driver_id = fields.Many2one('res.partner', 'Driver', copy=False, readonly=True)
-    category_id = fields.Many2one('fleet.vehicle.model.category', related='vehicle_id.model_id.category_id', store=True,
-                                  readonly=True)
-
-
-# class AccountMove(models.Model):
-#     _inherit = 'account.move'
-#
-#     operation_id = fields.Many2one('servoo.logistic.operation', 'Logistic Operation')

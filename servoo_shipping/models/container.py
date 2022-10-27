@@ -4,8 +4,8 @@
 from odoo import models, fields
 
 
-class TransitOrderContainer(models.Model):
-    _name = 'servoo.transit.container'
+class ShippingContainer(models.Model):
+    _name = 'servoo.shipping.container'
 
     container_id = fields.Many2one('res.container', 'Container')
     size_type_id = fields.Many2one('res.container.size.type', related='container_id.size_type_id', string='Size', readonly=True)
@@ -16,5 +16,5 @@ class TransitOrderContainer(models.Model):
     seal_1 = fields.Char('Seal 1')
     seal_2 = fields.Char('Seal 2')
     seal_3 = fields.Char('Seal 3')
-    order_id = fields.Many2one('servoo.transit.order', 'Transit Order')
+    file_id = fields.Many2one('servoo.shipping.file', 'Shipping File')
 

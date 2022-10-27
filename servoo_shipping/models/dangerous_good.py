@@ -5,18 +5,22 @@ from odoo import models, fields
 
 
 class ShippingGood(models.Model):
-    _name = 'servoo.shipping.good'
+    _name = 'servoo.shipping.dangerous.good'
+    _description = 'Dangerous Good'
 
-    name = fields.Char("Description")
-    hscode_id = fields.Many2one('res.hs.code', 'SH Code')
-    trade_name = fields.Char('Trade Name')
-    line_number = fields.Integer('Line number')
-    quantity = fields.Float('Quantity', digits=(12, 3))
+    stowage = fields.Char('Stowage Position')
+    reference_number = fields.Char('Reference Number')
+    name = fields.Char("Marks & Numbers")
+    un_number = fields.Char('UN Number')
+    technical_specification = fields.Char('Technical Specification')
+    class_name = fields.Char('Class')
+    packing_group = fields.Char('Packing Group')
+    additional_information = fields.Char('Additional Information')
+    ems = fields.Char('EmS')
     volume = fields.Float('Volume (m3)', digits=(12, 3))
     gross_weight = fields.Float('Gross Weight (kg)', digits=(12, 3))
-    net_weight = fields.Float('Net Weight (kg)', digits=(12, 3))
-    brand = fields.Char('Brand')
-    fob_value_currency = fields.Float('FOB Value in currency', digits=(6, 3))
-    file_id = fields.Many2one('servoo.shipping.file', 'shipping Order')
+    quantity = fields.Float('Quantity', digits=(12, 3))
     unit_id = fields.Many2one('res.unit', 'Unit')
+    file_id = fields.Many2one('servoo.shipping.file', 'shipping Order')
+
 

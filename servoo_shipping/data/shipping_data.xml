@@ -1,31 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data noupdate="1">
-        <!-- Share Button in action menu -->
-        <record id="model_sale_order_action_share" model="ir.actions.server">
-            <field name="name">Share</field>
-            <field name="model_id" ref="sale.model_sale_order"/>
-            <field name="binding_model_id" ref="sale.model_sale_order"/>
-            <field name="binding_view_types">form</field>
-            <field name="state">code</field>
-            <field name="code">action = records.action_share()</field>
+
+        <!-- Sequences for shipping.pda -->
+        <record id="seq_shipping_pda" model="ir.sequence">
+            <field name="name">PDA</field>
+            <field name="code">servoo.shipping.pda</field>
+            <field name="prefix">PDA</field>
+            <field name="suffix">/%(y)s</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
         </record>
 
-        <!-- set default order confirmation template -->
+        <record id="seq_shipping_file" model="ir.sequence">
+            <field name="name">Shipping File</field>
+            <field name="code">servoo.shipping.file</field>
+            <field name="prefix">SF</field>
+            <field name="suffix">/%(y)s</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_shipping_bl" model="ir.sequence">
+            <field name="name">Shipping Bill of lading</field>
+            <field name="code">servoo.shipping.bl</field>
+            <field name="prefix">APMBL</field>
+            <field name="suffix">/%(y)s</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_shipping_delivery_order" model="ir.sequence">
+            <field name="name">Shipping Delivery Order</field>
+            <field name="code">servoo.shipping.delivery.order</field>
+            <field name="prefix">APMB</field>
+            <field name="suffix">/%(y)s</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
         <record id="default_confirmation_template" model="ir.config_parameter">
-            <field name="key">sale.default_confirmation_template</field>
-            <field name="value" ref="sale.mail_template_sale_confirmation"/>
-        </record>
-
-        <record model="ir.cron" id="send_invoice_cron">
-            <field name="name">automatic invoicing: send ready invoice</field>
-            <field name="model_id" ref="payment.model_payment_transaction" />
-            <field name="state">code</field>
-            <field name="code">model._cron_send_invoice()</field>
-            <field name="user_id" ref="base.user_root" />
-            <field name="interval_number">1</field>
-            <field name="interval_type">days</field>
-            <field name="numbercall">-1</field>
+            <field name="key">servoo_shipping.default_confirmation_template</field>
+            <field name="value" ref="servoo_shipping.mail_template_pda_confirmation"/>
         </record>
 
     </data>

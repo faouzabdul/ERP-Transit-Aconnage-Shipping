@@ -6,7 +6,7 @@ from odoo import models, fields, api, _
 
 
 class DocumentType(models.Model):
-    _name = 'servoo.logistic.document.type'
+    _name = 'servoo.shipping.document.type'
     _description = "Document Type"
 
     name = fields.Char('Name', required=True)
@@ -14,13 +14,13 @@ class DocumentType(models.Model):
 
 
 class Document(models.Model):
-    _name = 'servoo.logistic.document'
+    _name = 'servoo.shipping.document'
     _description = "Document"
 
     name = fields.Char('Reference', required=True)
-    document_type_id = fields.Many2one('servoo.logistic.document.type', 'Document type', required=True)
-    operation_id = fields.Many2one('servoo.logistic.operation', 'Operation')
+    document_type_id = fields.Many2one('servoo.shipping.document.type', 'Document type', required=True)
+    file_id = fields.Many2one('servoo.shipping.file', 'File')
     attachment_ids = fields.Many2many(
-        'ir.attachment', 'servoo_logistic_document_attachment_rel',
+        'ir.attachment', 'servoo_shipping_document_attachment_rel',
         'document_id', 'attachment_id',
         string='Attachments')

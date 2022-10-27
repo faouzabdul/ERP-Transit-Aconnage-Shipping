@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+<!--        Top level menu-->
+         <menuitem id="shipping_menu_root" name="shipping"
+                   groups="servoo_shipping.shipping_group_user"
+            web_icon="servoo_shipping,static/description/icon.png"/>
+
+        <menuitem id="shipping_menu" name="Shipping" parent="shipping_menu_root" sequence="1"/>
+<!--        <menuitem id="maritime_agent_menu" parent="shipping_menu" action="servoo_shipping.action_maritime_agent" />-->
+        <menuitem id="shipping_pda_menu" parent="shipping_menu" action="servoo_shipping.action_shipping_pda" />
+
+        <menuitem id="shipping_partner_menu"
+            parent="shipping_menu_root"
+            action="account.res_partner_action_customer"
+            sequence="1"/>
+
+        <menuitem action="sale.product_template_action" id="shipping_product_menu" parent="shipping_menu_root" sequence="5" />
+
+        <menuitem id="menu_shipping_config"
+            name="Configuration"
+            parent="shipping_menu_root"
+            sequence="35"
+            groups="servoo_shipping.shipping_group_manager"/>
+
+        <menuitem id="shipping_pda_template_menu" action="servoo_shipping.shipping_pda_template_action" parent="menu_shipping_config" sequence="1" name="PDA Templates"/>
+<!--        <menuitem id="shipping_product_pricelist_menu" name="Pricelists" parent="menu_shipping_config" action="product.product_pricelist_action2" sequence="3"/>-->
+
+
+
+    </data>
+</odoo>

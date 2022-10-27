@@ -19,6 +19,7 @@
             <form string="PDA Template">
                 <sheet>
                     <div name="button_box" class="oe_button_box"/>
+                    <field name="active" invisible="1"/>
                     <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
                     <div class="oe_title">
                         <label for="name"/>
@@ -27,8 +28,7 @@
                         </h1>
                     </div>
                     <group>
-                        <group>
-                            <field name="active" invisible="1"/>
+                        <group col="4">
                            <field name="number_of_days" />
                             <field name="grt" />
                             <field name="cbm_vessel" />
@@ -43,7 +43,7 @@
                     <notebook name="main_book">
                         <page string="Lines" name="order_lines">
                         <field name="shipping_pda_template_line_ids" widget="section_and_note_one2many">
-                            <form string="PDA Template Lines">
+                            <form string="Quotation Template Lines">
                                 <!--
                                     We need the sequence field to be here for new lines to be added at the correct position.
                                     TODO: at some point we want to fix this in the framework so that an invisible field is not required.
@@ -72,7 +72,7 @@
                                     </page>
                                 </notebook>
                             </form>
-                            <tree string="PDA Template Lines" editable="bottom">
+                            <tree string="Quotation Template Lines" editable="bottom">
                                 <control>
                                     <create name="add_product_control" string="Add a product"/>
                                     <create name="add_section_control" string="Add a section" context="{'default_display_type': 'line_section'}"/>
@@ -83,7 +83,11 @@
                                 <field name="sequence" widget="handle"/>
                                 <field name="product_id"/>
                                 <field name="name" widget="section_and_note_text"/>
-                                <field name="product_uom_qty"/>
+                                <field name="code"/>
+<!--                                <field name="product_uom_qty"/>-->
+                                <field name="quantity_python_compute" />
+<!--                                <field name="unit_price"/>-->
+                                <field name="amount_python_compute" />
                                 <field name="product_uom_category_id" invisible="1"/>
                                 <field
                                     name="product_uom_id"
@@ -93,8 +97,6 @@
                             </tree>
                         </field>
                     </page>
-
-
                     </notebook>
                     <field name="note" nolabel="1"
                         placeholder="The Administrator can set default Terms &amp; Conditions in Sales Settings. Terms set here will show up instead if you select this PDA template."/>
@@ -127,4 +129,19 @@
             </p>
         </field>
     </record>
+
+<!--    <record id="sale_order_form_quote" model="ir.ui.view">-->
+<!--        <field name="name">sale.order.form.payment</field>-->
+<!--        <field name="model">sale.order</field>-->
+<!--        <field name="inherit_id" ref="sale.view_order_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//field[@name='partner_shipping_id']" position="after">-->
+<!--                <field name="sale_order_template_id" context="{'company_id': company_id}"-->
+<!--                    options="{'no_create': True, 'no_open': True}"-->
+<!--                    groups="sale_management.group_sale_order_template"-->
+<!--                />-->
+<!--            </xpath>-->
+
+<!--        </field>-->
+<!--    </record>-->
 </odoo>

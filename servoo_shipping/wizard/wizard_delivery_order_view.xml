@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="wizard_shipping_delivery_order_form">
+        <field name="name">wizard.shipping.delivery.order.form</field>
+        <field name="model">servoo.shipping.bl.delivery.order</field>
+        <field name="arch" type="xml">
+            <form string="Delivery Order">
+                <sheet>
+                    <group col="4" >
+                        <field name="date" />
+                        <field name="validity_date" />
+                        <field name="custom_declaration_reference" />
+                        <field name="custom_declaration_date" />
+                        <field name="warehouse" required="1"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_validate" string="Validate" type="object" class="oe_highlight" data-hotkey="q"/>
+                    <button string="Discard" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizard_shipping_delivery_order" model="ir.actions.act_window">
+            <field name="name"></field>
+            <field name="res_model">servoo.shipping.bl.delivery.order</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+</odoo>
