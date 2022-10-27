@@ -131,23 +131,10 @@
                 </div>
 
             </div>
-<!--            <table class="table table-sm">-->
-<!--                <tr>-->
-<!--                    <td><span>Payment Condition</span></td>-->
-<!--                    <td><span t-field="o.payment_term_id.name"/></td>-->
-<!--                </tr>-->
-<!--            </table>-->
-<!--            <table class="table table-sm">-->
-<!--                <tr>-->
-<!--                    <td><span>Payment Method</span></td>-->
-<!--                    <td><p t-field="o.payment_method"/></td>-->
-<!--                    <td><span>Delivery Time: <span t-field="o.date_planned"/></span></td>-->
-<!--                </tr>-->
-<!--            </table>-->
-            <span>Conditions / guarantees:</span>
+            <br />
+            <u><span>Conditions / guarantees:</span></u>
             <p t-field="o.notes"/>
 
-            <br />
             <br />
             <div class="row">
                 <div class="col-3">
@@ -168,13 +155,13 @@
                     <p><span t-field="o.accounting_department_agent_id.name" /></p>
 <!--                    <p><span t-field="o.accounting_department_date" /></p>-->
                 </div>
-                <div class="col-2">
+                <div class="col-3">
                     <p><strong>Applicant Direction</strong></p>
                     <p><img t-if="o.applicant_direction_agent_id.digital_signature" t-att-src="image_data_uri(o.applicant_direction_agent_id.digital_signature)" style="max-height: 75px;"/></p>
                     <p><span t-field="o.applicant_direction_agent_id.name" /></p>
 <!--                    <p><span t-field="o.applicant_direction_date" /></p>-->
                 </div>
-                <div class="col-3">
+                <div class="col-2">
                     <p><strong>Management Control</strong></p>
                     <p><img t-if="o.management_control_agent_id.digital_signature" t-att-src="image_data_uri(o.management_control_agent_id.digital_signature)" style="max-height: 75px;"/></p>
                     <p><span t-field="o.management_control_agent_id.name" /></p>
@@ -182,49 +169,6 @@
                 </div>
 
             </div>
-<!--            <table class="table table-sm">-->
-<!--                <thead>-->
-<!--                    <tr>-->
-<!--                        <th name="th_service"><strong>Requesting Service</strong></th>-->
-<!--                        <th name="th_supplies"><strong>Supplies</strong></th>-->
-<!--                        <th name="th_accounting" class="text-right"><strong>Accounting</strong></th>-->
-<!--                        <th name="th_direction" class="text-right"><strong>Requesting Direction</strong></th>-->
-<!--                        <th name="th_management_control" class="text-right"><strong>Management Control</strong></th>-->
-<!--                    </tr>-->
-<!--                </thead>-->
-<!--                <tbody>-->
-<!--                    <tr>-->
-<!--                        <td></td>-->
-<!--                        <td></td>-->
-<!--                        <td></td>-->
-<!--                        <td></td>-->
-<!--                        <td></td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <td>-->
-<!--                            <span t-field="o.applicant_service_agent_id.name" />-->
-<!--                            <span t-field="o.applicant_service_date" />-->
-<!--                        </td>-->
-<!--                        <td>-->
-<!--                            <span t-field="o.supply_department_agent_id.name" />-->
-<!--                            <span t-field="o.supply_department_date" />-->
-<!--                        </td>-->
-<!--                        <td>-->
-<!--                            <span t-field="o.accounting_department_agent_id.name" />-->
-<!--                            <span t-field="o.accounting_department_date" />-->
-<!--                        </td>-->
-<!--                        <td>-->
-<!--                            <span t-field="o.applicant_direction_agent_id.name" />-->
-<!--                            <span t-field="o.applicant_direction_date" />-->
-<!--                        </td>-->
-<!--                        <td>-->
-<!--                            <span t-field="o.management_control_agent_id.name" />-->
-<!--                            <span t-field="o.management_control_date" />-->
-<!--                        </td>-->
-<!--                    </tr>-->
-
-<!--                </tbody>-->
-<!--            </table>-->
 
             <div class="oe_structure"/>
         </div>
