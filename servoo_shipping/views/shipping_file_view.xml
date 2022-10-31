@@ -30,61 +30,72 @@
                         <button name="action_open" states="draft" type="object" string="Validate"/>
                         <button name="action_done" states="open" type="object" string="Done"/>
                         <button name="create_invoices" string="Create Invoice"
-                        type="object" class="btn-primary" data-hotkey="q"
-                        attrs="{'invisible': ['|',('state', '!=', 'open'), ('invoice_count', '!=', '0')]}"/>
-                        <button name="action_draft" states="cancel" type="object" string="Open" groups="servoo_shipping.shipping_group_manager"/>
+                                type="object" class="btn-primary" data-hotkey="q"
+                                attrs="{'invisible': ['|',('state', '!=', 'open'), ('invoice_count', '!=', '0')]}"/>
+                        <button name="action_draft" states="cancel" type="object" string="Open"
+                                groups="servoo_shipping.shipping_group_manager"/>
                         <button name="action_cancel" states="open,done" type="object" string="Cancel"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,open,done"/>
                     </header>
                     <sheet>
                         <div class="oe_button_box" name="button_box">
                             <button name="return_action_to_open"
-                            type="object"
-                            class="oe_stat_button"
-                            icon="fa-pencil-square-o"
-                            context="{'xml_id':'account.action_move_out_invoice_type'}"
-                            help="show the invoices for this shipping file" >
-                            <field name="invoice_count" widget="statinfo" string="Invoices"/>
-                        </button>
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-pencil-square-o"
+                                    context="{'xml_id':'account.action_move_out_invoice_type'}"
+                                    help="show the invoices for this shipping file">
+                                <field name="invoice_count" widget="statinfo" string="Invoices"/>
+                            </button>
+                            <button name="generate_xml_file" type="object" class="oe_stat_button"
+                                    icon="fa-file-o" string="Generate XML"
+                                    help="Generate XML"/>
+
                         </div>
                         <group>
                             <group col="4">
                                 <field name="name" readonly="1"/>
-                                <field name="shipping_pda_id" />
-                                <field name="partner_id" widget="res_partner_many2one" context="{'show_address': 1, 'show_vat': True}" options='{"always_reload": True}'/>
+                                <field name="shipping_pda_id"/>
+                                <field name="partner_id" widget="res_partner_many2one"
+                                       context="{'show_address': 1, 'show_vat': True}"
+                                       options='{"always_reload": True}'/>
 
                                 <field name="file_type_id" required="1"/>
                             </group>
                             <group>
-                            <group col="4" string="Vessel">
-                                <field name="vessel" required="1"/>
-                                <field name="shipowner_id" widget="res_partner_many2one" context="{'show_address': 1, 'show_vat': True}" options='{"always_reload": True}'/>
-                                <field name="charterer_id" widget="res_partner_many2one" context="{'show_address': 1, 'show_vat': True}" options='{"always_reload": True}'/>
-                                <field name="imo_number" />
-                                <field name="call_sign" />
-                                <field name="flag_vessel" />
-                                <field name="loa" />
-                                <field name="beam" />
-                                <field name="summer_draft" />
-                                <field name="nrt" />
-                                <field name="grt" />
-                                <field name="cbm_vessel" />
-                            </group>
-                            <group string="General Declaration" col="4">
-                                <field name="voyage_number" />
-                                <field name="name_of_master" />
-                                <field name="operation_type" required="1"/>
-                                <field name="date_arrival_departure" />
-                                <field name="port_arrival_departure" />
-                                <field name="port_previous_next" />
-                                <field name="gross_weight" />
-                                <field name="net_weight" />
-                                <field name="travel_description" />
-                                <field name="goods_description" />
-<!--                                <field name="crew_count" readonly="1"/>-->
-<!--                                <field name="passenger_count" readonly="1"/>-->
-                            </group>
+                                <group col="4" string="Vessel">
+                                    <field name="vessel" required="1"/>
+                                    <field name="shipowner_id" widget="res_partner_many2one"
+                                           context="{'show_address': 1, 'show_vat': True}"
+                                           options='{"always_reload": True}'/>
+                                    <field name="charterer_id" widget="res_partner_many2one"
+                                           context="{'show_address': 1, 'show_vat': True}"
+                                           options='{"always_reload": True}'/>
+                                    <field name="imo_number"/>
+                                    <field name="call_sign"/>
+                                    <field name="flag_vessel"/>
+                                    <field name="loa"/>
+                                    <field name="beam"/>
+                                    <field name="summer_draft"/>
+                                    <field name="nrt"/>
+                                    <field name="grt"/>
+                                    <field name="cbm_vessel"/>
                                 </group>
+                                <group string="General Declaration" col="4">
+                                    <field name="voyage_number"/>
+                                    <field name="name_of_master"/>
+                                    <field name="operation_type" required="1"/>
+                                    <field name="date_arrival_departure"/>
+                                    <field name="port_arrival_departure"/>
+                                    <field name="port_previous_next"/>
+                                    <field name="gross_weight"/>
+                                    <field name="net_weight"/>
+                                    <field name="travel_description"/>
+                                    <field name="goods_description"/>
+                                    <!--                                <field name="crew_count" readonly="1"/>-->
+                                    <!--                                <field name="passenger_count" readonly="1"/>-->
+                                </group>
+                            </group>
                         </group>
                         <notebook>
                             <page string="Bills of lading">
@@ -92,55 +103,61 @@
                                     <form string="Bill of lading">
                                         <sheet>
                                             <group col="4">
-                            <field name="name" />
-                            <field name="date" />
-                            <field name="shipper_id" />
-                            <field name="consignee_id" />
-                            <field name="notify_id" />
-                            <field name="vessel_id" />
-                            <field name="loading_port" />
-                            <field name="discharge_port" />
-                        </group>
-                        <notebook>
-                            <page string="Goods Description">
-                                <field name="good_ids" widget="one2many" required="1" mode="tree,form">
-                                    <tree string="Good">
-                                        <field name="name"/>
-                                        <field name="quantity"/>
-                                        <field name="unit_id" />
-                                        <field name="gross_weight" />
-                                        <field name="net_weight" />
-                                        <field name="volume" />
-                                    </tree>
-                                    <form string="Good">
-                                        <sheet>
-                                            <group col="4">
-                                                <field name="name" colpsan="4"/>
-                                                <field name="quantity" />
-                                                <field name="unit_id" />
-                                                <field name="gross_weight" />
-                                                <field name="net_weight" />
-                                                <field name="volume" />
+                                                <field name="name"/>
+                                                <field name="date"/>
+                                                <field name="shipper_id"/>
+                                                <field name="consignee_id"/>
+                                                <field name="notify_id"/>
+                                                <field name="vessel_id"/>
+                                                <field name="loading_port"/>
+                                                <field name="discharge_port"/>
                                             </group>
-                                        </sheet>
-                                    </form>
-                                </field>
-                            </page>
-                        </notebook>
+                                            <group string="Cargo Description">
+                                                <field name="cargo_description" required="1" nolabel="1" colpsan="4"/>
+                                            </group>
+                                            <notebook>
+                                                <page string="Goods Details">
+                                                    <field name="good_ids" widget="one2many" required="1"
+                                                           mode="tree,form">
+                                                        <tree string="Good">
+                                                            <field name="name"/>
+                                                            <field name="quantity"/>
+                                                            <field name="unit_id"/>
+                                                            <field name="gross_weight"/>
+                                                            <field name="net_weight"/>
+                                                            <field name="volume"/>
+                                                        </tree>
+                                                        <form string="Good">
+                                                            <sheet>
+                                                                <group col="4">
+                                                                    <field name="name" colpsan="4"/>
+                                                                    <field name="quantity"/>
+                                                                    <field name="unit_id"/>
+                                                                    <field name="gross_weight"/>
+                                                                    <field name="net_weight"/>
+                                                                    <field name="volume"/>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                            </notebook>
                                         </sheet>
                                     </form>
                                     <tree string="Bill of lading">
-                                        <field name="name" />
-                                        <field name="date" />
-                                        <field name="shipper_id" />
-                                         <field name="consignee_id" />
-                                        <field name="vessel_id" />
-                                        <field name="loading_port" />
-                                        <field name="discharge_port" />
-                                        <field name="state" />
-                                        <button name="%(action_wizard_shipping_delivery_order)d" string="Create Delivery Order" type="action" states="saved" class="btn-primary"/>
+                                        <field name="name"/>
+                                        <field name="date"/>
+                                        <field name="shipper_id"/>
+                                        <field name="consignee_id"/>
+                                        <field name="vessel_id"/>
+                                        <field name="loading_port"/>
+                                        <field name="discharge_port"/>
+                                        <field name="state"/>
+                                        <button name="%(action_wizard_shipping_delivery_order)d"
+                                                string="Create Delivery Order" type="action" states="saved"
+                                                class="btn-primary"/>
                                         <button name="%(action_report_delivery_order)d" type="action" states="delivered"
-                                        class="oe_stat_button" icon="fa-print"/>
+                                                class="oe_stat_button" icon="fa-print"/>
                                     </tree>
                                 </field>
                             </page>
@@ -148,45 +165,45 @@
                                 <field name="good_ids" widget="one2many" mode="tree">
                                     <tree string="Good Lines" editable="bottom">
                                         <field name="name" required="1"/>
-                                        <field name="hscode_id" />
-                                        <field name="quantity" />
-                                        <field name="unit_id" />
-                                        <field name="gross_weight" />
-                                        <field name="volume" />
+                                        <field name="hscode_id"/>
+                                        <field name="quantity"/>
+                                        <field name="unit_id"/>
+                                        <field name="gross_weight"/>
+                                        <field name="volume"/>
                                     </tree>
                                 </field>
                             </page>
                             <page string="Containers">
                                 <field name="container_ids" widget="one2many" mode="tree">
                                     <tree string="Container Lines" editable="bottom">
-                                        <field name="container_id" required="1" />
-                                        <field name="size_type_id" readonly="1" />
-                                        <field name="weight" />
-                                        <field name="vgm" />
-                                        <field name="package_count" />
-                                        <field name="seal_1" />
-                                        <field name="seal_2" />
-                                        <field name="seal_3" />
+                                        <field name="container_id" required="1"/>
+                                        <field name="size_type_id" readonly="1"/>
+                                        <field name="weight"/>
+                                        <field name="vgm"/>
+                                        <field name="package_count"/>
+                                        <field name="seal_1"/>
+                                        <field name="seal_2"/>
+                                        <field name="seal_3"/>
                                     </tree>
                                 </field>
                             </page>
                             <page string="Ship's Stores">
                                 <field name="store_ids" widget="one2many" mode="tree">
                                     <tree string="Ship's Store" editable="bottom">
-                                        <field name="name" required="1" />
-                                        <field name="use" />
-                                        <field name="good" />
-                                        <field name="quantity" />
-                                        <field name="gross_weight" />
+                                        <field name="name" required="1"/>
+                                        <field name="use"/>
+                                        <field name="good"/>
+                                        <field name="quantity"/>
+                                        <field name="gross_weight"/>
                                     </tree>
                                 </field>
                             </page>
                             <page string="Crew's Effects">
                                 <field name="crew_effect_ids" widget="one2many" mode="tree">
                                     <tree string="Crew's Effects" editable="bottom">
-                                        <field name="crew_id" />
-                                        <field name="rank" />
-                                        <field name="effect" />
+                                        <field name="crew_id"/>
+                                        <field name="rank"/>
+                                        <field name="effect"/>
                                     </tree>
                                 </field>
                             </page>
@@ -194,74 +211,74 @@
                                 <field name="crew_ids" widget="one2many" mode="tree">
                                     <tree string="Crew List" editable="bottom">
                                         <field name="crew_id" required="1"/>
-                                        <field name="rank" />
+                                        <field name="rank"/>
                                     </tree>
                                 </field>
                             </page>
                             <page string="Passenger List">
                                 <field name="passenger_ids" widget="one2many" mode="tree">
                                     <tree string="Passenger List" editable="bottom">
-                                        <field name="passenger_id" />
-                                        <field name="embarkation_port" />
-                                        <field name="visa_number" />
-                                        <field name="disembarkation_port" />
-                                        <field name="is_transit_passenger" />
+                                        <field name="passenger_id"/>
+                                        <field name="embarkation_port"/>
+                                        <field name="visa_number"/>
+                                        <field name="disembarkation_port"/>
+                                        <field name="is_transit_passenger"/>
                                     </tree>
                                 </field>
                             </page>
                             <page string="Dangerous Good">
                                 <field name="dangerous_good_ids" widget="one2many" mode="tree">
                                     <tree string="Dangerous Goods">
-                                        <field name="stowage" />
-                                        <field name="reference_number" />
-                                        <field name="name" />
-                                        <field name="un_number" />
-                                        <field name="technical_specification" />
-                                        <field name="class_name" />
-                                        <field name="packing_group" />
-                                        <field name="additional_information" />
-                                        <field name="ems" />
-                                        <field name="volume" />
-                                        <field name="gross_weight" />
-                                        <field name="quantity" />
-                                        <field name="unit_id" />
+                                        <field name="stowage"/>
+                                        <field name="reference_number"/>
+                                        <field name="name"/>
+                                        <field name="un_number"/>
+                                        <field name="technical_specification"/>
+                                        <field name="class_name"/>
+                                        <field name="packing_group"/>
+                                        <field name="additional_information"/>
+                                        <field name="ems"/>
+                                        <field name="volume"/>
+                                        <field name="gross_weight"/>
+                                        <field name="quantity"/>
+                                        <field name="unit_id"/>
                                     </tree>
                                 </field>
                             </page>
                             <page string="Formalities">
                                 <field name="formality_line" widget="one2many" mode="tree,kanban">
                                     <tree string="Formalities Lines" editable="bottom"
-                                    decoration-success="state=='done'" decoration-muted="state=='cancel'">
-                                        <field name="service_id" />
-                                        <field name="name" />
-                                        <field name="other_reference" />
-                                        <field name="administration_id" required="0" />
-                                        <field name="start_date" />
+                                          decoration-success="state=='done'" decoration-muted="state=='cancel'">
+                                        <field name="service_id"/>
+                                        <field name="name"/>
+                                        <field name="other_reference"/>
+                                        <field name="administration_id" required="0"/>
+                                        <field name="start_date"/>
                                         <field name="amount" invisible="0"/>
                                         <field name="agent_id" invisible="0"/>
                                         <field name="end_date" invisible="0"/>
                                         <field name="state" invisible="1"/>
-                                        <field name="attachment_ids" widget="many2many_binary" />
+                                        <field name="attachment_ids" widget="many2many_binary"/>
                                     </tree>
                                 </field>
                             </page>
-                            <page string="Documents" >
-                                    <field name="document_ids"
-                                        mode="tree,kanban"
-                                    >
-                                        <tree string="Documents Lines" editable="bottom">
-                                            <field name="name" />
-                                            <field name="document_type_id" />
-                                            <field name="attachment_ids" widget="many2many_binary" />
-                                        </tree>
-                                    </field>
-                                </page>
-                            </notebook>
-                            <div class="oe_chatter">
-                                <field name="message_follower_ids"/>
-                                <field name="activity_ids"/>
-                                <field name="message_ids"/>
-                            </div>
+                            <page string="Documents">
+                                <field name="document_ids"
+                                       mode="tree,kanban"
+                                >
+                                    <tree string="Documents Lines" editable="bottom">
+                                        <field name="name"/>
+                                        <field name="document_type_id"/>
+                                        <field name="attachment_ids" widget="many2many_binary"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <div class="oe_chatter">
+                            <field name="message_follower_ids"/>
+                            <field name="activity_ids"/>
+                            <field name="message_ids"/>
+                        </div>
                     </sheet>
                 </form>
             </field>

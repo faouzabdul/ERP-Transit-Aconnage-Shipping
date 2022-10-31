@@ -4,6 +4,7 @@
 from odoo import api, models, fields, _
 from datetime import datetime
 import logging
+import base64
 
 _logger = logging.getLogger(__name__)
 
@@ -14,6 +15,141 @@ class ShippingFileType(models.Model):
     name = fields.Char('Name', required=True)
     description = fields.Char('Description')
     sequence_code = fields.Char('Sequence Code')
+
+
+def _populate_manifest_structure(file):
+    header = """<?xml version="1.0" encoding="utf-8"?>
+<DOCUMENT>
+<TYPE_DOCUMENT>Z29</TYPE_DOCUMENT>
+<TYPE_MESSAGE>CUSCAR</TYPE_MESSAGE>
+<ETAT>Z01</ETAT>
+<REFERENCE_DOSSIER>
+<NUMERO_DOSSIER></NUMERO_DOSSIER>
+<NUMERO_DEMANDE></NUMERO_DEMANDE>
+<NUMERO_MESSAGE></NUMERO_MESSAGE>
+<UTILISATEUR>MAKITA SERGE</UTILISATEUR>
+</REFERENCE_DOSSIER>
+<ROUTAGE>
+<EMETTEUR>APM.SA</EMETTEUR>
+<DESTINATAIRE>PAD1</DESTINATAIRE>
+</ROUTAGE>
+<MANIFESTE>
+<GEN_CODE_MANIFESTE></GEN_CODE_MANIFESTE>
+<GEN_DATA>
+  <GEN_CODE_MANIFESTE></GEN_CODE_MANIFESTE>
+  <GEN_CODE_BUREAU>%s</GEN_CODE_BUREAU>
+  <GEN_DATE_EMISSION>%s</GEN_DATE_EMISSION>
+  <GEN_SENS_MANIFESTE>%s</GEN_SENS_MANIFESTE>
+  <GEN_NUMERO_VOYAGE>%s</GEN_NUMERO_VOYAGE>
+  <GEN_NAVIRE>%s</GEN_NAVIRE>
+  <GEN_ANNEE_TRANSPORT>%s</GEN_ANNEE_TRANSPORT>
+  <GEN_JAUGE_BRUTE>%s</GEN_JAUGE_BRUTE>
+  <GEN_JAUGE_NETTE>%s</GEN_JAUGE_NETTE>
+  <GEN_CAPITAINE>%s</GEN_CAPITAINE>
+  <GEN_CODE_CONSIGNATAIRE>12610</GEN_CODE_CONSIGNATAIRE>
+  <GEN_NOM_CONSIGNATAIRE>AGENCE DE PRESTATIONS MARITIMES</GEN_NOM_CONSIGNATAIRE>
+  <GEN_CODE_ARMATEUR></GEN_CODE_ARMATEUR>
+  <GEN_NOM_ARMATEUR>%s</GEN_NOM_ARMATEUR>
+  <GEN_CODE_AFFRETEUR></GEN_CODE_AFFRETEUR>
+  <GEN_NOM_AFFRETEUR>%s</GEN_NOM_AFFRETEUR>
+  <GEN_NOM_PAVILLON>%s</GEN_NOM_PAVILLON>
+</GEN_DATA>
+<CONNAISSEMENT_MARCHANDISES>
+    """ % (file.port_arrival_departure.code if file.port_arrival_departure else '',
+           file.date_arrival_departure or '',
+           'IMPORT' if file.operation_type == 'arrival' else 'EXPORT',
+           file.voyage_number or '',
+           file.vessel.name or '',
+           datetime.now().year,
+           file.grt or '',
+           file.nrt or '',
+           file.name_of_master or '',
+           file.shipowner_id.name or '',
+           file.charterer_id.name or '',
+           file.flag_vessel.name or ''
+           )
+    bl_content = ""
+    counter = 0
+    for bl in file.bl_ids:
+        counter += 1
+        bl_content += """<CONNAISSEMENT_MARCHANDISE>
+    <CNS_CODE_CONNAISSEMENT>%s</CNS_CODE_CONNAISSEMENT>
+    <CNS_CODE_BUREAU />
+    <CNS_NUMERO_VOYAGE></CNS_NUMERO_VOYAGE>
+    <CNS_NUMERO_LIGNE>%s</CNS_NUMERO_LIGNE>
+    <CNS_NUMERO_SOUS_LIGNE />
+    <CNS_TYPE_CONNAISSEMENT>CO2</CNS_TYPE_CONNAISSEMENT>
+    <CNS_NATURE_TITRE_TRANSPORT>23</CNS_NATURE_TITRE_TRANSPORT>
+    <CNS_CHARGEUR />
+    <CNS_CODE_EXPEDITEUR />
+    <CNS_EXPEDITEUR>%s</CNS_EXPEDITEUR>
+    <CNS_ADR1_EXPEDITEUR>%s</CNS_ADR1_EXPEDITEUR>
+    <CNS_ADR2_EXPEDITEUR>%s</CNS_ADR2_EXPEDITEUR>
+    <CNS_ADR3_EXPEDITEUR />
+    <CNS_ADR4_EXPEDITEUR />
+    <CNS_CODE_DESTINATAIRE />
+    <CNS_DESTINATAIRE>%s</CNS_DESTINATAIRE>
+    <CNS_ADR1_DESTINATAIRE />
+    <CNS_ADR2_DESTINATAIRE />
+    <CNS_ADR3_DESTINATAIRE />
+    <CNS_ADR4_DESTINATAIRE />
+    <CNS_PROVENANCE>%s</CNS_PROVENANCE>
+    <CNS_LIEU_CHARGEMENT></CNS_LIEU_CHARGEMENT>
+    <CNS_NOMBRE_CONTENEURS></CNS_NOMBRE_CONTENEURS>
+    <CNS_TYPE_COLIS />
+    <CNS_MARQUE1_COLIS />
+    <CNS_MARQUE2_COLIS />
+    <CNS_MARQUE3_COLIS />
+    <CNS_MARQUE4_COLIS />
+    <CNS_MARQUE5_COLIS />
+    <CNS_MARQUE6_COLIS />
+    <CNS_MARQUE7_COLIS />
+    <CNS_MARQUE8_COLIS />
+    <CNS_MARQUE9_COLIS />
+    <CNS_MARQUE10_COLIS />
+    <CNS_DESCRIPTION_MARCH1>%s</CNS_DESCRIPTION_MARCH1>
+    <CNS_POIDS_COLIS>%s</CNS_POIDS_COLIS>
+    <DETAIL_MARCHANDISE>
+        """ % (
+            bl.name or '',
+            counter,
+            bl.shipper_id.name or '',
+            bl.shipper_id.street or '',
+            bl.shipper_id.street2 or '',
+            bl.consignee_id.name or '',
+            bl.loading_port.name + ',' + bl.loading_port.country_id.name,
+            bl.cargo_description or '',
+            bl.cargo_weight or ''
+        )
+        good_content = ''
+        for good in bl.good_ids:
+            good_content += """<MARCHANDISE>
+            <TYPE_COLIS></TYPE_COLIS>
+            <MARQUE_COLIS></MARQUE_COLIS>
+            <DESCRIPTION1>%s</DESCRIPTION1>
+            <DESCRIPTION2 />
+            <POIDS_COLIS>%s</POIDS_COLIS>
+            <VOLUME_COLIS>%s</VOLUME_COLIS>
+            <NOMBRE_COLIS>%s</NOMBRE_COLIS>
+      </MARCHANDISE>
+            """ % (
+                good.name or '',
+                good.gross_weight or '',
+                good.volume or '',
+                good.quantity or ''
+            )
+        if not good_content:
+            good_content = "<MARCHANDISE />"
+        bl_content += good_content + """</DETAIL_MARCHANDISE>
+    </CONNAISSEMENT_MARCHANDISE>
+        """
+    if not bl_content:
+        bl_content = "<CONNAISSEMENT_MARCHANDISE />"
+    content = header + bl_content + """</CONNAISSEMENT_MARCHANDISES>
+</MANIFESTE>
+</DOCUMENT>
+    """
+    return content
 
 
 class ShippingFile(models.Model):
@@ -151,7 +287,9 @@ class ShippingFile(models.Model):
         self.ensure_one()
         journal = self.env['account.move'].with_context(default_move_type='out_invoice')._get_default_journal()
         if not journal:
-            raise UserError(_('Please define an accounting sales journal for the company %s (%s).', self.company_id.name, self.company_id.id))
+            raise UserError(
+                _('Please define an accounting sales journal for the company %s (%s).', self.company_id.name,
+                  self.company_id.id))
 
         invoice_vals = {
             'move_type': 'out_invoice',
@@ -237,5 +375,27 @@ class ShippingFile(models.Model):
             self.grt = self.shipping_pda_id.grt
             self.cbm_vessel = self.shipping_pda_id.cbm_vessel
             self.gross_weight = self.shipping_pda_id.tonnage_of_goods
+
+    # TO DO: Faire un cron pour supprimer les piece jointes créés lors de la génération du fichier xml
+    def generate_xml_file(self):
+        for record in self:
+            xml_content = _populate_manifest_structure(record)
+            result = bytes(xml_content, 'utf8')
+            base_url = self.env['ir.config_parameter'].get_param('web.base.url')
+            attachment_obj = self.env['ir.attachment']
+            name = record.name + '-' + record.vessel.name + ".XML"
+            attachment_id = attachment_obj.create(
+                {'name': name,
+                 'store_fname': name,
+                 'db_datas': result,
+                 'type': 'binary',
+                 'res_model': 'servoo.shipping.file',
+                 'mimetype': "application/xml"})
+            download_url = '/web/content/' + str(attachment_id.id) + '?download=true'
+            return {
+                "type": "ir.actions.act_url",
+                "url": str(base_url) + str(download_url),
+                "target": "new",
+            }
 
 

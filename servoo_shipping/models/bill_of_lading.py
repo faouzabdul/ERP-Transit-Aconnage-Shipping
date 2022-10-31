@@ -20,6 +20,7 @@ class BillOfLading(models.Model):
     loading_port = fields.Many2one('res.locode', 'Port of loading', index=True)
     discharge_port = fields.Many2one('res.locode', 'Port of discharge', index=True)
     voyage_number = fields.Char('Voyage Number')
+    cargo_description = fields.Char('Cargo Description')
     state = fields.Selection([
         ('saved', 'Saved'),
         ('delivered', 'Delivered')
@@ -28,11 +29,19 @@ class BillOfLading(models.Model):
                                auto_join=True, tracking=True, copy=True)
 
     delivery_order_count = fields.Integer(compute="_get_delivery_orders", string='Delivery Orders')
+    cargo_weight = fields.Float(string='Cargo weight', compute="_get_cargo_weight")
 
     def _get_delivery_orders(self):
         orders = self.env['servoo.shipping.delivery.order']
         for record in self:
             record.delivery_order_count = orders.search_count([('bl_id', '=', record.id)])
+
+    def _get_cargo_weight(self):
+        for bl in self:
+            weight = 0.0
+            for good in bl.good_ids:
+                weight += good.gross_weight
+            bl.cargo_weight = weight
 
     def name_get(self):
         result = []
