@@ -15,6 +15,10 @@ class OperationNature(models.Model):
     description = fields.Char('Description')
     sequence_code = fields.Char('Sequence Code')
 
+    _sql_constraints = [
+        ('sequence_code_uniq', 'unique (sequence_code)', _('This sequence code must be unique!'))
+    ]
+
 
 class Operation(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
@@ -33,11 +37,11 @@ class Operation(models.Model):
     partner_id = fields.Many2one('res.partner', 'Client', required=True)
     final_partner_id = fields.Many2one('res.partner', 'Final Client')
     formality_line = fields.One2many('servoo.logistic.formality', 'operation_id', string='Formality Lines',
-                                     auto_join=True, tracking=True, copy=True)
+                                     auto_join=True, index=True, copy=True)
     document_ids = fields.One2many('servoo.logistic.document', 'operation_id', string='Documents', auto_join=True,
                                    copy=True)
     operation_vehicle_ids = fields.One2many('servoo.logistic.operation.vehicle', 'operation_id', string='Vehicles',
-                                            tracking=True, auto_join=True, copy=True)
+                                            index=True, auto_join=True, copy=True)
     departure_country_id = fields.Many2one('res.country', 'Departure Country')
     destination_country_id = fields.Many2one('res.country', 'Destination Country')
     parent_id = fields.Many2one('servoo.logistic.operation', 'Parent')

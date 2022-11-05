@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data>
+        <record model="ir.ui.view" id="view_servoo_logistic_operation_nature_tree">
+            <field name="name">servoo.logistic.operation.nature.tree</field>
+            <field name="model">servoo.logistic.operation.nature</field>
+            <field name="arch" type="xml">
+                <tree string="Operation Nature" editable="bottom">
+                    <field name="name" />
+                    <field name="description" />
+                    <field name="sequence_code" required="1" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="actions_operation_nature">
+            <field name="name">Operation Nature</field>
+            <field name="res_model">servoo.logistic.operation.nature</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree</field>
+            <field name="context">{}</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new operation nature!
+                </p>
+            </field>
+        </record>
         <record model="ir.ui.view" id="view_servoo_logistic_tree">
             <field name="name">servoo.logistic.operation.tree</field>
             <field name="model">servoo.logistic.operation</field>

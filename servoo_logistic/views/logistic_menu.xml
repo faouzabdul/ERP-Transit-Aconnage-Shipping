@@ -7,5 +7,14 @@
             web_icon="servoo_logistic,static/description/icon.png"/>
 
         <menuitem id="operation_menu" name="Operations" parent="logistic_menu_root" sequence="1" action="servoo_logistic.action_operations"/>
+
+        <menuitem id="logistic_formality_menu" action="servoo_logistic.action_formalities" parent="logistic_menu_root" sequence="19"/>
+        <menuitem id="logistic_document_menu" action="servoo_logistic.action_documents" parent="logistic_menu_root" sequence="20"/>
+
+        <menuitem id="menu_logistic_config"
+                name="Configuration"
+                parent="logistic_menu_root"
+                sequence="35"/>
+        <menuitem id="operation_nature_menu" parent="menu_logistic_config" sequence="1" action="servoo_logistic.actions_operation_nature"/>
     </data>
 </odoo>

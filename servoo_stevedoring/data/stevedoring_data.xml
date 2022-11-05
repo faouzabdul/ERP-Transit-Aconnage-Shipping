@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Sequences for shipping.pda -->
+        <record id="seq_shipping_pda" model="ir.sequence">
+            <field name="name">PDA</field>
+            <field name="code">servoo.shipping.pda</field>
+            <field name="prefix">PDA</field>
+            <field name="suffix">/%(y)s</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_shipping_file" model="ir.sequence">
+            <field name="name">Shipping File</field>
+            <field name="code">servoo.shipping.file</field>
+            <field name="prefix">SF</field>
+            <field name="suffix">/%(y)s</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_shipping_bl" model="ir.sequence">
+            <field name="name">Shipping Bill of lading</field>
+            <field name="code">servoo.shipping.bl</field>
+            <field name="prefix">APMBL</field>
+            <field name="suffix">/%(y)s</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_shipping_delivery_order" model="ir.sequence">
+            <field name="name">Shipping Delivery Order</field>
+            <field name="code">servoo.shipping.delivery.order</field>
+            <field name="prefix">APMB</field>
+            <field name="suffix">/%(y)s</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="default_confirmation_template" model="ir.config_parameter">
+            <field name="key">servoo_shipping.default_confirmation_template</field>
+            <field name="value" ref="servoo_shipping.mail_template_pda_confirmation"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <menuitem id="stevedoring_menu_root" name="Stevedoring"
+                   groups="servoo_stevedoring.stevedoring_group_user"
+            web_icon="servoo_stevedoring,static/description/icon.png"/>
+
+        <menuitem id="stevedoring_menu" name="Stevedoring" parent="stevedoring_menu_root" sequence="1"/>
+
+        <menuitem id="stevedoring_formality_menu" action="servoo_stevedoring.action_formalities" parent="stevedoring_menu_root" sequence="19"/>
+        <menuitem id="stevedoring_document_menu" action="servoo_stevedoring.action_documents" parent="stevedoring_menu_root" sequence="20"/>
+
+        <menuitem id="menu_stevedoring_config"
+            name="Configuration"
+            parent="stevedoring_menu_root"
+            sequence="35"
+            groups="servoo_stevedoring.stevedoring_group_user"/>
+
+        <menuitem id="menu_formality_type_config" action="servoo_stevedoring.action_formality_type" parent="menu_stevedoring_config" />
+        <menuitem id="menu_action_document_type_config" action="servoo_stevedoring.action_document_type" parent="menu_stevedoring_config" />
+
+        
+
+    </data>
+</odoo>
