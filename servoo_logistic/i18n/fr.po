@@ -244,10 +244,14 @@ msgstr "Types de document"
 #. module: servoo_logistic
 #: model:ir.model.fields.selection,name:servoo_logistic.selection__servoo_logistic_formality__state__done
 #: model:ir.model.fields.selection,name:servoo_logistic.selection__servoo_logistic_operation__state__done
-#: model_terms:ir.ui.view,arch_db:servoo_logistic.view_servoo_logistic_form
 #: model_terms:ir.ui.view,arch_db:servoo_logistic.view_servoo_logistic_formality_form
 msgid "Done"
 msgstr "Terminé"
+
+#. module: servoo_logistic
+#: model_terms:ir.ui.view,arch_db:servoo_logistic.view_servoo_logistic_form
+msgid "Done"
+msgstr "Terminer"
 
 #. module: servoo_logistic
 #: model:ir.model.fields.selection,name:servoo_logistic.selection__servoo_logistic_operation__state__draft

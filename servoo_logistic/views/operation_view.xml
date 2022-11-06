@@ -73,7 +73,8 @@
                         <button name="action_open" states="draft" type="object" string="Validate"/>
                         <button name="action_done" states="open" type="object" string="Done"/>
                         <button name="create_invoices" string="Create Invoice"
-                        type="object" class="btn-primary" data-hotkey="q"/>
+                        type="object" class="btn-primary" data-hotkey="q"
+                        attrs="{'invisible': ['|',('state', '!=', 'open'), ('invoice_count','&gt;=',1)]}"/>
                         <button name="action_draft" states="cancel" type="object" string="Open" groups="servoo_logistic.logistic_group_manager"/>
                         <button name="action_cancel" states="open,done" type="object" string="Cancel"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,open,done"/>
