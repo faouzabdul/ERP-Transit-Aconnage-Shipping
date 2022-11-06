@@ -38,12 +38,12 @@ class TransitOrder(models.Model):
     partner_id = fields.Many2one('res.partner', 'Client', required=True)
     final_partner_id = fields.Many2one('res.partner', 'Final Client')
     container_ids = fields.One2many('servoo.transit.container', 'order_id', string='Containers',
-                                     auto_join=True, tracking=True, copy=True)
+                                     auto_join=True, index=True, copy=True)
     good_ids = fields.One2many('servoo.transit.good', 'order_id', string='Goods',
-                                     auto_join=True, tracking=True, copy=True)
+                                     auto_join=True, index=True, copy=True)
 
     formality_line = fields.One2many('servoo.transit.formality', 'order_id', string='Formality Lines',
-                                     auto_join=True, tracking=True, copy=True)
+                                     auto_join=True, index=True, copy=True)
     document_ids = fields.One2many('servoo.transit.document', 'order_id', string='Documents', auto_join=True,
                                    copy=True)
     departure_country_id = fields.Many2one('res.country', 'Departure Country')
