@@ -20,7 +20,7 @@ class PurchaseNeed(models.Model):
     employee_id = fields.Many2one('hr.employee', 'Requesting employee', default=lambda self: self.env.user.employee_id)
     department_id = fields.Many2one(related='employee_id.department_id', related_sudo=False)
     employee_parent_id = fields.Many2one(related='employee_id.parent_id', readonly=False, related_sudo=False)
-    note = fields.Text('Notes', tracking=True)
+    note = fields.Text('Notes', index=True)
     state = fields.Selection([
         ('draft', 'Draft'),
         ('submitted', 'Submitted'),
@@ -28,7 +28,7 @@ class PurchaseNeed(models.Model):
         ('approved', 'Approved'),
         ('canceled', 'Canceled'),
         ('done', 'Done')
-    ], string='State', tracking=True, default='draft')
+    ], string='State', index=True, default='draft')
     user_id = fields.Many2one('res.users', 'User')
     our_needs = fields.Boolean('Our Needs', compute='_compute_our_needs',readonly=True, search='_search_our_needs')
 
