@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="wizard_stevedoring_outturn_report_form">
+        <field name="name">wizard.stevedoring.outturn.report.form</field>
+        <field name="model">servoo.stevedoring.bl.outturn.report</field>
+        <field name="arch" type="xml">
+            <form string="Outturn Report">
+               <sheet>
+                        <group col="4">
+                            <field name="date" />
+                            <field name="date_debut" />
+                            <field name="date_end" />
+                        </group>
+                        <group col="4">
+                            <field name="bl_id" required="1" readonly="1"/>
+                            <field name="vessel_id" />
+                            <field name="consignee_id" widget="res_partner_many2one" colspan="2"
+                                           context="{'show_address': 1, 'show_vat': True}"
+                                           options='{"always_reload": True}'/>
+                            <field name="loading_port" />
+                            <field name="discharge_port" />
+                            <field name="cargo_description" colspan="2" />
+                        </group>
+                        <group col="4">
+                            <field name="quantity" />
+                            <field name="shortage" />
+                            <field name="excess" />
+                            <field name="delivery" />
+                            <field name="note" colspan="4" />
+                        </group>
+                    </sheet>
+                <footer>
+                    <button name="action_validate" string="Validate" type="object" class="oe_highlight" data-hotkey="q"/>
+                    <button string="Discard" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizard_stevedoring_outturn_report" model="ir.actions.act_window">
+            <field name="name"></field>
+            <field name="res_model">servoo.stevedoring.bl.outturn.report</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+</odoo>

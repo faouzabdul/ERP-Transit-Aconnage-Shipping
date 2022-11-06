@@ -1,0 +1,1086 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* servoo_stevedoring
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0-20220616\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-06 11:42+0000\n"
+"PO-Revision-Date: 2022-11-06 11:42+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: servoo_stevedoring
+#: model:ir.actions.report,print_report_name:servoo_stevedoring.action_report_outturn_report
+msgid "'OUTTURN - %s' % (object.name)"
+msgstr "'OUTTURN - %s' % (object.name)"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
+msgid ", BP"
+msgstr ", BP"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
+msgid "<u>DISCHARGING COMMENCED : </u> ON"
+msgstr "<u>DISCHARGING COMMENCED : </u> ON"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
+msgid "<u>DISCHARGING COMPLETED : </u> ON"
+msgstr "<u>DISCHARGING COMPLETED : </u> ON"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
+msgid "<u>DISCHARGING PORT : </u>"
+msgstr "<u>DISCHARGING PORT : </u>"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
+msgid "<u>LOADING PORT : </u>"
+msgstr "<u>LOADING PORT : </u>"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
+msgid "APM/Stevedoring"
+msgstr "APM/Stevedoring"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__message_needaction
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__message_needaction
+msgid "Action Needed"
+msgstr "Action nécessaire"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__activity_ids
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__activity_ids
+msgid "Activities"
+msgstr "Activités"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__activity_exception_decoration
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Décoration d'exception d'activité"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__activity_state
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__activity_state
+msgid "Activity State"
+msgstr "État d'activité"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__activity_type_icon
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Icône du type d'activité"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__agent_id
+msgid "Agent"
+msgstr "Utilisateur"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__amount
+msgid "Amount"
+msgstr "Montant"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__message_attachment_count
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__message_attachment_count
+msgid "Attachment Count"
+msgstr "Nombre de pièces jointes"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document__attachment_ids
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__attachment_ids
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_document_form
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_formality_form
+msgid "Attachments"
+msgstr "Pièces jointes"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
+msgid "B/L N°"
+msgstr "B/L N°"
+
+#. module: servoo_stevedoring
+#: model:ir.model,name:servoo_stevedoring.model_servoo_shipping_bl
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_bl_outturn_report__bl_id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__bl_id
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
+msgid "Bill of lading"
+msgstr "Connaissement"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__bl_ids
+#: model:ir.ui.menu,name:servoo_stevedoring.stevedoring_bl_menu
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
+msgid "Bills of lading"
+msgstr "Connaissements"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields.selection,name:servoo_stevedoring.selection__servoo_stevedoring_file__state__cancel
+#: model:ir.model.fields.selection,name:servoo_stevedoring.selection__servoo_stevedoring_formality__state__cancel
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_formality_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_bl_outturn_report__cargo_description
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__cargo_description
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation_line__cargo_description
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__cargo_description
+msgid "Cargo Description"
+msgstr "Description de la cargaison"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__charterer_id
+msgid "Charterer"
+msgstr "Affréteur"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__partner_id
+msgid "Client"
+msgstr "Client"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document_type__code
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality_type__code
+msgid "Code"
+msgstr "Code"
+
+#. module: servoo_stevedoring
+#: model:ir.ui.menu,name:servoo_stevedoring.menu_stevedoring_config
+msgid "Configuration"
+msgstr "Configuration"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_bl_outturn_report__consignee_id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__consignee_id
+msgid "Consignee"
+msgstr "Destinataire"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__consignee_agent_id
+msgid "Consignee Agent"
+msgstr "Consignataire"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
+msgid "Create Invoice"
+msgstr "Créer une facture"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_shipping_bl_inherit_form
+msgid "Create Outturn Report"
+msgstr "Créér le Outturn Report"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__create_uid
+msgid "Create Uid"
+msgstr ""
+
+#. module: servoo_stevedoring
+#: model_terms:ir.actions.act_window,help:servoo_stevedoring.action_formalities
+msgid "Create a new formality!"
+msgstr "Créez une nouvelle formalité !"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.actions.act_window,help:servoo_stevedoring.actions_outturn_report
+msgid "Create a new outturn report!"
+msgstr "Créér un nouveau outturn report !"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.actions.act_window,help:servoo_stevedoring.action_stevedoring_file_type
+msgid "Create a new stevedoring file type!"
+msgstr "Créez un nouveau type de dossier de manutention !"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.actions.act_window,help:servoo_stevedoring.action_stevedoring_file
+msgid "Create a new stevedoring file!"
+msgstr "Créez un nouveau dossier de manutention !"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.actions.act_window,help:servoo_stevedoring.action_stevedoring_operation
+msgid "Create a new stevedoring operation!"
+msgstr "Créez une nouvelle opération de manutention !"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_bl_outturn_report__create_uid
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document__create_uid
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document_type__create_uid
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__create_uid
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_type__create_uid
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__create_uid
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality_type__create_uid
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__create_uid
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation_line__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_bl_outturn_report__create_date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document__create_date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document_type__create_date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__create_date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_type__create_date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__create_date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality_type__create_date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__create_date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation_line__create_date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_bl_outturn_report__date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__date
+msgid "Date"
+msgstr "Date"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__date_debut
+msgid "Date debut"
+msgstr "Date de début"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__date_end
+msgid "Date end"
+msgstr "Date de fin"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_bl_outturn_report__date_debut
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__date_debut
+msgid "Date of commence"
+msgstr "Date de début"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__date_debut_operation
+msgid "Date of commence operations"
+msgstr "Date de début des opérations"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_bl_outturn_report__date_end
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__date_end
+msgid "Date of complete"
+msgstr "Date de fin"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__date_end_operation
+msgid "Date of complete operations"
+msgstr "Date de fin des opérations"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
+msgid "Delivery"
+msgstr "Delivery"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_bl_outturn_report__delivery
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__delivery
+msgid "Delivery"
+msgstr "Quantité livrée"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_type__description
+msgid "Description"
+msgstr "Description"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__destination_place
+msgid "Destination Place"
+msgstr "Lieu de destination"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.wizard_stevedoring_outturn_report_form
+msgid "Discard"
+msgstr "Annuler"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_bl_outturn_report__display_name
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document__display_name
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document_type__display_name
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__display_name
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_type__display_name
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__display_name
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality_type__display_name
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__display_name
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation_line__display_name
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__display_name
+msgid "Display Name"
+msgstr "Afficher le nom"
+
+#. module: servoo_stevedoring
+#: model:ir.model,name:servoo_stevedoring.model_servoo_stevedoring_document
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_document_form
+msgid "Document"
+msgstr "Document"
+
+#. module: servoo_stevedoring
+#: model:ir.model,name:servoo_stevedoring.model_servoo_stevedoring_document_type
+msgid "Document Type"
+msgstr "Type de document"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document__document_type_id
+msgid "Document type"
+msgstr "Type de document"
+
+#. module: servoo_stevedoring
+#: model:ir.actions.act_window,name:servoo_stevedoring.action_documents
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__document_ids
+#: model:ir.ui.menu,name:servoo_stevedoring.stevedoring_document_menu
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_document_tree
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
+msgid "Documents"
+msgstr "Documents"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
+msgid "Documents Lines"
+msgstr "Lignes de documents"
+
+#. module: servoo_stevedoring
+#: model:ir.actions.act_window,name:servoo_stevedoring.action_document_type
+#: model:ir.ui.menu,name:servoo_stevedoring.menu_action_document_type_config
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_document_type_tree
+msgid "Documents Type"
+msgstr "Types de document"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields.selection,name:servoo_stevedoring.selection__servoo_stevedoring_file__state__done
+#: model:ir.model.fields.selection,name:servoo_stevedoring.selection__servoo_stevedoring_formality__state__done
+msgid "Done"
+msgstr "Terminé"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_formality_form
+msgid "Done"
+msgstr "Terminer"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields.selection,name:servoo_stevedoring.selection__servoo_stevedoring_file__state__draft
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__end_date
+msgid "End Date"
+msgstr "Date de fin"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_bl_outturn_report__excess
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__excess
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
+msgid "Excess"
+msgstr "Excess"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__external_reference
+msgid "External Reference"
+msgstr "Référence externe"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document__file_id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__file_id
+msgid "File"
+msgstr "Dossier"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__file_type_id
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_stevedoring_file_type_tree
+msgid "File Type"
+msgstr "Type de dossier"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_operation_line__product_id
+msgid "Fill in this field if it is a storable item"
+msgstr "Remplissez ce champ s'il s'agit d'un article stockable"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__message_follower_ids
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__message_follower_ids
+msgid "Followers"
+msgstr "Abonnés"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__message_partner_ids
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Abonnés (partenaires)"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_file__activity_type_icon
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_operation__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Font awesome icon e.g. fa-tasks"
+
+#. module: servoo_stevedoring
+#: model:ir.actions.act_window,name:servoo_stevedoring.action_formalities
+#: model:ir.ui.menu,name:servoo_stevedoring.stevedoring_formality_menu
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_formality_tree
+msgid "Formalities"
+msgstr "Formalités"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
+msgid "Formalities Lines"
+msgstr "Lignes de formalités"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_formality_type_tree
+msgid "Formalities Type"
+msgstr "Types de formalités"
+
+#. module: servoo_stevedoring
+#: model:ir.actions.act_window,name:servoo_stevedoring.action_formality_type
+#: model:ir.ui.menu,name:servoo_stevedoring.menu_formality_type_config
+msgid "Formalities type"
+msgstr "Type de formalités"
+
+#. module: servoo_stevedoring
+#: model:ir.model,name:servoo_stevedoring.model_servoo_stevedoring_formality
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_formality_form
+msgid "Formality"
+msgstr "Formalité"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__formality_line
+msgid "Formality Lines"
+msgstr "Lignes de formalités"
+
+#. module: servoo_stevedoring
+#: model:ir.model,name:servoo_stevedoring.model_servoo_stevedoring_formality_type
+msgid "Formality Type"
+msgstr "Type de formalité"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__has_message
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: servoo_stevedoring
+#: model:ir.module.category,description:servoo_stevedoring.module_category_stevedoring_management
+msgid "Helps you manage your stevedoring operations."
+msgstr "Vous aide à gérer vos opérations de manutention."
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_bl_outturn_report__id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document__id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document_type__id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_type__id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality_type__id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation_line__id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__id
+msgid "ID"
+msgstr ""
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__activity_exception_icon
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_file__activity_exception_icon
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_operation__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icône pour indiquer une activité d'exception."
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_file__message_needaction
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_file__message_unread
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_operation__message_needaction
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_operation__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Si cette case est cochée, de nouveaux messages nécessitent votre attention."
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_file__message_has_error
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_file__message_has_sms_error
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_operation__message_has_error
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_operation__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+"Si cette case est cochée, certains messages présentent une erreur de "
+"livraison."
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__invoice_count
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
+msgid "Invoices"
+msgstr "Factures"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__message_is_follower
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__message_is_follower
+msgid "Is Follower"
+msgstr "Est abonné"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
+msgid "LOADED AS PER CARGO MANIFEST &amp; BILL OF LOADING"
+msgstr "LOADED AS PER CARGO MANIFEST &amp; BILL OF LOADING"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_bl_outturn_report____last_update
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document____last_update
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document_type____last_update
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file____last_update
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_type____last_update
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality____last_update
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality_type____last_update
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation____last_update
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation_line____last_update
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_bl_outturn_report__write_uid
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document__write_uid
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document_type__write_uid
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__write_uid
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_type__write_uid
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__write_uid
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality_type__write_uid
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__write_uid
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation_line__write_uid
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_bl_outturn_report__write_date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document__write_date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document_type__write_date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__write_date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_type__write_date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__write_date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality_type__write_date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__write_date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation_line__write_date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields.selection,name:servoo_stevedoring.selection__servoo_stevedoring_operation__operation_nature__loading
+msgid "Loading"
+msgstr "Chargement"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation_line__location
+msgid "Location"
+msgstr "Emplacement"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
+msgid "M/V"
+msgstr "M/V"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
+msgid "MARKS &amp; DESCRIPTION OF GOODS"
+msgstr "MARKS &amp; DESCRIPTION OF GOODS"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__message_main_attachment_id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Pièce jointe principale"
+
+#. module: servoo_stevedoring
+#: model:res.groups,name:servoo_stevedoring.stevedoring_group_manager
+msgid "Manager"
+msgstr "Responsable"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__manifested_quantity
+msgid "Manifested quantity"
+msgstr "Quantité manifestée"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__message_has_error
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__message_has_error
+msgid "Message Delivery error"
+msgstr "Erreur de livraison du message"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__message_ids
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__message_ids
+msgid "Messages"
+msgstr "Messages"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__my_activity_date_deadline
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Date limite de mon activité"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document_type__name
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_type__name
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality_type__name
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__name_of_responsible
+msgid "Name of responsible"
+msgstr "Nom du responsable"
+
+#. module: servoo_stevedoring
+#: code:addons/servoo_stevedoring/models/outturn_report.py:0
+#: code:addons/servoo_stevedoring/models/outturn_report.py:0
+#: code:addons/servoo_stevedoring/models/outturn_report.py:0
+#: code:addons/servoo_stevedoring/models/outturn_report.py:0
+#: code:addons/servoo_stevedoring/models/outturn_report.py:0
+#: code:addons/servoo_stevedoring/models/stevedoring_file.py:0
+#: code:addons/servoo_stevedoring/models/stevedoring_file.py:0
+#: code:addons/servoo_stevedoring/models/stevedoring_file.py:0
+#: code:addons/servoo_stevedoring/models/stevedoring_file.py:0
+#: code:addons/servoo_stevedoring/models/stevedoring_file.py:0
+#: code:addons/servoo_stevedoring/models/stevedoring_operation.py:0
+#: code:addons/servoo_stevedoring/models/stevedoring_operation.py:0
+#: code:addons/servoo_stevedoring/models/stevedoring_operation.py:0
+#: code:addons/servoo_stevedoring/models/stevedoring_operation.py:0
+#: code:addons/servoo_stevedoring/models/stevedoring_operation.py:0
+#, python-format
+msgid "New"
+msgstr "Nouveau"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__activity_calendar_event_id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Prochain événement du calendrier des activités"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__activity_date_deadline
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Date limite de la prochaine activité"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__activity_summary
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__activity_summary
+msgid "Next Activity Summary"
+msgstr "Résumé de l'activité suivante"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__activity_type_id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__activity_type_id
+msgid "Next Activity Type"
+msgstr "Type d'activité suivant"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_bl_outturn_report__note
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation_line__note
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__note
+msgid "Notes"
+msgstr "Notes"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__message_needaction_counter
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Nombre d'actions"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__message_has_error_counter
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__message_has_error_counter
+msgid "Number of errors"
+msgstr "Nombre d'erreurs"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_file__message_needaction_counter
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_operation__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Nombre de messages nécessitant une action"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_file__message_has_error_counter
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_operation__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Nombre de messages avec erreur de livraison"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_file__message_unread_counter
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_operation__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Nombre de messages non lus"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
+msgid "ON"
+msgstr "ON"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
+msgid "OUTTURN"
+msgstr "OUTTURN"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
+msgid "OUTTURN REPORT N°"
+msgstr "OUTTURN REPORT N°"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields.selection,name:servoo_stevedoring.selection__servoo_stevedoring_file__state__open
+#: model:ir.model.fields.selection,name:servoo_stevedoring.selection__servoo_stevedoring_formality__state__open
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_formality_form
+msgid "Open"
+msgstr "Ouvert"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation_line__operation_id
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_stevedoring_operation_form
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_stevedoring_operation_tree
+msgid "Operation"
+msgstr "Opération"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_stevedoring_operation_form
+msgid "Operation Lines"
+msgstr "Lignes d'opération"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__operation_line_ids
+msgid "Operation lines"
+msgstr "Lignes d'opération"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__operation_nature
+msgid "Operation nature"
+msgstr "Nature de l'opération"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__operation_ids
+#: model:ir.ui.menu,name:servoo_stevedoring.stevedoring_op_menu
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
+msgid "Operations"
+msgstr "Opérations"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__origin_place
+msgid "Origin Place"
+msgstr "Lieu d'origine"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__other_reference
+msgid "Other reference"
+msgstr "Autre référence"
+
+#. module: servoo_stevedoring
+#: model:ir.actions.act_window,name:servoo_stevedoring.actions_outturn_report
+#: model:ir.actions.report,name:servoo_stevedoring.action_report_outturn_report
+#: model:ir.model,name:servoo_stevedoring.model_servoo_stevedoring_bl_outturn_report
+#: model:ir.model,name:servoo_stevedoring.model_servoo_stevedoring_outturn_report
+#: model:ir.ui.menu,name:servoo_stevedoring.stevedoring_outturn_report_menu
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_stevedoring_outturn_report_form
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_stevedoring_outturn_report_tree
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.wizard_stevedoring_outturn_report_form
+msgid "Outturn Report"
+msgstr "Outturn Report"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_shipping_bl__outturn_report_count
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_shipping_bl_inherit_form
+msgid "Outturns Report"
+msgstr "Outturns Report"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__administration_id
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: servoo_stevedoring
+#: code:addons/servoo_stevedoring/models/stevedoring_file.py:0
+#, python-format
+msgid "Please define an accounting sales journal for the company %s (%s)."
+msgstr "Veuillez définir un journal de ventes pour cette société %s (%s)."
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_bl_outturn_report__discharge_port
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__discharge_port
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__discharge_port
+msgid "Port of discharge"
+msgstr "Port de déchargement"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_bl_outturn_report__loading_port
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__loading_port
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__loading_port
+msgid "Port of loading"
+msgstr "Port de chargement"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation_line__product_id
+msgid "Product"
+msgstr "Article"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_bl_outturn_report__quantity
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation_line__quantity
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__quantity
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
+msgid "Quantity"
+msgstr "Quantité"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
+msgid "REMARKS"
+msgstr "REMARKS"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document__name
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__name
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__name
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__name
+msgid "Reference"
+msgstr "Référence"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__activity_user_id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__activity_user_id
+msgid "Responsible User"
+msgstr "Utilisateur responsable"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__message_has_sms_error
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Erreur de livraison SMS"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_type__sequence_code
+msgid "Sequence Code"
+msgstr "Code de la séquence"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__service_id
+msgid "Service"
+msgstr "Service"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__shipowner_id
+msgid "Shipowner"
+msgstr "Armateur"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__shipping_file_id
+msgid "Shipping File"
+msgstr "Dossier Shipping"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_bl_outturn_report__shortage
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__shortage
+msgid "Shortage"
+msgstr "Pénurie"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
+msgid "Shortage"
+msgstr "Shortage"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
+msgid "Show the operations for this stevedoring file"
+msgstr "Afficher les opérations pour ce dossier d'acconage"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__start_date
+msgid "Start Date"
+msgstr "Date de début"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__state
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__state
+msgid "Status"
+msgstr "Etat"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_file__activity_state
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_operation__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Statut basé sur les activités\n"
+"En retard : la date d'échéance est déjà dépassée\n"
+"Aujourd'hui : la date d'activité est aujourd'hui\n"
+"Prévu : Activités futures."
+
+#. module: servoo_stevedoring
+#: model:ir.module.category,name:servoo_stevedoring.module_category_stevedoring_management
+#: model:ir.ui.menu,name:servoo_stevedoring.stevedoring_menu
+#: model:ir.ui.menu,name:servoo_stevedoring.stevedoring_menu_root
+msgid "Stevedoring"
+msgstr "Acconage"
+
+#. module: servoo_stevedoring
+#: model:ir.model,name:servoo_stevedoring.model_servoo_stevedoring_file
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__stevedoring_file_id
+msgid "Stevedoring File"
+msgstr "Dossier de manutention"
+
+#. module: servoo_stevedoring
+#: model:ir.actions.act_window,name:servoo_stevedoring.action_stevedoring_file_type
+#: model:ir.model,name:servoo_stevedoring.model_servoo_stevedoring_file_type
+#: model:ir.ui.menu,name:servoo_stevedoring.stevedoring_file_type_menu
+msgid "Stevedoring File Type"
+msgstr "Type de dossier de manutention"
+
+#. module: servoo_stevedoring
+#: model:ir.actions.act_window,name:servoo_stevedoring.action_stevedoring_file
+#: model:ir.ui.menu,name:servoo_stevedoring.stevedoring_file_menu
+msgid "Stevedoring Files"
+msgstr "Dossiers de manutention"
+
+#. module: servoo_stevedoring
+#: model:ir.model,name:servoo_stevedoring.model_servoo_stevedoring_operation
+msgid "Stevedoring Operation"
+msgstr "Opération de manutention"
+
+#. module: servoo_stevedoring
+#: model:ir.model,name:servoo_stevedoring.model_servoo_stevedoring_operation_line
+msgid "Stevedoring Operation Line"
+msgstr "Ligne de l'opération de manutention"
+
+#. module: servoo_stevedoring
+#: model:ir.actions.act_window,name:servoo_stevedoring.action_stevedoring_operation
+#: model:ir.ui.menu,name:servoo_stevedoring.stevedoring_operation_menu
+msgid "Stevedoring Operations"
+msgstr "Opérations de manutention"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields.selection,name:servoo_stevedoring.selection__servoo_stevedoring_operation__operation_nature__transportation
+msgid "Transportation"
+msgstr "Transport"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__transported_quantity
+msgid "Transported quantity"
+msgstr "Quantité transportée"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
+msgid "Type of Package"
+msgstr "Type of Package"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_file__activity_exception_decoration
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_operation__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Type d'activité d'exception enregistrée."
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__unloaded_quantity
+msgid "Unloaded quantity"
+msgstr "Quantité déchargée"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields.selection,name:servoo_stevedoring.selection__servoo_stevedoring_operation__operation_nature__unloading
+msgid "Unloading"
+msgstr "Déchargement"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__message_unread
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__message_unread
+msgid "Unread Messages"
+msgstr "Messages non lus"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__message_unread_counter
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Compteur de messages non lus"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__user_id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__user_id
+#: model:res.groups,name:servoo_stevedoring.stevedoring_group_user
+msgid "User"
+msgstr "Utilisateur"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.wizard_stevedoring_outturn_report_form
+msgid "Validate"
+msgstr "Valider"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_bl_outturn_report__vessel_id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__vessel_id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__vessel_id
+msgid "Vessel"
+msgstr "Navire"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation_line__volume
+msgid "Volume"
+msgstr "Volume"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__voyage_number
+msgid "Voyage number"
+msgstr "Numéro de voyage"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__website_message_ids
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__website_message_ids
+msgid "Website Messages"
+msgstr "Messagerie du site Web"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_file__website_message_ids
+#: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_operation__website_message_ids
+msgid "Website communication history"
+msgstr "Historique des communications du site Web"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation_line__weight
+msgid "Weight"
+msgstr "Poids (kg)"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
+msgid "show the invoices for this stevedoring file"
+msgstr "Afficher les factures pour ce dossier de manutention"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_shipping_bl_inherit_form
+msgid "show the outturn report for this bill of lading"
+msgstr "Afficher le outturn report pour ce connaissement"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_tree
+msgid "stevedoring Files"
+msgstr "Dossiers de manutention"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
+msgid "stevedoring file"
+msgstr "Dossier de manutention"

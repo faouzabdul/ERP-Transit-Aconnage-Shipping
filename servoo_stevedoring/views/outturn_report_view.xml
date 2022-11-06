@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_stevedoring_outturn_report_tree">
+            <field name="name">view.stevedoring.outturn.report.tree</field>
+            <field name="model">servoo.stevedoring.outturn.report</field>
+            <field name="arch" type="xml">
+                <tree string="Outturn Report">
+                    <field name="name" />
+                    <field name="date" />
+                    <field name="bl_id" />
+                    <field name="vessel_id" />
+                    <field name="cargo_description" />
+                    <field name="quantity" />
+                    <field name="shortage" />
+                    <field name="excess" />
+                    <field name="delivery" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_stevedoring_outturn_report_form">
+             <field name="name">view.stevedoring.outturn.report.form</field>
+            <field name="model">servoo.stevedoring.outturn.report</field>
+            <field name="arch" type="xml">
+                <form string="Outturn Report">
+                    <sheet>
+                        <group col="4">
+                            <field name="name" />
+                            <field name="date" />
+                            <field name="date_debut" />
+                            <field name="date_end" />
+                        </group>
+                        <group col="4">
+                            <field name="bl_id" required="1" />
+                            <field name="vessel_id" />
+                            <field name="consignee_id" widget="res_partner_many2one" colspan="2"
+                                           context="{'show_address': 1, 'show_vat': True}"
+                                           options='{"always_reload": True}'/>
+                            <field name="loading_port" />
+                            <field name="discharge_port" />
+                            <field name="cargo_description" colspan="2" />
+                        </group>
+                        <group col="4">
+                            <field name="quantity" />
+                            <field name="shortage" />
+                            <field name="excess" />
+                            <field name="delivery" />
+                            <field name="note" colspan="4" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="actions_outturn_report">
+            <field name="name">Outturn Report</field>
+            <field name="res_model">servoo.stevedoring.outturn.report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new outturn report!
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

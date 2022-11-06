@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="report_outturn_report_document">
+    <t t-call="web.external_layout">
+        <t t-set="doc" t-value="doc.with_context(lang=doc.bl_id.consignee_id.lang)" />
+
+        <div class="page">
+            <div class="oe_structure"/>
+            <div align="center">
+                <h3 class="mt16">
+                    <span>OUTTURN REPORT N° <span t-field="doc.name"/></span>
+                </h3>
+                <p>
+                    M/V <span t-field="doc.vessel_id.name"/> ON <span t-field="doc.date"/>
+                </p>
+            </div>
+            <div class="oe_structure"/>
+            <p />
+            <p />
+            <table>
+                <tr>
+                    <td><u>DISCHARGING PORT : </u> <span t-field="doc.discharge_port.name" />, <span t-field="doc.discharge_port.country_id.name" /></td>
+                     <td><br /></td>
+                    <td align="left"><u>LOADING PORT : </u> <span t-field="doc.loading_port.name" />, <span t-field="doc.loading_port.country_id.name" /></td>
+
+                </tr>
+                <tr>
+                   <td><u>DISCHARGING COMMENCED : </u> ON <span t-field="doc.date_debut" /></td>
+                     <td><br /></td>
+                   <td align="left"><u>DISCHARGING COMPLETED : </u> ON <span t-field="doc.date_end" /></td>
+                </tr>
+            </table>
+            <p />
+            <table class="table">
+                <colgroup width="108"></colgroup>
+                <colgroup width="252"></colgroup>
+                <colgroup width="123"></colgroup>
+                <colgroup span="5" width="85"></colgroup>
+                <tr>
+                    <td colspan="3" height="17" align="center">LOADED AS PER CARGO MANIFEST &amp; BILL OF LOADING</td>
+                    <td colspan="5" align="center">OUTTURN</td>
+                </tr>
+                <tr>
+                    <td height="17" align="left">B/L N°</td>
+                    <td align="left">MARKS &amp; DESCRIPTION OF GOODS</td>
+                    <td align="left">Type of Package</td>
+                    <td align="left">Quantity</td>
+                    <td align="left">Shortage</td>
+                    <td align="left">Excess</td>
+                    <td align="left">Delivery</td>
+                    <td align="left">REMARKS</td>
+                </tr>
+                <tr>
+                    <td height="17" align="left"><span t-field="doc.bl_id.name"/></td>
+                    <td align="left">
+                        <span t-field="doc.bl_id.consignee_id.name" /> <t t-if="doc.bl_id.consignee_id.zip">, BP <span t-field="doc.bl_id.consignee_id.zip" /> </t>
+                        , <span t-field="doc.consignee_id.city" />, <span t-field="doc.consignee_id.country_id.name" />
+                    </td>
+                    <td align="left"><span t-field="doc.cargo_description" /> </td>
+                    <td align="right"><span t-field="doc.quantity" /></td>
+                    <td align="right"><span t-field="doc.shortage" /></td>
+                    <td align="right"><span t-field="doc.excess" /></td>
+                    <td align="right"><span t-field="doc.delivery" /></td>
+                    <td align="left"><span t-field="doc.note" /></td>
+                </tr>
+            </table>
+            <p />
+            <p />
+            <p />
+            <div align="left">
+                <p>APM/Stevedoring</p>
+                <p>
+<!--                    <span t-field="doc.create_uid.name" />-->
+                </p>
+            </div>
+
+        </div>
+    </t>
+</template>
+
+
+<template id="report_outturn_report">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="doc">
+            <t t-call="servoo_stevedoring.report_outturn_report_document" t-lang="doc.bl_id.consignee_id.lang"/>
+        </t>
+    </t>
+</template>
+
+    <record id="paperformat_outturn_report" model="report.paperformat">
+    <field name="name">Custom Paperformat for the Ouuttun report</field>
+    <field name="default" eval="False"/>
+    <field name="disable_shrinking" eval="True"/>
+    <field name="format">A4</field>
+    <field name="page_height">0</field>
+    <field name="page_width">0</field>
+    <field name="orientation">Landscape</field>
+    <field name="margin_top">8</field>
+    <field name="margin_bottom">8</field>
+    <field name="margin_left">8</field>
+    <field name="margin_right">8</field>
+    <field name="dpi">96</field>
+</record>
+
+<record id="action_report_outturn_report" model="ir.actions.report">
+    <field name="name">Outturn Report</field>
+    <field name="model">servoo.stevedoring.outturn.report</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">servoo_stevedoring.report_outturn_report</field>
+    <field name="report_file">servoo_stevedoring.report_outturn_report</field>
+    <field name="print_report_name">'OUTTURN - %s' % (object.name)</field>
+    <field name="binding_model_id" ref="model_servoo_stevedoring_outturn_report"/>
+    <field name="binding_type">report</field>
+    <field name="paperformat_id" ref="paperformat_outturn_report"/>
+</record>
+</odoo>
