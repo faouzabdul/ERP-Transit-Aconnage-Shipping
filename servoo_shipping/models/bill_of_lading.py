@@ -26,7 +26,7 @@ class BillOfLading(models.Model):
         ('delivered', 'Delivered')
     ], default='saved', string='State', index=True)
     good_ids = fields.One2many('servoo.shipping.good', 'bl_id', string='Goods',
-                               auto_join=True, tracking=True, copy=True)
+                               auto_join=True, index=True, copy=True)
 
     delivery_order_count = fields.Integer(compute="_get_delivery_orders", string='Delivery Orders')
     cargo_weight = fields.Float(string='Cargo weight', compute="_get_cargo_weight")

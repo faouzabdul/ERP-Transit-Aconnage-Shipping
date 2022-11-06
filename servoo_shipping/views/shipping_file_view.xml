@@ -31,7 +31,7 @@
                         <button name="action_done" states="open" type="object" string="Done"/>
                         <button name="create_invoices" string="Create Invoice"
                                 type="object" class="btn-primary" data-hotkey="q"
-                                attrs="{'invisible': ['|',('state', '!=', 'open'), ('invoice_count', '!=', '0')]}"/>
+                                attrs="{'invisible': ['|',('state', '!=', 'open'), ('invoice_count','&gt;=',1)]}"/>
                         <button name="action_draft" states="cancel" type="object" string="Open"
                                 groups="servoo_shipping.shipping_group_manager"/>
                         <button name="action_cancel" states="open,done" type="object" string="Cancel"/>

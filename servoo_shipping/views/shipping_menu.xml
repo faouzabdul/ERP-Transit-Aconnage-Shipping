@@ -6,14 +6,15 @@
                    groups="servoo_shipping.shipping_group_user"
             web_icon="servoo_shipping,static/description/icon.png"/>
 
-        <menuitem id="shipping_menu" name="Shipping" parent="shipping_menu_root" sequence="1"/>
+        <menuitem id="shipping_pda_menu" parent="shipping_menu_root" action="servoo_shipping.action_shipping_pda" sequence="1" />
+        <menuitem id="shipping_menu" name="Shipping" parent="shipping_menu_root" sequence="2"/>
 <!--        <menuitem id="maritime_agent_menu" parent="shipping_menu" action="servoo_shipping.action_maritime_agent" />-->
-        <menuitem id="shipping_pda_menu" parent="shipping_menu" action="servoo_shipping.action_shipping_pda" />
+
 
         <menuitem id="shipping_partner_menu"
             parent="shipping_menu_root"
             action="account.res_partner_action_customer"
-            sequence="1"/>
+            sequence="3"/>
 
         <menuitem action="sale.product_template_action" id="shipping_product_menu" parent="shipping_menu_root" sequence="5" />
 

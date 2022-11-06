@@ -27,7 +27,7 @@
                 <form string="Bill of lading">
                     <header>
                         <button name="%(action_wizard_shipping_delivery_order)d" string="Create Delivery Order" type="action" states="saved"
-                        class="btn-primary"/>
+                        class="btn-primary" groups="servoo_shipping.shipping_group_user"/>
                             <field name="state" widget="statusbar" statusbar_visible="saved,delivered"/>
                         </header>
                     <sheet>
