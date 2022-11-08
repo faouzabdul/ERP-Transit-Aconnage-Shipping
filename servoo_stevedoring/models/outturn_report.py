@@ -24,7 +24,7 @@ class OutturnReport(models.Model):
     date_debut = fields.Datetime('Date of commence')
     date_end = fields.Datetime('Date of complete')
     date = fields.Date('Date', default=datetime.now())
-    create_uid = fields.Many2one('res.user')
+    create_uid = fields.Many2one('res.users')
 
     @api.depends('excess', 'shortage', 'quantity')
     def _compute_delivery(self):

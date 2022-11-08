@@ -58,7 +58,7 @@ class StevedoringFile(models.Model):
         ('done', 'Done'),
         ('cancel', 'Cancel')
     ], string='Status', default='draft')
-    user_id = fields.Many2one('res.user', 'User')
+    user_id = fields.Many2one('res.users', 'User')
 
     @api.model
     def create(self, vals):
