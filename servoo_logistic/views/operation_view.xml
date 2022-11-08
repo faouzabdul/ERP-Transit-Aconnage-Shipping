@@ -50,11 +50,11 @@
             <field name="arch" type="xml">
                 <tree string="Operations">
                     <field name="name" />
-                    <field name="external_reference" />
+<!--                    <field name="external_reference" />-->
                     <field name="operation_nature" />
                     <field name="operation_type" />
                     <field name="partner_id" />
-                    <field name="transport_mode_id" />
+<!--                    <field name="transport_mode_id" />-->
                     <field name="date_debut" />
                     <field name="volume" />
                     <field name="weight" />
@@ -103,22 +103,23 @@
                             </group>
                             <group string="Transport" col="4">
                                 <field name="bill_of_lading" />
-                                 <field name="arrival_date"/>
+                                <field name="arrival_date"/>
                                 <field name="transport_mode_id" options="{'no_create': True}"/>
                                 <field name="transport_means_id" options="{'no_create': True}"/>
                                 <field name="departure_country_id" options="{'no_create': True}"/>
                                 <field name="destination_country_id" options="{'no_create': True}"/>
                                 <field name="loading_place_id"  options="{'no_create': True}" domain="[('country_id', '=', departure_country_id)]"/>
                                 <field name="unloading_place_id" options="{'no_create': True}" domain="[('country_id', '=', destination_country_id)]" />
+                            </group>
+                            <group string="Delivery" col="4">
                                 <field name="delivery_place" />
                                 <field name="delivery_date" />
                             </group>
                             <group string="Goods" col="4">
-                                <field name="goods_description" />
+                                <field name="goods_description" colspan="4"/>
                                 <field name="volume" />
                                 <field name="weight" />
                             </group>
-
                         </group>
                         <notebook>
                                 <page string="Formalities">
@@ -131,6 +132,8 @@
                                             <field name="administration_id" required="0" />
                                             <field name="start_date" />
                                             <field name="amount" invisible="0"/>
+                                            <field name="tax_id" widget="many2many_tags" options="{'no_create': True}" context="{'search_view_ref': 'account.account_tax_view_search'}" domain="[('type_tax_use','=','sale')]"
+                                                attrs="{'readonly': [('state', 'in', ('done','cancel'))]}"/>
                                             <field name="agent_id" invisible="0"/>
                                             <field name="end_date" invisible="0"/>
                                             <field name="state" invisible="1"/>

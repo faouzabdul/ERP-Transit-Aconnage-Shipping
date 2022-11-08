@@ -18,7 +18,7 @@ class Formality(models.Model):
     _description = "Formality"
 
     service_id = fields.Many2one('product.product', 'Service')
-    name = fields.Char('Reference')
+    name = fields.Char('Description')
     other_reference = fields.Char('Other reference')
     start_date = fields.Datetime('Start Date', default=datetime.now())
     end_date = fields.Datetime('End Date')
@@ -35,6 +35,12 @@ class Formality(models.Model):
         ('done', 'Done'),
         ('cancel', 'Cancel')
     ], string='Status', default='open')
+    tax_id = fields.Many2many('account.tax', string='Taxes', context={'active_test': False})
+
+    def _compute_tax_id(self):
+        for line in self:
+            taxes = line.service_id.taxes_id.filtered(lambda t: t.company_id == line.env.company)
+            line.tax_id = taxes
 
     @api.onchange('service_id')
     def onchange_service_id(self):
@@ -43,6 +49,15 @@ class Formality(models.Model):
         """
         if self.service_id:
             self.amount = self.service_id.list_price
+            self.name = self.service_id.name
+        self._compute_tax_id()
+
+    @api.onchange('end_date')
+    def onchange_end_date(self):
+        if self.end_date:
+            self.action_done()
+        else:
+            self.action_open()
 
     def action_cancel(self):
         return self.write({'state': 'cancel'})

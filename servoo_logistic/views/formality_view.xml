@@ -38,6 +38,8 @@
                                 <field name="other_reference" />
                                 <field name="administration_id" required="1" attrs="{'readonly': [('state', 'in', ('done','cancel'))]}"/>
                                 <field name="amount" attrs="{'readonly': [('state', 'in', ('done','cancel'))]}"/>
+                                <field name="tax_id" widget="many2many_tags" options="{'no_create': True}" context="{'search_view_ref': 'account.account_tax_view_search'}" domain="[('type_tax_use','=','sale')]"
+                                                attrs="{'readonly': [('state', 'in', ('done','cancel'))]}"/>
                                 <field name="operation_id" required="1" attrs="{'readonly': [('state', 'in', ('done','cancel'))]}"/>
                                 <field name="agent_id" />
                             </group>

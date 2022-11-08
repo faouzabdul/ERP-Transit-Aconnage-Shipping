@@ -15,26 +15,22 @@ class OperationNature(models.Model):
     description = fields.Char('Description')
     sequence_code = fields.Char('Sequence Code')
 
-    _sql_constraints = [
-        ('sequence_code_uniq', 'unique (sequence_code)', _('This sequence code must be unique!'))
-    ]
-
 
 class Operation(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _name = 'servoo.logistic.operation'
     _order = 'id desc'
 
-    operation_nature = fields.Many2one('servoo.logistic.operation.nature', 'Operation Nature')
+    operation_nature = fields.Many2one('servoo.logistic.operation.nature', 'Operation Nature', index=True)
     volume = fields.Float('Volume', digits=(12, 3))
     weight = fields.Float('Weight', digits=(12, 3))
-    goods_description = fields.Char('Description of goods')
-    bill_of_lading = fields.Char('Bill of lading')
+    goods_description = fields.Text('Description of goods')
+    bill_of_lading = fields.Char('Bill of lading', index=True)
     name = fields.Char(string='Reference', required=True, index=True, default=lambda self: _('New'), copy=False)
     external_reference = fields.Char(string='External Reference')
     date_debut = fields.Datetime('Date Debut')
     date_end = fields.Datetime('Date End')
-    partner_id = fields.Many2one('res.partner', 'Client', required=True)
+    partner_id = fields.Many2one('res.partner', 'Client', required=True, index=True)
     final_partner_id = fields.Many2one('res.partner', 'Final Client')
     formality_line = fields.One2many('servoo.logistic.formality', 'operation_id', string='Formality Lines',
                                      auto_join=True, index=True, copy=True)
@@ -66,7 +62,7 @@ class Operation(models.Model):
         ('open', 'Open'),
         ('done', 'Done'),
         ('cancel', 'Cancel')
-    ], string='Status', default='draft')
+    ], string='Status', default='draft', index=True)
 
     _sql_constraints = [
         ('name_uniq', 'unique (name)', _('This reference must be unique!'))
@@ -190,6 +186,7 @@ class Operation(models.Model):
                         'product_id': line.service_id.id,
                         'quantity': 1.0,
                         'price_unit': line.amount,
+                        'tax_ids': [(6, 0, line.tax_id.ids)],
                     }),
                 )
             invoice_vals['invoice_line_ids'] += invoice_line_vals
