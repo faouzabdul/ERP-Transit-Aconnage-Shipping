@@ -7,6 +7,8 @@
             web_icon="servoo_transit,static/description/icon.png"/>
 
         <menuitem id="transit_order_menu" name="Transit Order" parent="transit_menu_root" sequence="1" action="servoo_transit.action_transit_order"/>
+        <menuitem id="transit_formality_menu" action="servoo_transit.action_formalities" parent="transit_menu_root" sequence="19"/>
+        <menuitem id="transit_document_menu" action="servoo_transit.action_documents" parent="transit_menu_root" sequence="20"/>
         <menuitem id="transit_config_menu" name="Configuration" parent="transit_menu_root" sequence="100" groups="servoo_transit.transit_group_manager"/>
             <menuitem id="locode_config_menu"  parent="transit_config_menu" action="dyen_base.action_res_unlocode" />
             <menuitem id="transport_mode_config_menu"  parent="transit_config_menu" action="dyen_base.action_res_transport_mode" />
@@ -18,6 +20,8 @@
             <menuitem id="customs_regime_config_menu" parent="transit_config_menu" action="dyen_base.action_res_customs_regime" />
             <menuitem id="operation_sub_type_config_menu" parent="transit_config_menu" action="servoo_transit.action_operation_sub_type" />
 
-
+        <menuitem id="transit_invoice_menu" parent="account.menu_finance" name="Customs Operations" sequence="5">
+            <menuitem id="transit_order_invoice_menu" action="servoo_transit.action_transit_order_to_invoice" />
+        </menuitem>
     </data>
 </odoo>

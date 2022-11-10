@@ -27,6 +27,10 @@
         <menuitem id="shipping_pda_template_menu" action="servoo_shipping.shipping_pda_template_action" parent="menu_shipping_config" sequence="1" name="PDA Templates"/>
 <!--        <menuitem id="shipping_product_pricelist_menu" name="Pricelists" parent="menu_shipping_config" action="product.product_pricelist_action2" sequence="3"/>-->
 
+        <menuitem id="shipping_invoice_menu" parent="account.menu_finance" name="Shipping" sequence="4">
+            <menuitem id="shipping_pda_invoice_menu" action="servoo_shipping.action_shipping_pda_to_invoice" />
+        </menuitem>
+
 
 
     </data>

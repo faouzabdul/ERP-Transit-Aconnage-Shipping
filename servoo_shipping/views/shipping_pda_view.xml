@@ -34,21 +34,28 @@
             <field name="arch" type="xml">
               <form string="PDA" class="o_sale_order" js_class="sale_discount_form">
                 <header>
-                    <button name="action_send" string="Send PDA" type="object" states="draft" class="btn-primary" data-hotkey="g"/>
-                    <button name="action_pda_send" type="object" string="Send by Email" class="btn-primary"
+                    <button name="action_send" string="Send PDA" type="object" states="draft" class="btn-primary" data-hotkey="g"
+                    groups="servoo_shipping.shipping_group_user"/>
+                    <button name="action_pda_send" type="object" string="Send by Email" class="btn-primary" groups="servoo_shipping.shipping_group_user"
                       attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('invoice_count','&gt;=',1)]}" context="{'proforma': True}"/>
                     <button name="action_confirm" id="action_confirm" data-hotkey="v"
-                        string="Confirm" class="btn-success" type="object"
+                        string="Confirm" class="btn-success" type="object" groups="servoo_shipping.shipping_group_user"
                         attrs="{'invisible': [('state', 'not in', ['sent'])]}"/>
                     <button name="action_confirm" data-hotkey="v"
-                        string="Confirm" type="object" class="btn-success"
+                        string="Confirm" type="object" class="btn-success" groups="servoo_shipping.shipping_group_user"
                         attrs="{'invisible': [('state', 'not in', ['draft'])]}"/>
                     <button name="action_lose" string="Lose" attrs="{'invisible': [('state', 'not in', ['sent', 'draft'])]}" class="btn-danger"/>
                     <button name="create_invoices" string="Create Invoice"
-                        type="object" class="btn-primary" data-hotkey="q"
+                        type="object" class="btn-primary" data-hotkey="q" groups="account.group_account_invoice"
                         attrs="{'invisible': ['|',('state', '!=', 'won'), ('invoice_count','&gt;=',1)]}"/>
-                    <button name="action_cancel" type="object" string="Cancel" attrs="{'invisible': ['|', ('state', 'not in', ['draft', 'sent','won']), ('id', '=', False)]}" data-hotkey="z"/>
-                    <button name="action_draft" states="cancel" type="object" string="Set to draft" data-hotkey="w"/>
+
+                    <button name="create_invoices" string="Create Invoice"
+                        type="object" data-hotkey="q" groups="account.group_account_invoice"
+                        attrs="{'invisible': ['|',('state', '!=', 'won'), ('invoice_count','=',0)]}"/>
+
+                    <button name="action_cancel" type="object" string="Cancel" attrs="{'invisible': ['|', ('state', 'not in', ['draft', 'sent','won']), ('id', '=', False)]}" data-hotkey="z"
+                    groups="servoo_shipping.shipping_group_user"/>
+                    <button name="action_draft" states="cancel" type="object" string="Set to draft" data-hotkey="w" groups="servoo_shipping.shipping_group_user"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,sent,won"/>
                 </header>
                 <sheet>
@@ -398,6 +405,19 @@
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Create a new PDA!
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_shipping_pda_to_invoice">
+            <field name="name">PDA</field>
+            <field name="res_model">servoo.shipping.pda</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="domain">[('state', '=', 'won'), ('invoice_count','&lt;=',1)]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    There is no PDA to invoice!
                 </p>
             </field>
         </record>

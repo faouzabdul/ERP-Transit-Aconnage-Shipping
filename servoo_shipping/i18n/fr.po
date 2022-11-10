@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220616\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-29 19:17+0000\n"
-"PO-Revision-Date: 2022-10-29 19:17+0000\n"
+"POT-Creation-Date: 2022-11-10 04:30+0000\n"
+"PO-Revision-Date: 2022-11-10 04:30+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1921,9 +1921,13 @@ msgid "Only draft pdas can be marked as sent directly."
 msgstr ""
 
 #. module: servoo_shipping
+#: model_terms:ir.ui.view,arch_db:servoo_shipping.view_servoo_shipping_file_form
+msgid "Open"
+msgstr "Ouvrir"
+
+#. module: servoo_shipping
 #: model:ir.model.fields.selection,name:servoo_shipping.selection__servoo_shipping_file__state__open
 #: model:ir.model.fields.selection,name:servoo_shipping.selection__servoo_shipping_formality__state__open
-#: model_terms:ir.ui.view,arch_db:servoo_shipping.view_servoo_shipping_file_form
 msgid "Open"
 msgstr "Ouvert"
 
@@ -2020,6 +2024,12 @@ msgstr "PDA confirmé"
 #: model:mail.message.subtype,name:servoo_shipping.mt_pda_sent
 msgid "PDA sent"
 msgstr "PDA envoyé"
+
+#. module: servoo_shipping
+#: model:ir.actions.act_window,name:servoo_shipping.action_shipping_pda_to_invoice
+#: model:ir.ui.menu,name:servoo_shipping.shipping_pda_invoice_menu
+msgid "PDA to Invoice"
+msgstr ""
 
 #. module: servoo_shipping
 #: model:mail.template,name:servoo_shipping.mail_template_pda_confirmation
@@ -2402,6 +2412,7 @@ msgstr "Chargeur"
 
 #. module: servoo_shipping
 #: model:ir.module.category,name:servoo_shipping.module_category_shipping_management
+#: model:ir.ui.menu,name:servoo_shipping.shipping_invoice_menu
 #: model:ir.ui.menu,name:servoo_shipping.shipping_menu
 msgid "Shipping"
 msgstr ""
@@ -2427,6 +2438,12 @@ msgstr "Type de dossier shipping"
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.view_servoo_shipping_file_tree
 msgid "Shipping Files"
 msgstr "Dossiers Shipping"
+
+#. module: servoo_shipping
+#: model:ir.actions.act_window,name:servoo_shipping.action_shipping_file_to_invoice
+#: model:ir.ui.menu,name:servoo_shipping.shipping_file_invoice_menu
+msgid "Shipping Files To Invoice"
+msgstr ""
 
 #. module: servoo_shipping
 #: model:ir.model,name:servoo_shipping.model_servoo_shipping_pda
@@ -2617,6 +2634,16 @@ msgid ""
 "The rate of the currency to the currency of rate 1 applicable at the date of"
 " the order"
 msgstr ""
+
+#. module: servoo_shipping
+#: model_terms:ir.actions.act_window,help:servoo_shipping.action_shipping_pda_to_invoice
+msgid "There is no PDA to invoice!"
+msgstr "Il n'y a aucun PDA à facturer"
+
+#. module: servoo_shipping
+#: model_terms:ir.actions.act_window,help:servoo_shipping.action_shipping_file_to_invoice
+msgid "There is no shipping file to invoice!"
+msgstr "Il n'y a aucun dossier shipping à facturer"
 
 #. module: servoo_shipping
 #: code:addons/servoo_shipping/models/shipping_pda.py:0

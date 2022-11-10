@@ -6,14 +6,91 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220616\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-29 13:40+0000\n"
-"PO-Revision-Date: 2022-09-29 13:40+0000\n"
+"POT-Creation-Date: 2022-11-10 04:23+0000\n"
+"PO-Revision-Date: 2022-11-10 04:23+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: servoo_transit
+#: model:ir.actions.report,print_report_name:servoo_transit.action_report_transit_order
+msgid ""
+"\n"
+"                ('Transit Order - %s' % (object.name))"
+msgstr ""
+
+#. module: servoo_transit
+#: model_terms:ir.ui.view,arch_db:servoo_transit.report_transit_order_document
+msgid "<span>CUSTOMER : </span>"
+msgstr ""
+
+#. module: servoo_transit
+#: model_terms:ir.ui.view,arch_db:servoo_transit.report_transit_order_document
+msgid "<strong>BILL N°</strong>"
+msgstr ""
+
+#. module: servoo_transit
+#: model_terms:ir.ui.view,arch_db:servoo_transit.report_transit_order_document
+msgid "<strong>Description of goods</strong>"
+msgstr ""
+
+#. module: servoo_transit
+#: model_terms:ir.ui.view,arch_db:servoo_transit.report_transit_order_document
+msgid "<strong>FLIGHT</strong>"
+msgstr ""
+
+#. module: servoo_transit
+#: model_terms:ir.ui.view,arch_db:servoo_transit.report_transit_order_document
+msgid "<strong>LTA</strong>"
+msgstr ""
+
+#. module: servoo_transit
+#: model_terms:ir.ui.view,arch_db:servoo_transit.report_transit_order_document
+msgid "<strong>Marks</strong>"
+msgstr ""
+
+#. module: servoo_transit
+#: model_terms:ir.ui.view,arch_db:servoo_transit.report_transit_order_document
+msgid "<strong>Number</strong>"
+msgstr ""
+
+#. module: servoo_transit
+#: model_terms:ir.ui.view,arch_db:servoo_transit.report_transit_order_document
+msgid "<strong>OF</strong>"
+msgstr ""
+
+#. module: servoo_transit
+#: model_terms:ir.ui.view,arch_db:servoo_transit.report_transit_order_document
+msgid "<strong>Packaging</strong>"
+msgstr ""
+
+#. module: servoo_transit
+#: model_terms:ir.ui.view,arch_db:servoo_transit.report_transit_order_document
+msgid "<strong>SLTA</strong>"
+msgstr ""
+
+#. module: servoo_transit
+#: model_terms:ir.ui.view,arch_db:servoo_transit.report_transit_order_document
+msgid "<strong>VESSEL</strong>"
+msgstr ""
+
+#. module: servoo_transit
+#: model_terms:ir.ui.view,arch_db:servoo_transit.report_transit_order_document
+msgid "<strong>Value</strong>"
+msgstr ""
+
+#. module: servoo_transit
+#: model_terms:ir.ui.view,arch_db:servoo_transit.report_transit_order_document
+msgid "<strong>Volume</strong>"
+msgstr ""
+
+#. module: servoo_transit
+#: model_terms:ir.ui.view,arch_db:servoo_transit.report_transit_order_document
+msgid "<strong>Weight</strong>"
+msgstr ""
 
 #. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__message_needaction
@@ -63,6 +140,8 @@ msgstr "Nombre de pièces jointes"
 #. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_document__attachment_ids
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_formality__attachment_ids
+#: model_terms:ir.ui.view,arch_db:servoo_transit.view_document_form
+#: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_formality_form
 msgid "Attachments"
 msgstr "Pièces jointes"
 
@@ -80,6 +159,7 @@ msgstr "Marque"
 #: model:ir.model.fields.selection,name:servoo_transit.selection__servoo_transit_formality__state__cancel
 #: model:ir.model.fields.selection,name:servoo_transit.selection__servoo_transit_order__state__cancel
 #: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_form
+#: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_formality_form
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -127,6 +207,11 @@ msgid "Create Invoice"
 msgstr "Créer la facture"
 
 #. module: servoo_transit
+#: model_terms:ir.actions.act_window,help:servoo_transit.action_formalities
+msgid "Create a new formality!"
+msgstr ""
+
+#. module: servoo_transit
 #: model_terms:ir.actions.act_window,help:servoo_transit.action_transit_order
 msgid "Create a new transit order!"
 msgstr "Créer un nouvel ordre de transit!"
@@ -168,6 +253,7 @@ msgid "Customs Office"
 msgstr "Bureau de douane"
 
 #. module: servoo_transit
+#: model:ir.ui.menu,name:servoo_transit.transit_invoice_menu
 #: model:ir.ui.menu,name:servoo_transit.transit_menu_root
 msgid "Customs Operations"
 msgstr "Opérations Douanières"
@@ -238,6 +324,7 @@ msgstr "Nom affiché"
 
 #. module: servoo_transit
 #: model:ir.model,name:servoo_transit.model_servoo_transit_document
+#: model_terms:ir.ui.view,arch_db:servoo_transit.view_document_form
 msgid "Document"
 msgstr ""
 
@@ -252,7 +339,10 @@ msgid "Document type"
 msgstr "Type de document"
 
 #. module: servoo_transit
+#: model:ir.actions.act_window,name:servoo_transit.action_documents
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__document_ids
+#: model:ir.ui.menu,name:servoo_transit.transit_document_menu
+#: model_terms:ir.ui.view,arch_db:servoo_transit.view_document_tree
 #: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_form
 msgid "Documents"
 msgstr ""
@@ -263,9 +353,16 @@ msgid "Documents Lines"
 msgstr "Lignes documents"
 
 #. module: servoo_transit
+#: model:ir.actions.act_window,name:servoo_transit.action_document_type
+#: model_terms:ir.ui.view,arch_db:servoo_transit.view_document_type_tree
+msgid "Documents Type"
+msgstr ""
+
+#. module: servoo_transit
 #: model:ir.model.fields.selection,name:servoo_transit.selection__servoo_transit_formality__state__done
 #: model:ir.model.fields.selection,name:servoo_transit.selection__servoo_transit_order__state__done
 #: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_form
+#: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_formality_form
 msgid "Done"
 msgstr "Terminé"
 
@@ -294,6 +391,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__external_reference
 msgid "External Reference"
 msgstr "Référence externe"
+
+#. module: servoo_transit
+#: model_terms:ir.ui.view,arch_db:servoo_transit.report_transit_order_document
+msgid "FILE N°"
+msgstr ""
 
 #. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__fob_charges
@@ -332,7 +434,10 @@ msgid "Font awesome icon e.g. fa-tasks"
 msgstr ""
 
 #. module: servoo_transit
+#: model:ir.actions.act_window,name:servoo_transit.action_formalities
+#: model:ir.ui.menu,name:servoo_transit.transit_formality_menu
 #: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_form
+#: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_formality_tree
 msgid "Formalities"
 msgstr "Formalités"
 
@@ -342,7 +447,18 @@ msgid "Formalities Lines"
 msgstr "Lignes de formalités"
 
 #. module: servoo_transit
+#: model_terms:ir.ui.view,arch_db:servoo_transit.view_formality_type_tree
+msgid "Formalities Type"
+msgstr ""
+
+#. module: servoo_transit
+#: model:ir.actions.act_window,name:servoo_transit.action_formality_type
+msgid "Formalities type"
+msgstr ""
+
+#. module: servoo_transit
 #: model:ir.model,name:servoo_transit.model_servoo_transit_formality
+#: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_formality_form
 msgid "Formality"
 msgstr "Formalité"
 
@@ -634,11 +750,21 @@ msgid "Number of unread messages"
 msgstr ""
 
 #. module: servoo_transit
+#: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_form
+#: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_formality_form
+msgid "Open"
+msgstr "Ouvrir"
+
+#. module: servoo_transit
 #: model:ir.model.fields.selection,name:servoo_transit.selection__servoo_transit_formality__state__open
 #: model:ir.model.fields.selection,name:servoo_transit.selection__servoo_transit_order__state__open
-#: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_form
 msgid "Open"
 msgstr "Ouvert"
+
+#. module: servoo_transit
+#: model_terms:ir.ui.view,arch_db:servoo_transit.view_operation_sub_type_tree
+msgid "Operation sub type"
+msgstr ""
 
 #. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_formality__other_reference
@@ -754,9 +880,16 @@ msgid ""
 msgstr ""
 
 #. module: servoo_transit
+#: model:ir.actions.act_window,name:servoo_transit.action_operation_sub_type
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__sub_operation_type
+#: model:ir.ui.menu,name:servoo_transit.operation_sub_type_config_menu
 msgid "Sub Type"
 msgstr "Sous-Type"
+
+#. module: servoo_transit
+#: model_terms:ir.actions.act_window,help:servoo_transit.action_transit_order_to_invoice
+msgid "There is no transit order to invoice!"
+msgstr "Il n'y a aucun ordre de transit à facturer"
 
 #. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__total_amount_currency
@@ -786,17 +919,21 @@ msgid "Transit Country"
 msgstr "Pays de transit"
 
 #. module: servoo_transit
+#: model:ir.actions.report,name:servoo_transit.action_report_transit_order
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_container__order_id
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_document__order_id
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_formality__order_id
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_good__order_id
 #: model:ir.ui.menu,name:servoo_transit.transit_order_menu
+#: model_terms:ir.ui.view,arch_db:servoo_transit.report_transit_order_document
 #: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_form
 msgid "Transit Order"
 msgstr "Ordre de Transit"
 
 #. module: servoo_transit
 #: model:ir.actions.act_window,name:servoo_transit.action_transit_order
+#: model:ir.actions.act_window,name:servoo_transit.action_transit_order_to_invoice
+#: model:ir.ui.menu,name:servoo_transit.transit_order_invoice_menu
 #: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_tree
 msgid "Transit Orders"
 msgstr "Ordres de transit"
@@ -894,6 +1031,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_container__weight
 msgid "Weight (kg)"
 msgstr "Poids (kg)"
+
+#. module: servoo_transit
+#: model_terms:ir.ui.view,arch_db:servoo_transit.report_transit_order_document
+msgid "Y/REF."
+msgstr ""
 
 #. module: servoo_transit
 #: model:ir.model,name:servoo_transit.model_servoo_transit_container

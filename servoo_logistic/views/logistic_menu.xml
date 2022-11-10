@@ -16,5 +16,9 @@
                 parent="logistic_menu_root"
                 sequence="35"/>
         <menuitem id="operation_nature_menu" parent="menu_logistic_config" sequence="1" action="servoo_logistic.actions_operation_nature"/>
+
+        <menuitem id="logistic_invoice_menu" parent="account.menu_finance" name="Logistic" sequence="6">
+            <menuitem id="logistic_operation_invoice_menu" action="servoo_logistic.action_operations_to_invoice" />
+        </menuitem>
     </data>
 </odoo>

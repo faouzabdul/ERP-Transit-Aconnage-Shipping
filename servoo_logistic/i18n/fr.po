@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220616\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-08 09:06+0000\n"
-"PO-Revision-Date: 2022-11-08 09:06+0000\n"
+"POT-Creation-Date: 2022-11-10 04:26+0000\n"
+"PO-Revision-Date: 2022-11-10 04:26+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -454,6 +454,7 @@ msgstr "Lieu de chargement"
 
 #. module: servoo_logistic
 #: model:ir.module.category,name:servoo_logistic.module_category_logistic_management
+#: model:ir.ui.menu,name:servoo_logistic.logistic_invoice_menu
 #: model:ir.ui.menu,name:servoo_logistic.logistic_menu_root
 msgid "Logistic"
 msgstr "Logistique"
@@ -579,6 +580,8 @@ msgstr "Nature opération"
 
 #. module: servoo_logistic
 #: model:ir.actions.act_window,name:servoo_logistic.action_operations
+#: model:ir.actions.act_window,name:servoo_logistic.action_operations_to_invoice
+#: model:ir.ui.menu,name:servoo_logistic.logistic_operation_invoice_menu
 #: model:ir.ui.menu,name:servoo_logistic.operation_menu
 #: model_terms:ir.ui.view,arch_db:servoo_logistic.view_servoo_logistic_tree
 msgid "Operations"
@@ -660,6 +663,11 @@ msgstr "Sous-opération"
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_formality__tax_id
 msgid "Taxes"
 msgstr ""
+
+#. module: servoo_logistic
+#: model_terms:ir.actions.act_window,help:servoo_logistic.action_operations_to_invoice
+msgid "There is no logistic operation to invoice!"
+msgstr "Il n'y a aucune opération de logistique à facturer"
 
 #. module: servoo_logistic
 #: code:addons/servoo_logistic/models/operation.py:0
