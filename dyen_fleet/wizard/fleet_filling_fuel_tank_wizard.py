@@ -32,10 +32,10 @@ class FleetFillingFuelTank(models.TransientModel):
         if (self.liter + self.tank_id.liter) == self.tank_id.capacity:
             # self.tank_id.last_fill_date = datetime.now()
             self.tank_id.last_fill_date = self.date
-        self.tank_id.liter += self.liter
+        self.sudo().tank_id.liter += self.liter
         # self.tank_id.last_add_fuel_date = datetime.now()
-        self.tank_id.last_add_fuel_date = self.date
-        return self.env['fleet.fuel.tank.filling'].create({
+        self.sudo().tank_id.last_add_fuel_date = self.date
+        return self.env['fleet.fuel.tank.filling'].sudo().create({
             'date': self.date,
             'liter': self.liter,
             'name': self.name,

@@ -7,7 +7,7 @@
     'author': 'servoo',
     'description': """
     """,
-    'depends': ['purchase', 'hr'],
+    'depends': ['purchase', 'hr', 'dyen_fleet'],
     'data': [
         'security/purchase_security.xml',
         'security/ir.model.access.csv',

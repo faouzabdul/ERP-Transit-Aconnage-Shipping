@@ -35,7 +35,7 @@ class PurchaseNeed(models.Model):
     def _compute_our_needs(self):
         for need in self:
             need.our_needs = need.department_id and need.department_id.id != self.env.user.employee_id.department_id.id
-            _logger.info("Besoin %s : %s" % (need.name, need.our_needs))
+            # _logger.info("Besoin %s : %s" % (need.name, need.our_needs))
 
     def _search_our_needs(self, operator, value):
         if operator not in ['=', '!=']:

@@ -6,6 +6,23 @@
         <field name="arch" type="xml">
             <form string="Fuel Tank">
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="return_action_to_open"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-filter"
+                                context="{'xml_id':'dyen_fleet.fleet_fuel_tank_filling_action'}"
+                                string="Tank Filling"
+                        />
+                        <button name="return_action_to_open"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-adjust"
+                                context="{'xml_id':'dyen_fleet.fleet_vehicle_log_fuel_action'}"
+                            attrs="{'invisible': [('consumption_count', '=', 0)]}">
+                            <field name="consumption_count" widget="statinfo" string="Consumptions"/>
+                        </button>
+                    </div>
 <!--                    <group col="1">-->
                         <group string="Tank Details" >
                             <field name="name" required="1"/>
@@ -24,7 +41,7 @@
                              </div>
                             <field name="average_price" />
 <!--                            <div class="oe_button_box" name="button_box">-->
-                                <button name="%(fleet_filling_fuel_tank_wizard_action)d" string="Add Fuel" type="action"/>
+<!--                                <button name="%(fleet_filling_fuel_tank_wizard_action)d" string="Add Fuel" type="action" class="btn-success"/>-->
 <!--                            </div>-->
                         </group>
 <!--                    </group>-->
@@ -114,4 +131,27 @@
     </record>
 
     <menuitem action="fleet_fuel_tank_action" parent="fleet.fleet_configuration" id="fleet_fuel_tank_menu" groups="fleet.fleet_group_user"/>
+
+    <record model="ir.ui.view" id="view_fleet_fuel_tank_filling_tree">
+        <field name="name">fleet.fuel.tank.filling.tree</field>
+        <field name="model">fleet.fuel.tank.filling</field>
+        <field name="arch" type="xml">
+            <tree string="Fuel tank filling" create="0">
+                <field name="name" />
+                <field name="date" />
+                <field name="liter" />
+                <field name="create_uid" />
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="fleet_fuel_tank_filling_action">
+        <field name="name">Fuel Tank Filling</field>
+        <field name="res_model">fleet.fuel.tank.filling</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            There is no item of tank filling
+          </p>
+        </field>
+    </record>
 </odoo>

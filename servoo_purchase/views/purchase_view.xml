@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data>
+        <record model="ir.ui.view" id="view_purchase_fleet_tank_form">
+            <field name="name">view.purchase.fleet.tank.form</field>
+            <field name="model">fleet.fuel.tank</field>
+            <field name="inherit_id" ref="dyen_fleet.fleet_fuel_tank_view_form" />
+            <field name="arch" type="xml">
+                <field name="average_price" position="after">
+                    <button name="%(dyen_fleet.fleet_filling_fuel_tank_wizard_action)d" string="Add Fuel" type="action" class="btn-success"
+                    groups="purchase.group_purchase_user"/>
+                </field>
+            </field>
+        </record>
         <record model="ir.ui.view" id="view_purchase_order_inherit_form">
             <field name="name">view.purchase.order.inherit.form</field>
             <field name="model">purchase.order</field>
@@ -105,5 +116,6 @@
          groups="purchase.group_purchase_manager,purchase.group_purchase_user"
             sequence="0"/>
 
+        <menuitem action="dyen_fleet.fleet_fuel_tank_action" parent="purchase.menu_purchase_root" id="purchase_fuel_tank_menu" groups="purchase.group_purchase_user"/>
     </data>
 </odoo>

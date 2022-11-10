@@ -23,3 +23,11 @@ access_account_move_line_supply,account.move.line,account.model_account_move_lin
 access_account_move_line_accounting,account.move.line,account.model_account_move_line,group_purchase_accounting,1,0,0,0
 access_account_move_line_applicant_direction,account.move.line,account.model_account_move_line,group_purchase_applicant_direction,1,0,0,0
 access_account_move_line_control,account.move.line,account.model_account_move_line,group_purchase_management_control,1,0,0,0
+
+
+servoo_purchase.access_fleet_fuel_tank,fleet.fuel.tank,dyen_fleet.model_fleet_fuel_tank,purchase.group_purchase_user,1,0,0,0
+servoo_purchase.access_fleet_vehicle_log_services,fleet.fleet.vehicle.log.services,fleet.model_fleet_vehicle_log_services,purchase.group_purchase_user,1,0,0,0
+servoo_purchase.access_fleet_fuel_tank_filling,fleet.fuel.tank.filling,dyen_fleet.model_fleet_fuel_tank_filling,purchase.group_purchase_user,1,0,0,0
+servoo_purchase.access_fleet_vehicle_log_fuel,fleet.vehicle.log.fuel,dyen_fleet.model_fleet_vehicle_log_fuel,purchase.group_purchase_user,1,0,0,0
+servoo_purchase.access_fleet_filling_fuel_tank_wizard,access_fleet_filling_fuel_tank_wizard,dyen_fleet.model_fleet_filling_fuel_tank_wizard,purchase.group_purchase_user,1,1,1,0
+
