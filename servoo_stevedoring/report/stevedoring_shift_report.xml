@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="report_shift_report_document">
+    <t t-call="web.external_layout">
+        <t t-set="doc" t-value="doc.with_context()" />
+<font size="2" style="font-size: 8pt">
+        <div class="page">
+            <div class="oe_structure"/>
+            <div align="center">
+                <span>DAILY SHIFT REPORT</span>
+            </div>
+            <div align="right">
+                 REPORT N° <span t-field="doc.name"/>
+            </div>
+            <div class="oe_structure"/>
+            <p />
+                <div align="right">
+                    <p>
+                        <span t-field="doc.operation_nature" /> PDO: <u><span t-field="doc.stevedoring_file_id.discharge_port.name" /></u>
+                    </p>
+                    <p>SHIP : M/V <u><span t-field="doc.stevedoring_file_id.vessel_id.name" /> vge <span t-field="doc.stevedoring_file_id.voyage_number" /></u></p>
+                    <p><span t-field="doc.operation_nature" /> DATE : <u><span t-field="doc.date_debut" /></u> <span t-field="doc.shift" /> SHIFT</p>
+                </div>
+            <p />
+            <table class="table">
+                <tr>
+                    <td align="left">HATCH</td>
+                    <td align="left">CARGO</td>
+                    <td align="left">Cubic Meters</td>
+                    <td align="left">M/TONS</td>
+                    <td align="left">SHIFT</td>
+                    <td align="left">NORMAL</td>
+                    <td align="left">O.T</td>
+                    <td align="left">GENERAL REMARKS</td>
+                </tr>
+                <t t-foreach="doc.operation_line_ids" t-as="line">
+                    <tr valign="top">
+                        <td align="left"><span t-field="line.location" /> </td>
+                        <td align="left"><span t-field="line.cargo_description" /> </td>
+                        <td align="left"><span t-field="line.volume"/></td>
+                        <td align="left"><span t-field="line.weight" /> </td>
+                        <td align="left"></td>
+                        <td align="left"></td>
+                        <td align="left"></td>
+                        <td align="left"><span t-field="line.note" /> </td>
+                    </tr>
+                </t>
+            </table>
+            <p />
+            <p>
+                Captain or Chief mate : <span t-field="doc.name_of_responsible" />
+            </p>
+        </div>
+</font>
+    </t>
+</template>
+
+
+<template id="report_shift_report">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="doc">
+            <t t-call="servoo_stevedoring.report_shift_report_document"/>
+        </t>
+    </t>
+</template>
+
+
+<record id="action_report_shift_report" model="ir.actions.report">
+    <field name="name">Shift Report</field>
+    <field name="model">servoo.stevedoring.operation</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">servoo_stevedoring.report_shift_report</field>
+    <field name="report_file">servoo_stevedoring.report_shift_report</field>
+    <field name="print_report_name">'SHIFT REPORT - %s' % (object.name)</field>
+    <field name="binding_model_id" ref="model_servoo_stevedoring_operation"/>
+    <field name="binding_type">report</field>
+</record>
+</odoo>

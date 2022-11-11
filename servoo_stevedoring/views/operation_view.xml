@@ -28,6 +28,7 @@
                                 <field name="stevedoring_file_id" required="1"/>
                                 <field name="date_debut" required="1"/>
                                 <field name="date_end" />
+                                <field name="shift" />
                                 <field name="operation_nature" />
                                 <field name="name_of_responsible" />
                             </group>
@@ -35,11 +36,12 @@
                         <notebook>
                             <page string="Operation Lines">
                                 <field name="operation_line_ids" widget="one2many" mode="tree,form" required="1">
-                                    <tree editable="top">
+                                    <tree editable="bottom">
                                         <field name="product_id" />
                                         <field name="cargo_description" />
                                         <field name="location" />
                                         <field name="quantity" />
+                                        <field name="unit_id" />
                                         <field name="weight" />
                                         <field name="volume" />
                                         <field name="note" />

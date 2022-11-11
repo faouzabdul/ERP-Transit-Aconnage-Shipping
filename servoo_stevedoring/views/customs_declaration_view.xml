@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_servoo_customs_declaration_tree">
+            <field name="name">view.servoo.customs.declaration.tree</field>
+            <field name="model">servoo.customs.declaration</field>
+            <field name="arch" type="xml">
+                <tree string="Customs Declaration">
+                    <field name="name" />
+                    <field name="date" />
+                    <field name="charger_id" />
+                    <field name="loading_port" />
+                    <field name="unloading_port" />
+                    <field name="vessel_id" />
+                    <field name="stevedoring_file_id" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_servoo_customs_declaration_form">
+            <field name="name">view.servoo.customs.declaration.form</field>
+            <field name="model">servoo.customs.declaration</field>
+            <field name="arch" type="xml">
+                <form string="Customs Declaration">
+                    <sheet>
+                        <group col="4">
+                            <field name="name" />
+                            <field name="date" />
+                            <field name="charger_id" />
+                            <field name="vessel_id" />
+                            <field name="voyage_number" />
+                            <field name="loading_port" />
+                            <field name="unloading_port" />
+                            <field name="stevedoring_file_id" />
+                        </group>
+                        <notebook>
+                            <page string="Goods">
+                                <field name="good_ids" widget="one2many" mode="tree" required="1">
+                                    <tree string="Cargo Description" editable="bottom">
+                                        <field name="name" />
+                                        <field name="quantity" />
+                                        <field name="unit_id" />
+                                        <field name="gross_weight" />
+                                        <field name="volume" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="actions_customs_declaration">
+            <field name="name">Customs Declaration</field>
+            <field name="res_model">servoo.customs.declaration</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new customs declaration!
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

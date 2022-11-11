@@ -10,31 +10,18 @@ class OutturnReport(models.Model):
     _description = 'Outturn Report'
 
     name = fields.Char('Name', required=True, index=True, default=lambda self: _('New'), copy=False)
-    bl_id = fields.Many2one('servoo.shipping.bl', 'Bill of lading', required=True)
-    consignee_id = fields.Many2one('res.partner', related='bl_id.consignee_id')
-    cargo_description = fields.Char(related='bl_id.cargo_description')
-    loading_port = fields.Many2one('res.locode', related='bl_id.loading_port')
-    discharge_port = fields.Many2one('res.locode', related='bl_id.discharge_port')
-    vessel_id = fields.Many2one('res.transport.means', related='bl_id.vessel_id')
-    quantity = fields.Float('Quantity', digits=(6, 3))
-    shortage = fields.Float('Shortage', digits=(6, 3))
-    excess = fields.Float('Excess', digits=(6, 3))
-    delivery = fields.Float('Delivery', digits=(6, 3), readonly=True, compute='_compute_delivery')
-    note = fields.Text('Notes')
+    consignee_id = fields.Many2one('res.partner', 'Client')
     date_debut = fields.Datetime('Date of commence')
     date_end = fields.Datetime('Date of complete')
     date = fields.Date('Date', default=datetime.now())
     create_uid = fields.Many2one('res.users')
-
-    @api.depends('excess', 'shortage', 'quantity')
-    def _compute_delivery(self):
-        for report in self:
-            report.delivery = report.quantity - report.shortage + report.excess
-
-    @api.depends('bl_id')
-    def _compute_quantity(self):
-        for report in self:
-            report.quantity = report.bl_id.cargo_weight
+    line_ids = fields.One2many('servoo.stevedoring.outturn.report.line', 'outturn_id', string='Lines',
+                               auto_join=True, copy=True)
+    stevedoring_file_id = fields.Many2one('servoo.stevedoring.file', 'Stevedoring File')
+    vessel_id = fields.Many2one('res.transport.means', related='stevedoring_file_id.vessel_id')
+    loading_port = fields.Many2one('res.locode', related='stevedoring_file_id.loading_port')
+    discharge_port = fields.Many2one('res.locode', related='stevedoring_file_id.discharge_port')
+    voyage_number = fields.Char(related='stevedoring_file_id.voyage_number')
 
     @api.model
     def create(self, vals):
@@ -45,3 +32,21 @@ class OutturnReport(models.Model):
             else:
                 vals['name'] = self.env['ir.sequence'].next_by_code('servoo.stevedoring.outturn.report') or _('New')
         return super().create(vals)
+
+
+class OutturnReportLine(models.Model):
+    _name = 'servoo.stevedoring.outturn.report.line'
+    _description = 'Outturn Report Line'
+
+    outturn_id = fields.Many2one('servoo.stevedoring.outturn.report', 'Outturn Report')
+    bl_id = fields.Many2one('servoo.shipping.bl', 'Bill of lading', required=True)
+    manifested_quantity = fields.Float('Quantity Manifested', digits=(6, 3))
+    shortage_quantity = fields.Float('Quantity Shortage', digits=(6, 3))
+    excess_quantity = fields.Float('Quantity Excess', digits=(6, 3))
+    delivery_quantity = fields.Float('Quantity Delivery', digits=(6, 3))
+    unit_id = fields.Many2one('res.unit', 'Unit')
+    manifested_weight = fields.Float('Tonnage Manifested', digits=(6, 3))
+    shortage_weight = fields.Float('Tonnage Shortage', digits=(6, 3))
+    excess_weight = fields.Float('Tonnage Excess', digits=(6, 3))
+    delivery_weight = fields.Float('Tonnage Delivery', digits=(6, 3))
+    note = fields.Text('Notes')

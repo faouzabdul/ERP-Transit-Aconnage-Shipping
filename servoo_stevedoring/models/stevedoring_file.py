@@ -23,6 +23,7 @@ class StevedoringFile(models.Model):
     name = fields.Char(string='Reference', required=True, index=True, default=lambda self: _('New'), copy=False)
     file_type_id = fields.Many2one('servoo.stevedoring.file.type', 'File Type', required=True, index=True)
     partner_id = fields.Many2one('res.partner', 'Client', required=True, index=True)
+    partner_ids = fields.Many2many('res.partner', string='Clients', index=True)
     external_reference = fields.Char('External Reference')
     date = fields.Date('Date', required=True, default=datetime.now())
     vessel_id = fields.Many2one('res.transport.means', 'Vessel')
@@ -34,7 +35,7 @@ class StevedoringFile(models.Model):
                                      auto_join=True, index=True, copy=True)
     document_ids = fields.One2many('servoo.stevedoring.document', 'file_id', string='Documents', auto_join=True,
                                    copy=True)
-    # bl_ids = fields.One2many('servoo.shipping.bl', 'stevedoring_file_id', string='Bill of lading', index=True)
+    customs_declaration_ids = fields.One2many('servoo.customs.declaration', 'stevedoring_file_id', string='Customs Declaration', index=True)
     bl_ids = fields.Many2many(
         'servoo.shipping.bl', 'servoo_stevedoring_bl_rel',
         'bl_id', 'stevedoring_file_id',
@@ -49,9 +50,19 @@ class StevedoringFile(models.Model):
     cargo_description = fields.Text('Cargo Description')
     date_debut_operation = fields.Datetime('Date of commence operations')
     date_end_operation = fields.Datetime('Date of complete operations')
+
     manifested_quantity = fields.Float('Manifested quantity', digits=(6, 3))
     unloaded_quantity = fields.Float('Unloaded quantity', digits=(6, 3))
     transported_quantity = fields.Float('Transported quantity', digits=(6, 3))
+    unit_id = fields.Many2one('res.unit', 'Unit')
+    # manifested_quantity_unit = fields.Many2one('res.unit', 'Unit manifested quantity')
+    # unloaded_quantity_unit = fields.Many2one('res.unit', 'Unit Unloaded quantity')
+    # transported_quantity_unit = fields.Many2one('res.unit', 'Unit Transported quantity')
+
+    manifested_tonnage = fields.Float('Manifested Tonnage (kg)', digits=(6, 3))
+    unloaded_tonnage = fields.Float('Unloaded Tonnage (kg)', digits=(6, 3))
+    transported_tonnage = fields.Float('Transported Tonnage (kg)', digits=(6, 3))
+
     state = fields.Selection([
         ('draft', 'Draft'),
         ('open', 'Open'),
@@ -92,8 +103,8 @@ class StevedoringFile(models.Model):
             'move_type': 'out_invoice',
             'user_id': self.user_id.id,
             'invoice_user_id': self.user_id.id,
-            'partner_id': self.partner_id.id,
-            'partner_shipping_id': self.partner_id.id,
+            # 'partner_id': self.partner_id.id,
+            # 'partner_shipping_id': self.partner_id.id,
             'journal_id': journal.id,  # company comes from the journal
             'invoice_origin': self.name,
             'invoice_line_ids': []
@@ -116,20 +127,23 @@ class StevedoringFile(models.Model):
         # 1) Create invoices.
         invoice_vals_list = []
         for file in self:
-            invoice_vals = file._prepare_invoice()
-            invoiceable_lines = file._get_invoiceable_lines()
-            invoice_line_vals = []
-            for line in invoiceable_lines:
-                invoice_line_vals.append(
-                    (0, 0, {
-                        'name': line.name,
-                        'product_id': line.service_id.id,
-                        'quantity': 1.0,
-                        'price_unit': line.amount,
-                    }),
-                )
-            invoice_vals['invoice_line_ids'] += invoice_line_vals
-            invoice_vals_list.append(invoice_vals)
+            for client in self.partner_ids:
+                invoice_vals = file._prepare_invoice()
+                invoice_vals['partner_id'] = client.id
+                invoice_vals['partner_shipping_id'] = client.id
+                invoiceable_lines = file._get_invoiceable_lines()
+                invoice_line_vals = []
+                for line in invoiceable_lines:
+                    invoice_line_vals.append(
+                        (0, 0, {
+                            'name': line.name,
+                            'product_id': line.service_id.id,
+                            'quantity': 1.0,
+                            'price_unit': line.amount,
+                        }),
+                    )
+                invoice_vals['invoice_line_ids'] += invoice_line_vals
+                invoice_vals_list.append(invoice_vals)
         moves = self.env['account.move'].sudo().with_context(default_move_type='out_invoice').create(invoice_vals_list)
         action = self.env["ir.actions.actions"]._for_xml_id("account.action_move_out_invoice_type")
         if len(moves) > 1:
@@ -170,6 +184,17 @@ class StevedoringFile(models.Model):
             return res
         return False
 
+    def open_mate_receipt(self):
+        self.ensure_one()
+        xml_id = self.env.context.get('xml_id')
+        if xml_id:
+            res = self.env['ir.actions.act_window']._for_xml_id('%s' % xml_id)
+            res.update(
+                domain=[('customs_declaration_id', 'in', [x.id for x in self.customs_declaration_ids])]
+            )
+            return res
+        return False
+
     def open_operation_action(self):
         self.ensure_one()
         xml_id = self.env.context.get('xml_id')
@@ -177,7 +202,7 @@ class StevedoringFile(models.Model):
             res = self.env['ir.actions.act_window']._for_xml_id('%s' % xml_id)
             res.update(
                 context=dict(self.env.context, default_stevedoring_file_id=self.id, group_by=False),
-                domain=[('stevedoring_file_id=sel.id', '=', self.id)]
+                domain=[('stevedoring_file_id', '=', self.id)]
             )
             return res
         return False

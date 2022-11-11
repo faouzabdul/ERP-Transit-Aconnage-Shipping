@@ -23,6 +23,10 @@ class StevedoringOperation(models.Model):
     ], string='Operation nature', index=True, required=True)
     name_of_responsible = fields.Char('Name of responsible')
     operation_line_ids = fields.One2many('servoo.stevedoring.operation.line', 'operation_id', string='Operation lines')
+    shift = fields.Selection([
+        ('day', 'Day'),
+        ('night', 'Night')
+    ], string='Shift', index=True)
 
     @api.model
     def create(self, vals):
@@ -42,6 +46,7 @@ class StevedringOperationLine(models.Model):
     product_id = fields.Many2one('product.product', 'Product', help='Fill in this field if it is a storable item')
     cargo_description = fields.Char('Cargo Description', required=True)
     quantity = fields.Float('Quantity', digits=(6, 3))
+    unit_id = fields.Many2one('res.unit', 'Unit')
     weight = fields.Float('Weight', digits=(6, 3))
     volume = fields.Float('Volume', digits=(6, 3))
     note = fields.Text('Notes')

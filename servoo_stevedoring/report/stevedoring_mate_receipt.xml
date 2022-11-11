@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="report_mater_receipt_document">
+    <t t-call="web.external_layout">
+        <t t-set="doc" t-value="doc.with_context(lang=doc.charger_id.lang)" />
+
+        <div class="page">
+            <div class="oe_structure"/>
+            <div align="center">
+                <h3 class="mt16">
+                    <span>MATE RECEIPT</span>
+                </h3>
+                <h4> <p> <span t-field="doc.name"/> </p></h4>
+            </div>
+            <div class="oe_structure"/>
+            <p />
+            <p>
+                Remitted by Mr : <span t-field="doc.charger_id.name" />
+            </p>
+            <p>C/O</p>
+            <p>
+                To be loaded on board : <span t-field="doc.vessel_id.name" /> vge <span t-field="doc.customs_declaration_id.voyage_number" />    Destination: <span t-field="doc.unloading_port.name" />
+            </p>
+            <p>
+                On terms and conditions of BLs of : <span t-field="doc.terms_and_conditions" />
+            </p>
+            <p />
+            <p />
+            <table class="table">
+                <tr>
+                    <td align="left">Marks</td>
+                    <td align="left">Number</td>
+                    <td align="left">Number &amp; Nature Package</td>
+                    <td align="left">Goods</td>
+                    <td align="left">Gross Tonnage</td>
+                    <td align="left">Cubic</td>
+                </tr>
+                <t t-foreach="doc.customs_declaration_id.good_ids" t-as="line">
+                    <tr>
+                        <td align="left"></td>
+                        <td align="left"></td>
+                        <td align="left"><span t-field="line.quantity"/> <span t-field="line.unit_id.name" /> </td>
+                        <td align="left"><span t-field="line.name" /> </td>
+                        <td align="left"><span t-field="line.gross_weight" /> KG</td>
+                        <td align="left"><span t-field="line.volume" /> M3</td>
+                    </tr>
+
+                </t>
+            </table>
+            <p />
+            <div align="center">
+                VESSELS REMARKS
+            </div>
+            <p>
+                <span t-field="doc.note" />
+            </p>
+            <p />
+            <p>
+                CUSTOM DOCUMENT : <span t-field="doc.customs_declaration_id.name" /> <span t-field="doc.customs_declaration_id.date" />
+            </p>
+            <p>
+                GENERAL TERMS: Our responsibility for forwarding agent or transport commissioners is limited to that for the companies for sea and air transport for river road transport or and railroad - No recourse could be exerted against us for damage, dalay etc. If on arrival the recipients did not make the statutory reserces - All the goods which are consigned to us in station quay or store with the risks and dangers of the shippers and the recipients - No terrestrial insurance, river, air, flight, fire is not covered without a strict order and in writing renewed with each forwarding, our company not having any line of solidarity with insurers.
+            </p>
+            <p>
+                IMPORTANT OBSERVATION - For saw lo, clearly to show lengths.
+                B- This bulletin does not constitute to in no case a commitment to charge by the ship above, in particular if there would not remain any more place available. All expenses or risks of quay or hangar remaining with the account of the goods. This Bulletin of loading will have to be aimed to the office of the agency before the handing-over of the goods.
+            </p>
+            <div align="center">
+                <span t-field="doc.date" />
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <p><strong>Shipper</strong></p>
+                </div>
+                <div class="col-4">
+                    <p><strong>FOR APM CAMEROON</strong></p>
+                </div>
+                <div class="col-4">
+                    <p><strong>Captain</strong></p>
+                </div>
+            </div>
+        </div>
+    </t>
+</template>
+
+
+<template id="report_mater_receipt">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="doc">
+            <t t-call="servoo_stevedoring.report_mater_receipt_document" t-lang="doc.charger_id.lang"/>
+        </t>
+    </t>
+</template>
+
+
+<record id="action_report_mater_receipt" model="ir.actions.report">
+    <field name="name">Mate Receipt</field>
+    <field name="model">servoo.stevedoring.mate.receipt</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">servoo_stevedoring.report_mater_receipt</field>
+    <field name="report_file">servoo_stevedoring.report_mater_receipt</field>
+    <field name="print_report_name">'MATE RECEIPT - %s' % (object.name)</field>
+    <field name="binding_model_id" ref="model_servoo_stevedoring_mate_receipt"/>
+    <field name="binding_type">report</field>
+</record>
+</odoo>

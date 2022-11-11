@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_servoo_shipping_file_inherit_form">
+            <field name="name">servoo.shipping.inherit.form</field>
+            <field name="model">servoo.shipping.file</field>
+            <field name="inherit_id" ref="servoo_shipping.view_servoo_shipping_file_form" />
+            <field name="arch" type="xml">
+                <button name="return_action_to_open" position="after">
+                    <field name="stevedoring_file_count" invisible="1" />
+                    <button name="return_open_stevedoring_action"
+                            attrs="{'invisible': [('stevedoring_file_count','&gt;=',1)]}"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-pencil-square-o"
+                                context="{'xml_id':'servoo_stevedoring.action_stevedoring_file'}"
+                                help="show the stevedoring files for this shipping file">
+                            <field name="stevedoring_file_count" widget="statinfo" string="Stevedoring Files"/>
+                        </button>
+                </button>
+            </field>
+        </record>
+    </data>
+</odoo>

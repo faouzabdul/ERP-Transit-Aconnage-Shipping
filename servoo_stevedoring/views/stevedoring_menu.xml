@@ -10,7 +10,9 @@
 
                 <menuitem id="stevedoring_operation_menu" action="servoo_stevedoring.action_stevedoring_operation" parent="stevedoring_op_menu" sequence="1"/>
                 <menuitem id="stevedoring_outturn_report_menu" action="servoo_stevedoring.actions_outturn_report" parent="stevedoring_op_menu" sequence="2"/>
+                <menuitem id="stevedoring_mate_receipt_menu" action="servoo_stevedoring.actions_mate_receipt" parent="stevedoring_op_menu" sequence="3"/>
                 <menuitem id="stevedoring_bl_menu" parent="stevedoring_op_menu" action="servoo_shipping.action_shipping_bl" />
+                <menuitem id="stevedoring_customs_declaration_menu" action="servoo_stevedoring.actions_customs_declaration" parent="stevedoring_op_menu" sequence="5"/>
                 <menuitem id="stevedoring_formality_menu" action="servoo_stevedoring.action_formalities" parent="stevedoring_op_menu" sequence="19"/>
                 <menuitem id="stevedoring_document_menu" action="servoo_stevedoring.action_documents" parent="stevedoring_op_menu" sequence="20"/>
 
