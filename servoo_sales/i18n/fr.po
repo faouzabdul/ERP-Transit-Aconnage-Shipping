@@ -1,0 +1,737 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* servoo_sales
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0-20220616\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-05 14:07+0000\n"
+"PO-Revision-Date: 2022-12-05 14:07+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid " and"
+msgstr " et"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid " billion"
+msgstr " milliard"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid " hundred"
+msgstr " cent"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid " million"
+msgstr " million"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid " thousand"
+msgstr " mille"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid ""
+"<b>\n"
+"                                        <font style=\"font-size: 20pt\">A</font>GENCE DE <font style=\"font-size: 20pt\">\n"
+"                                        P</font>RESTATIONS <font style=\"font-size: 20pt\">M</font>ARITIMES S.A\n"
+"                                        <br>Ports - Logistics - Projects - Supply chain</br>\n"
+"                                    </b>"
+msgstr ""
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+msgid ""
+"<b>\n"
+"                                <font style=\"font-size: 20pt\">A</font>GENCE DE <font style=\"font-size: 20pt\">P</font>RESTATIONS <font style=\"font-size: 20pt\">M</font>ARITIMES S.A\n"
+"                                <br>Ports - Logistics - Projects - Supply chain</br>\n"
+"                            </b>"
+msgstr ""
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid ""
+"<font color=\"#ffffff\">\n"
+"                                            <font>SP</font>\n"
+"                                        </font>"
+msgstr ""
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+msgid ""
+"<font color=\"#ffffff\">\n"
+"                                    <font>ES</font>\n"
+"                                </font>"
+msgstr ""
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<font>ASSESSED VALUE</font>"
+msgstr "<font>VALEUR IMPOSABLE</font>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<font>CUSTOMS DECLARATION</font>"
+msgstr "<font>DECLARATION DOUANE N°</font>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<font>DATE</font>"
+msgstr "<font>DATE</font>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<font>LOADING PORT</font>"
+msgstr "<font>PORT DE CHARGEMENT</font>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<font>Number of packages/TC</font>"
+msgstr "<font>Nombre de colis/TC</font>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<font>N° ACCOUNT</font>"
+msgstr "<font>N° COMPTE</font>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<font>N° BL/LTA</font>"
+msgstr "<font>N° BL/LTA</font>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<font>O/FILE N°</font>"
+msgstr "<font>N/DOSSIER N°</font>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<font>ON</font>"
+msgstr "<font>LE</font>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<font>UNLOADING PORT</font>"
+msgstr "<font>PORT DE DECHARGEMENT</font>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<font>VESSEL</font>"
+msgstr "<font>NAVIRE</font>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<font>VOLUME (m3)</font>"
+msgstr "<font>VOLUME (m3)</font>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<font>WEIGHT (Kg)</font>"
+msgstr "<font>POIDS (Kg)</font>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid ""
+"<span groups=\"account.group_show_line_subtotals_tax_excluded\">Amount</span>\n"
+"                                            <span groups=\"account.group_show_line_subtotals_tax_included\">Total Price\n"
+"                                            </span>"
+msgstr ""
+"<span groups=\"account.group_show_line_subtotals_tax_excluded\">Montant</span>\n"
+"                                            <span groups=\"account.group_show_line_subtotals_tax_included\">Montant total\n"
+"                                            </span>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid ""
+"<span groups=\"account.group_show_line_subtotals_tax_excluded\">Amount</span>\n"
+"                                        <span groups=\"account.group_show_line_subtotals_tax_included\">Total Price</span>"
+msgstr ""
+"<span groups=\"account.group_show_line_subtotals_tax_excluded\">Montant</span>\n"
+"                                        <span groups=\"account.group_show_line_subtotals_tax_included\">Montant total</span>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+msgid ""
+"<span groups=\"account.group_show_line_subtotals_tax_excluded\">Amount</span>\n"
+"                                    <span groups=\"account.group_show_line_subtotals_tax_included\">Total Price</span>"
+msgstr ""
+"<span groups=\"account.group_show_line_subtotals_tax_excluded\">Montant</span>\n"
+"                                    <span groups=\"account.group_show_line_subtotals_tax_included\">Montant total</span>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<span>Description</span>"
+msgstr "<span>Description</span>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<span>Disc.%</span>"
+msgstr "<span>Rem.%</span>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<span>PROFORMA</span>"
+msgstr "<span>PROFORMA</span>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<span>Quantity</span>"
+msgstr "<span>Quantité</span>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<span>Taxes</span>"
+msgstr "<span>Taxes</span>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<span>Unit Price</span>"
+msgstr "<span>Prix Unitaire</span>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr "<strong class=\"mr16\">Sous-total</strong>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid ""
+"<strong class=\"text-center\">Scan me with your banking app.</strong>\n"
+"                                    <br/>\n"
+"                                    <br/>"
+msgstr ""
+"<strong class=\"text-center\">Scannez-moi avec votre application bancaire.</strong>\n"
+"                                    <br/>\n"
+"                                    <br/>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid ""
+"<strong class=\"text-center\">Scan me with your banking app.</strong>\n"
+"                                <br/>\n"
+"                                <br/>"
+msgstr ""
+"<strong class=\"text-center\">Scannez-moi avec votre application bancaire.</strong>\n"
+"                                <br/>\n"
+"                                <br/>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<strong>Amount Due</strong>"
+msgstr "<strong>Montant dû</strong>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<strong>CONCERNED:</strong>"
+msgstr "<strong>CONCERNE:</strong>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<strong>Customer Code:</strong>"
+msgstr "<strong>Code client :</strong>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<strong>Due Date:</strong>"
+msgstr "<strong>Date d'échéance :</strong>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<strong>Incoterm:</strong>"
+msgstr "<strong>Incoterm :</strong>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<strong>Invoice Date:</strong>"
+msgstr "<strong>Date de facturation :</strong>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<strong>Reference:</strong>"
+msgstr "<strong>Référence:</strong>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+msgid "<strong>Signature</strong>"
+msgstr "<strong>Signature</strong>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<strong>Source:</strong>"
+msgstr "<strong>Source:</strong>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.document_tax_totals
+msgid "<strong>Total</strong>"
+msgstr "<strong>Total</strong>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<strong>Y/Ref:</strong>"
+msgstr "<strong>V/Réf:</strong>"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__assessed_value
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__assessed_value
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__assessed_value
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__assessed_value
+msgid "Assessed Value"
+msgstr "Valeur imposable"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "BP :"
+msgstr ""
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "BP:"
+msgstr ""
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "Cancelled Invoice"
+msgstr "Facture annulée"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "Credit Note"
+msgstr "Note de crédit"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__custom_declaration_date
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__custom_declaration_date
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__custom_declaration_date
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__custom_declaration_date
+msgid "Custom Declaration Date"
+msgstr "Date Déclaration Douane"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__custom_declaration_reference
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__custom_declaration_reference
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__custom_declaration_reference
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__custom_declaration_reference
+msgid "Custom Declaration Reference"
+msgstr "N° Déclaration Douane"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+msgid "Description"
+msgstr ""
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "Draft Invoice"
+msgstr "Facture brouillon"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "Email:"
+msgstr ""
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "FCFA"
+msgstr ""
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "Invoice"
+msgstr "Facture"
+
+#. module: servoo_sales
+#: model:ir.model,name:servoo_sales.model_account_move
+msgid "Journal Entry"
+msgstr "Pièce comptable"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__loading_place_id
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__loading_place_id
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__loading_place_id
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__loading_place_id
+msgid "Loading place"
+msgstr "Lieu de chargement"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "MAIL :"
+msgstr ""
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__transport_means_id
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__transport_means_id
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__transport_means_id
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__transport_means_id
+msgid "Mean of transportation"
+msgstr "Moyen de transport"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "NIU :"
+msgstr ""
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__number_of_packages
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__number_of_packages
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__number_of_packages
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__number_of_packages
+msgid "Number of packages/TC"
+msgstr "Nombre de colis/TC"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__transport_letter
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__transport_letter
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__transport_letter
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__transport_letter
+msgid "N° BL / N° LTA"
+msgstr ""
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "ORDER"
+msgstr "BON DE COMMANDE"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__object
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__object
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__object
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__object
+msgid "Object"
+msgstr "Objet"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "Paid on"
+msgstr "Payé le"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "QUOTATION"
+msgstr "DEVIS"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+msgid "Quantity"
+msgstr "Quantité"
+
+#. module: servoo_sales
+#: model:ir.model,name:servoo_sales.model_sale_order
+msgid "Sales Order"
+msgstr "Bon de commande"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_move_form
+msgid "Stopped this invoice for the sum"
+msgstr "Arrêté cette facture à la somme"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "Stopped this invoice for the sum : <br/>"
+msgstr "Arrêté cette facture pour à somme : <br/>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "Tax ID"
+msgstr "ID Taxe"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+msgid "Taxes"
+msgstr "Taxe"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.document_tax_totals
+msgid "Total ("
+msgstr "Total ("
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__amount_total_signed_letter
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__amount_total_signed_letter
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__amount_total_signed_letter
+msgid "Total Signed letter"
+msgstr "Total signé en lettre"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__amount_total_in_currency_signed_letter
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__amount_total_in_currency_signed_letter
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__amount_total_in_currency_signed_letter
+msgid "Total in Currency Signed letter"
+msgstr "Total en devise signé en lettre"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__travel_date
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__travel_date
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__travel_date
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__travel_date
+msgid "Travel Date"
+msgstr "Date voyage"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "Tél.:"
+msgstr ""
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+msgid "Unit Price"
+msgstr "Prix ​​unitaire"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__unloading_place_id
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__unloading_place_id
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__unloading_place_id
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__unloading_place_id
+msgid "Unloading place"
+msgstr "Lieu de déchargement"
+
+#. module: servoo_sales
+#: model:ir.model.fields,help:servoo_sales.field_account_bank_statement_line__assessed_value
+#: model:ir.model.fields,help:servoo_sales.field_account_move__assessed_value
+#: model:ir.model.fields,help:servoo_sales.field_account_payment__assessed_value
+#: model:ir.model.fields,help:servoo_sales.field_sale_order__assessed_value
+msgid "Valeur imposable"
+msgstr "Valeur imposable"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "Vendor Bill"
+msgstr "Facture du fournisseur"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "Vendor Credit Note"
+msgstr "Note de crédit fournisseur"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__volume
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__volume
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__volume
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__volume
+msgid "Volume (m3)"
+msgstr "Volume (m3)"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__weight
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__weight
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__weight
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__weight
+msgid "Weight (Kg)"
+msgstr "Poids (kg)"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "eight"
+msgstr "huit"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "eighteen"
+msgstr "dix-huit"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "eighty"
+msgstr "quatre-vingt"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "eleven"
+msgstr "onze"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "fifteen"
+msgstr "quinze"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "fifty"
+msgstr "cinquante"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "five"
+msgstr "cinq"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "forty"
+msgstr "quarante"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "four"
+msgstr "quatre"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "fourteen"
+msgstr "quatorze"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "nine"
+msgstr "neuf"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "nineteen"
+msgstr "dix-neuf"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "ninety"
+msgstr "quatre-vingt-dix"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.tax_groups_totals
+msgid "on"
+msgstr ""
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "one"
+msgstr "un"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "seven"
+msgstr "sept"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "seventeen"
+msgstr "dix-sept"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "seventy"
+msgstr "soixante-dix"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "six"
+msgstr "six"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "sixteen"
+msgstr "seize"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "sixty"
+msgstr "soixante"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "ten"
+msgstr "dix"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "thirteen"
+msgstr "treize"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "thirty"
+msgstr "trente"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "three"
+msgstr "trois"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "twelve"
+msgstr "douze"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "twenty"
+msgstr "vingt"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "two"
+msgstr "deux"
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "zero"
+msgstr "zéro"

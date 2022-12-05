@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record model="ir.ui.view" id="view_servoo_move_form">
+            <field name="name">servoo.account.move.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form" />
+            <field name="arch" type="xml">
+                <field name="payment_reference" position="replace" />
+                <field name="narration" position="after">
+                    <label for="amount_total_in_currency_signed_letter" string="Stopped this invoice for the sum" colspan="2"/>
+                    <field name="amount_total_in_currency_signed_letter" readonly="1" nolabel="1" colspan="2"/>
+                </field>
+                <notebook position="before">
+                    <group col="4">
+                        <field name="loading_place_id" />
+                        <field name="unloading_place_id" />
+                        <field name="transport_means_id" />
+                        <field name="travel_date" />
+                        <field name="transport_letter" />
+                        <field name="assessed_value" />
+                        <field name="weight" />
+                        <field name="volume" />
+                        <field name="custom_declaration_reference" />
+                        <field name="custom_declaration_date" />
+                        <field name="number_of_packages" />
+                        <field name="object" colspan="4"/>
+                    </group>
+                </notebook>
+            </field>
+        </record>
+</odoo>

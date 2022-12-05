@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record model="ir.ui.view" id="view_servoo_order_form">
+            <field name="name">servoo.sale.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form" />
+            <field name="arch" type="xml">
+                <notebook position="before">
+                    <group col="4">
+                        <field name="loading_place_id" />
+                        <field name="unloading_place_id" />
+                        <field name="transport_means_id" />
+                        <field name="travel_date" />
+                        <field name="transport_letter" />
+                        <field name="assessed_value" />
+                        <field name="weight" />
+                        <field name="volume" />
+                        <field name="custom_declaration_reference" />
+                        <field name="custom_declaration_date" />
+                        <field name="number_of_packages" />
+                        <field name="object" colspan="4"/>
+                    </group>
+                </notebook>
+            </field>
+        </record>
+</odoo>
