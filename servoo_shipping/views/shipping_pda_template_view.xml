@@ -39,6 +39,20 @@
                         <group>
                             <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
                         </group>
+                        <group col="3" string="Legend for variables and rules">
+                            <group>
+                                <span colspan="2">Available variables:</span>
+                                <span colspan="2">CBM: the CBM of vessel</span>
+                                <span colspan="2">GRT: the GRT</span>
+                                <span colspan="2">DAY: The number of days</span>
+                                <span colspan="2">TONNAGE: The tonnage of goods in the vessel</span>
+                                <span colspan="2">rules: object containing the rules code (previously computed)</span>
+                            </group>
+                            <group>
+                                <span colspan="2">Returned value have to be set in the variable 'result_qty' for quantity</span>
+                                <span colspan="2">Returned value have to be set in the variable 'result' for amount</span>
+                            </group>
+                        </group>
                     </group>
                     <notebook name="main_book">
                         <page string="Lines" name="order_lines">

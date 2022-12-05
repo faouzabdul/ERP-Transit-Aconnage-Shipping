@@ -45,13 +45,13 @@
                         string="Confirm" type="object" class="btn-success" groups="servoo_shipping.shipping_group_user"
                         attrs="{'invisible': [('state', 'not in', ['draft'])]}"/>
                     <button name="action_lose" string="Lose" attrs="{'invisible': [('state', 'not in', ['sent', 'draft'])]}" class="btn-danger"/>
-                    <button name="create_invoices" string="Create Invoice"
-                        type="object" class="btn-primary" data-hotkey="q" groups="account.group_account_invoice"
-                        attrs="{'invisible': ['|',('state', '!=', 'won'), ('invoice_count','&gt;=',1)]}"/>
+<!--                    <button name="create_invoices" string="Create Invoice"-->
+<!--                        type="object" class="btn-primary" data-hotkey="q" groups="account.group_account_invoice"-->
+<!--                        attrs="{'invisible': ['|',('state', '!=', 'won'), ('invoice_count','&gt;=',1)]}"/>-->
 
-                    <button name="create_invoices" string="Create Invoice"
-                        type="object" data-hotkey="q" groups="account.group_account_invoice"
-                        attrs="{'invisible': ['|',('state', '!=', 'won'), ('invoice_count','=',0)]}"/>
+<!--                    <button name="create_invoices" string="Create Invoice"-->
+<!--                        type="object" data-hotkey="q" groups="account.group_account_invoice"-->
+<!--                        attrs="{'invisible': ['|',('state', '!=', 'won'), ('invoice_count','=',0)]}"/>-->
 
                     <button name="action_cancel" type="object" string="Cancel" attrs="{'invisible': ['|', ('state', 'not in', ['draft', 'sent','won']), ('id', '=', False)]}" data-hotkey="z"
                     groups="servoo_shipping.shipping_group_user"/>

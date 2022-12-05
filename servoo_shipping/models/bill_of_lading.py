@@ -10,7 +10,7 @@ class BillOfLading(models.Model):
     _description = 'Bill of lading'
     _order = 'id desc'
 
-    name = fields.Char('Name', required=True, index=True, default=lambda self: _('New'), copy=False)
+    name = fields.Char('Reference', required=True, index=True, default=lambda self: _('New'), copy=False)
     date = fields.Date('Date')
     shipper_id = fields.Many2one('res.partner', 'Shipper', required=True, index=True)
     consignee_id = fields.Many2one('res.partner', 'Consignee', index=True)
