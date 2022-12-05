@@ -21,23 +21,23 @@ class Operation(models.Model):
     _name = 'servoo.logistic.operation'
     _order = 'id desc'
 
-    operation_nature = fields.Many2one('servoo.logistic.operation.nature', 'Operation Nature', index=True)
+    operation_nature = fields.Many2one('servoo.logistic.operation.nature', 'Operation Nature', tracking=1)
     volume = fields.Float('Volume', digits=(12, 3))
     weight = fields.Float('Weight', digits=(12, 3))
     goods_description = fields.Text('Description of goods')
-    bill_of_lading = fields.Char('Bill of lading', index=True)
+    bill_of_lading = fields.Char('Bill of lading', tracking=1)
     name = fields.Char(string='Reference', required=True, index=True, default=lambda self: _('New'), copy=False)
     external_reference = fields.Char(string='External Reference')
     date_debut = fields.Datetime('Date Debut')
     date_end = fields.Datetime('Date End')
-    partner_id = fields.Many2one('res.partner', 'Client', required=True, index=True)
+    partner_id = fields.Many2one('res.partner', 'Client', required=True, tracking=1)
     final_partner_id = fields.Many2one('res.partner', 'Final Client')
     formality_line = fields.One2many('servoo.logistic.formality', 'operation_id', string='Formality Lines',
-                                     auto_join=True, index=True, copy=True)
+                                     auto_join=True, tracking=1, copy=True)
     document_ids = fields.One2many('servoo.logistic.document', 'operation_id', string='Documents', auto_join=True,
                                    copy=True)
     operation_vehicle_ids = fields.One2many('servoo.logistic.operation.vehicle', 'operation_id', string='Vehicles',
-                                            index=True, auto_join=True, copy=True)
+                                            tracking=1, auto_join=True, copy=True)
     departure_country_id = fields.Many2one('res.country', 'Departure Country')
     destination_country_id = fields.Many2one('res.country', 'Destination Country')
     parent_id = fields.Many2one('servoo.logistic.operation', 'Parent')
@@ -62,7 +62,7 @@ class Operation(models.Model):
         ('open', 'Open'),
         ('done', 'Done'),
         ('cancel', 'Cancel')
-    ], string='Status', default='draft', index=True)
+    ], string='Status', default='draft', tracking=1)
 
     _sql_constraints = [
         ('name_uniq', 'unique (name)', _('This reference must be unique!'))
@@ -88,7 +88,7 @@ class Operation(models.Model):
         reference = str(datetime.now().year)[-2:]
         type = self.env['servoo.logistic.operation.nature'].search([('id', '=', vals['operation_nature'])])
         if type:
-            reference += type.sequence_code
+            reference += type.sequence_code if type.sequence_code else ''
         transport_mode = self.env['res.transport.mode'].search([('id', '=', vals['transport_mode_id'])])
         if transport_mode:
             if transport_mode.code == '10':

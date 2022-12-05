@@ -31,19 +31,19 @@ class TransitOrder(models.Model):
     net_weight = fields.Float('Net Weight (kg)', digits=(12, 3))
     goods_description = fields.Char('Description of goods')
     bill_of_lading = fields.Char('Bill of lading')
-    name = fields.Char(string='Reference', required=True, index=True, default=lambda self: _('New'), copy=False)
+    name = fields.Char(string='Reference', required=True, tracking=1, default=lambda self: _('New'), copy=False)
     external_reference = fields.Char(string='External Reference')
     date_debut = fields.Datetime('Date Debut')
     date_end = fields.Datetime('Date End')
     partner_id = fields.Many2one('res.partner', 'Client', required=True)
     final_partner_id = fields.Many2one('res.partner', 'Final Client')
     container_ids = fields.One2many('servoo.transit.container', 'order_id', string='Containers',
-                                     auto_join=True, index=True, copy=True)
+                                     auto_join=True, tracking=1, copy=True)
     good_ids = fields.One2many('servoo.transit.good', 'order_id', string='Goods',
-                                     auto_join=True, index=True, copy=True)
+                                     auto_join=True, tracking=1, copy=True)
 
     formality_line = fields.One2many('servoo.transit.formality', 'order_id', string='Formality Lines',
-                                     auto_join=True, index=True, copy=True)
+                                     auto_join=True, tracking=1, copy=True)
     document_ids = fields.One2many('servoo.transit.document', 'order_id', string='Documents', auto_join=True,
                                    copy=True)
     departure_country_id = fields.Many2one('res.country', 'Departure Country')
@@ -155,7 +155,16 @@ class TransitOrder(models.Model):
             'partner_shipping_id': self.partner_id.id,
             'journal_id': journal.id,  # company comes from the journal
             'invoice_origin': self.name,
-            'invoice_line_ids': []
+            'invoice_line_ids': [],
+            'transport_means_id': self.transport_means_id.id,
+            'travel_date': self.arrival_date,
+            'loading_place_id': self.loading_place_id.id,
+            'unloading_place_id': self.unloading_place_id.id,
+            'transport_letter': self.bill_of_lading,
+            'volume': self.volume,
+            'weight': self.gross_weight,
+            'custom_declaration_reference': '',
+            'custom_declaration_date': ''
         }
         return invoice_vals
 

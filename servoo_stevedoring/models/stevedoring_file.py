@@ -21,9 +21,9 @@ class StevedoringFile(models.Model):
     _order = 'id desc'
 
     name = fields.Char(string='Reference', required=True, index=True, default=lambda self: _('New'), copy=False)
-    file_type_id = fields.Many2one('servoo.stevedoring.file.type', 'File Type', required=True, index=True)
-    partner_id = fields.Many2one('res.partner', 'Client', required=True, index=True)
-    partner_ids = fields.Many2many('res.partner', string='Clients', index=True)
+    file_type_id = fields.Many2one('servoo.stevedoring.file.type', 'File Type', required=True, tracking=1)
+    partner_id = fields.Many2one('res.partner', 'Client')
+    partner_ids = fields.Many2many('res.partner', string='Clients', tracking=1)
     external_reference = fields.Char('External Reference')
     date = fields.Date('Date', required=True, default=datetime.now())
     vessel_id = fields.Many2one('res.transport.means', 'Vessel')
@@ -32,17 +32,17 @@ class StevedoringFile(models.Model):
     charterer_id = fields.Many2one('res.partner', 'Charterer')
     consignee_agent_id = fields.Many2one('res.partner', 'Consignee Agent')
     formality_line = fields.One2many('servoo.stevedoring.formality', 'file_id', string='Formality Lines',
-                                     auto_join=True, index=True, copy=True)
+                                     auto_join=True, tracking=1, copy=True)
     document_ids = fields.One2many('servoo.stevedoring.document', 'file_id', string='Documents', auto_join=True,
                                    copy=True)
-    customs_declaration_ids = fields.One2many('servoo.customs.declaration', 'stevedoring_file_id', string='Customs Declaration', index=True)
+    customs_declaration_ids = fields.One2many('servoo.customs.declaration', 'stevedoring_file_id', string='Customs Declaration', tracking=1)
     bl_ids = fields.Many2many(
         'servoo.shipping.bl', 'servoo_stevedoring_bl_rel',
         'bl_id', 'stevedoring_file_id',
         string='Bills of lading')
-    operation_ids = fields.One2many('servoo.stevedoring.operation', 'stevedoring_file_id', 'Operations', index=True)
-    loading_port = fields.Many2one('res.locode', 'Port of loading', index=True)
-    discharge_port = fields.Many2one('res.locode', 'Port of discharge', index=True)
+    operation_ids = fields.One2many('servoo.stevedoring.operation', 'stevedoring_file_id', 'Operations', tracking=1)
+    loading_port = fields.Many2one('res.locode', 'Port of loading', tracking=1)
+    discharge_port = fields.Many2one('res.locode', 'Port of discharge', tracking=1)
     origin_place = fields.Char('Origin Place')
     destination_place = fields.Char('Destination Place')
     invoice_count = fields.Integer(compute="_get_invoiced", string='Invoices')
@@ -226,7 +226,10 @@ class StevedoringFile(models.Model):
     @api.onchange('shipping_file_id')
     def onchange_shipping_file(self):
         self.vessel_id = self.shipping_file_id.vessel.id
-        self.shipowner_id = self.shipowner_id.id
-        self.charterer_id = self.charterer_id.id
+        self.shipowner_id = self.shipping_file_id.shipowner_id.id
+        self.charterer_id = self.shipping_file_id.charterer_id.id
         self.bl_ids = [(6, 0, [bl.id for bl in self.shipping_file_id.bl_ids])]
+        self.loading_port = self.shipping_file_id.port_previous_next.id
+        self.discharge_port = self.shipping_file_id.port_arrival_departure.id
+        self.voyage_number = self.shipping_file_id.voyage_number
 

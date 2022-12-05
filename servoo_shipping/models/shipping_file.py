@@ -164,7 +164,7 @@ class ShippingFile(models.Model):
     shipowner_id = fields.Many2one('res.partner', 'Shipowner')
     charterer_id = fields.Many2one('res.partner', 'Charterer')
     formality_line = fields.One2many('servoo.shipping.formality', 'file_id', string='Formality Lines',
-                                     auto_join=True, index=True, copy=True)
+                                     auto_join=True, tracking=1, copy=True)
     document_ids = fields.One2many('servoo.shipping.document', 'file_id', string='Documents', auto_join=True,
                                    copy=True)
 
@@ -179,7 +179,7 @@ class ShippingFile(models.Model):
         ('cancel', 'Cancel')
     ], string='Status', default='draft')
     # FAL 1: General Information
-    vessel = fields.Many2one('res.transport.means', string="Vessel")
+    vessel = fields.Many2one('res.transport.means', string="Vessel", tracking=1)
     loa = fields.Float('LOA', digits=(6, 3))
     beam = fields.Float('Beam', digits=(6, 3), help='Largeur')
     summer_draft = fields.Float('Summer draft', digits=(6, 3))
@@ -201,14 +201,14 @@ class ShippingFile(models.Model):
     travel_description = fields.Text('Particulars of voyage')
     goods_description = fields.Text('Description of goods')
 
-    bl_ids = fields.One2many('servoo.shipping.bl', 'shipping_file_id', string='Bill of loading', index=True)
+    bl_ids = fields.One2many('servoo.shipping.bl', 'shipping_file_id', string='Bill of loading', tracking=1)
     # crew_count = fields.Integer('Crew Count', compute="_get_crew_count")
     # passenger_count = fields.Integer('Passenger Count', compute="_get_passenger_count")
     # FAL 2: Cargo Declaration
     good_ids = fields.One2many('servoo.shipping.good', 'file_id', string='Goods',
-                               auto_join=True, index=True, copy=True)
+                               auto_join=True, tracking=1, copy=True)
     container_ids = fields.One2many('servoo.shipping.container', 'file_id', string='Containers',
-                                    auto_join=True, index=True, copy=True)
+                                    auto_join=True, tracking=1, copy=True)
     # FAL 3: Ship's stores Declaration
     store_ids = fields.One2many('servoo.shipping.ship.store', 'file_id', "Ship's stores")
     # FAL 4: Crew's effects Declaration
@@ -299,7 +299,13 @@ class ShippingFile(models.Model):
             'partner_shipping_id': self.partner_id.id,
             'journal_id': journal.id,  # company comes from the journal
             'invoice_origin': self.name,
-            'invoice_line_ids': []
+            'invoice_line_ids': [],
+            'transport_means_id': self.vessel.id,
+            'travel_date': self.date_arrival_departure,
+            'loading_place_id': self.port_previous_next.id,
+            'unloading_place_id': self.port_arrival_departure.id,
+            'volume': self.vessel_volume,
+            'weight': self.gross_weight
         }
         return invoice_vals
 

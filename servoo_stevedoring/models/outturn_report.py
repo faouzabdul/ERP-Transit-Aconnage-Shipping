@@ -14,7 +14,7 @@ class OutturnReport(models.Model):
     date_debut = fields.Datetime('Date of commence')
     date_end = fields.Datetime('Date of complete')
     date = fields.Date('Date', default=datetime.now())
-    create_uid = fields.Many2one('res.users')
+    create_uid = fields.Many2one('res.users', string='Created by', index=True, readonly=True)
     line_ids = fields.One2many('servoo.stevedoring.outturn.report.line', 'outturn_id', string='Lines',
                                auto_join=True, copy=True)
     stevedoring_file_id = fields.Many2one('servoo.stevedoring.file', 'Stevedoring File')
