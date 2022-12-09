@@ -57,7 +57,7 @@
                         </div>
                     </div>
                 </div>
-                <font size="0" style="font-size: 5pt">
+                <font size="0" style="font-size: 8pt">
                     <table width="100%" cellspacing="0" cellpadding="0">
                         <colgroup>
                             <col/>
@@ -84,7 +84,7 @@
                                 </font>
                             </td>
                             <td colspan="3" style="border: none; padding: 0cm; text-align: center">
-                                <font>
+                                <font style="font-size: 12pt"><b>
                                     <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
                                         <span t-if="doc.state not in ['draft','sent']">ORDER</span>
                                         <span t-if="doc.state in ['draft','sent']">QUOTATION</span>
@@ -92,6 +92,7 @@
                                     <t t-if="env.context.get('proforma', False) or is_pro_forma">
                                         <span>PROFORMA</span>
                                     </t>
+                                    </b>
                                 </font>
                             </td>
                         </tr>
@@ -156,7 +157,7 @@
                                 <br>
                                     <font>
                                         <t t-if="doc.partner_id.zip">
-                                            BP :
+                                            P.O.BOX :
                                             <span t-field="doc.partner_id.zip"/>
                                         </t>
                                         <t t-if="doc.partner_id.city">
@@ -242,7 +243,8 @@
                             </td>
                             <td
                                     style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
-                                <font>WEIGHT (Kg)</font>
+                                <t t-if="doc.unit_id"><font>WEIGHT (<span t-field="doc.unit_id" />)</font></t>
+                                <t t-else=""><font>WEIGHT (Kg)</font></t>
                             </td>
                             <td
                                     style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
@@ -356,10 +358,10 @@
                     <br/>
                 </p>
 
-                <font size="0" style="font-size: 7pt">
+                <font size="0" style="font-size: 8pt">
                     <div class="row mt32 mb32" id="informations">
                         <div t-if="doc.object" class="col-6 mw-100 mb-2">
-                            <strong>CONCERNED:</strong>
+                            <strong>CONCERN:</strong>
                             <span t-field="doc.object"/>
                         </div>
                         <div t-if="doc.client_order_ref" class="col-3 mw-100 mb-2">
@@ -376,8 +378,8 @@
                         <thead style="display: table-row-group">
                             <tr>
                                 <th name="th_description" class="text-left">Description</th>
-                                <th name="th_quantity" class="text-right">Quantity</th>
-                                <th name="th_priceunit" class="text-right">Unit Price</th>
+                                <th name="th_quantity" class="text-right">Rate</th>
+                                <th name="th_priceunit" class="text-right">Base</th>
                                 <th name="th_discount" t-if="display_discount" class="text-right"
                                     groups="product.group_discount_per_so_line">
                                     <span>Disc.%</span>
@@ -406,7 +408,9 @@
                                             <span t-field="line.name"/>
                                         </td>
                                         <td name="td_quantity" class="text-right">
-                                            <span t-field="line.product_uom_qty"/>
+                                            <t t-if="line.product_uom_qty &lt; 1 and line.product_uom_qty &gt; 0"><span t-esc="line.product_uom_qty * 100"/>%</t>
+                                            <t t-else=""><span t-field="line.product_uom_qty"/></t>
+<!--                                            <span t-field="line.product_uom_qty" t-options='{"widget": "percentage"}'/>-->
                                             <!--                                        <span t-field="line.product_uom"/>-->
                                         </td>
                                         <td name="td_priceunit" class="text-right">
@@ -462,10 +466,24 @@
                                     <!-- Tax totals -->
                                     <t t-set="tax_totals" t-value="json.loads(doc.tax_totals_json)"/>
                                     <t t-call="account.document_tax_totals"/>
+                                    <tr class="border-black o_total">
+                                        <td><strong>Total ( <span t-field="doc.other_currency_id.name" /> )</strong></td>
+                                        <td class="text-right">
+                                            <span
+                                                    t-esc="doc.amount_other_currency"
+                                                    t-options='{"widget": "monetary", "display_currency": doc.other_currency_id}'
+                                            />
+                                        </td>
+                                    </tr>
                                 </table>
                             </div>
                         </div>
                     </div>
+
+                    <p>
+                        Stopped this invoice for the sum : <br />
+                        <b><span t-field="doc.currency_id.name" /> : <span t-field="doc.amount_total_letter" /> </b>
+                    </p>
 
                     <div t-if="doc.signature" class="mt32 ml64 mr4" name="signature">
                         <div class="offset-8">
@@ -536,7 +554,7 @@
         </field>
         <field name="binding_model_id" ref="model_sale_order"/>
         <field name="binding_type">report</field>
-        <!--        <field name="paperformat_id" ref="paperformat_sale_order"/>-->
+        <field name="paperformat_id" ref="paperformat_sale_order"/>
     </record>
 
     <record id="sale.action_report_pro_forma_invoice" model="ir.actions.report">
@@ -549,7 +567,7 @@
         <field name="binding_model_id" ref="model_sale_order"/>
         <field name="binding_type">report</field>
         <field name="groups_id" eval="[(4, ref('sale.group_proforma_sales'))]"/>
-        <!--        <field name="paperformat_id" ref="paperformat_sale_order"/>-->
+        <field name="paperformat_id" ref="paperformat_sale_order"/>
     </record>
 
 </odoo>

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220616\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-05 14:07+0000\n"
-"PO-Revision-Date: 2022-12-05 14:07+0000\n"
+"POT-Creation-Date: 2022-12-09 10:52+0000\n"
+"PO-Revision-Date: 2022-12-09 10:52+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -97,7 +97,7 @@ msgstr "<font>DECLARATION DOUANE N°</font>"
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "<font>DATE</font>"
-msgstr "<font>DATE</font>"
+msgstr ""
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
@@ -121,7 +121,7 @@ msgstr "<font>N° COMPTE</font>"
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "<font>N° BL/LTA</font>"
-msgstr "<font>N° BL/LTA</font>"
+msgstr ""
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
@@ -151,7 +151,7 @@ msgstr "<font>NAVIRE</font>"
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "<font>VOLUME (m3)</font>"
-msgstr "<font>VOLUME (m3)</font>"
+msgstr ""
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
@@ -190,6 +190,11 @@ msgstr ""
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<span>Base</span>"
+msgstr "<span>Base</span>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "<span>Description</span>"
 msgstr "<span>Description</span>"
 
@@ -201,9 +206,8 @@ msgstr "<span>Rem.%</span>"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
-#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "<span>PROFORMA</span>"
-msgstr "<span>PROFORMA</span>"
+msgstr ""
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
@@ -212,8 +216,13 @@ msgstr "<span>Quantité</span>"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<span>Rate</span>"
+msgstr "<span>Taux</span>"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "<span>Taxes</span>"
-msgstr "<span>Taxes</span>"
+msgstr ""
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
@@ -256,28 +265,28 @@ msgstr "<strong>Montant dû</strong>"
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
-msgid "<strong>CONCERNED:</strong>"
+msgid "<strong>CONCERN:</strong>"
 msgstr "<strong>CONCERNE:</strong>"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "<strong>Customer Code:</strong>"
-msgstr "<strong>Code client :</strong>"
+msgstr "<strong>Code client:</strong>"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "<strong>Due Date:</strong>"
-msgstr "<strong>Date d'échéance :</strong>"
+msgstr "<strong>Date d'échéance:</strong>"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "<strong>Incoterm:</strong>"
-msgstr "<strong>Incoterm :</strong>"
+msgstr "<strong>Incoterm:</strong>"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "<strong>Invoice Date:</strong>"
-msgstr "<strong>Date de facturation :</strong>"
+msgstr "<strong>Date de facturation:</strong>"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
@@ -287,17 +296,17 @@ msgstr "<strong>Référence:</strong>"
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
 msgid "<strong>Signature</strong>"
-msgstr "<strong>Signature</strong>"
+msgstr ""
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "<strong>Source:</strong>"
-msgstr "<strong>Source:</strong>"
+msgstr ""
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.document_tax_totals
 msgid "<strong>Total</strong>"
-msgstr "<strong>Total</strong>"
+msgstr ""
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
@@ -316,14 +325,13 @@ msgstr "Valeur imposable"
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
-msgid "BP :"
+msgid "BP:"
 msgstr ""
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
-#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
-msgid "BP:"
-msgstr ""
+msgid "Base"
+msgstr "Base"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
@@ -429,7 +437,6 @@ msgstr ""
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
-#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "ORDER"
 msgstr "BON DE COMMANDE"
 
@@ -442,20 +449,39 @@ msgid "Object"
 msgstr "Objet"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__other_currency_id
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__other_currency_id
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__other_currency_id
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__other_currency_id
+msgid "Other Currency"
+msgstr "Autre Devise"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_move_form
+#: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_order_form
+msgid "Other Total"
+msgstr "Autre Total"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "P.O.BOX :"
+msgstr "BP :"
+
+#. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "Paid on"
 msgstr "Payé le"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
-#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "QUOTATION"
 msgstr "DEVIS"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
-msgid "Quantity"
-msgstr "Quantité"
+msgid "Rate"
+msgstr "Taux"
 
 #. module: servoo_sales
 #: model:ir.model,name:servoo_sales.model_sale_order
@@ -464,10 +490,12 @@ msgstr "Bon de commande"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_move_form
+#: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_order_form
 msgid "Stopped this invoice for the sum"
 msgstr "Arrêté cette facture à la somme"
 
 #. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "Stopped this invoice for the sum : <br/>"
 msgstr "Arrêté cette facture pour à somme : <br/>"
@@ -484,8 +512,17 @@ msgstr "Taxe"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.document_tax_totals
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
 msgid "Total ("
-msgstr "Total ("
+msgstr ""
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__amount_other_currency
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__amount_other_currency
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__amount_other_currency
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__amount_other_currency
+msgid "Total Currency"
+msgstr "Montnat en devise"
 
 #. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__amount_total_signed_letter
@@ -502,6 +539,11 @@ msgid "Total in Currency Signed letter"
 msgstr "Total en devise signé en lettre"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__amount_total_letter
+msgid "Total letter"
+msgstr "Montant en lettre"
+
+#. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__travel_date
 #: model:ir.model.fields,field_description:servoo_sales.field_account_move__travel_date
 #: model:ir.model.fields,field_description:servoo_sales.field_account_payment__travel_date
@@ -516,9 +558,12 @@ msgid "Tél.:"
 msgstr ""
 
 #. module: servoo_sales
-#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
-msgid "Unit Price"
-msgstr "Prix ​​unitaire"
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__unit_id
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__unit_id
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__unit_id
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__unit_id
+msgid "Unit"
+msgstr "Unité"
 
 #. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__unloading_place_id
@@ -534,7 +579,7 @@ msgstr "Lieu de déchargement"
 #: model:ir.model.fields,help:servoo_sales.field_account_payment__assessed_value
 #: model:ir.model.fields,help:servoo_sales.field_sale_order__assessed_value
 msgid "Valeur imposable"
-msgstr "Valeur imposable"
+msgstr ""
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
@@ -552,15 +597,21 @@ msgstr "Note de crédit fournisseur"
 #: model:ir.model.fields,field_description:servoo_sales.field_account_payment__volume
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__volume
 msgid "Volume (m3)"
-msgstr "Volume (m3)"
+msgstr ""
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "WEIGHT ("
+msgstr "POIDS ("
 
 #. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__weight
 #: model:ir.model.fields,field_description:servoo_sales.field_account_move__weight
 #: model:ir.model.fields,field_description:servoo_sales.field_account_payment__weight
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__weight
-msgid "Weight (Kg)"
-msgstr "Poids (kg)"
+msgid "Weight"
+msgstr "Poids"
 
 #. module: servoo_sales
 #: code:addons/servoo_sales/models/utils.py:0
@@ -673,7 +724,7 @@ msgstr "soixante-dix"
 #: code:addons/servoo_sales/models/utils.py:0
 #, python-format
 msgid "six"
-msgstr "six"
+msgstr ""
 
 #. module: servoo_sales
 #: code:addons/servoo_sales/models/utils.py:0

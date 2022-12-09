@@ -60,7 +60,7 @@
                                 </div>
                             </div>
                         </div>
-                        <font size="0" style="font-size: 5pt">
+                        <font size="0" style="font-size: 8pt">
                             <table width="100%" cellspacing="0" cellpadding="0">
                                 <colgroup>
                                     <col/>
@@ -87,14 +87,15 @@
                                         </font>
                                     </td>
                                     <td colspan="3" style="border: none; padding: 0cm; text-align: center">
-                                        <font>
-                                            <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
-                                                <span t-if="o.state not in ['draft','sent']">ORDER</span>
-                                                <span t-if="o.state in ['draft','sent']">QUOTATION</span>
-                                            </t>
-                                            <t t-if="env.context.get('proforma', False) or is_pro_forma">
-                                                <span>PROFORMA</span>
-                                            </t>
+                                        <font style="text-transform: uppercase; font-size: 12pt">
+                                            <b>
+                                                <span t-if="o.move_type == 'out_invoice' and o.state == 'posted'">Invoice</span>
+                                                <span t-if="o.move_type == 'out_invoice' and o.state == 'draft'">Draft Invoice</span>
+                                                <span t-if="o.move_type == 'out_invoice' and o.state == 'cancel'">Cancelled Invoice</span>
+                                                <span t-if="o.move_type == 'out_refund'">Credit Note</span>
+                                                <span t-if="o.move_type == 'in_refund'">Vendor Credit Note</span>
+                                                <span t-if="o.move_type == 'in_invoice'">Vendor Bill</span>
+                                            </b>
                                         </font>
                                     </td>
                                 </tr>
@@ -105,14 +106,13 @@
                                     </td>
                                     <td
                                             style="text-align: center; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
-                                        <font>N°
-                                            <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
-                                                <span t-if="o.state not in ['draft','sent']">ORDER</span>
-                                                <span t-if="o.state in ['draft','sent']">QUOTATION</span>
-                                            </t>
-                                            <t t-if="env.context.get('proforma', False) or is_pro_forma">
-                                                <span>PROFORMA</span>
-                                            </t>
+                                        <font style="text-transform: uppercase;">N°
+                                            <span t-if="o.move_type == 'out_invoice' and o.state == 'posted'">Invoice</span>
+                                            <span t-if="o.move_type == 'out_invoice' and o.state == 'draft'">Draft Invoice</span>
+                                            <span t-if="o.move_type == 'out_invoice' and o.state == 'cancel'">Cancelled Invoice</span>
+                                            <span t-if="o.move_type == 'out_refund'">Credit Note</span>
+                                            <span t-if="o.move_type == 'in_refund'">Vendor Credit Note</span>
+                                            <span t-if="o.move_type == 'in_invoice'">Vendor Bill</span>
                                         </font>
                                     </td>
                                     <td style="border: 1px solid #000000; padding: 0.1cm; text-align: center">
@@ -160,7 +160,7 @@
                                         <br>
                                             <font>
                                                 <t t-if="o.partner_id.zip">
-                                                    BP :
+                                                    P.O.BOX :
                                                     <span t-field="o.partner_id.zip"/>
                                                 </t>
                                                 <t t-if="o.partner_id.city">
@@ -246,7 +246,8 @@
                                     </td>
                                     <td
                                             style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
-                                        <font>WEIGHT (Kg)</font>
+                                        <t t-if="o.unit_id"><font>WEIGHT (<span t-field="o.unit_id" />)</font></t>
+                                        <t t-else=""><font>WEIGHT (Kg)</font></t>
                                     </td>
                                     <td
                                             style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
@@ -354,10 +355,10 @@
                         <p style="margin-bottom: 0cm; line-height: 100%">
                             <br/>
                         </p>
-                        <font size="0" style="font-size: 7pt">
+                        <font size="0" style="font-size: 8pt">
                             <div class="row mt32 mb32" id="informations">
                                 <div t-if="o.object" class="col-6 mw-100 mb-2">
-                                    <strong>CONCERNED:</strong>
+                                    <strong>CONCERN:</strong>
                                     <span t-field="o.object"/>
                                 </div>
                                 <div t-if="o.ref" class="col-3 mw-100 mb-2">
@@ -374,11 +375,11 @@
                                             <span>Description</span>
                                         </th>
                                         <th name="th_quantity" class="text-right">
-                                            <span>Quantity</span>
+                                            <span>Rate</span>
                                         </th>
                                         <th name="th_priceunit"
                                             t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
-                                            <span>Unit Price</span>
+                                            <span>Base</span>
                                         </th>
                                         <th name="th_price_unit" t-if="display_discount"
                                             t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
@@ -412,8 +413,9 @@
                                                     <span t-field="line.name" t-options="{'widget': 'text'}"/>
                                                 </td>
                                                 <td class="text-right">
-                                                    <span t-field="line.quantity"/>
-                                                    <span t-field="line.product_uom_id" groups="uom.group_uom"/>
+                                                    <t t-if="line.quantity &lt; 1 and line.quantity &gt; 0"><span t-esc="line.quantity * 100"/>%</t>
+                                                    <t t-else=""><span t-field="line.quantity"/></t>
+<!--                                                    <span t-field="line.product_uom_id" groups="uom.group_uom"/>-->
                                                 </td>
                                                 <td t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
                                                     <span class="text-nowrap" t-field="line.price_unit"/>
@@ -510,9 +512,9 @@
                             <p>
                                 Stopped this invoice for the sum : <br />
                                 <b><span t-field="o.currency_id.name" /> : <span t-field="o.amount_total_in_currency_signed_letter" /> </b>
-                                <t t-if="o.currency_id != o.company_currency_id">
-                                 <br /> <b><span t-field="o.company_currency_id.name" /> : <span t-field="o.amount_total_signed_letter" /> </b>
-                                </t>
+<!--                                <t t-if="o.currency_id != o.company_currency_id">-->
+<!--                                 <br /> <b><span t-field="o.company_currency_id.name" /> : <span t-field="o.amount_total_signed_letter" /> </b>-->
+<!--                                </t>-->
                             </p>
 <!--                            <p t-if="o.move_type in ('out_invoice', 'in_refund') and o.payment_reference"-->
 <!--                               name="payment_communication">-->
@@ -803,17 +805,26 @@
                     <span t-esc="tax_totals['formatted_amount_total']"/>
                 </td>
             </tr>
-            <t t-if="o.company_currency_id != o.currency_id">
-                <tr class="border-black o_total">
-                <td><strong>Total ( <span t-field="o.company_currency_id.name" /> )</strong></td>
+            <tr class="border-black o_total">
+                <td><strong>Total ( <span t-field="o.other_currency_id.name" /> )</strong></td>
                 <td class="text-right">
                     <span
-                            t-esc="o.amount_total_signed"
-                            t-options='{"widget": "monetary", "display_currency": o.company_currency_id}'
+                            t-esc="o.amount_other_currency"
+                            t-options='{"widget": "monetary", "display_currency": o.other_currency_id}'
                     />
                 </td>
             </tr>
-            </t>
+<!--            <t t-if="o.company_currency_id != o.currency_id">-->
+<!--                <tr class="border-black o_total">-->
+<!--                    <td><strong>Total ( <span t-field="o.company_currency_id.name" /> )</strong></td>-->
+<!--                    <td class="text-right">-->
+<!--                        <span-->
+<!--                                t-esc="o.amount_total_signed"-->
+<!--                                t-options='{"widget": "monetary", "display_currency": o.company_currency_id}'-->
+<!--                        />-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--            </t>-->
         </template>
 
         <template id="tax_groups_totals">
