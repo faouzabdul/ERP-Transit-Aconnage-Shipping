@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="wizard_cashier_piece_form">
+        <field name="name">wizard.cashier.piece.form</field>
+        <field name="model">servoo.cashier.piece.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Cashier Piece">
+               <sheet>
+                   <group string="Confirmation ?" />
+                    <group col="2">
+                        <field name="date" />
+                        <field name="observation" />
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_validate" string="Approve" type="object" class="oe_highlight" data-hotkey="q"/>
+                    <button name="action_reject" string="Reject" type="object" class="btn-danger" data-hotkey="c"/>
+                    <button string="Discard" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizard_cashier_piece" model="ir.actions.act_window">
+            <field name="name">Approve Cashier Piece</field>
+            <field name="res_model">servoo.cashier.piece.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+</odoo>

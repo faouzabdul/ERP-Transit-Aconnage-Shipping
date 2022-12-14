@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+<!--        Transit order-->
+        <record model="ir.ui.view" id="view_payment_transit_form">
+            <field name="name">view.payment.transit.form</field>
+            <field name="model">servoo.transit.order</field>
+            <field name="inherit_id" ref="servoo_transit.view_servoo_transit_form" />
+            <field name="arch" type="xml">
+                <button name="action_cancel" position="before">
+                    <button type="action" string="Create Payment Request"
+                            context="{'default_file_reference': name}"
+                            name="%(action_create_payment_request)d" attrs="{'invisible': [('state', '!=', 'open')]}"
+                    />
+                </button>
+            </field>
+        </record>
+        <menuitem id="payment_transit_menu"  parent="servoo_transit.transit_menu_root" sequence="20" name="Finance">
+<!--            Payment request-->
+            <menuitem name="Payment Request" id="transit_payment_request_menu">
+                <menuitem id="transit_our_payment_request_menu" action="servoo_finance.action_our_payment_request" />
+                <menuitem id="transit_payment_request_to_approve_menu" action="servoo_finance.action_our_payment_request_to_approve"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+<!--            Cash voucher-->
+            <menuitem id="transit_cash_voucher_menu" name="Cash Voucher">
+                <menuitem id="transit_our_cash_voucher_menu" action="servoo_finance.action_our_cash_voucher" />
+                <menuitem id="transit_cash_voucher_to_approve_menu" action="servoo_finance.action_our_cash_voucher_to_approve"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+<!--            Cashier piece-->
+            <menuitem name="Cashier Piece" id="transit_cashier_piece_menu">
+                <menuitem id="transit_our_cashier_piece_menu" action="servoo_finance.action_our_cashier_piece" />
+                <menuitem id="transit_cashier_piece_to_approve_menu" action="servoo_finance.action_our_cashier_piece_to_approve"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+
+        </menuitem>
+
+<!--        Shipping File-->
+
+        <record model="ir.ui.view" id="view_payment_shipping_form">
+            <field name="name">view.payment.shipping.form</field>
+            <field name="model">servoo.shipping.file</field>
+            <field name="inherit_id" ref="servoo_shipping.view_servoo_shipping_file_form" />
+            <field name="arch" type="xml">
+                <button name="action_cancel" position="before">
+                    <button type="action" string="Create Payment Request"
+                            context="{'default_file_reference': name}"
+                            name="%(action_create_payment_request)d" attrs="{'invisible': [('state', '!=', 'open')]}"
+                    />
+                </button>
+            </field>
+        </record>
+        <menuitem id="payment_shipping_menu"  parent="servoo_shipping.shipping_menu_root" sequence="20" name="Finance">
+            <menuitem id="shipping_payment_request_menu" name="Payment Request">
+                <menuitem id="shipping_our_payment_request_menu" action="servoo_finance.action_our_payment_request" />
+                <menuitem id="shipping_payment_request_to_approve_menu" action="servoo_finance.action_our_payment_request_to_approve"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+
+            <!--            Cash voucher-->
+            <menuitem name="Cash Voucher" id="shipping_cash_voucher_menu">
+                <menuitem id="shipping_our_cash_voucher_menu" action="servoo_finance.action_our_cash_voucher" />
+                <menuitem id="shipping_cash_voucher_to_approve_menu" action="servoo_finance.action_our_cash_voucher_to_approve"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+
+<!--            Cashier piece-->
+            <menuitem name="Cashier Piece" id="shipping_cashier_piece_menu">
+                <menuitem id="shipping_our_cashier_piece_menu" action="servoo_finance.action_our_cashier_piece" />
+                <menuitem id="shipping_cashier_piece_to_approve_menu" action="servoo_finance.action_our_cashier_piece_to_approve"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+
+        </menuitem>
+
+<!--        Stevedoring File-->
+
+        <record model="ir.ui.view" id="view_payment_stevedoring_form">
+            <field name="name">view.payment.shipping.form</field>
+            <field name="model">servoo.stevedoring.file</field>
+            <field name="inherit_id" ref="servoo_stevedoring.view_servoo_stevedoring_file_form" />
+            <field name="arch" type="xml">
+                <button name="action_cancel" position="before">
+                    <button type="action" string="Create Payment Request"
+                            context="{'default_file_reference': name}"
+                            name="%(action_create_payment_request)d" attrs="{'invisible': [('state', '!=', 'open')]}"
+                    />
+                </button>
+            </field>
+        </record>
+        <menuitem id="payment_stevedoring_menu"  parent="servoo_stevedoring.stevedoring_menu_root" sequence="20" name="Finance">
+            <menuitem name="Payment Request" id="stevedoring_payment_request_menu">
+                <menuitem id="stevedoring_our_payment_request_menu" action="servoo_finance.action_our_payment_request" />
+                <menuitem id="stevedoring_payment_request_to_approve_menu" action="servoo_finance.action_our_payment_request_to_approve"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+            <!--            Cash voucher-->
+            <menuitem name="Cash Voucher" id="stevedoring_cash_voucher_menu">
+                <menuitem id="stevedoring_our_cash_voucher_menu" action="servoo_finance.action_our_cash_voucher" />
+                <menuitem id="stevedoring_cash_voucher_to_approve_menu" action="servoo_finance.action_our_cash_voucher_to_approve"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+<!--            Cashier piece-->
+            <menuitem name="Cashier Piece" id="stevedoring_cashier_piece_menu">
+                <menuitem id="stevedoring_our_cashier_piece_menu" action="servoo_finance.action_our_cashier_piece" />
+                <menuitem id="stevedoring_cashier_piece_to_approve_menu" action="servoo_finance.action_our_cashier_piece_to_approve"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+
+        </menuitem>
+
+<!--        Logistic Operation file-->
+
+        <record model="ir.ui.view" id="view_payment_logistic_form">
+            <field name="name">view.payment.logistic.form</field>
+            <field name="model">servoo.logistic.operation</field>
+            <field name="inherit_id" ref="servoo_logistic.view_servoo_logistic_form" />
+            <field name="arch" type="xml">
+                <button name="action_cancel" position="before">
+                    <button type="action" string="Create Payment Request"
+                            context="{'default_file_reference': name}"
+                            name="%(action_create_payment_request)d" attrs="{'invisible': [('state', '!=', 'open')]}"
+                    />
+                </button>
+            </field>
+        </record>
+        <menuitem id="payment_logistic_menu"  parent="servoo_logistic.logistic_menu_root" sequence="20" name="Finance">
+            <menuitem name="Payment request" id="logistic_payment_request_menu">
+                <menuitem id="logistic_our_payment_request_menu" action="servoo_finance.action_our_payment_request" />
+            <menuitem id="logistic_payment_request_to_approve_menu" action="servoo_finance.action_our_payment_request_to_approve"
+            groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+
+            <!--            Cash voucher-->
+            <menuitem name="Cash Voucher" id="logistic_cash_voucher_menu">
+                 <menuitem id="logistic_our_cash_voucher_menu" action="servoo_finance.action_our_cash_voucher" />
+                <menuitem id="logistic_cash_voucher_to_approve_menu" action="servoo_finance.action_our_cash_voucher_to_approve"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+
+<!--            Cashier piece-->
+            <menuitem id="logistic_cashier_piece_menu" name="Cashier Piece">
+                <menuitem id="logistic_our_cashier_piece_menu" action="servoo_finance.action_our_cashier_piece" />
+                <menuitem id="logistic_cashier_piece_to_approve_menu" action="servoo_finance.action_our_cashier_piece_to_approve"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+
+        </menuitem>
+
+<!--        Purchase-->
+        <menuitem id="payment_purchase_menu"  parent="purchase.menu_purchase_root" sequence="20" name="Finance">
+            <menuitem name="Payment request" id="purchase_payment_request_menu">
+                <menuitem id="purchase_our_payment_request_menu" action="servoo_finance.action_our_payment_request" />
+            <menuitem id="logistic_payment_request_to_approve_menu" action="servoo_finance.action_our_payment_request_to_approve"
+            groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+
+            <!--            Cash voucher-->
+            <menuitem name="Cash Voucher" id="purchase_cash_voucher_menu">
+                 <menuitem id="purchase_our_cash_voucher_menu" action="servoo_finance.action_our_cash_voucher" />
+                <menuitem id="purchase_cash_voucher_to_approve_menu" action="servoo_finance.action_our_cash_voucher_to_approve"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+
+<!--            Cashier piece-->
+            <menuitem id="purchase_cashier_piece_menu" name="Cashier Piece">
+                <menuitem id="purchase_our_cashier_piece_menu" action="servoo_finance.action_our_cashier_piece" />
+                <menuitem id="purchase_cashier_piece_to_approve_menu" action="servoo_finance.action_our_cashier_piece_to_approve"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+        </menuitem>
+
+<!--        Accounting-->
+        <menuitem id="payment_account_menu"  parent="account.menu_finance" sequence="20" name="Finance">
+            <menuitem name="Payment request" id="account_payment_request_menu">
+                <menuitem id="account_our_payment_request_menu" action="servoo_finance.action_our_payment_request" />
+            <menuitem id="logistic_payment_request_to_approve_menu" action="servoo_finance.action_our_payment_request_to_approve"
+            groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+            <!--            Cash voucher-->
+            <menuitem name="Cash Voucher" id="account_cash_voucher_menu">
+                    <menuitem id="account_our_cash_voucher_menu" action="servoo_finance.action_our_cash_voucher" />
+                <menuitem id="account_cash_voucher_to_approve_menu" action="servoo_finance.action_our_cash_voucher_to_approve"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+            <!--            Cashier piece-->
+            <menuitem id="account_cashier_piece_menu" name="Cashier Piece">
+                <menuitem id="account_our_cashier_piece_menu" action="servoo_finance.action_our_cashier_piece" />
+                <menuitem id="account_cashier_piece_to_approve_menu" action="servoo_finance.action_our_cashier_piece_to_approve"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+        </menuitem>
+<!-- hr-->
+        <menuitem id="payment_hr_menu"  parent="hr.menu_hr_root" sequence="20" name="Finance">
+            <menuitem name="Payment request" id="hr_payment_request_menu">
+                <menuitem id="hr_our_payment_request_menu" action="servoo_finance.action_our_payment_request" />
+                <menuitem id="logistic_payment_request_to_approve_menu" action="servoo_finance.action_our_payment_request_to_approve"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+            <!--            Cash voucher-->
+            <menuitem name="Cash Voucher" id="hr_cash_voucher_menu">
+                <menuitem id="hr_our_cash_voucher_menu" action="servoo_finance.action_our_cash_voucher" />
+                <menuitem id="hr_cash_voucher_to_approve_menu" action="servoo_finance.action_our_cash_voucher_to_approve"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+        <!--            Cashier piece-->
+            <menuitem id="hr_cashier_piece_menu" name="Cashier Piece">
+                <menuitem id="hr_our_cashier_piece_menu" action="servoo_finance.action_our_cashier_piece" />
+                <menuitem id="hr_cashier_piece_to_approve_menu" action="servoo_finance.action_our_cashier_piece_to_approve"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+        </menuitem>
+<!--        Invoice-->
+        <menuitem id="payment_invoice_menu"  parent="servoo_sales.invoice_menu_root" sequence="20" name="Finance">
+            <menuitem name="Payment request" id="invoice_payment_request_menu">
+                <menuitem id="invoice_our_payment_request_menu" action="servoo_finance.action_our_payment_request" />
+                <menuitem id="logistic_payment_request_to_approve_menu" action="servoo_finance.action_our_payment_request_to_approve"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+            <!--            Cash voucher-->
+            <menuitem name="Cash Voucher" id="invoice_cash_voucher_menu">
+                <menuitem id="invoice_our_cash_voucher_menu" action="servoo_finance.action_our_cash_voucher" />
+                <menuitem id="invoice_cash_voucher_to_approve_menu" action="servoo_finance.action_our_cash_voucher_to_approve"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+        <!--            Cashier piece-->
+            <menuitem id="invoice_cashier_piece_menu" name="Cashier Piece">
+                <menuitem id="invoice_our_cashier_piece_menu" action="servoo_finance.action_our_cashier_piece" />
+                <menuitem id="invoice_cashier_piece_to_approve_menu" action="servoo_finance.action_our_cashier_piece_to_approve"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+            </menuitem>
+        </menuitem>
+
+    </data>
+</odoo>

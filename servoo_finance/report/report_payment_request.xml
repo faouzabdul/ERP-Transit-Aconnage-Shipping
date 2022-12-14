@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_payment_request_document">
+        <t t-call="web.basic_layout">
+            <t t-set="doc" t-value="doc.with_context(lang=doc.employee_id.user_id.partner_id.lang)"/>
+            <div class="page">
+                <div class="head">
+                    <div class="row">
+                        <div class="col-4" align="left">
+                            <font size="0" style="font-size: 5pt; padding:0">
+                                <table width="100%" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td>
+                                            <img style="width: 30%;" t-att-src="image_data_uri(doc.company_id.logo)"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <t t-esc="doc.company_id.street"/>
+                                        </td>
+                                    </tr>
+                                    <t t-if="doc.company_id.street2">
+                                        <tr>
+                                            <td>
+                                                <t t-esc="doc.company_id.street2"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                        <td>Tél.:
+                                            <t t-esc="doc.company_id.phone"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>BP:
+                                            <t t-esc="doc.company_id.zip"/>
+                                            <t t-esc="doc.company_id.city"/>
+                                            -
+                                            <t t-esc="doc.company_id.country_id.name"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email:
+                                            <t t-esc="doc.company_id.email"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </font>
+                        </div>
+                        <div class="col-8" align="center">
+                            <b>
+                                <font style="font-size: 20pt">A</font>GENCE DE <font style="font-size: 20pt">P</font>RESTATIONS <font
+                                    style="font-size: 20pt">M</font>ARITIMES S.A
+                                <br>Ports - Logistics - Projects - Supply chain</br>
+                            </b>
+                        </div>
+                    </div>
+                </div>
+                <font size="0" style="font-size: 7pt; padding:0">
+                    <div align="right">
+                        DATE:
+                            <span t-field="doc.date" t-options='{"widget": "date","format": "dd/MM/yyyy"}'/>
+                        <br />
+                        <span t-field="doc.name"/>
+
+                    </div>
+                    <div align="center">
+                        <u>
+                            <b>DEMANDE DE REGLEMENT PAR:</b>
+                        </u>
+                        <b style="text-transform: uppercase;"><span t-field="doc.payment_mode"/></b>
+                    </div>
+                    <br>
+                        À L'ORDRE DE:
+                        <b><span t-field="doc.employee_id.name"/></b>
+                    </br>
+                    <br>
+                        MOTIF:
+                        <b><span t-field="doc.object"/></b>
+                    </br>
+                    <t t-if="doc.file_reference">
+                        <br>
+                            N° DOSSIER:
+                            <b><span t-field="doc.file_reference"/></b>
+                        </br>
+                    </t>
+
+                    <table style="border:1px solid #000000; text-align:center" width="100%">
+                        <thead>
+                            <tr>
+                                <th style="border:1px solid #000000; text-align:center">N° Dr/IMPUTATION</th>
+                                <th style="border:1px solid #000000; text-align:center">DESIGNATION</th>
+                                <th style="border:1px solid #000000; text-align:center">MONTANT À PAYER</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="doc.request_line" t-as="line">
+                                <tr>
+                                    <td style="border:1px solid #000000; text-align:center">
+                                        <span t-field="line.product_id.name"/>
+                                    </td>
+                                    <td style="border:1px solid #000000; text-align:center">
+                                        <span t-field="line.description"/>
+                                    </td>
+                                    <td style="border:1px solid #000000; text-align:center">
+                                        <span t-field="line.amount"/>
+                                    </td>
+                                </tr>
+                            </t>
+                            <tr>
+                                <td colspan="2" style="border:1px solid #000000; text-align:right">Crédit Compte FCFA</td>
+                                <td style="border:1px solid #000000; text-align:center">
+                                    <span t-field="doc.amount_total"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p />
+                    <table width="100%" cellpadding="4" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <td colspan="5" width="100%"
+                                    style="border: 1px solid #000000; text-align:center">
+                                    NOMS – VISA - DATES
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="border:1px solid #000000; text-align:center" width="20%">
+                                        DEMANDEUR
+                                </td>
+                                <td style="border:1px solid #000000; text-align:center" width="20%">
+                                        DIRECTION
+                                </td>
+                                <td style="border:1px solid #000000; text-align:center" width="20%">
+                                        COMPTABILITE
+                                </td>
+                                <td style="border:1px solid #000000; text-align:center" width="20%">
+                                        CONTROLE DE GESTION
+                                </td>
+                                <td style="border:1px solid #000000; text-align:center" width="20%">
+                                        FINANCE
+                                </td>
+                            </tr>
+                            </thead>
+                            <tr valign="top">
+                                <td style="border:1px solid #000000; text-align:center" width="20%">
+                                    <span t-field="doc.employee_id.name"/>
+                                    <br>
+                                        <img  t-if="doc.employee_id.user_id.digital_signature"
+                                              t-att-src="image_data_uri(doc.employee_id.user_id.digital_signature)"
+                                             style="width: 100%;"/>
+                                    </br>
+                                    <br />
+                                    <span t-field="doc.date" t-options='{"widget": "date","format": "dd/MM/yyyy"}'/>
+
+                                </td>
+                                <td style="border:1px solid #000000; text-align:center" width="20%">
+                                    <span t-field="doc.direction_approval_agent_id.name"/>
+                                    <br>
+                                        <img t-if="doc.direction_approval_agent_id.digital_signature"
+                                             t-att-src="image_data_uri(doc.direction_approval_agent_id.digital_signature)"
+                                             style="width: 100%;"/>
+                                    </br>
+                                    <br />
+                                    <span t-field="doc.direction_approval_date" t-options='{"widget": "date","format": "dd/MM/yyyy"}'/>
+
+                                </td>
+                                <td style="border:1px solid #000000; text-align:center" width="20%">
+                                    <span t-field="doc.accounting_approval_agent_id.name"/>
+                                    <br>
+                                        <img t-if="doc.accounting_approval_agent_id.digital_signature"
+                                             t-att-src="image_data_uri(doc.accounting_approval_agent_id.digital_signature)"
+                                             style="width: 100%;"/>
+                                    </br>
+                                    <br />
+                                        <span t-field="doc.accounting_approval_date"
+                                              t-options='{"widget": "date","format": "dd/MM/yyyy"}'/>
+
+                                </td>
+                                <td style="border:1px solid #000000; text-align:center" width="20%">
+                                    <span t-field="doc.management_control_approval_agent_id.name"/>
+                                    <br>
+                                        <img t-if="doc.management_control_approval_agent_id.digital_signature"
+                                             t-att-src="image_data_uri(doc.management_control_approval_agent_id.digital_signature)"
+                                             style="width: 100%;"/>
+                                    </br>
+                                    <br />
+                                        <span t-field="doc.management_control_approval_date"
+                                              t-options='{"widget": "date","format": "dd/MM/yyyy"}'/>
+
+                                </td>
+                                <td style="border:1px solid #000000; text-align:center" width="20%">
+                                    <span t-field="doc.finance_approval_agent_id.name"/>
+                                    <br>
+                                        <img t-if="doc.finance_approval_agent_id.digital_signature"
+                                             t-att-src="image_data_uri(doc.finance_approval_agent_id.digital_signature)"
+                                             style="width: 100%;"/>
+                                    </br>
+                                    <br />
+                                        <span t-field="doc.finance_approval_date"
+                                              t-options='{"widget": "date","format": "dd/MM/yyyy"}'/>
+
+                                </td>
+                            </tr>
+                        </table>
+                </font>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_payment_request">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="servoo_finance.report_payment_request_document"
+                   t-lang="doc.employee_id.user_id.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+
+    <record id="paperformat_payment_request" model="report.paperformat">
+        <field name="name">Payment Request</field>
+        <field name="default" eval="False"/>
+        <field name="disable_shrinking" eval="True"/>
+        <field name="format">A5</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">8</field>
+        <field name="margin_bottom">8</field>
+        <field name="margin_left">8</field>
+        <field name="margin_right">8</field>
+        <field name="dpi">96</field>
+    </record>
+
+    <record id="action_report_payment_request" model="ir.actions.report">
+        <field name="name">Payment Request</field>
+        <field name="model">servoo.payment.request</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">servoo_finance.report_payment_request</field>
+        <field name="report_file">servoo_finance.report_payment_request</field>
+        <field name="print_report_name">object.name</field>
+        <field name="binding_model_id" ref="model_servoo_payment_request"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_payment_request"/>
+    </record>
+</odoo>

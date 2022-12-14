@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+       <record id="seq_servoo_finance" model="ir.sequence">
+            <field name="name">Payment Request</field>
+            <field name="code">servoo.payment.request</field>
+            <field name="prefix">PR</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_servoo_cash_voucher" model="ir.sequence">
+            <field name="name">Cash Voucher</field>
+            <field name="code">servoo.cash.voucher</field>
+            <field name="prefix">CV</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+         <record id="seq_servoo_cashier_piece" model="ir.sequence">
+            <field name="name">Cashier Piece</field>
+            <field name="code">servoo.cashier.piece</field>
+            <field name="prefix">CP</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="mail_finance_feedback" model="mail.activity.type">
+            <field name="name">Payment Request</field>
+            <field name="icon">fa-sun-o</field>
+            <field name="res_model">servoo.payment.request</field>
+        </record>
+
+        <record id="mail_cash_voucher_feedback" model="mail.activity.type">
+            <field name="name">Cash Voucher</field>
+            <field name="icon">fa-sun-o</field>
+            <field name="res_model">servoo.cash.voucher</field>
+        </record>
+
+         <record id="mail_cashier_piece_feedback" model="mail.activity.type">
+            <field name="name">Cashier piece</field>
+            <field name="icon">fa-sun-o</field>
+            <field name="res_model">servoo.cashier.piece</field>
+        </record>
+
+
+    </data>
+</odoo>

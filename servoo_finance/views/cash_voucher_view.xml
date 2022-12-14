@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_cash_voucher_tree">
+            <field name="name">view.cash.voucher.tree</field>
+            <field name="model">servoo.cash.voucher</field>
+            <field name="arch" type="xml">
+                <tree string="Cash Voucher">
+                    <field name="name" />
+                    <field name="date" />
+                    <field name="employee_id" />
+                    <field name="department_id" />
+                    <field name="object" />
+                    <field name="amount" />
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view"  id="view_cash_voucher_form">
+            <field name="name">view.cash.voucher.form</field>
+            <field name="model">servoo.cash.voucher</field>
+            <field name="arch" type="xml">
+                <form string="Cash Voucher">
+                    <header>
+                        <button name="action_submit" states="draft" type="object" string="Submit" />
+                        <button name="%(action_wizard_cash_voucher)d"  groups="servoo_finance.applicant_service_approval_group_user" class="btn-primary"
+                                attrs="{'invisible': [('state', '!=', 'service_approval')]}" string="Approve" type="action"/>
+
+                        <button name="%(action_wizard_cash_voucher)d"  groups="servoo_finance.applicant_direction_approval_group_user, servoo_finance.general_direction_approval_group_user" class="btn-primary"
+                                attrs="{'invisible': [('state', '!=', 'direction_approval')]}" string="Approve" type="action"/>
+
+                        <button name="%(action_wizard_cash_voucher)d"  groups="servoo_finance.management_control_approval_group_user" class="btn-primary"
+                                attrs="{'invisible': [('state', '!=', 'management_control_approval')]}" string="Approve" type="action"/>
+
+                        <button name="%(action_wizard_cash_voucher)d"  groups="servoo_finance.cashier_group_user" class="btn-primary"
+                                attrs="{'invisible': [('state', '!=', 'cashier_approval')]}" string="Approve" type="action"/>
+
+                        <field name="state" widget="statusbar" statusbar_visible="draft,service_approval,direction_approval,management_control_approval,cashier_approval,done"/>
+                    </header>
+                    <sheet>
+                        <group col="2">
+                            <field name="name" readonly="1" />
+                            <field name="date" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="employee_id" readonly="1" required="1"/>
+                            <field name="department_id" readonly="1" />
+                            <field name="amount" />
+                            <field name="object" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="our_voucher" invisible="1" />
+                        </group>
+                        <notebook>
+                            <page string="Validation Chain">
+                                <group col="4">
+                                    <field name="service_approval_agent_id" readonly="1"/>
+                                    <field name="service_approval_date" readonly="1"/>
+                                    <field name="direction_approval_agent_id"  readonly="1"/>
+                                    <field name="direction_approval_date" readonly="1"/>
+                                    <field name="management_control_approval_agent_id" readonly="1"/>
+                                    <field name="management_control_approval_date" readonly="1"/>
+                                    <field name="cashier_approval_agent_id" readonly="1"/>
+                                    <field name="cashier_approval_date" readonly="1"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="view_cash_voucher_kanban">
+            <field name="name">view.cash.voucher.kanban</field>
+            <field name="model">servoo.cash.voucher</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name" />
+                    <field name="date" />
+                    <field name="employee_id" />
+                    <field name="amount" />
+                    <field name="object" />
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_content oe_kanban_global_click">
+                                <div>
+                                    <strong class="o_kanban_record_title"><span><field name="name"/></span></strong>
+                                </div>
+                                <div>
+                                    <span class="o_kanban_record_subtitle">By <field name="employee_id"/> On <field name="date" /> </span>
+                                </div>
+                                <div>
+                                    <field name="object" />
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_cash_voucher_filter">
+            <field name="name">view.cash.voucher.filter</field>
+            <field name="model">servoo.cash.voucher</field>
+            <field name="arch" type="xml">
+                <search string="Cash voucher">
+                    <field name="employee_id" operator="child_of" />
+                    <field name="department_id" operator="child_of" />
+                    <separator/>
+                    <filter string="My Requests" domain="[('create_uid', '=', uid)]" name="my_cash_voucher" />
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_our_cash_voucher">
+            <field name="name">Our cash vouchers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">servoo.cash.voucher</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_my_cash_voucher': 1}</field>
+            <field name="domain">[('our_voucher', '=', True)]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new cash voucher!
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_all_cash_voucher">
+            <field name="name">All cash vouchers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">servoo.cash.voucher</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new cash voucher!
+                </p>
+            </field>
+        </record>
+
+        <record id="action_cash_voucher_to_approve" model="ir.actions.act_window">
+            <field name="name">Cash voucher to approve</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">servoo.cash.voucher</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'create': False}</field>
+            <field name="domain">[('state','not in',('draft', 'done'))]</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                No cash voucher to approve found
+              </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_our_cash_voucher_to_approve">
+            <field name="name">Cash voucher to approve</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">servoo.cash.voucher</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_my_cash_voucher': 1, 'create': False}</field>
+            <field name="domain">[('our_voucher', '=', True), ('state','not in',('draft', 'done'))]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new cash voucher!
+                </p>
+            </field>
+        </record>
+
+        <record id="action_cash_voucher_approved" model="ir.actions.act_window">
+            <field name="name">Cash voucher approved</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">servoo.cash.voucher</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'create': False}</field>
+            <field name="domain">[('state','=','done')]</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                No cash voucher approved found
+              </p>
+            </field>
+        </record>
+
+        <record id="action_create_cash_voucher" model="ir.actions.act_window">
+            <field name="name">Cash Voucher</field>
+            <field name="res_model">servoo.cash.voucher</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_payment_request_tree">
+            <field name="name">view.payment.request.tree</field>
+            <field name="model">servoo.payment.request</field>
+            <field name="arch" type="xml">
+                <tree string="Payment Request">
+                    <field name="name" />
+                    <field name="date" />
+                    <field name="employee_id" />
+                    <field name="department_id" />
+                    <field name="file_reference" />
+                    <field name="amount_total" />
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view"  id="view_payment_request_form">
+            <field name="name">view.payment.request.form</field>
+            <field name="model">servoo.payment.request</field>
+            <field name="arch" type="xml">
+                <form string="Payment Request">
+                    <header>
+                        <button name="action_submit" states="draft" type="object" string="Submit" />
+                        <button name="%(action_wizard_payment_request)d"  groups="servoo_finance.applicant_service_approval_group_user" class="btn-primary"
+                                attrs="{'invisible': [('state', '!=', 'service_approval')]}" string="Approve" type="action"/>
+
+                        <button name="%(action_wizard_payment_request)d"  groups="servoo_finance.applicant_direction_approval_group_user, servoo_finance.general_direction_approval_group_user" class="btn-primary"
+                                attrs="{'invisible': [('state', '!=', 'direction_approval')]}" string="Approve" type="action"/>
+
+                        <button name="%(action_wizard_payment_request)d"  groups="servoo_finance.accounting_approval_group_user" class="btn-primary"
+                                attrs="{'invisible': [('state', '!=', 'accounting_approval')]}" string="Approve" type="action"/>
+
+                        <button name="%(action_wizard_payment_request)d"  groups="servoo_finance.management_control_approval_group_user" class="btn-primary"
+                                attrs="{'invisible': [('state', '!=', 'management_control_approval')]}" string="Approve" type="action"/>
+
+                        <button name="%(action_wizard_payment_request)d"  groups="servoo_finance.finance_approval_group_user" class="btn-primary"
+                                attrs="{'invisible': [('state', '!=', 'finance_approval')]}" string="Approve" type="action"/>
+
+                        <field name="state" widget="statusbar" statusbar_visible="draft,service_approval,direction_approval,accounting_approval,management_control_approval,finance_approval,done"/>
+                    </header>
+                    <sheet>
+                        <group col="4">
+                            <field name="name" readonly="1" />
+                            <field name="date" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="employee_id" readonly="1" required="1"/>
+                            <field name="employee_parent_id" readonly="1" />
+                            <field name="department_id" readonly="1" required="1" colspan="4"/>
+                            <field name="file_reference" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="amount_total" />
+                            <field name="payment_mode" attrs="{'readonly': [('state', '!=', 'draft')]}" colspan="4"/>
+                            <field name="our_requests" invisible="1" />
+                        </group>
+                        <group col="4" string="Description">
+                            <field name="object" colspan="4" nolabel="1" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                        <notebook>
+                            <page string="Imputation">
+                                <field name="request_line" widget="one2many" mode="tree" attrs="{'readonly': [('state', '!=', 'draft')]}">
+                                    <tree string="Lines" editable="bottom">
+                                        <field name="product_id" />
+                                        <field name="description" />
+                                        <field name="amount" />
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Validation Chain">
+                                <group col="4">
+                                    <field name="service_approval_agent_id" readonly="1"/>
+                                    <field name="service_approval_date" readonly="1"/>
+                                    <field name="direction_approval_agent_id"  readonly="1"/>
+                                    <field name="direction_approval_date" readonly="1"/>
+                                    <field name="accounting_approval_agent_id" readonly="1"/>
+                                    <field name="accounting_approval_date" readonly="1"/>
+                                    <field name="management_control_approval_agent_id" readonly="1"/>
+                                    <field name="management_control_approval_date" readonly="1"/>
+                                    <field name="finance_approval_agent_id" readonly="1"/>
+                                    <field name="finance_approval_date" readonly="1"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="view_payment_request_kanban">
+            <field name="name">view.payment.request.kanban</field>
+            <field name="model">servoo.payment.request</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name" />
+                    <field name="date" />
+                    <field name="employee_id" />
+                    <field name="amount_total" />
+                    <field name="object" />
+                    <field name="file_reference" />
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_content oe_kanban_global_click">
+                                <div>
+                                    <strong class="o_kanban_record_title"><span><field name="name"/></span></strong>
+                                </div>
+                                <div>
+                                    <span class="o_kanban_record_subtitle">By <field name="employee_id"/> On <field name="date" /> </span>
+                                    <t t-if="file_reference">
+                                        <p>File Reference <field name="file_reference" /> </p>
+                                    </t>
+                                </div>
+                                <div>
+                                    <field name="object" />
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_payment_request_filter">
+            <field name="name">view.payment.request.filter</field>
+            <field name="model">servoo.payment.request</field>
+            <field name="arch" type="xml">
+                <search string="Payment request">
+                    <field name="employee_id" operator="child_of" />
+                    <field name="department_id" operator="child_of" />
+                    <separator/>
+                    <filter string="My Requests" domain="[('create_uid', '=', uid)]" name="my_payment_request" />
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_our_payment_request">
+            <field name="name">Our payment requests</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">servoo.payment.request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_my_payment_request': 1}</field>
+            <field name="domain">[('our_requests', '=', True)]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new payment request!
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_all_payment_request">
+            <field name="name">All payment requests</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">servoo.payment.request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new payment request!
+                </p>
+            </field>
+        </record>
+
+        <record id="action_payment_request_to_approve" model="ir.actions.act_window">
+            <field name="name">Payment request to approve</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">servoo.payment.request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'create': False}</field>
+            <field name="domain">[('state','not in',('draft', 'done'))]</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                No payment request to approve found
+              </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_our_payment_request_to_approve">
+            <field name="name">Payment request to approve</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">servoo.payment.request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_my_payment_request': 1, 'create': False}</field>
+            <field name="domain">[('our_requests', '=', True), ('state','not in',('draft', 'done'))]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new payment request!
+                </p>
+            </field>
+        </record>
+
+        <record id="action_payment_request_approved" model="ir.actions.act_window">
+            <field name="name">Payment request approved</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">servoo.payment.request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'create': False}</field>
+            <field name="domain">[('state','=','done')]</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                No payment request approved found
+              </p>
+            </field>
+        </record>
+
+        <record id="action_create_payment_request" model="ir.actions.act_window">
+            <field name="name">Payment Request</field>
+            <field name="res_model">servoo.payment.request</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>
