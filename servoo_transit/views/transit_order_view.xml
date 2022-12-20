@@ -202,6 +202,15 @@
             </field>
         </record>
 
+        <record id="action_transit_order_no_create" model="ir.actions.act_window">
+            <field name="name">Transit Orders</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">servoo.transit.order</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'create': False}</field>
+            <field name="domain">[]</field>
+        </record>
+
         <record model="ir.ui.view" id="view_transit_good_form">
             <field name="name">view.transit.good.form</field>
             <field name="model">servoo.transit.good</field>

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220616\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-10 04:23+0000\n"
-"PO-Revision-Date: 2022-11-10 04:23+0000\n"
+"POT-Creation-Date: 2022-12-20 09:01+0000\n"
+"PO-Revision-Date: 2022-12-20 09:01+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -209,7 +209,7 @@ msgstr "Créer la facture"
 #. module: servoo_transit
 #: model_terms:ir.actions.act_window,help:servoo_transit.action_formalities
 msgid "Create a new formality!"
-msgstr ""
+msgstr "Créer une nouvelle formalité"
 
 #. module: servoo_transit
 #: model_terms:ir.actions.act_window,help:servoo_transit.action_transit_order
@@ -356,7 +356,7 @@ msgstr "Lignes documents"
 #: model:ir.actions.act_window,name:servoo_transit.action_document_type
 #: model_terms:ir.ui.view,arch_db:servoo_transit.view_document_type_tree
 msgid "Documents Type"
-msgstr ""
+msgstr "Types de document"
 
 #. module: servoo_transit
 #: model:ir.model.fields.selection,name:servoo_transit.selection__servoo_transit_formality__state__done
@@ -449,12 +449,12 @@ msgstr "Lignes de formalités"
 #. module: servoo_transit
 #: model_terms:ir.ui.view,arch_db:servoo_transit.view_formality_type_tree
 msgid "Formalities Type"
-msgstr ""
+msgstr "Types de formalités"
 
 #. module: servoo_transit
 #: model:ir.actions.act_window,name:servoo_transit.action_formality_type
 msgid "Formalities type"
-msgstr ""
+msgstr "Types de formalités"
 
 #. module: servoo_transit
 #: model:ir.model,name:servoo_transit.model_servoo_transit_formality
@@ -563,7 +563,7 @@ msgstr ""
 #. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__incoterm_id
 msgid "Incoterm"
-msgstr "Incoterm"
+msgstr ""
 
 #. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__insurance_amount
@@ -750,21 +750,17 @@ msgid "Number of unread messages"
 msgstr ""
 
 #. module: servoo_transit
-#: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_form
-#: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_formality_form
-msgid "Open"
-msgstr "Ouvrir"
-
-#. module: servoo_transit
 #: model:ir.model.fields.selection,name:servoo_transit.selection__servoo_transit_formality__state__open
 #: model:ir.model.fields.selection,name:servoo_transit.selection__servoo_transit_order__state__open
+#: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_form
+#: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_formality_form
 msgid "Open"
 msgstr "Ouvert"
 
 #. module: servoo_transit
 #: model_terms:ir.ui.view,arch_db:servoo_transit.view_operation_sub_type_tree
 msgid "Operation sub type"
-msgstr ""
+msgstr "Sous type d'opération"
 
 #. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_formality__other_reference
@@ -932,6 +928,7 @@ msgstr "Ordre de Transit"
 
 #. module: servoo_transit
 #: model:ir.actions.act_window,name:servoo_transit.action_transit_order
+#: model:ir.actions.act_window,name:servoo_transit.action_transit_order_no_create
 #: model:ir.actions.act_window,name:servoo_transit.action_transit_order_to_invoice
 #: model:ir.ui.menu,name:servoo_transit.transit_order_invoice_menu
 #: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_tree
