@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220616\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-10 04:26+0000\n"
-"PO-Revision-Date: 2022-11-10 04:26+0000\n"
+"POT-Creation-Date: 2022-12-20 09:04+0000\n"
+"PO-Revision-Date: 2022-12-20 09:04+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -502,7 +502,7 @@ msgstr "Nom"
 #: code:addons/servoo_logistic/models/operation.py:0
 #, python-format
 msgid "New"
-msgstr "Nouveau"
+msgstr ""
 
 #. module: servoo_logistic
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__activity_calendar_event_id
@@ -552,14 +552,10 @@ msgstr ""
 #. module: servoo_logistic
 #: model:ir.model.fields.selection,name:servoo_logistic.selection__servoo_logistic_formality__state__open
 #: model:ir.model.fields.selection,name:servoo_logistic.selection__servoo_logistic_operation__state__open
-msgid "Open"
-msgstr "Ouvert"
-
-#. module: servoo_logistic
 #: model_terms:ir.ui.view,arch_db:servoo_logistic.view_servoo_logistic_form
 #: model_terms:ir.ui.view,arch_db:servoo_logistic.view_servoo_logistic_formality_form
 msgid "Open"
-msgstr "Ouvrir"
+msgstr "Ouvert"
 
 #. module: servoo_logistic
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_document__operation_id
@@ -606,7 +602,7 @@ msgstr "Partenaire"
 #: code:addons/servoo_logistic/models/operation.py:0
 #, python-format
 msgid "Please define an accounting sales journal for the company %s (%s)."
-msgstr "Veuillez définir un journal de ventes pour cette société %s (%s)"
+msgstr ""
 
 #. module: servoo_logistic
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_document__name
@@ -673,12 +669,17 @@ msgstr "Il n'y a aucune opération de logistique à facturer"
 #: code:addons/servoo_logistic/models/operation.py:0
 #, python-format
 msgid "This reference must be unique!"
-msgstr "Cette référence est déjà utilisée"
+msgstr ""
 
 #. module: servoo_logistic
 #: model:ir.model.fields.selection,name:servoo_logistic.selection__servoo_logistic_operation__operation_type__transit
 msgid "Transit"
 msgstr ""
+
+#. module: servoo_logistic
+#: model:ir.ui.menu,name:servoo_logistic.logistic_transit_order_menu
+msgid "Transit Order"
+msgstr "Ordre de transit"
 
 #. module: servoo_logistic
 #: model_terms:ir.ui.view,arch_db:servoo_logistic.view_servoo_logistic_form

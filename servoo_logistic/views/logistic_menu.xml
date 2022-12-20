@@ -11,6 +11,8 @@
         <menuitem id="logistic_formality_menu" action="servoo_logistic.action_formalities" parent="logistic_menu_root" sequence="19"/>
         <menuitem id="logistic_document_menu" action="servoo_logistic.action_documents" parent="logistic_menu_root" sequence="20"/>
 
+        <menuitem id="logistic_transit_order_menu" name="Transit Order" parent="logistic_menu_root" sequence="22" action="servoo_transit.action_transit_order_no_create"/>
+
         <menuitem id="menu_logistic_config"
                 name="Configuration"
                 parent="logistic_menu_root"
