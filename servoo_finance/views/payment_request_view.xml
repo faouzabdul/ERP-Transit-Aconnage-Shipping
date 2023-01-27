@@ -62,6 +62,7 @@
                                     <tree string="Lines" editable="bottom">
                                         <field name="product_id" />
                                         <field name="description" />
+                                        <field name="file_reference" />
                                         <field name="amount" />
                                     </tree>
                                 </field>

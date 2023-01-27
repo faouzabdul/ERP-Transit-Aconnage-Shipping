@@ -93,6 +93,12 @@ class CashierPiece(models.Model):
         for piece in self:
             piece.amount_total_letter = utils.translate(piece.amount_total).upper()
 
+    @api.onchange('cash_voucher_id')
+    def onchange_cash_voucher_id(self):
+        for piece in self:
+            if piece.cash_voucher_id and piece.cash_voucher_id.journal_id:
+                piece.journal_id = piece.cash_voucher_id.journal_id.id
+
     def action_draft(self):
         return self.write({'state': 'draft'})
 
@@ -105,7 +111,7 @@ class CashierPiece(models.Model):
         group_service_approval = self.env.ref("servoo_finance.applicant_service_approval_group_user")
         users = group_service_approval.users
         for user in users:
-            if user.employee_id.department_id.id == self.department_id.id:
+            if user.sudo().employee_id.department_id.id == self.sudo().department_id.id:
                 self.activity_schedule(
                     "servoo_finance.mail_cashier_piece_feedback", user_id=user.id,
                     summary=_("New cashier piece %s needs the applicant service approval" % self.name)
@@ -136,7 +142,7 @@ class CashierPiece(models.Model):
 
     def _compute_our_pieces(self):
         for piece in self:
-            dp = self.get_department(self.env.user.employee_id.department_id)
+            dp = self.get_department(self.sudo().env.user.employee_id.department_id)
             piece.our_pieces = piece.department_id and piece.department_id.id in dp
 
     def _search_our_pieces(self, operator, value):

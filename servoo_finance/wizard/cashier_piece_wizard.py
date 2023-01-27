@@ -56,6 +56,9 @@ class WizardCashierPiece(models.TransientModel):
                 'state': 'management_control_approval',
                 'workflow_observation': self.observation
             }
+            self.cashier_piece_id.cash_voucher_id.amount_justified = self.cashier_piece_id.cash_voucher_id.amount_justified + self.cashier_piece_id.amount_total
+            if self.cashier_piece_id.cash_voucher_id.amount_unjustified <= 0:
+                self.cashier_piece_id.cash_voucher_id.state = 'done'
             group_management_control_approval = self.env.ref("servoo_finance.management_control_approval_group_user")
             users = group_management_control_approval.users
             for user in users:
@@ -84,8 +87,8 @@ class WizardCashierPiece(models.TransientModel):
                 'state': 'done',
                 'workflow_observation': self.observation
             }
-            if self.cashier_piece_id.cash_voucher_id.state == 'justification':
-                self.cashier_piece_id.cash_voucher_id.state = 'done'
+            # if self.cashier_piece_id.cash_voucher_id.state == 'justification':
+            #     self.cashier_piece_id.cash_voucher_id.state = 'done'
         return self.cashier_piece_id.update(vals)
 
     def action_reject(self):

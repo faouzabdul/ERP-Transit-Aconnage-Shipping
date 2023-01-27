@@ -20,7 +20,11 @@
 
 
         <menuitem id="finance_menu_root" name="Finance" web_icon="servoo_finance,static/description/icon.png" groups="servoo_finance.group_finance_user">
-            <menuitem id="menu_board_journal_1" name="Dashboard" action="account.open_account_journal_dashboard_kanban" groups="servoo_finance.group_finance_manager" sequence="1"/>
+<!--            <menuitem id="menu_board_journal_1" name="Dashboard" action="account.open_account_journal_dashboard_kanban" groups="servoo_finance.group_finance_manager" sequence="0"/>-->
+            <menuitem name="Dashboard" id="menu_finance_dashboard"
+                  sequence="0"
+                  groups="servoo_finance.group_finance_manager"
+                  action="servoo_finance.action_account_invoice_report_all"/>
 
             <menuitem id="menu_finance_receivables" name="Customers" sequence="1">
                 <menuitem id="menu_action_move_out_invoice_type" action="action_readonly_move_out_invoice_type" sequence="1"/>

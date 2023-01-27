@@ -12,6 +12,8 @@
                     <field name="department_id" />
                     <field name="object" />
                     <field name="amount" />
+                    <field name="amount_justified" />
+                    <field name="justification_deadline" />
                     <field name="state" />
                 </tree>
             </field>
@@ -44,11 +46,26 @@
                             <field name="date" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                             <field name="employee_id" readonly="1" required="1"/>
                             <field name="department_id" readonly="1" />
-                            <field name="amount" />
                             <field name="object" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="hinterland" />
+                            <field name="amount" />
+                            <field name="amount_justified" readonly="1" />
+                            <field name="amount_unjustified" readonly="1"/>
+                            <field name="justification_delay" readonly="1" force_save="1"/>
+                            <field name="justification_deadline" readonly="1" force_save="1"/>
                             <field name="our_voucher" invisible="1" />
                         </group>
                         <notebook>
+                            <page string="Cashier Pieces">
+                                <field name="cashier_piece_ids" widget="one2many" mode="tree" readonly="1">
+                                    <tree string="Cashier Piece">
+                                        <field name="name" />
+                                        <field name="employee_id" />
+                                        <field name="amount_total" />
+                                        <field name="state" />
+                                    </tree>
+                                </field>
+                            </page>
                             <page string="Validation Chain">
                                 <group col="4">
                                     <field name="service_approval_agent_id" readonly="1"/>
@@ -109,7 +126,7 @@
                     <field name="employee_id" operator="child_of" />
                     <field name="department_id" operator="child_of" />
                     <separator/>
-                    <filter string="My Requests" domain="[('create_uid', '=', uid)]" name="my_cash_voucher" />
+                    <filter string="My cash vouchers" domain="[('create_uid', '=', uid)]" name="my_cash_voucher" />
                 </search>
             </field>
         </record>

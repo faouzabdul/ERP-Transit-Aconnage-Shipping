@@ -3,6 +3,24 @@
 
 from odoo import models, fields, api, _
 from datetime import datetime
+from datetime import timedelta
+
+
+def date_by_adding_business_days(from_date, add_days):
+    business_days_to_add = add_days
+    current_date = from_date
+    while business_days_to_add > 0:
+        current_date += timedelta(days=1)
+        weekday = current_date.weekday()
+        if weekday >= 5: # sunday = 6
+            continue
+        business_days_to_add -= 1
+    return current_date
+
+
+def date_by_adding_days(from_date, add_days):
+    current_date = from_date or datetime.now()
+    return current_date + timedelta(add_days)
 
 
 class CashVoucher(models.Model):
@@ -10,6 +28,41 @@ class CashVoucher(models.Model):
     _name = 'servoo.cash.voucher'
     _description = 'Cash Voucher'
     _order = 'id desc'
+
+    @api.model
+    def _get_default_journal(self):
+        journal_types = ['cash']
+        journal = self._search_default_journal(journal_types)
+        return journal
+
+    @api.model
+    def _search_default_journal(self, journal_types):
+        company_id = self._context.get('default_company_id', self.env.company.id)
+        domain = [('company_id', '=', company_id), ('type', 'in', journal_types)]
+        journal = None
+        if self._context.get('default_currency_id'):
+            currency_domain = domain + [('currency_id', '=', self._context['default_currency_id'])]
+            journal = self.env['account.journal'].search(currency_domain, limit=1)
+        if not journal:
+            journal = self.env['account.journal'].search(domain, limit=1)
+        if not journal:
+            company = self.env['res.company'].browse(company_id)
+            error_msg = _(
+                "No journal could be found in company %(company_name)s for any of those types: %(journal_types)s",
+                company_name=company.display_name,
+                journal_types=', '.join(journal_types),
+            )
+            raise UserError(error_msg)
+        return journal
+
+    @api.onchange('hinterland', 'date')
+    def onchange_hinterland(self):
+        delay = 7
+        # for request in self:
+        if self.hinterland:
+            delay = 15
+        self.justification_delay = delay
+        self.justification_deadline = date_by_adding_days(self.date, delay)
 
     name = fields.Char('Reference', required=True, index=True, default=lambda self: _('New'), copy=False)
     company_id = fields.Many2one('res.company', 'Company', required=True, index=True,
@@ -19,9 +72,19 @@ class CashVoucher(models.Model):
     department_id = fields.Many2one(related='employee_id.department_id', related_sudo=False)
     our_voucher = fields.Boolean('Our voucher', compute='_compute_our_vouchers', readonly=True,
                                   search='_search_our_vouchers')
-    amount = fields.Float(string='Amount', tracking=1, digits=(6, 2))
+    amount = fields.Float(string='Amount', tracking=1, digits=(6, 3))
+    amount_justified = fields.Float(string='Amount justified', digits=(6, 3), tracking=1, default=0.0)
+    amount_unjustified = fields.Float(string='Amount unjustified', digits=(6, 3), compute='_compute_unjustified_amount')
     object = fields.Text('Object')
     create_uid = fields.Many2one('res.users', string='Created by', index=True, readonly=True)
+    cashier_piece_ids = fields.One2many('servoo.cashier.piece', 'cash_voucher_id', 'Cashier Pieces')
+    justification_delay = fields.Integer('Justification Delay (days)', default=7)
+    hinterland = fields.Boolean('For hinterland operation ?')
+    justification_deadline = fields.Date('Justification Deadline', default=onchange_hinterland)
+    journal_id = fields.Many2one('account.journal', string='Cash Journal', required=True, readonly=True,
+                                 states={'draft': [('readonly', False)]}, check_company=True,
+                                 domain=[('type', '=', 'cash')],
+                                 default=_get_default_journal)
 
     workflow_observation = fields.Text('Observation', tracking=3)
 
@@ -63,8 +126,12 @@ class CashVoucher(models.Model):
 
     def _compute_our_vouchers(self):
         for request in self:
-            dp = self.get_department(self.env.user.employee_id.department_id)
+            dp = self.get_department(self.sudo().env.user.employee_id.department_id)
             request.our_voucher = request.department_id and request.department_id.id in dp
+
+    def _compute_unjustified_amount(self):
+        for request in self:
+            request.amount_unjustified = request.amount - request.amount_justified
 
     def _search_our_vouchers(self, operator, value):
         if operator not in ['=', '!=']:
@@ -96,7 +163,7 @@ class CashVoucher(models.Model):
         group_service_approval = self.env.ref("servoo_finance.applicant_service_approval_group_user")
         users = group_service_approval.users
         for user in users:
-            if user.employee_id.department_id.id == self.department_id.id:
+            if user.sudo().employee_id.department_id.id == self.sudo().department_id.id:
                 self.activity_schedule(
                     "servoo_finance.mail_cash_voucher_feedback", user_id=user.id,
                     summary=_("New cash voucher %s needs the applicant service approval" % self.name)

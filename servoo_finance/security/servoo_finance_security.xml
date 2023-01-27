@@ -18,7 +18,7 @@
             <field name="category_id"
                    ref="module_category_servoo_finance"/>
               <field name="implied_ids"
-                   eval="[(4, ref('applicant_service_approval_group_user')), (4, ref('servoo_purchase.group_purchase_applicant_service'))]"/>
+                   eval="[(4, ref('servoo_purchase.group_purchase_applicant_service'))]"/>
           </record>
 
         <record id="applicant_direction_approval_group_user" model="res.groups">

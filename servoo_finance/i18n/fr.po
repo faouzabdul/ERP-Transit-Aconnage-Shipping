@@ -1004,7 +1004,7 @@ msgstr "Date d'approbation du contrôle de gestion"
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_payment_request__employee_parent_id
 #: model:res.groups,name:servoo_finance.group_finance_manager
 msgid "Manager"
-msgstr "Supérieur hiérachique"
+msgstr "Responsable"
 
 #. module: servoo_finance
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_cash_voucher__message_has_error

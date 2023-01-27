@@ -101,7 +101,7 @@ class PaymentRequest(models.Model):
 
     def _compute_our_requests(self):
         for request in self:
-            dp = self.get_department(self.env.user.employee_id.department_id)
+            dp = self.get_department(self.sudo().env.user.employee_id.department_id)
             request.our_requests = request.department_id and request.department_id.id in dp
 
     def _search_our_requests(self, operator, value):
@@ -130,6 +130,7 @@ class PaymentRequestLine(models.Model):
     _description = 'Payement request line'
 
     product_id = fields.Many2one('product.product')
+    file_reference = fields.Char('File Reference')
     description = fields.Char('Description', required=True)
     amount = fields.Float('Amount', required=True)
     payment_request_id = fields.Many2one('servoo.payment.request', 'Payment Request', required=True)

@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+                        # -*- coding: utf-8 -*-
 # Author: Marius YENKE MBEUYO
 
 from odoo import api, fields, models, _

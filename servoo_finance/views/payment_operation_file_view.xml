@@ -12,6 +12,10 @@
                             context="{'default_file_reference': name}"
                             name="%(action_create_payment_request)d" attrs="{'invisible': [('state', '!=', 'open')]}"
                     />
+                    <button type="action" string="Create Cash Piece"
+                            context="{'default_file_reference': name}"
+                            name="%(action_create_cashier_piece)d" attrs="{'invisible': [('state', '!=', 'open')]}"
+                    />
                 </button>
             </field>
         </record>
@@ -49,6 +53,11 @@
                             context="{'default_file_reference': name}"
                             name="%(action_create_payment_request)d" attrs="{'invisible': [('state', '!=', 'open')]}"
                     />
+                    <button type="action" string="Create Cash Piece"
+                            context="{'default_file_reference': name}"
+                            name="%(action_create_cashier_piece)d" attrs="{'invisible': [('state', '!=', 'open')]}"
+                    />
+
                 </button>
             </field>
         </record>
@@ -87,6 +96,10 @@
                             context="{'default_file_reference': name}"
                             name="%(action_create_payment_request)d" attrs="{'invisible': [('state', '!=', 'open')]}"
                     />
+                    <button type="action" string="Create Cash Piece"
+                            context="{'default_file_reference': name}"
+                            name="%(action_create_cashier_piece)d" attrs="{'invisible': [('state', '!=', 'open')]}"
+                    />
                 </button>
             </field>
         </record>
@@ -122,6 +135,10 @@
                     <button type="action" string="Create Payment Request"
                             context="{'default_file_reference': name}"
                             name="%(action_create_payment_request)d" attrs="{'invisible': [('state', '!=', 'open')]}"
+                    />
+                    <button type="action" string="Create Cash Piece"
+                            context="{'default_file_reference': name}"
+                            name="%(action_create_cashier_piece)d" attrs="{'invisible': [('state', '!=', 'open')]}"
                     />
                 </button>
             </field>

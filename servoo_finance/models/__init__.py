@@ -4,3 +4,4 @@
 from . import payment_request
 from . import cash_voucher
 from . import cashier_piece
+from . import account_dashboard
