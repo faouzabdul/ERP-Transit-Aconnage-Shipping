@@ -3,12 +3,17 @@
 
 from odoo import models, fields, api, _
 from . import utils
+import logging
+from odoo.exceptions import UserError, ValidationError
+from odoo.tools import is_html_empty
+
+_logger = logging.getLogger(__name__)
 
 
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
-    transport_means_id = fields.Many2one('res.transport.means', string="Mean of transportation")
+    transport_means_id = fields.Many2one('res.transport.means', string="Means of transportation")
     travel_date = fields.Date('Travel Date')
     loading_place_id = fields.Many2one('res.locode', string='Loading place')
     unloading_place_id = fields.Many2one('res.locode', string='Unloading place')
@@ -24,7 +29,7 @@ class SaleOrder(models.Model):
     amount_total_letter = fields.Char('Total letter', compute='_compute_display_amount_letter',
                                       store=False)
     other_currency_id = fields.Many2one('res.currency', 'Other Currency')
-    amount_other_currency = fields.Float(string='Total Currency', store=True, digits=(6, 3),
+    amount_other_currency = fields.Float(string='Total Currency', store=False, digits=(6, 3),
                                          compute='_compute_display_amount_letter')
 
     @api.depends('amount_total', 'currency_id')
@@ -56,3 +61,76 @@ class SaleOrder(models.Model):
                     'assessed_value': order.assessed_value,
                     'object': order.object
                 })
+
+    def _compute_line_data_for_template_change(self, line):
+        return {
+            'sequence': line.sequence,
+            'display_type': line.display_type,
+            'name': line.name,
+            'state': 'draft',
+        }
+
+    def _sum_rule_amount(self, localdict, line, amount):
+        _logger.info('line.code : %s = %s' % (line.code, amount))
+        localdict['rules'].dict[line.code] = line.code in localdict['rules'].dict and localdict['rules'].dict[line.code] + amount or amount
+        return localdict
+
+    def init_dicts(self):
+        class BrowsableObject(object):
+            def __init__(self, dict, env):
+                self.dict = dict
+                self.env = env
+
+            def __getattr__(self, attr):
+                return attr in self.dict and self.dict.__getitem__(attr) or 0.0
+
+        rules_dict = {}
+        rules = BrowsableObject(rules_dict, self.env)
+        var_dict = {
+            'VOLUME': self.volume,
+            'TONNAGE': self.weight,
+            'rules': rules
+        }
+        return dict(var_dict)
+
+    def _get_template_lines(self, template_id, localdict):
+        order_lines = [(5, 0, 0)]
+        template = self.env['sale.order.template'].browse(template_id)
+        for line in template.sale_order_template_line_ids:
+            data = self._compute_line_data_for_template_change(line)
+            localdict['result'] = None
+            localdict['result_qty'] = 1.0
+            if line.product_id:
+                amount, qty = line._compute_rule(localdict)
+                if line.code:
+                    total_rule = amount * qty
+                    localdict[line.code] = total_rule
+                    localdict = self._sum_rule_amount(localdict, line, total_rule)
+                price = amount
+                discount = 0
+                data.update({
+                    'price_unit': price,
+                    'discount': discount,
+                    'product_uom_qty': qty,
+                    'product_id': line.product_id.id,
+                    'product_uom': line.product_uom_id.id,
+                })
+            order_lines.append((0, 0, data))
+        self.order_line = order_lines
+        self.order_line._compute_tax_id()
+
+    @api.onchange('sale_order_template_id')
+    def onchange_sale_order_template_id(self):
+        template = self.sale_order_template_id.with_context(lang=self.partner_id.lang)
+        # if template:
+        #     self.volume = template.volume
+        #     self.weight = template.weight
+        localdict = self.init_dicts()
+        self._get_template_lines(self.sale_order_template_id.id, localdict)
+        if not is_html_empty(template.note):
+            self.note = template.note
+
+    @api.onchange('weight', 'volume')
+    def onchange_variables(self):
+        localdict = self.init_dicts()
+        self._get_template_lines(self.sale_order_template_id.id, localdict)

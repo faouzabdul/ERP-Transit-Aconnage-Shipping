@@ -516,6 +516,9 @@
 <!--                                 <br /> <b><span t-field="o.company_currency_id.name" /> : <span t-field="o.amount_total_signed_letter" /> </b>-->
 <!--                                </t>-->
                             </p>
+                            <p style="text-transform:uppercase;">
+                                Issued by : <span t-field="o.user_id" />
+                            </p>
 <!--                            <p t-if="o.move_type in ('out_invoice', 'in_refund') and o.payment_reference"-->
 <!--                               name="payment_communication">-->
 <!--                                Please use the following communication for your payment :-->

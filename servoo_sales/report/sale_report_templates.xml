@@ -84,14 +84,15 @@
                                 </font>
                             </td>
                             <td colspan="3" style="border: none; padding: 0cm; text-align: center">
-                                <font style="font-size: 12pt"><b>
-                                    <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
-                                        <span t-if="doc.state not in ['draft','sent']">ORDER</span>
-                                        <span t-if="doc.state in ['draft','sent']">QUOTATION</span>
-                                    </t>
-                                    <t t-if="env.context.get('proforma', False) or is_pro_forma">
-                                        <span>PROFORMA</span>
-                                    </t>
+                                <font style="font-size: 12pt">
+                                    <b>
+                                        <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
+                                            <span t-if="doc.state not in ['draft','sent']">ORDER</span>
+                                            <span t-if="doc.state in ['draft','sent']">QUOTATION</span>
+                                        </t>
+                                        <t t-if="env.context.get('proforma', False) or is_pro_forma">
+                                            <span>PROFORMA</span>
+                                        </t>
                                     </b>
                                 </font>
                             </td>
@@ -243,8 +244,13 @@
                             </td>
                             <td
                                     style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
-                                <t t-if="doc.unit_id"><font>WEIGHT (<span t-field="doc.unit_id" />)</font></t>
-                                <t t-else=""><font>WEIGHT (Kg)</font></t>
+                                <t t-if="doc.unit_id">
+                                    <font>WEIGHT (<span t-field="doc.unit_id"/>)
+                                    </font>
+                                </t>
+                                <t t-else="">
+                                    <font>WEIGHT (Kg)</font>
+                                </t>
                             </td>
                             <td
                                     style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
@@ -312,14 +318,14 @@
                                 <font>O/FILE N°</font>
                             </td>
                             <td colspan="2" style="text-align: center;border: 1px solid #000000; padding: 0.1cm">
-<!--                            <td-->
-<!--                                    style="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">-->
+                                <!--                            <td-->
+                                <!--                                    style="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">-->
 
-<!--                                <font>O/FILE N°</font>-->
-<!--                            </td>-->
-<!--                            <td style="text-align: center;border: 1px solid #000000; padding: 0.1cm">-->
+                                <!--                                <font>O/FILE N°</font>-->
+                                <!--                            </td>-->
+                                <!--                            <td style="text-align: center;border: 1px solid #000000; padding: 0.1cm">-->
                                 <font>
-                                    <br />
+                                    <br/>
                                 </font>
                             </td>
                             <td style="border: none; padding: 0cm">
@@ -335,8 +341,10 @@
                                 style="text-align: right;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
                                 <font>
                                     <b>
-                                        <t t-if="doc.assessed_value > 0" ><span t-field="doc.assessed_value"/>
-                                                FCFA</t>
+                                        <t t-if="doc.assessed_value > 0">
+                                            <span t-field="doc.assessed_value"/>
+                                            FCFA
+                                        </t>
                                     </b>
                                 </font>
                             </td>
@@ -345,9 +353,9 @@
                                 <font>Number of packages/TC</font>
                             </td>
                             <td colspan="2" style="text-align: center;border: 1px solid #000000; padding: 0.1cm">
-                                 <b>
+                                <b>
                                     <t t-if="doc.number_of_packages">
-                                        <span t-field="doc.number_of_packages" />
+                                        <span t-field="doc.number_of_packages"/>
                                     </t>
                                 </b>
                             </td>
@@ -408,9 +416,13 @@
                                             <span t-field="line.name"/>
                                         </td>
                                         <td name="td_quantity" class="text-right">
-                                            <t t-if="line.product_uom_qty &lt; 1 and line.product_uom_qty &gt; 0"><span t-esc="line.product_uom_qty * 100"/>%</t>
-                                            <t t-else=""><span t-field="line.product_uom_qty"/></t>
-<!--                                            <span t-field="line.product_uom_qty" t-options='{"widget": "percentage"}'/>-->
+                                            <t t-if="line.product_uom_qty &lt; 1 and line.product_uom_qty &gt; 0"><span
+                                                    t-esc="line.product_uom_qty * 100"/>%
+                                            </t>
+                                            <t t-else="">
+                                                <span t-field="line.product_uom_qty"/>
+                                            </t>
+                                            <!--                                            <span t-field="line.product_uom_qty" t-options='{"widget": "percentage"}'/>-->
                                             <!--                                        <span t-field="line.product_uom"/>-->
                                         </td>
                                         <td name="td_priceunit" class="text-right">
@@ -467,7 +479,12 @@
                                     <t t-set="tax_totals" t-value="json.loads(doc.tax_totals_json)"/>
                                     <t t-call="account.document_tax_totals"/>
                                     <tr class="border-black o_total">
-                                        <td><strong>Total ( <span t-field="doc.other_currency_id.name" /> )</strong></td>
+                                        <td>
+                                            <strong>Total (
+                                                <span t-field="doc.other_currency_id.name"/>
+                                                )
+                                            </strong>
+                                        </td>
                                         <td class="text-right">
                                             <span
                                                     t-esc="doc.amount_other_currency"
@@ -481,8 +498,16 @@
                     </div>
 
                     <p>
-                        Stopped this invoice for the sum : <br />
-                        <b><span t-field="doc.currency_id.name" /> : <span t-field="doc.amount_total_letter" /> </b>
+                        Stopped this invoice for the sum :
+                        <br/>
+                        <b>
+                            <span t-field="doc.currency_id.name"/>
+                            :
+                            <span t-field="doc.amount_total_letter"/>
+                        </b>
+                    </p>
+                    <p style="text-transform:uppercase;">
+                        Issued by : <span t-field="doc.user_id" />
                     </p>
 
                     <div t-if="doc.signature" class="mt32 ml64 mr4" name="signature">
@@ -496,9 +521,9 @@
                             <p t-field="doc.signed_by"/>
                         </div>
                     </div>
-
-                    <div class="oe_structure"/>
-
+                </font>
+                <!--                    <div class="oe_structure"/>-->
+                <font size="0" style="font-size: 7pt">
                     <p t-field="doc.note"/>
                     <p t-if="not is_html_empty(doc.payment_term_id.note)">
                         <span t-field="doc.payment_term_id.note"/>

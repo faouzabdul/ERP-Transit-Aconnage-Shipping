@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="servoo_sale_order_template_form">
+            <field name="name">servoo.sale.order.template</field>
+            <field name="model">sale.order.template</field>
+            <field name="inherit_id" ref="sale_management.sale_order_template_view_form" />
+            <field name="arch" type="xml">
+<!--                <field name="active" position="after">-->
+<!--                    <field name="volume" />-->
+<!--                    <field name="weight" />-->
+<!--                </field>-->
+                <field name="number_of_days" position="after">
+                    <group col="3" string="Legend for variables and rules">
+                            <group>
+                                <span colspan="2">Available variables:</span>
+                                <span colspan="2">VOLUME: the volume</span>
+                                <span colspan="2">TONNAGE: the weight</span>
+                                <span colspan="2">rules: object containing the rules code (previously computed)</span>
+                            </group>
+                            <group>
+                                <span colspan="2">Returned value have to be set in the variable 'result_qty' for quantity</span>
+                                <span colspan="2">Returned value have to be set in the variable 'result' for amount</span>
+                            </group>
+                        </group>
+                </field>
+                <xpath expr="//field[@name='sale_order_template_line_ids']/tree/field[@name='name']" position="after">
+                    <field name="code" />
+                </xpath>
+                <xpath expr="//field[@name='sale_order_template_line_ids']/tree/field[@name='product_uom_qty']" position="replace">
+                    <field name="quantity_python_compute" required="1"/>
+                    <field name="amount_python_compute" required="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

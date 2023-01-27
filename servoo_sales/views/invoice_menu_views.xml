@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+<!--        <menuitem id="account.menu_finance" name="Accounting" groups="servoo_sales.group_account_user"/>-->
+        <menuitem name="Accounting"
+        id="account.menu_finance"
+        groups="servoo_sales.group_account_user"
+        web_icon="account,static/description/icon.png"
+        sequence="55" />
+
+        <menuitem id="invoice_menu_root" name="Invoicing" web_icon="servoo_sales,static/description/icon.png" groups="servoo_sales.group_account_invoice">
+            <menuitem id="menu_finance_receivables" name="Customers" sequence="1">
+                <menuitem id="menu_action_move_out_invoice_type" action="account.action_move_out_invoice_type" sequence="1"/>
+                <menuitem id="menu_action_move_out_refund_type" action="account.action_move_out_refund_type" sequence="2"/>
+                <menuitem id="menu_action_move_out_receipt_type" action="account.action_move_out_receipt_type"  sequence="3"/>
+                <menuitem id="product_product_menu_sellable" name="Products" action="account.product_product_action_sellable" sequence="100"/>
+                <menuitem id="menu_account_customer" name="Customers" action="account.res_partner_action_customer" sequence="110"/>
+            </menuitem>
+            <menuitem id="shipping_invoice_menu" name="Shipping" sequence="4">
+                <menuitem id="shipping_pda_invoice_menu" action="servoo_shipping.action_shipping_pda_to_invoice" />
+                <menuitem id="shipping_file_invoice_menu" action="servoo_shipping.action_shipping_file_to_invoice" />
+            </menuitem>
+            <menuitem id="stevedoring_invoice_menu" name="Stevedoring" sequence="5">
+                <menuitem id="stevedoring_file_invoice_menu" action="servoo_stevedoring.action_stevedoring_file_to_invoice" />
+            </menuitem>
+            <menuitem id="transit_invoice_menu" name="Customs Operations" sequence="5">
+                <menuitem id="transit_order_invoice_menu" action="servoo_transit.action_transit_order_to_invoice" />
+            </menuitem>
+            <menuitem id="logistic_invoice_menu" name="Logistic" sequence="6">
+                <menuitem id="logistic_operation_invoice_menu" action="servoo_logistic.action_operations_to_invoice" />
+            </menuitem>
+        </menuitem>
+    </data>
+</odoo>

@@ -8,7 +8,7 @@ from . import utils
 class AccountMode(models.Model):
     _inherit = 'account.move'
 
-    transport_means_id = fields.Many2one('res.transport.means', string="Mean of transportation")
+    transport_means_id = fields.Many2one('res.transport.means', string="Means of transportation")
     travel_date = fields.Date('Travel Date')
     loading_place_id = fields.Many2one('res.locode', string='Loading place')
     unloading_place_id = fields.Many2one('res.locode', string='Unloading place')
