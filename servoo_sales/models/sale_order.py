@@ -27,9 +27,9 @@ class SaleOrder(models.Model):
     object = fields.Text('Object')
     number_of_packages = fields.Char('Number of packages/TC')
     amount_total_letter = fields.Char('Total letter', compute='_compute_display_amount_letter',
-                                      store=False)
+                                      store=True)
     other_currency_id = fields.Many2one('res.currency', 'Other Currency')
-    amount_other_currency = fields.Float(string='Total Currency', store=False, digits=(6, 3),
+    amount_other_currency = fields.Float(string='Total Currency', store=True, digits=(6, 3),
                                          compute='_compute_display_amount_letter')
 
     @api.depends('amount_total', 'currency_id')
