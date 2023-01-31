@@ -156,7 +156,17 @@ class Operation(models.Model):
             'partner_shipping_id': self.partner_id.id,
             'journal_id': journal.id,  # company comes from the journal
             'invoice_origin': self.name,
-            'invoice_line_ids': []
+            'invoice_line_ids': [],
+            'transport_means_id': self.transport_means_id.id,
+            'travel_date': self.arrival_date,
+            'loading_place_id': self.loading_place_id.id,
+            'unloading_place_id': self.unloading_place_id.id,
+            'transport_letter': self.bill_of_lading,
+            'volume': self.volume,
+            'weight': self.gross_weight,
+            'custom_declaration_reference': '',
+            'custom_declaration_date': '',
+            'unit_id': self.env.ref('dyen_base.unit_KG').id
         }
         return invoice_vals
 

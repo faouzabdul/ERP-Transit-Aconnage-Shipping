@@ -137,7 +137,7 @@
                                             <field name="administration_id" required="0" />
                                             <field name="start_date" />
                                             <field name="amount" invisible="0"/>
-                                            <field name="tax_id" widget="many2many_tags" options="{'no_create': True}" context="{'search_view_ref': 'account.account_tax_view_search'}" domain="[('type_tax_use','=','sale')]"
+                                            <field name="tax_id" widget="many2many_tags" options="{'no_create': True}" domain="[('type_tax_use','=','sale')]"
                                                 attrs="{'readonly': [('state', 'in', ('done','cancel'))]}"/>
                                             <field name="agent_id" invisible="0"/>
                                             <field name="end_date" invisible="0"/>
