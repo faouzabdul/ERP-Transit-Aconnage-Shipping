@@ -2,7 +2,7 @@
 <odoo>
     <data>
         <record model='product.product' id='ARD'>
-            <field name='name'>STEVEDORING + LIFTING</field>
+            <field name='name'>ACCONAGE + RELEVAGE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>ARD</field>
             <field name='sale_ok' eval='True'/>
@@ -10,7 +10,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='ACO'>
-            <field name='name'>STEVEDORING</field>
+            <field name='name'>ACCONAGE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>ACO</field>
             <field name='sale_ok' eval='True'/>
@@ -18,7 +18,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='ADE'>
-            <field name='name'>CUSTOMS PENALTY</field>
+            <field name='name'>AMENDE DOUANE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>ADE</field>
             <field name='sale_ok' eval='True'/>
@@ -26,7 +26,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='ASS'>
-            <field name='name'>LOCAL INSURANCE</field>
+            <field name='name'>ASSURANCE LOCALE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>ASS</field>
             <field name='sale_ok' eval='True'/>
@@ -34,7 +34,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='AVV'>
-            <field name='name'>VEHICLE INSURANCE + WIND SCREEN</field>
+            <field name='name'>ASSURANCE VEHICULE + VIGNETTE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>AVV</field>
             <field name='sale_ok' eval='True'/>
@@ -42,7 +42,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='ATF'>
-            <field name='name'>CERTIFICATE OF FREIGHT</field>
+            <field name='name'>ATTESTATION DE FRET</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>ATF</field>
             <field name='sale_ok' eval='True'/>
@@ -50,7 +50,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='ATD'>
-            <field name='name'>CLEARANCE CERTIFICATE</field>
+            <field name='name'>ATTESTATION DE DEDOUANEMENT</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>ATD</field>
             <field name='sale_ok' eval='True'/>
@@ -58,7 +58,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='ATP'>
-            <field name='name'>WEIGHT CERTIFICATE</field>
+            <field name='name'>ATTESTATION DE POIDS</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>ATP</field>
             <field name='sale_ok' eval='True'/>
@@ -66,7 +66,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='ADP'>
-            <field name='name'>CLEARANCE &amp; WEIGHT CERTIFICATES</field>
+            <field name='name'>ATTEST. DEDOUANEMENT &amp; POIDS</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>ADP</field>
             <field name='sale_ok' eval='True'/>
@@ -74,7 +74,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='AED'>
-            <field name='name'>DEFINITIVE ATTESTATION OF EXPORTATION</field>
+            <field name='name'>ATTESTATION DEFINITIVE D'EXPORTATION</field>
             <field name='detailed_type'>service</field>
             <field name='default_code'>AED</field>
             <field name='sale_ok' eval='True'/>
@@ -82,7 +82,7 @@
             <field name='operation_type'></field>
         </record>
         <record model='product.product' id='AIT'>
-            <field name='name'>REGISTRATION CERTIFICATE. TEMPORARY</field>
+            <field name='name'>ATTESTATION IMMATRICUL. TEMPORAIRE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>AIT</field>
             <field name='sale_ok' eval='True'/>
@@ -90,7 +90,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='AUE'>
-            <field name='name'>LOADING AUTHORIZATION</field>
+            <field name='name'>AUTORISATION D'EMBARQUEMENT</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>AUE</field>
             <field name='sale_ok' eval='True'/>
@@ -98,7 +98,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='BAE'>
-            <field name='name'>BAE OBTAINING FEES</field>
+            <field name='name'>FRAIS D'OBTENTION BAE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>BAE</field>
             <field name='sale_ok' eval='True'/>
@@ -106,7 +106,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='BES'>
-            <field name='name'>E.C.T.N</field>
+            <field name='name'>B.E.S.C</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>BES</field>
             <field name='sale_ok' eval='True'/>
@@ -114,7 +114,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='BNF'>
-            <field name='name'>BNF FEES</field>
+            <field name='name'>BNF</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>BNF</field>
             <field name='sale_ok' eval='True'/>
@@ -122,7 +122,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='LTA'>
-            <field name='name'>GOOD ON AWB</field>
+            <field name='name'>BON SUR LTA</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>LTA</field>
             <field name='sale_ok' eval='True'/>
@@ -130,7 +130,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='CDC'>
-            <field name='name'>PAPER WORK</field>
+            <field name='name'>CESSION DOCUMENTAIRE</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>CDC</field>
             <field name='sale_ok' eval='True'/>
@@ -138,7 +138,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='CEM'>
-            <field name='name'>PACKING CERTIFICATE</field>
+            <field name='name'>CERTIFICAT D'EMPOTAGE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>CEM</field>
             <field name='sale_ok' eval='True'/>
@@ -146,7 +146,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='COR'>
-            <field name='name'>CERTIFICATE OF ORIGIN</field>
+            <field name='name'>CERTIFICAT D'ORIGINE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>COR</field>
             <field name='sale_ok' eval='True'/>
@@ -154,7 +154,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='COF'>
-            <field name='name'>CERTIFICATE OF ORIGIN - Formule A</field>
+            <field name='name'>CERTIFICAT D'ORIGINE - Formule A</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>COF</field>
             <field name='sale_ok' eval='True'/>
@@ -162,7 +162,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='CCL'>
-            <field name='name'>GOODS MOVMENT CERTIFICATE - CEMAC</field>
+            <field name='name'>CERTIFICAT CIRCULATION - CEMAC</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>CCL</field>
             <field name='sale_ok' eval='True'/>
@@ -170,7 +170,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='CCE'>
-            <field name='name'>GOODS MOVMENT CERTIFICATE - EUR. 1</field>
+            <field name='name'>CERTIFICAT CIRCULATION - EUR. 1</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>CCE</field>
             <field name='sale_ok' eval='True'/>
@@ -178,7 +178,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='CPH'>
-            <field name='name'>PHYTOSANITARY CERTIFICATE</field>
+            <field name='name'>CERTIFICAT PHYTOSANITAIRE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>CPH</field>
             <field name='sale_ok' eval='True'/>
@@ -186,7 +186,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='CDN'>
-            <field name='name'>CHANGE OF VESSEL</field>
+            <field name='name'>CHANGEMENT DE NAVIRE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>CDN</field>
             <field name='sale_ok' eval='True'/>
@@ -194,7 +194,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='CPE'>
-            <field name='name'>CHANGE OF LOADING PORT</field>
+            <field name='name'>CHANGEMENT DE PORT D'EMBARQUEMENT</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>CPE</field>
             <field name='sale_ok' eval='True'/>
@@ -202,7 +202,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='CPD'>
-            <field name='name'>CHANGE OF DISCHARGING PORT</field>
+            <field name='name'>CHANGEMENT DE PORT DE DESTINATION</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>CPD</field>
             <field name='sale_ok' eval='True'/>
@@ -210,7 +210,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='CLR'>
-            <field name='name'>CLEARANCE</field>
+            <field name='name'>DEDOUANEMENT</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>CLR</field>
             <field name='sale_ok' eval='True'/>
@@ -226,7 +226,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='CMF'>
-            <field name='name'>COMMISSION / FREIGHT</field>
+            <field name='name'>COMMISSION / FRET</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>CMF</field>
             <field name='sale_ok' eval='True'/>
@@ -234,7 +234,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='CCC'>
-            <field name='name'>COMMISSION PARTICIPATION CONGOLESE</field>
+            <field name='name'>COMMISSION PARTICIPATION CONGOLAISE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>CCC</field>
             <field name='sale_ok' eval='True'/>
@@ -242,7 +242,7 @@
             <field name='operation_type'>shipping</field>
         </record>
         <record model='product.product' id='CTR'>
-            <field name='name'>TRANSPORT COMMISSION</field>
+            <field name='name'>COMMISSION SUR TRANSPORT</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>CTR</field>
             <field name='sale_ok' eval='True'/>
@@ -250,7 +250,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='COB'>
-            <field name='name'>BANK COMMISSION</field>
+            <field name='name'>COMMISSION BANQUE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>COB</field>
             <field name='sale_ok' eval='True'/>
@@ -258,7 +258,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='COD'>
-            <field name='name'>FEES ON DISBURSEMENTS 2%</field>
+            <field name='name'>COMMISSIONS SUR DEBOURS 2%</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>COD</field>
             <field name='sale_ok' eval='True'/>
@@ -266,7 +266,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='COM'>
-            <field name='name'>FEES ON DISBURSEMENTS</field>
+            <field name='name'>COMMISSIONS SUR DEBOURS</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>COM</field>
             <field name='sale_ok' eval='True'/>
@@ -274,7 +274,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='CON'>
-            <field name='name'>CONVEYING</field>
+            <field name='name'>CONVOYAGE</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>CON</field>
             <field name='sale_ok' eval='True'/>
@@ -282,7 +282,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='DEA'>
-            <field name='name'>OTHER DISBURSEMENTS</field>
+            <field name='name'>DEBOURS AUTRES</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>DEA</field>
             <field name='sale_ok' eval='True'/>
@@ -290,7 +290,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='GPG'>
-            <field name='name'>DECONSOLIDATION FEES</field>
+            <field name='name'>DEBOURS DEGROUPAGE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>GPG</field>
             <field name='sale_ok' eval='True'/>
@@ -298,7 +298,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='DGP'>
-            <field name='name'>DECONSOLIDATION FEES - with taxes</field>
+            <field name='name'>DEBOURS DEGROUPAGE - Taxable</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>DGP</field>
             <field name='sale_ok' eval='True'/>
@@ -306,7 +306,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='DGE'>
-            <field name='name'>DECONSOLIDATION FEES - without taxes</field>
+            <field name='name'>DEBOURS DEGROUPAGE - Non taxable</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>DGE</field>
             <field name='sale_ok' eval='True'/>
@@ -314,7 +314,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='DCH'>
-            <field name='name'>OFFLOADING</field>
+            <field name='name'>DECHARGEMENT</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>DCH</field>
             <field name='sale_ok' eval='True'/>
@@ -322,7 +322,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='DCC'>
-            <field name='name'>TRUCK UNLOADING</field>
+            <field name='name'>DECHARGEMENT CAMION</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>DCC</field>
             <field name='sale_ok' eval='True'/>
@@ -330,7 +330,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='DEP'>
-            <field name='name'>DESTUFFING</field>
+            <field name='name'>DEPOTAGE</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>DEP</field>
             <field name='sale_ok' eval='True'/>
@@ -346,7 +346,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='DPT'>
-            <field name='name'>PORT DOCUMENTATION</field>
+            <field name='name'>DOCUMENTATION PORTUAIRE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>DPT</field>
             <field name='sale_ok' eval='True'/>
@@ -354,7 +354,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='DCD'>
-            <field name='name'>CUSTOMS DOCUMENTATION</field>
+            <field name='name'>DOCUMENTATION DOUANIERE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>DCD</field>
             <field name='sale_ok' eval='True'/>
@@ -370,7 +370,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='DOM'>
-            <field name='name'>BANK DOMICILIATION</field>
+            <field name='name'>DOMICILIATION BANCAIRE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>DOM</field>
             <field name='sale_ok' eval='True'/>
@@ -378,7 +378,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='DDD'>
-            <field name='name'>CUSTOMS DUSTIES (WITHOUT PRECOMPTE TE BANK CHARGES)</field>
+            <field name='name'>DROITS DE DOUANES (sans précompte + frais bancaire)</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>DDD</field>
             <field name='sale_ok' eval='True'/>
@@ -386,7 +386,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='DDF'>
-            <field name='name'>CUSTOMS DUTIES + Bank fees</field>
+            <field name='name'>DROITS DE DOUANES + Frais bancaires</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>DDF</field>
             <field name='sale_ok' eval='True'/>
@@ -394,7 +394,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='DDG'>
-            <field name='name'>CUSTOMS DUTIES + GUCE &amp; BANK fees</field>
+            <field name='name'>DROITS DE DOUANE + FICHE GUCE + Frais bancaires</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>DDG</field>
             <field name='sale_ok' eval='True'/>
@@ -402,7 +402,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='DDI'>
-            <field name='name'>CUSTOM'S DUTIES AND TAXES</field>
+            <field name='name'>DROITS ET TAXES DE DOUANES</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>DDI</field>
             <field name='sale_ok' eval='True'/>
@@ -410,7 +410,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='EMP'>
-            <field name='name'>STUFFING</field>
+            <field name='name'>EMPOTAGE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>EMP</field>
             <field name='sale_ok' eval='True'/>
@@ -418,7 +418,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='EDI'>
-            <field name='name'>DIRECT CLEARING FEES</field>
+            <field name='name'>ENLÈVEMENT DIRECT</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>EDI</field>
             <field name='sale_ok' eval='True'/>
@@ -426,7 +426,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='ESP'>
-            <field name='name'>UNDERHOIST REMOVAL</field>
+            <field name='name'>ENLEVEMENT SOUS-PALAN</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>ESP</field>
             <field name='sale_ok' eval='True'/>
@@ -434,7 +434,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='ETP'>
-            <field name='name'>BOTTLE STAMPING</field>
+            <field name='name'>ESTAMPILLATION DES BOUTEILLES</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>ETP</field>
             <field name='sale_ok' eval='True'/>
@@ -442,7 +442,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='ENS'>
-            <field name='name'>BAGGING</field>
+            <field name='name'>ENSACHAGE</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>ENS</field>
             <field name='sale_ok' eval='True'/>
@@ -450,7 +450,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='ESC'>
-            <field name='name'>POLICE ESCORT</field>
+            <field name='name'>ESCORTE GENDARMERIE / POLICE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>ESC</field>
             <field name='sale_ok' eval='True'/>
@@ -458,7 +458,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='ESD'>
-            <field name='name'>CUSTOMS ESCORT</field>
+            <field name='name'>ESCORTE DOUANE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>ESD</field>
             <field name='sale_ok' eval='True'/>
@@ -474,7 +474,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='GUC'>
-            <field name='name'>GUCE FEES</field>
+            <field name='name'>FICHE GUCE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>GUC</field>
             <field name='sale_ok' eval='True'/>
@@ -482,7 +482,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='GUS'>
-            <field name='name'>GUCE FEES</field>
+            <field name='name'>FICHE GUCE + SAISIE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>GUS</field>
             <field name='sale_ok' eval='True'/>
@@ -490,7 +490,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='FOR'>
-            <field name='name'>LUMP SUM</field>
+            <field name='name'>FORFAIT</field>
             <field name='detailed_type'>disbursement_benefit</field>
             <field name='default_code'>FOR</field>
             <field name='sale_ok' eval='True'/>
@@ -498,7 +498,7 @@
             <field name='operation_type'></field>
         </record>
         <record model='product.product' id='FOD'>
-            <field name='name'>VARIOUS PACKAGES</field>
+            <field name='name'>FORFAITS DIVERS</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>FOD</field>
             <field name='sale_ok' eval='True'/>
@@ -506,7 +506,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='FED'>
-            <field name='name'>DIRECT CLEARING FORMALITIES</field>
+            <field name='name'>FORMALITES D'ENLEVEMENT DIRECT</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>FED</field>
             <field name='sale_ok' eval='True'/>
@@ -514,7 +514,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='FDO'>
-            <field name='name'>CUSTOMS FORMALITIES</field>
+            <field name='name'>FORMALITÉS DE DÉDOUANEMENT</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>FDO</field>
             <field name='sale_ok' eval='True'/>
@@ -522,7 +522,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='FDD'>
-            <field name='name'>CUSTOMS FORMALITIES</field>
+            <field name='name'>FORMALITES DOUANIERES</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>FDD</field>
             <field name='sale_ok' eval='True'/>
@@ -530,7 +530,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='FRM'>
-            <field name='name'>TRANSIT FORMALITIES</field>
+            <field name='name'>FORMALITES DE TRANSIT</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>FRM</field>
             <field name='sale_ok' eval='True'/>
@@ -538,7 +538,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='FHA'>
-            <field name='name'>AGENCY FEES - Lump sum</field>
+            <field name='name'>HONORAIRE AGREE EN DOUANE - Forfait</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>FHA</field>
             <field name='sale_ok' eval='True'/>
@@ -546,7 +546,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='FOT'>
-            <field name='name'>TRANSIT FORMALITIES (T.E.L douane)</field>
+            <field name='name'>FORMALITES DE TRANSIT (T.E.L douane)</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>FOT</field>
             <field name='sale_ok' eval='True'/>
@@ -554,7 +554,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='TRN'>
-            <field name='name'>TRANSIT FEES</field>
+            <field name='name'>FRAIS DE TRANSIT</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>TRN</field>
             <field name='sale_ok' eval='True'/>
@@ -562,7 +562,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='GPS'>
-            <field name='name'>GPS FORMALITIES</field>
+            <field name='name'>FORMALITES GPS</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>GPS</field>
             <field name='sale_ok' eval='True'/>
@@ -570,7 +570,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='GRU'>
-            <field name='name'>EARTH CRANE RENTAL</field>
+            <field name='name'>LOCATION GRUE TERRE</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>GRU</field>
             <field name='sale_ok' eval='True'/>
@@ -578,7 +578,7 @@
             <field name='operation_type'></field>
         </record>
         <record model='product.product' id='FAD'>
-            <field name='name'>ADMINISTRATIVE FEES</field>
+            <field name='name'>FRAIS ADMINISTRATIFS</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>FAD</field>
             <field name='sale_ok' eval='True'/>
@@ -586,7 +586,7 @@
             <field name='operation_type'>shipping</field>
         </record>
         <record model='product.product' id='AER'>
-            <field name='name'>AIRPORT FEES</field>
+            <field name='name'>FRAIS AEROPORTUAIRE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>AER</field>
             <field name='sale_ok' eval='True'/>
@@ -594,7 +594,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='FBD'>
-            <field name='name'>PLUGING FEES - DIT</field>
+            <field name='name'>FRAIS DE BRANCHEMENT - DIT</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>FBD</field>
             <field name='sale_ok' eval='True'/>
@@ -602,7 +602,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='FCA'>
-            <field name='name'>BANK GUARANTEE FEES</field>
+            <field name='name'>FRAIS DE CAUTIONNEMENT BANCAIRE</field>
             <field name='detailed_type'>guarantee</field>
             <field name='default_code'>FCA</field>
             <field name='sale_ok' eval='True'/>
@@ -610,7 +610,7 @@
             <field name='operation_type'></field>
         </record>
         <record model='product.product' id='RBL'>
-            <field name='name'>MANIFEST CORRECTION FEES</field>
+            <field name='name'>FRAIS DE CORRECTION DE MANIFESTE / BLs</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>RBL</field>
             <field name='sale_ok' eval='True'/>
@@ -618,7 +618,7 @@
             <field name='operation_type'>shipping</field>
         </record>
         <record model='product.product' id='COV'>
-            <field name='name'>DIT COVID TEST FEES</field>
+            <field name='name'>FRAIS DE COVVD DIT</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>COV</field>
             <field name='sale_ok' eval='True'/>
@@ -626,7 +626,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='FBL'>
-            <field name='name'>BL FEES</field>
+            <field name='name'>FRAIS B/L</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>FBL</field>
             <field name='sale_ok' eval='True'/>
@@ -634,7 +634,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='FBR'>
-            <field name='name'>BL FEES + LIFTING</field>
+            <field name='name'>FRAIS B/L + RELEVAGE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>FBR</field>
             <field name='sale_ok' eval='True'/>
@@ -642,7 +642,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='FDI'>
-            <field name='name'>D.I FEES</field>
+            <field name='name'>FRAIS DE D.I</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>FDI</field>
             <field name='sale_ok' eval='True'/>
@@ -650,7 +650,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='FDG'>
-            <field name='name'>CLEARING FEES</field>
+            <field name='name'>FRAIS DE DEGROUPAGE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>FDG</field>
             <field name='sale_ok' eval='True'/>
@@ -658,7 +658,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='FDT'>
-            <field name='name'>CONTAINER DETENTION FEES</field>
+            <field name='name'>FRAIS DE DETENTION CONTENEUR</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>FDT</field>
             <field name='sale_ok' eval='True'/>
@@ -666,7 +666,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='DOS'>
-            <field name='name'>FILE OPENING</field>
+            <field name='name'>FRAIS DE DOSSIER</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>DOS</field>
             <field name='sale_ok' eval='True'/>
@@ -674,7 +674,7 @@
             <field name='operation_type'>shipping</field>
         </record>
         <record model='product.product' id='FDB'>
-            <field name='name'>FILES FEES + STAMP ON BL</field>
+            <field name='name'>FRAIS DE DOSSIER + TIMBRE SUR BL</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>FDB</field>
             <field name='sale_ok' eval='True'/>
@@ -682,7 +682,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='FXS'>
-            <field name='name'>FIXED FEES</field>
+            <field name='name'>FRAIS FIXES</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>FXS</field>
             <field name='sale_ok' eval='True'/>
@@ -690,7 +690,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='FPL'>
-            <field name='name'>LEAD FEES</field>
+            <field name='name'>FRAIS DE PLOMB</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>FPL</field>
             <field name='sale_ok' eval='True'/>
@@ -698,7 +698,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='FRD'>
-            <field name='name'>DOCUMENTARY DELIVERY FEES</field>
+            <field name='name'>FRAIS DE REMISE DOCUMENTAIRE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>FRD</field>
             <field name='sale_ok' eval='True'/>
@@ -706,7 +706,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='REP'>
-            <field name='name'>CONTAINER REPAIR COST</field>
+            <field name='name'>FRAIS DE REPARATION CONTENEUR</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>REP</field>
             <field name='sale_ok' eval='True'/>
@@ -714,7 +714,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='FTO'>
-            <field name='name'>BADS LATE WITHDRAWAL FEES</field>
+            <field name='name'>FRAIS DE RETRAIT TARDIF BAD</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>FTO</field>
             <field name='sale_ok' eval='True'/>
@@ -722,7 +722,7 @@
             <field name='operation_type'>shipping</field>
         </record>
         <record model='product.product' id='FSO'>
-            <field name='name'>EXIT FEES</field>
+            <field name='name'>FRAIS DE SORTIE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>FSO</field>
             <field name='sale_ok' eval='True'/>
@@ -730,7 +730,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='FTR'>
-            <field name='name'>TELEX RELEASE FEES</field>
+            <field name='name'>FRAIS DE TELEX RELEASE</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>FTR</field>
             <field name='sale_ok' eval='True'/>
@@ -738,7 +738,7 @@
             <field name='operation_type'>shipping</field>
         </record>
         <record model='product.product' id='FTS'>
-            <field name='name'>TRANSFER FEES - Car fleet. SOCOMAR</field>
+            <field name='name'>FRAIS DE TRANSFERT - Parc auto. SOCOMAR</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>FTS</field>
             <field name='sale_ok' eval='True'/>
@@ -746,7 +746,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='FVA'>
-            <field name='name'>VALIDATION FEES</field>
+            <field name='name'>FRAIS DE VALIDATION</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>FVA</field>
             <field name='sale_ok' eval='True'/>
@@ -754,7 +754,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='EAF'>
-            <field name='name'>FREIGHT ATTESTATION ISSUE FEES</field>
+            <field name='name'>FRAIS D'EMISSION D'ATTESTATION DE FRET</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>EAF</field>
             <field name='sale_ok' eval='True'/>
@@ -762,7 +762,7 @@
             <field name='operation_type'>shipping</field>
         </record>
         <record model='product.product' id='RSD'>
-            <field name='name'>BL / TELEX RELEASE TRANSMISSION FEES</field>
+            <field name='name'>FRAIS D'EMISSION OBL / TELEX RELEASE</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>RSD</field>
             <field name='sale_ok' eval='True'/>
@@ -770,7 +770,7 @@
             <field name='operation_type'>shipping</field>
         </record>
         <record model='product.product' id='FDV'>
-            <field name='name'>VARIOUS FEES</field>
+            <field name='name'>FRAIS DIVERS</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>FDV</field>
             <field name='sale_ok' eval='True'/>
@@ -778,7 +778,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='FFI'>
-            <field name='name'>FILE OPENING FEES</field>
+            <field name='name'>FRAIS FIXES D'OUVERTURE DE DOSSIER</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>FFI</field>
             <field name='sale_ok' eval='True'/>
@@ -786,7 +786,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='FPO'>
-            <field name='name'>PORT FEES</field>
+            <field name='name'>FRAIS PORTUAIRE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>FPO</field>
             <field name='sale_ok' eval='True'/>
@@ -794,7 +794,7 @@
             <field name='operation_type'>shipping</field>
         </record>
         <record model='product.product' id='FRT'>
-            <field name='name'>SEA FREIGHT</field>
+            <field name='name'>FRET MARITIME</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>FRT</field>
             <field name='sale_ok' eval='True'/>
@@ -802,7 +802,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='FRA'>
-            <field name='name'>AIR FREIGHT</field>
+            <field name='name'>FRET AERIEN</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>FRA</field>
             <field name='sale_ok' eval='True'/>
@@ -818,7 +818,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='HAD'>
-            <field name='name'>AGENCY FEES</field>
+            <field name='name'>HONORAIRE AGREE EN DOUANE (H.A.D)</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>HAD</field>
             <field name='sale_ok' eval='True'/>
@@ -826,7 +826,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='HAC'>
-            <field name='name'>AGENCY FEES - CAMEROON</field>
+            <field name='name'>FRAIS D'AGENCE - CAMEROUN</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>HAC</field>
             <field name='sale_ok' eval='True'/>
@@ -834,7 +834,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='HAT'>
-            <field name='name'>AGENCY FEES - CHAD</field>
+            <field name='name'>FRAIS D'AGENCE - TCHAD</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>HAT</field>
             <field name='sale_ok' eval='True'/>
@@ -842,7 +842,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='IMO'>
-            <field name='name'>TRUCK IMMOBILISATION</field>
+            <field name='name'>IMMOBILISATION CAMION / REMORQUE</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>IMO</field>
             <field name='sale_ok' eval='True'/>
@@ -850,7 +850,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='IMP'>
-            <field name='name'>TAXES (Gray card mutation + Stamp on gray card)</field>
+            <field name='name'>IMPÔTS (Mutation carte grise + Droits timbre)</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>IMP</field>
             <field name='sale_ok' eval='True'/>
@@ -866,7 +866,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='LIV'>
-            <field name='name'>DELIVERY</field>
+            <field name='name'>LIVRAISON</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>LIV</field>
             <field name='sale_ok' eval='True'/>
@@ -874,7 +874,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='LVI'>
-            <field name='name'>LVI FEES</field>
+            <field name='name'>LVI</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>LVI</field>
             <field name='sale_ok' eval='True'/>
@@ -882,7 +882,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='LOG'>
-            <field name='name'>RENTAL TRUCK / ENGINE</field>
+            <field name='name'>LOCATION CAMION / ENGIN</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>LOG</field>
             <field name='sale_ok' eval='True'/>
@@ -890,7 +890,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='LOE'>
-            <field name='name'>RENTAL ENGINE</field>
+            <field name='name'>LOCATION ENGINS</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>LOE</field>
             <field name='sale_ok' eval='True'/>
@@ -898,7 +898,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='LES'>
-            <field name='name'>RENTAL SPACE</field>
+            <field name='name'>LOCATION ESPACE</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>LES</field>
             <field name='sale_ok' eval='True'/>
@@ -906,7 +906,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='LOP'>
-            <field name='name'>RENTAL LOADING SHOVEL</field>
+            <field name='name'>LOCATION PELLE CHARGEUSE</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>LOP</field>
             <field name='sale_ok' eval='True'/>
@@ -914,7 +914,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='LOR'>
-            <field name='name'>RENTAL TUGBOAT</field>
+            <field name='name'>LOCATION REMORQUEUR</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>LOR</field>
             <field name='sale_ok' eval='True'/>
@@ -922,7 +922,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='MAG'>
-            <field name='name'>WAREHOUSING</field>
+            <field name='name'>MAGASINAGE</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>MAG</field>
             <field name='sale_ok' eval='True'/>
@@ -930,7 +930,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='MBL'>
-            <field name='name'>B/L MODIFICATION FEES</field>
+            <field name='name'>FRAIS DE MODIFICATION B/L</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>MBL</field>
             <field name='sale_ok' eval='True'/>
@@ -938,7 +938,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='MAJ'>
-            <field name='name'>OVERWEIGHT INCREASE – TC</field>
+            <field name='name'>MAJORATION SURPOIDS - TC</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>MAJ</field>
             <field name='sale_ok' eval='True'/>
@@ -946,7 +946,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='20S'>
-            <field name='name'>OVERWEIGHT INCREASE - 20' &lt; 15 T</field>
+            <field name='name'>MAJORATION SURPOIDS - 20' > 15 T</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>20S</field>
             <field name='sale_ok' eval='True'/>
@@ -954,7 +954,7 @@
             <field name='operation_type'></field>
         </record>
         <record model='product.product' id='40S'>
-            <field name='name'>OVERWEIGHT INCREASE - 40' &lt; 24 T</field>
+            <field name='name'>MAJORATION SURPOIDS - 40' > 24 T</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>40S</field>
             <field name='sale_ok' eval='True'/>
@@ -962,7 +962,7 @@
             <field name='operation_type'></field>
         </record>
         <record model='product.product' id='MDG'>
-            <field name='name'>DANGEROUS PRODUCTS INCREASE</field>
+            <field name='name'>MAJORATION PRODUITS DANGEREUX</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>MDG</field>
             <field name='sale_ok' eval='True'/>
@@ -970,7 +970,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='MNP'>
-            <field name='name'>HANDLING WITH HAMMARLIFT</field>
+            <field name='name'>MANIPULATION AVEC HAMMARLIFT</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>MNP</field>
             <field name='sale_ok' eval='True'/>
@@ -978,7 +978,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='MAN'>
-            <field name='name'>HANDLING</field>
+            <field name='name'>handling</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>MAN</field>
             <field name='sale_ok' eval='True'/>
@@ -986,7 +986,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='MBT'>
-            <field name='name'>BOARD &amp; SHORE HANDLING</field>
+            <field name='name'>MANUTENTION BORD &amp; TERRE</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>MBT</field>
             <field name='sale_ok' eval='True'/>
@@ -994,7 +994,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='MRL'>
-            <field name='name'>HANDLING &amp; LIFTING</field>
+            <field name='name'>MANUTENTION &amp; RELEVAGE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>MRL</field>
             <field name='sale_ok' eval='True'/>
@@ -1002,7 +1002,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='MTR'>
-            <field name='name'>HANDLING &amp; TRANSPORT</field>
+            <field name='name'>MANUTENTION &amp; TRANSPORT</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>MTR</field>
             <field name='sale_ok' eval='True'/>
@@ -1010,7 +1010,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='MAP'>
-            <field name='name'>HANDLING 40F/kg - Min. perception</field>
+            <field name='name'>MANUTENTION 40F/kg - Min. percept.</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>MAP</field>
             <field name='sale_ok' eval='True'/>
@@ -1018,7 +1018,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='MBO'>
-            <field name='name'>ON BOARD HANDLING</field>
+            <field name='name'>MANUTENTION BORD</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>MBO</field>
             <field name='sale_ok' eval='True'/>
@@ -1026,7 +1026,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='MBT'>
-            <field name='name'>ON BOARD HANDLING - 20'</field>
+            <field name='name'>MANUTENTION BORD - 20'</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>MBT</field>
             <field name='sale_ok' eval='True'/>
@@ -1034,7 +1034,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='MBF'>
-            <field name='name'>ON BOARD HANDLING - 40'</field>
+            <field name='name'>MANUTENTION BORD - 40'</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>MBF</field>
             <field name='sale_ok' eval='True'/>
@@ -1042,7 +1042,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='MTE'>
-            <field name='name'>SHORE HANDLING</field>
+            <field name='name'>MANUTENTION TERRE</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>MTE</field>
             <field name='sale_ok' eval='True'/>
@@ -1050,7 +1050,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='MBC'>
-            <field name='name'>BORD HANDLING - Bulk</field>
+            <field name='name'>MANUTENTION BORD - Conventionnel</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>MBC</field>
             <field name='sale_ok' eval='True'/>
@@ -1058,7 +1058,7 @@
             <field name='operation_type'></field>
         </record>
         <record model='product.product' id='MTC'>
-            <field name='name'>SHORE HADLING - Bulk</field>
+            <field name='name'>MANUTENTION TERRE - Conventionnel</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>MTC</field>
             <field name='sale_ok' eval='True'/>
@@ -1066,7 +1066,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='MEN'>
-            <field name='name'>SHORE HADLING - Vehicles, …</field>
+            <field name='name'>MANUTENTION TERRE - Véhicules / Engins …</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>MEN</field>
             <field name='sale_ok' eval='True'/>
@@ -1074,7 +1074,8 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='MVE'>
-            <field name='name'>SHORE HADLING - vehicle &lt;= 15 m3</field>
+            <field name='name'>MANUTENTION TERRE - véh./engin &lt;= 15 m3
+            </field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>MVE</field>
             <field name='sale_ok' eval='True'/>
@@ -1082,7 +1083,8 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='MVS'>
-            <field name='name'>SHORE HADLING - vehicle &lt;= 50 m3</field>
+            <field name='name'>MANUTENTION TERRE - véh./engin &lt;= 50 m3
+            </field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>MVS</field>
             <field name='sale_ok' eval='True'/>
@@ -1090,7 +1092,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='MVH'>
-            <field name='name'>SHORE HADLING - vehicle &lt; 50 m3</field>
+            <field name='name'>MANUTENTION TERRE - véh./engin > 50 m3</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>MVH</field>
             <field name='sale_ok' eval='True'/>
@@ -1098,7 +1100,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='MPR'>
-            <field name='name'>SHORE HADLING - Spare parts</field>
+            <field name='name'>MANUTENTION TERRE - Accessoires/Pcs rechange</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>MPR</field>
             <field name='sale_ok' eval='True'/>
@@ -1106,7 +1108,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='MTF'>
-            <field name='name'>SHORE HADLING - 20'</field>
+            <field name='name'>MANUTENTION TERRE - 20'</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>MTF</field>
             <field name='sale_ok' eval='True'/>
@@ -1114,7 +1116,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='MFF'>
-            <field name='name'>SHORE HADLING - 40'</field>
+            <field name='name'>MANUTENTION TERRE - 40'</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>MFF</field>
             <field name='sale_ok' eval='True'/>
@@ -1122,7 +1124,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='DIT'>
-            <field name='name'>TERMINAL HANDLING CHARGES - DIT</field>
+            <field name='name'>MANUTENTION + RELEGAGE -DIT</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>DIT</field>
             <field name='sale_ok' eval='True'/>
@@ -1130,7 +1132,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='MID'>
-            <field name='name'>AVAILABLE EQUIPMENT / EQUIPMENT</field>
+            <field name='name'>MISE À DISPOSITION ENGIN/MATERIELS</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>MID</field>
             <field name='sale_ok' eval='True'/>
@@ -1138,7 +1140,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='MJC'>
-            <field name='name'>UPDATE TAXPAYER CARD</field>
+            <field name='name'>MISE À JOUR CARTE CONTRIBUABLE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>MJC</field>
             <field name='sale_ok' eval='True'/>
@@ -1146,7 +1148,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='MDE'>
-            <field name='name'>MOBILIZATION/DEMOBILIZATION LIVESTOCK MACHINE</field>
+            <field name='name'>MOBILISATION/DEMOBILISATION ENGIN D'ELEVAGE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>MDE</field>
             <field name='sale_ok' eval='True'/>
@@ -1154,7 +1156,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='PAS'>
-            <field name='name'>CAR FLEET - Volume overload &lt; 100 m³</field>
+            <field name='name'>PARC AUTOS - Surcharge volume > 100 m3</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>PAS</field>
             <field name='sale_ok' eval='True'/>
@@ -1162,7 +1164,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='PBC'>
-            <field name='name'>WEIGHTBRIDGE FEES</field>
+            <field name='name'>PONT BASCULE</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>PBC</field>
             <field name='sale_ok' eval='True'/>
@@ -1170,7 +1172,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='PES'>
-            <field name='name'>SEPBC PENALTIES AND CARE</field>
+            <field name='name'>PEINES ET SOINS SEPBC</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>PES</field>
             <field name='sale_ok' eval='True'/>
@@ -1178,7 +1180,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='PPB'>
-            <field name='name'>WEIGHTBRIDGE PENALITY</field>
+            <field name='name'>PENALITES DE PONT BASCULE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>PPB</field>
             <field name='sale_ok' eval='True'/>
@@ -1186,7 +1188,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='POS'>
-            <field name='name'>EXPORT POSITIONING</field>
+            <field name='name'>POSITIONNEMENT EXPORT</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>POS</field>
             <field name='sale_ok' eval='True'/>
@@ -1194,7 +1196,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='PTP'>
-            <field name='name'>EXPORT POSITIONING AND TRANSPORTATION</field>
+            <field name='name'>POSITIONNEMENT ET TRANSPORT TCs PLEINS</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>PTP</field>
             <field name='sale_ok' eval='True'/>
@@ -1202,7 +1204,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='PTC'>
-            <field name='name'>WEIGHING CONTAINER</field>
+            <field name='name'>PESEE CONTENEUR</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>PTC</field>
             <field name='sale_ok' eval='True'/>
@@ -1218,7 +1220,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='PRO'>
-            <field name='name'>CUSTOM'S PROTOCOL</field>
+            <field name='name'>PROTOCOLE DOUANE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>PRO</field>
             <field name='sale_ok' eval='True'/>
@@ -1226,7 +1228,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='RAP'>
-            <field name='name'>CUSTOMS LOADING REPORT</field>
+            <field name='name'>RAPPORT DE CHARGEMENT DOUANE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>RAP</field>
             <field name='sale_ok' eval='True'/>
@@ -1234,7 +1236,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='RCT'>
-            <field name='name'>RECEIPT OF TCs ON OUR SITE</field>
+            <field name='name'>RECEPTION DES TCs SUR NOTRE SITE</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>RCT</field>
             <field name='sale_ok' eval='True'/>
@@ -1242,7 +1244,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='REC'>
-            <field name='name'>RECONDITIONING BAGS DISCHARGED</field>
+            <field name='name'>RECONDITIONNEMENT SACS DÉCHIRÉS</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>REC</field>
             <field name='sale_ok' eval='True'/>
@@ -1250,7 +1252,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='RDV'>
-            <field name='name'>AIRPORT ROYALTIES</field>
+            <field name='name'>REDEVANCE AEROPORTUAIRE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>RDV</field>
             <field name='sale_ok' eval='True'/>
@@ -1258,7 +1260,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='ADC'>
-            <field name='name'>AIRPORT FEES with tax - ADC</field>
+            <field name='name'>REDEVANCE ADC - non taxable</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>ADC</field>
             <field name='sale_ok' eval='True'/>
@@ -1266,7 +1268,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='ADT'>
-            <field name='name'>AIRPORT FEES without tax - ADC</field>
+            <field name='name'>REDEVANCE ADC - taxable</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>ADT</field>
             <field name='sale_ok' eval='True'/>
@@ -1274,7 +1276,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='RAN'>
-            <field name='name'>AIRPORT FEES TAX</field>
+            <field name='name'>REDEVANCE AEROPORTUAIRE ADC (non taxable)</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>RAN</field>
             <field name='sale_ok' eval='True'/>
@@ -1282,7 +1284,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='RAT'>
-            <field name='name'>AIRPORT FEES WITHOUT TAX</field>
+            <field name='name'>REDEVANCE AEROPORTUAIRE ADC (taxable)</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>RAT</field>
             <field name='sale_ok' eval='True'/>
@@ -1290,7 +1292,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='RDF'>
-            <field name='name'>FRONTIER CUSTOMS FEE</field>
+            <field name='name'>REDEVANCE DOUANE FRONTIÈRE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>RDF</field>
             <field name='sale_ok' eval='True'/>
@@ -1298,7 +1300,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='PAD'>
-            <field name='name'>PAD FEES</field>
+            <field name='name'>REDEVANCE PAD</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>PAD</field>
             <field name='sale_ok' eval='True'/>
@@ -1306,7 +1308,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='PAK'>
-            <field name='name'>PAK FEES</field>
+            <field name='name'>REDEVANCE PAK</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>PAK</field>
             <field name='sale_ok' eval='True'/>
@@ -1314,7 +1316,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='RDI'>
-            <field name='name'>I.T FEE</field>
+            <field name='name'>REDEVANCE INFORMATIQUE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>RDI</field>
             <field name='sale_ok' eval='True'/>
@@ -1322,7 +1324,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='RDS'>
-            <field name='name'>STORAGE FEES</field>
+            <field name='name'>REDEVANCE STOCKAGE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>RDS</field>
             <field name='sale_ok' eval='True'/>
@@ -1330,7 +1332,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='RSV'>
-            <field name='name'>PAD FEES - Empty bags</field>
+            <field name='name'>REDEVANCE PAD - Sacs vides</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>RSV</field>
             <field name='sale_ok' eval='True'/>
@@ -1338,7 +1340,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='RSC'>
-            <field name='name'>SCANNER FEE + PROTOCOL + Bank charges</field>
+            <field name='name'>REDEVANCE SCANNER + PROTOCOLE + Frais bancaires</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>RSC</field>
             <field name='sale_ok' eval='True'/>
@@ -1346,7 +1348,7 @@
             <field name='operation_type'></field>
         </record>
         <record model='product.product' id='REL'>
-            <field name='name'>LIFTING</field>
+            <field name='name'>RELEVAGE</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>REL</field>
             <field name='sale_ok' eval='True'/>
@@ -1354,7 +1356,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='REM'>
-            <field name='name'>PAPER WORK</field>
+            <field name='name'>REMISE DOCUMENTAIRE</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>REM</field>
             <field name='sale_ok' eval='True'/>
@@ -1362,7 +1364,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='RLC'>
-            <field name='name'>LIFTING - Bulk</field>
+            <field name='name'>RELEVAGE - Conventionnel</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>RLC</field>
             <field name='sale_ok' eval='True'/>
@@ -1370,7 +1372,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='RLV'>
-            <field name='name'>LIFTING - 20'</field>
+            <field name='name'>RELEVAGE - 20'</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>RLV</field>
             <field name='sale_ok' eval='True'/>
@@ -1378,7 +1380,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='RLF'>
-            <field name='name'>LIFTING - 40'</field>
+            <field name='name'>RELEVAGE - 40'</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>RLF</field>
             <field name='sale_ok' eval='True'/>
@@ -1386,7 +1388,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='LRE'>
-            <field name='name'>HAMARLIFT LIFTING</field>
+            <field name='name'>RELEVAGE HAMARLIFT</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>LRE</field>
             <field name='sale_ok' eval='True'/>
@@ -1394,7 +1396,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='RVM'>
-            <field name='name'>RETURN OF EMPTY CONTAINER</field>
+            <field name='name'>RELEVAGE TC VIDE AU PARC À CONTENEURS</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>RVM</field>
             <field name='sale_ok' eval='True'/>
@@ -1402,7 +1404,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='RSL'>
-            <field name='name'>DELIVERY DISCOUNT</field>
+            <field name='name'>REMISE LIVRAISON</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>RSL</field>
             <field name='sale_ok' eval='True'/>
@@ -1410,7 +1412,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='RHA'>
-            <field name='name'>SPECIAL DISCOUNT ON HAD</field>
+            <field name='name'>REMISE SPECIALE SUR HAD</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>RHA</field>
             <field name='sale_ok' eval='True'/>
@@ -1418,7 +1420,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='RSA'>
-            <field name='name'>PARKING DISCOUNT STEVEDORE</field>
+            <field name='name'>REMISE STATIONNEMENT ACCONIER</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>RSA</field>
             <field name='sale_ok' eval='True'/>
@@ -1426,7 +1428,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='RMS'>
-            <field name='name'>DISCOUNT 25% - Cargo in transit</field>
+            <field name='name'>REMISE 25% - Cargaison en transit</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>RMS</field>
             <field name='sale_ok' eval='True'/>
@@ -1434,7 +1436,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='RFR'>
-            <field name='name'>FREIGHT DISCOUNT</field>
+            <field name='name'>REMISE SUR FRET</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>RFR</field>
             <field name='sale_ok' eval='True'/>
@@ -1442,7 +1444,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='RPO'>
-            <field name='name'>DISCOUNT ON POSITIONING</field>
+            <field name='name'>REMISE SUR POSITIONNEMENT</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>RPO</field>
             <field name='sale_ok' eval='True'/>
@@ -1450,7 +1452,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='RIS'>
-            <field name='name'>DEDUCTION IS supplement collected</field>
+            <field name='name'>RETENUE IS supplément perçu</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>RIS</field>
             <field name='sale_ok' eval='True'/>
@@ -1458,7 +1460,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='DSV'>
-            <field name='name'>VEHICLE STAY IN THE VEHICLE PARK</field>
+            <field name='name'>SEJOUR VEHICULE AU PARC A VEHICULES</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>DSV</field>
             <field name='sale_ok' eval='True'/>
@@ -1474,7 +1476,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='SPG'>
-            <field name='name'>BOARDING PARK STAY – Logs</field>
+            <field name='name'>SEJOUR PARC D'EMBARQUEMENT - Grumes</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>SPG</field>
             <field name='sale_ok' eval='True'/>
@@ -1482,7 +1484,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='SPD'>
-            <field name='name'>BOARDING PARK STAY – Debited</field>
+            <field name='name'>SEJOUR PARC D'EMBARQUEMENT - Débités</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>SPD</field>
             <field name='sale_ok' eval='True'/>
@@ -1490,7 +1492,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='STA'>
-            <field name='name'>STORAGE STEVEDORE</field>
+            <field name='name'>STATIONNEMENT</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>STA</field>
             <field name='sale_ok' eval='True'/>
@@ -1498,7 +1500,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='STD'>
-            <field name='name'>STORAGE DIT</field>
+            <field name='name'>STATIONNEMENT DIT</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>STD</field>
             <field name='sale_ok' eval='True'/>
@@ -1506,7 +1508,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='STP'>
-            <field name='name'>STORAGE PAD</field>
+            <field name='name'>STATIONNEMENT PAD</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>STP</field>
             <field name='sale_ok' eval='True'/>
@@ -1514,7 +1516,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='SCV'>
-            <field name='name'>HEAVY/BULKY PACKAGE SUPPLEMENT &lt; 4 m3</field>
+            <field name='name'>MANUT. SUPPL. COLIS VOLUMINEUX > 4 m3</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>SCV</field>
             <field name='sale_ok' eval='True'/>
@@ -1522,7 +1524,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='SCL'>
-            <field name='name'>HEAVY PACKAGE SUPPLEMENT &lt; 5T&lt; 10T</field>
+            <field name='name'>MANUT. SUPPL. COLIS LOURDS &gt; 5T &lt; 10T</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>SCL</field>
             <field name='sale_ok' eval='True'/>
@@ -1530,7 +1532,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='SCS'>
-            <field name='name'>HEAVY PACKAGE SUPPLEMENT &lt; 10T</field>
+            <field name='name'>MANUT. SUPPL. COLIS LOURDS &gt; 10T</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>SCS</field>
             <field name='sale_ok' eval='True'/>
@@ -1546,7 +1548,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='SVL'>
-            <field name='name'>BULKY PACKAGE SUPPLEMENT</field>
+            <field name='name'>MANUT. SUPPL. COLIS VOLUMINEUX > 4 m3</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>SVL</field>
             <field name='sale_ok' eval='True'/>
@@ -1554,7 +1556,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='SVV'>
-            <field name='name'>BULKY VEHICLES SUPPLEMENT</field>
+            <field name='name'>MANUT. SUPPL. VOLUME - Véh., … > 100 m3</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>SVV</field>
             <field name='sale_ok' eval='True'/>
@@ -1562,7 +1564,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='SUR'>
-            <field name='name'>DEMURRAGES</field>
+            <field name='name'>SURESTARIES</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>SUR</field>
             <field name='sale_ok' eval='True'/>
@@ -1570,7 +1572,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='STU'>
-            <field name='name'>STUFFING</field>
+            <field name='name'>EMPOTAGE</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>STU</field>
             <field name='sale_ok' eval='True'/>
@@ -1578,7 +1580,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='TEL'>
-            <field name='name'>EXTRA LEGAL WORK/CUSTOMS</field>
+            <field name='name'>T.E.L DOUANE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>TEL</field>
             <field name='sale_ok' eval='True'/>
@@ -1586,7 +1588,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='THY'>
-            <field name='name'>PHYTOSANITARY TAX</field>
+            <field name='name'>TAXE PHYTOSANITAIRE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>THY</field>
             <field name='sale_ok' eval='True'/>
@@ -1594,7 +1596,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='TSA'>
-            <field name='name'>SANITARY TAX</field>
+            <field name='name'>TAXE SANITAIRE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>TSA</field>
             <field name='sale_ok' eval='True'/>
@@ -1602,7 +1604,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='TDT'>
-            <field name='name'>EXTRA LEGAL WORK TARIFF DECOMMISSIONING</field>
+            <field name='name'>TEL DÉCLASSEMENT TARIFAIRE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>TDT</field>
             <field name='sale_ok' eval='True'/>
@@ -1610,7 +1612,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='TDV'>
-            <field name='name'>EXTRA LEGAL WORK REQUEST FOR VALIDATION</field>
+            <field name='name'>TEL DEMANDE DE VALIDATION</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>TDV</field>
             <field name='sale_ok' eval='True'/>
@@ -1618,7 +1620,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='TED'>
-            <field name='name'>EXTRA LEGAL WORK DIRECT REMOVAL</field>
+            <field name='name'>TEL ENLÈVEMENT DIRECT</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>TED</field>
             <field name='sale_ok' eval='True'/>
@@ -1626,7 +1628,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='TEP'>
-            <field name='name'>EXTRA LEGAL WORK REMOVAL UNDER PLAN</field>
+            <field name='name'>TEL ENLÈVEMENT SOUS PLAN</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>TEP</field>
             <field name='sale_ok' eval='True'/>
@@ -1634,7 +1636,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='TEX'>
-            <field name='name'>TEL EXO DUTY AND CUSTOMS TAX</field>
+            <field name='name'>TEL EXO DROIT ET TAXE DE DOUANE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>TEX</field>
             <field name='sale_ok' eval='True'/>
@@ -1650,7 +1652,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='TIM'>
-            <field name='name'>STAMP</field>
+            <field name='name'>TIMBRE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>TIM</field>
             <field name='sale_ok' eval='True'/>
@@ -1658,7 +1660,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='TTP'>
-            <field name='name'>TRANSPORT STAMP</field>
+            <field name='name'>TIMBRE DE TRANSPORT</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>TTP</field>
             <field name='sale_ok' eval='True'/>
@@ -1666,7 +1668,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='TIC'>
-            <field name='name'>BL STAMP</field>
+            <field name='name'>TIMBRE SUR CONNAISSEMENT</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>TIC</field>
             <field name='sale_ok' eval='True'/>
@@ -1674,7 +1676,7 @@
             <field name='operation_type'>shipping</field>
         </record>
         <record model='product.product' id='TBL'>
-            <field name='name'>BL STAMP</field>
+            <field name='name'>TIMBRE sur B/L</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>TBL</field>
             <field name='sale_ok' eval='True'/>
@@ -1682,7 +1684,7 @@
             <field name='operation_type'>shipping</field>
         </record>
         <record model='product.product' id='TCG'>
-            <field name='name'>STAMP ON GRAY CARD</field>
+            <field name='name'>TIMBRE SUR CARTE GRISE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>TCG</field>
             <field name='sale_ok' eval='True'/>
@@ -1690,7 +1692,7 @@
             <field name='operation_type'>shipping</field>
         </record>
         <record model='product.product' id='TTR'>
-            <field name='name'>TRANSIT DOCUMENT</field>
+            <field name='name'>TITRE DE TRANSIT</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>TTR</field>
             <field name='sale_ok' eval='True'/>
@@ -1698,7 +1700,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='TRS'>
-            <field name='name'>PARK TRANSFER</field>
+            <field name='name'>TRANSFERT AU PARC</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>TRS</field>
             <field name='sale_ok' eval='True'/>
@@ -1706,7 +1708,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='TRF'>
-            <field name='name'>TRANSFER</field>
+            <field name='name'>TRANSFERT</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>TRF</field>
             <field name='sale_ok' eval='True'/>
@@ -1714,7 +1716,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='TRM'>
-            <field name='name'>STORE TRANSFER</field>
+            <field name='name'>TRANSFERT MAGASIN</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>TRM</field>
             <field name='sale_ok' eval='True'/>
@@ -1722,7 +1724,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='TMM'>
-            <field name='name'>STORE TRANSFER 40F/kg - Min. perception</field>
+            <field name='name'>TRANSFERT MAGASIN 40F/kg - Min. percept.</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>TMM</field>
             <field name='sale_ok' eval='True'/>
@@ -1730,7 +1732,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='TPA'>
-            <field name='name'>SOCOMAR CAR FLEET TRANSFER</field>
+            <field name='name'>TRANSFERT PARC AUTOS SOCOMAR</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>TPA</field>
             <field name='sale_ok' eval='True'/>
@@ -1738,7 +1740,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='TTM'>
-            <field name='name'>TMFD CAR FLEET TRANSFER</field>
+            <field name='name'>TRANSFERT PARC AUTOS TMFD</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>TTM</field>
             <field name='sale_ok' eval='True'/>
@@ -1754,7 +1756,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='TRL'>
-            <field name='name'>TRANSPORT - DELIVERY</field>
+            <field name='name'>TRANSPORT - LIVRAISON</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>TRL</field>
             <field name='sale_ok' eval='True'/>
@@ -1762,7 +1764,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='TND'>
-            <field name='name'>TRANSPORT - FOT</field>
+            <field name='name'>TRANSPORT - non déchargé</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>TND</field>
             <field name='sale_ok' eval='True'/>
@@ -1770,7 +1772,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='TCP'>
-            <field name='name'>TRANSPORT with low-bed</field>
+            <field name='name'>TRANSPORT avec Porte-char</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>TCP</field>
             <field name='sale_ok' eval='True'/>
@@ -1778,7 +1780,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='THM'>
-            <field name='name'>TRANSPORT with Self loader</field>
+            <field name='name'>TRANSPORT avec Hammarlift</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>THM</field>
             <field name='sale_ok' eval='True'/>
@@ -1786,7 +1788,7 @@
             <field name='operation_type'>logistic</field>
         </record>
         <record model='product.product' id='VAC'>
-            <field name='name'>CUSTOMS VACATION</field>
+            <field name='name'>VACATION DOUANE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>VAC</field>
             <field name='sale_ok' eval='True'/>
@@ -1794,7 +1796,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='VAP'>
-            <field name='name'>CUSTOM'S VACATION &amp; PHYTOSANITARY INSPECTION</field>
+            <field name='name'>VACATION DOUANE ET INSPECTION PHYTO.</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>VAP</field>
             <field name='sale_ok' eval='True'/>
@@ -1802,7 +1804,7 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='VDR'>
-            <field name='name'>TC RESIDUAL VALUE</field>
+            <field name='name'>VALEUR DE RESIDUELLE TC</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>VDR</field>
             <field name='sale_ok' eval='True'/>
@@ -1810,13 +1812,28 @@
             <field name='operation_type'>transit</field>
         </record>
         <record model='product.product' id='VIS'>
-            <field name='name'>CUSTOMS VISIT</field>
+            <field name='name'>VISITE DOUANE</field>
             <field name='detailed_type'>disbursement</field>
             <field name='default_code'>VIS</field>
             <field name='sale_ok' eval='True'/>
             <field name='purchase_ok' eval='True'/>
             <field name='operation_type'>transit</field>
         </record>
-
+        <record model='product.product' id='VID'>
+            <field name='name'>VISITE DOUANE A DOMICILE</field>
+            <field name='detailed_type'>disbursement</field>
+            <field name='default_code'>VID</field>
+            <field name='sale_ok' eval='True'/>
+            <field name='purchase_ok' eval='True'/>
+            <field name='operation_type'>transit</field>
+        </record>
+        <record model='product.product' id='VIP'>
+            <field name='name'>VISITE PHYTOSANITAIRE</field>
+            <field name='detailed_type'>disbursement</field>
+            <field name='default_code'>VIP</field>
+            <field name='sale_ok' eval='True'/>
+            <field name='purchase_ok' eval='True'/>
+            <field name='operation_type'>transit</field>
+        </record>
     </data>
 </odoo>
