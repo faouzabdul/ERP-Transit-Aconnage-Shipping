@@ -34,9 +34,9 @@ def _populate_manifest_structure(file):
 <DESTINATAIRE>PAD1</DESTINATAIRE>
 </ROUTAGE>
 <MANIFESTE>
-<GEN_CODE_MANIFESTE></GEN_CODE_MANIFESTE>
+<GEN_CODE_MANIFESTE>%s</GEN_CODE_MANIFESTE>
 <GEN_DATA>
-  <GEN_CODE_MANIFESTE></GEN_CODE_MANIFESTE>
+  <GEN_CODE_MANIFESTE>%s</GEN_CODE_MANIFESTE>
   <GEN_CODE_BUREAU>%s</GEN_CODE_BUREAU>
   <GEN_DATE_EMISSION>%s</GEN_DATE_EMISSION>
   <GEN_SENS_MANIFESTE>%s</GEN_SENS_MANIFESTE>
@@ -55,7 +55,7 @@ def _populate_manifest_structure(file):
   <GEN_NOM_PAVILLON>%s</GEN_NOM_PAVILLON>
 </GEN_DATA>
 <CONNAISSEMENT_MARCHANDISES>
-    """ % (file.port_arrival_departure.code if file.port_arrival_departure else '',
+    """ % (file.manifest_number, file.manifest_number, file.port_arrival_departure.code if file.port_arrival_departure else '',
            file.date_arrival_departure or '',
            'IMPORT' if file.operation_type == 'arrival' else 'EXPORT',
            file.voyage_number or '',
@@ -178,6 +178,7 @@ class ShippingFile(models.Model):
         ('done', 'Done'),
         ('cancel', 'Cancel')
     ], string='Status', default='draft')
+    manifest_number = fields.Char('Manifest Number')
     # FAL 1: General Information
     vessel = fields.Many2one('res.transport.means', string="Vessel", tracking=1)
     loa = fields.Float('LOA', digits=(6, 3))

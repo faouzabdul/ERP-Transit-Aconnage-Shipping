@@ -9,6 +9,7 @@
             <field name="report_file">servoo_shipping.report_pda</field>
             <field name="print_report_name">'PDA - %s' % (object.name)</field>
             <field name="binding_model_id" ref="model_servoo_shipping_pda"/>
+            <field name="paperformat_id" ref="servoo_shipping.paperformat_pda"/>
             <field name="binding_type">report</field>
         </record>
     </data>

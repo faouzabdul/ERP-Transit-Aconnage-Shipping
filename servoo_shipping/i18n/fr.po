@@ -1650,7 +1650,7 @@ msgstr "Lignes"
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__location_code
 msgid "Localisation Code"
-msgstr "Code de l'emplacement"
+msgstr "Code de localisation"
 
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_ship_store__name

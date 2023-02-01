@@ -171,7 +171,7 @@ class ShippingPdaTemplateLine(models.Model):
         amount = 0.0
         try:
             safe_eval(self.quantity_python_compute, localdict, mode='exec', nocopy=True)
-            qty = float(localdict['result_qty']) if localdict['result_qty'] else 1.0
+            qty = float(localdict['result_qty']) #if localdict['result_qty'] else 1.0
             # _logger.info('localdict after quantity_python_compute: %s' % localdict)
         except Exception as ex:
             raise UserError(_(
@@ -184,7 +184,7 @@ class ShippingPdaTemplateLine(models.Model):
         if self.amount_python_compute:
             try:
                 safe_eval(self.amount_python_compute, localdict, mode='exec', nocopy=True)
-                amount = float(localdict['result']) if localdict['result'] else 1.0
+                amount = float(localdict['result']) #if localdict['result'] else 1.0
                 # _logger.info('localdict after amount_python_compute: %s' % localdict)
             except Exception as ex:
                 raise UserError(_(
@@ -196,12 +196,12 @@ class ShippingPdaTemplateLine(models.Model):
                 ) % (self.amount_python_compute, self.name, repr(ex)))
         return amount, qty
 
-    _sql_constraints = [
-        ('accountable_product_id_required',
-         "CHECK(display_type IS NOT NULL OR (product_id IS NOT NULL AND product_uom_id IS NOT NULL))",
-         "Missing required product and UoM on accountable sale quote line."),
-
-        ('non_accountable_fields_null',
-         "CHECK(display_type IS NULL OR (product_id IS NULL AND product_uom_qty = 0 AND product_uom_id IS NULL))",
-         "Forbidden product, unit price, quantity, and UoM on non-accountable sale quote line"),
-    ]
+    # _sql_constraints = [
+    #     ('accountable_product_id_required',
+    #      "CHECK(display_type IS NOT NULL OR (product_id IS NOT NULL AND product_uom_id IS NOT NULL))",
+    #      "Missing required product and UoM on accountable sale quote line."),
+    #
+    #     ('non_accountable_fields_null',
+    #      "CHECK(display_type IS NULL OR (product_id IS NULL AND product_uom_qty = 0 AND product_uom_id IS NULL))",
+    #      "Forbidden product, unit price, quantity, and UoM on non-accountable sale quote line"),
+    # ]

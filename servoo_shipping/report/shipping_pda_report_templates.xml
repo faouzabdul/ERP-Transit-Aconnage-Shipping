@@ -1,37 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 <template id="report_pda_document">
-    <t t-call="web.external_layout">
+    <t t-call="web.basic_layout">
         <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
-        <t t-set="forced_vat" t-value="doc.fiscal_position_id.foreign_vat"/> <!-- So that it appears in the footer of the report instead of the company VAT if it's set -->
-        <t t-set="address">
-            <div t-field="doc.partner_id"
-                t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
-            <p t-if="doc.partner_id.vat"><t t-esc="doc.company_id.account_fiscal_country_id.vat_label or 'Tax ID'"/>: <span t-field="doc.partner_id.vat"/></p>
-        </t>
-        <t t-if="doc.partner_shipping_id == doc.partner_invoice_id
-                             and doc.partner_invoice_id != doc.partner_id
-                             or doc.partner_shipping_id != doc.partner_invoice_id">
-            <t t-set="information_block">
-                <strong t-if="doc.partner_shipping_id == doc.partner_invoice_id">Invoicing and Shipping Address:</strong>
-                <strong t-if="doc.partner_shipping_id != doc.partner_invoice_id">Invoicing Address:</strong>
-                <div t-field="doc.partner_invoice_id"
-                t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
-                <t t-if="doc.partner_shipping_id != doc.partner_invoice_id">
-                    <strong>Shipping Address:</strong>
-                    <div t-field="doc.partner_shipping_id"
-                        t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
-                </t>
-            </t>
-        </t>
         <div class="page">
+            <div class="entete">
+                    <div class="row">
+                        <div class="col-4" align="left">
+                            <font size="0" style="font-size: 5pt; padding:0">
+                                <table width="100%" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td>
+                                            <img t-att-src="image_data_uri(doc.company_id.logo)"/>
+                                        </td>
+                                        <td>
+                                            <div style="white-space:pre">
+<t t-esc="doc.company_id.street"/>
+<t t-if="doc.company_id.street2">
+<t t-esc="doc.company_id.street2"/>
+</t>
+Tél.: <t t-esc="doc.company_id.phone"/>
+BP: <t t-esc="doc.company_id.zip"/> <t t-esc="doc.company_id.city"/> - <t t-esc="doc.company_id.country_id.name"/>
+Email: <t t-esc="doc.company_id.email"/>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </font>
+                        </div>
+                        <div class="col-3">
+
+                        </div>
+                        <div class="col-3" align="right">
+                            <font size="0" style="font-size: 5pt; padding:0">
+                                <table width="100%" cellspacing="0" cellpadding="0">
+                                    <tr><td>
+                                        <br>Beneficiary:	Agence de Prestations Maritimes</br>
+                                        <br>Bank:	CBC - Cameroun</br>
+                                        <br>        Po box: 4004 – Douala - Bonanjo</br>
+                                        <br>Account N°	CM21 10008 00020 37120801001-94</br>
+                                        <br>Swift:	CBC DC MCX</br>
+                                        <br>Corresponding	1 - NATIXIS	Swift: NATXFRPP – IBAN: FR76 3000 7000 1100 0996 0010 838</br>
+                                        <br>	2 – FIMBANK Swift: FIMBMTM3 – IBAN: 060309VSTREUR013</br>
+                                    </td></tr>
+                                </table>
+                            </font>
+                        </div>
+                    </div>
+                </div>
+
             <div class="oe_structure"/>
-
-            <h2 class="mt16">
-                <span>PDA # </span>
-                <span t-field="doc.name"/>
-            </h2>
-
+            <font size="0" style="font-size: 7pt; padding:0">
+                <br />
+                <div align="center">
+                    <b>
+                        PROFORMA DISBURSEMENTS ACCOUNT - <span t-field="doc.location_code.name" /> N° <span t-field="doc.name"/>
+                    </b>
+                    <br />
+                    <b>
+                        TO : <span t-field="doc.partner_id" />
+<!--                        <div t-field="doc.partner_id"-->
+<!--                t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />-->
+<!--            <p t-if="doc.partner_id.vat"><t t-esc="doc.company_id.account_fiscal_country_id.vat_label or 'Tax ID'"/>: <span t-field="doc.partner_id.vat"/></p>-->
+                    </b>
+                </div>
+    <br />
             <div class="row mt32 mb32" id="informations">
                 <div t-if="doc.client_order_ref" class="col-auto col-3 mw-100 mb-2">
                     <strong>Your Reference:</strong>
@@ -164,11 +198,26 @@
             <p t-if="not is_html_empty(doc.payment_term_id.note)">
                 <span t-field="doc.payment_term_id.note"/>
             </p>
+            </font>
 
         </div>
     </t>
 </template>
 
+    <record id="paperformat_pda" model="report.paperformat">
+        <field name="name">PDA</field>
+        <field name="default" eval="False"/>
+        <field name="disable_shrinking" eval="True"/>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">8</field>
+        <field name="margin_bottom">8</field>
+        <field name="margin_left">8</field>
+        <field name="margin_right">8</field>
+        <field name="dpi">96</field>
+    </record>
 
 <template id="report_pda">
     <t t-call="web.html_container">

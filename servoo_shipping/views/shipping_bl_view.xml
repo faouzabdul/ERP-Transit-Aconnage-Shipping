@@ -46,9 +46,10 @@
                             <field name="date" />
                             <field name="shipper_id" />
                             <field name="consignee_id" />
-                            <field name="notify_id" />
+                            <field name="notify_id"  required="1"/>
                             <field name="shipping_file_id" />
                             <field name="vessel_id" />
+                            <field name="voyage_number" />
                             <field name="loading_port" />
                             <field name="discharge_port" />
                         </group>

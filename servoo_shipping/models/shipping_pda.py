@@ -272,6 +272,10 @@ class ShippingPda(models.Model):
         ('date_order_conditional_required', "CHECK( (state IN ('won', 'done') AND date_pda IS NOT NULL) OR state NOT IN ('won', 'done') )", "A confirmed shipping PDA requires a confirmation date."),
     ]
 
+    @api.onchange('loa', 'beam', 'summer_draft')
+    def compute_cbm(self):
+        self.cbm_vessel = self.loa * self.beam * self.summer_draft
+
     @api.constrains('company_id', 'shipping_pda_line')
     def _check_shipping_pda_line_company_id(self):
         for order in self:

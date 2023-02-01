@@ -68,6 +68,7 @@
                             </group>
                                 <group col="4" string="Vessel">
                                     <field name="vessel" required="1"/>
+                                    <field name="manifest_number" />
                                     <field name="shipowner_id" widget="res_partner_many2one"
                                            context="{'show_address': 1, 'show_vat': True}"
                                            options='{"always_reload": True}'/>
