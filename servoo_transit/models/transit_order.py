@@ -3,6 +3,7 @@
 
 
 from odoo import models, fields, api, _
+from datetime import datetime
 
 
 class PackagingType(models.Model):
@@ -25,6 +26,9 @@ class TransitOrder(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _name = 'servoo.transit.order'
     _order = 'id desc'
+    _sql_constraints = [
+        ('bill_of_lading_uniq', 'unique (bill_of_lading)', 'The bill of lading must be unique !')
+    ]
 
     volume = fields.Float('Volume (m3)', digits=(12, 3))
     gross_weight = fields.Float('Gross Weight (kg)', digits=(12, 3))
@@ -89,6 +93,36 @@ class TransitOrder(models.Model):
     note = fields.Text('Notes')
     packaging_type_id = fields.Many2one('servoo.transit.packaging.type', 'Packaging type')
 
+    def generate_reference(self, vals):
+        reference = str(datetime.now().year)[-2:] + 'D'
+        type = vals['operation_type']
+        transport_mode = self.env['res.transport.mode'].search([('id', '=', vals['transport_mode_id'])])
+        if type == 'import' and transport_mode and transport_mode.code == '10':
+            reference += 'DMI'
+        elif type == 'export' and transport_mode and transport_mode.code == '10':
+            reference += 'DME'
+        elif type == 'import' and transport_mode and transport_mode.code == '40':
+            reference += 'DAI'
+        elif type == 'export' and transport_mode and transport_mode.code == '40':
+            reference += 'DAE'
+        elif type == 'transit' and transport_mode and transport_mode.code == '40':
+            reference += 'TAI'
+        elif type == 'transit':
+            reference += 'TRI'
+        if transport_mode and transport_mode.code in ('10', '40'):
+            query = "SELECT count(*) FROM servoo_transit_order WHERE name LIKE '" + reference + "%'"
+            self._cr.execute(query)
+            res = self._cr.fetchone()
+            record_count = int(res[0]) + 1
+            if len(str(record_count)) == 1:
+                reference += '00'
+            elif len(str(record_count)) == 2:
+                reference += '0'
+            reference += str(record_count)
+        else:
+            reference = self.env['ir.sequence'].next_by_code('servoo.transit.order') or _('New')
+        return reference
+
     def _get_invoiced(self):
         invoice = self.env['account.move']
         for record in self:
@@ -105,11 +139,12 @@ class TransitOrder(models.Model):
     @api.model
     def create(self, vals):
         if vals.get('name', _('New')) == _('New'):
-            if 'company_id' in vals:
-                vals['name'] = self.env['ir.sequence'].with_context(force_company=vals['company_id']).next_by_code(
-                    'servoo.transit.operation') or _('New')
-            else:
-                vals['name'] = self.env['ir.sequence'].next_by_code('servoo.transit.order') or _('New')
+            # if 'company_id' in vals:
+            #     vals['name'] = self.env['ir.sequence'].with_context(force_company=vals['company_id']).next_by_code(
+            #         'servoo.transit.operation') or _('New')
+            # else:
+            #     vals['name'] = self.env['ir.sequence'].next_by_code('servoo.transit.order') or _('New')
+            vals['name'] = self.generate_reference(vals)
         return super().create(vals)
 
     def action_draft(self):
