@@ -28,7 +28,7 @@ class PurchaseNeed(models.Model):
         ('approved', 'Approved'),
         ('canceled', 'Canceled'),
         ('done', 'Done')
-    ], string='State', index=True, default='draft')
+    ], string='State', tracking=1, default='draft')
     user_id = fields.Many2one('res.users', 'User')
     our_needs = fields.Boolean('Our Needs', compute='_compute_our_needs',readonly=True, search='_search_our_needs')
 
