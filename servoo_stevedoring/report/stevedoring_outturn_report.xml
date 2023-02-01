@@ -1,45 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 <template id="report_outturn_report_document">
-    <t t-call="web.external_layout">
+    <t t-call="web.basic_layout">
         <t t-set="doc" t-value="doc.with_context(lang=doc.consignee_id.lang)" />
 
         <div class="page">
+            <font size="0" style="font-size: 9pt; padding:0">
             <div class="oe_structure"/>
             <div align="center">
-                <h3 class="mt16">
+                <h4 class="mt16">
                     <span>OUTTURN REPORT N° <span t-field="doc.name"/></span>
-                </h3>
+                </h4>
                 <p>
                     M/V <span t-field="doc.vessel_id.name"/> <t t-if="doc.voyage_number">Vge <span t-field="doc.voyage_number" /> </t> ON <span t-field="doc.date"/>
                 </p>
             </div>
-            <div class="oe_structure"/>
+<!--            <div class="oe_structure"/>-->
             <p />
-            <table class="table">
+            <table width="100%" cellspacing="0" cellpadding="0">
                 <tr>
                     <td><u>DISCHARGING PORT : </u> <span t-field="doc.discharge_port.name" />, <span t-field="doc.discharge_port.country_id.name" /></td>
-                     <td align="right">SPACE</td>
+<!--                     <td align="right">SPACE</td>-->
                     <td align="left"><u>LOADING PORT : </u> <span t-field="doc.loading_port.name" />, <span t-field="doc.loading_port.country_id.name" /></td>
 
                 </tr>
                 <tr>
                    <td><u>DISCHARGING COMMENCED : </u> ON <span t-field="doc.date_debut" /></td>
-                     <td align="right">SPACE</td>
+<!--                     <td align="right">SPACE</td>-->
                    <td align="left"><u>DISCHARGING COMPLETED : </u> ON <span t-field="doc.date_end" /></td>
                 </tr>
             </table>
             <p />
-            <table class="table">
+            <table style="border: solid 1pt; padding: 0cm" width="100%" cellpadding="0" cellspacing="0">
                 <colgroup width="108"></colgroup>
                 <colgroup width="252"></colgroup>
                 <colgroup width="123"></colgroup>
                 <colgroup span="5" width="85"></colgroup>
-                <tr>
+                <tr style="border: solid 1pt; padding: 0cm">
                     <td colspan="3" height="17" align="center">LOADED AS PER CARGO MANIFEST &amp; BILL OF LOADING</td>
                     <td colspan="5" align="center">OUTTURN</td>
                 </tr>
-                <tr>
+                <tr style="border: solid 1pt; padding: 0cm">
                     <td height="17" align="left">B/L N°</td>
                     <td align="left">MARKS &amp; DESCRIPTION OF GOODS</td>
                     <td align="left">Type of Package</td>
@@ -50,19 +51,21 @@
                     <td align="left">REMARKS</td>
                 </tr>
                 <t t-foreach="doc.line_ids" t-as="line">
+                <t t-foreach="line.bl_line_ids" t-as="bl_line">
                     <tr>
                         <td height="17" align="left"><span t-field="line.bl_id.name"/></td>
                         <td align="left">
-                            <span t-field="line.bl_id.consignee_id.name" /> <t t-if="line.bl_id.consignee_id.zip">, BP <span t-field="line.bl_id.consignee_id.zip" /> </t>
+                            <span t-field="doc.consignee_id.name" /> <t t-if="doc.consignee_id.zip">, BP <span t-field="doc.consignee_id.zip" /> </t>
                             , <span t-field="doc.consignee_id.city" />, <span t-field="doc.consignee_id.country_id.name" />
                         </td>
-                        <td align="left"><span t-field="line.bl_id.cargo_description" /> </td>
-                        <td align="right"><span t-field="line.manifested_weight" /></td>
-                        <td align="right"><span t-field="line.shortage_weight" /></td>
-                        <td align="right"><span t-field="line.excess_weight" /></td>
-                        <td align="right"><span t-field="line.delivery_weight" /></td>
+                        <td align="left"><span t-field="bl_line.good_description" /> </td>
+                        <td align="right"><span t-field="bl_line.manifested_weight" /></td>
+                        <td align="right"><span t-field="bl_line.shortage_weight" /></td>
+                        <td align="right"><span t-field="bl_line.excess_weight" /></td>
+                        <td align="right"><span t-field="bl_line.delivery_weight" /></td>
                         <td align="left"><span t-field="line.note" /></td>
                     </tr>
+                </t>
                 </t>
             </table>
             <p />
@@ -74,7 +77,7 @@
 <!--                    <span t-field="doc.create_uid.name" />-->
                 </p>
             </div>
-
+            </font>
         </div>
     </t>
 </template>

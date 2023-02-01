@@ -68,8 +68,11 @@ class StevedoringFile(models.Model):
         ('open', 'Open'),
         ('done', 'Done'),
         ('cancel', 'Cancel')
-    ], string='Status', default='draft')
+    ], string='Status', default='draft', tracking=1)
     user_id = fields.Many2one('res.users', 'User')
+    outturn_count = fields.Integer(compute="_get_outturn", string='Outturns')
+    operation_count = fields.Integer(compute="_get_operation", string='Operations')
+    mate_receipt_count = fields.Integer(compute="_get_mate_receipt", string='Mate receipts')
 
     @api.model
     def create(self, vals):
@@ -93,6 +96,22 @@ class StevedoringFile(models.Model):
         for record in self:
             record.invoice_count = invoice.search_count([('invoice_origin', '=', record.name)])
 
+    def _get_outturn(self):
+        outturn = self.env['servoo.stevedoring.outturn.report']
+        for record in self:
+            record.outturn_count = outturn.search_count([('stevedoring_file_id', '=', record.id)])
+
+    def _get_operation(self):
+        # operation = self.env['servoo.stevedoring.operation']
+        for record in self:
+            # record.outturn_count = operation.search_count([('stevedoring_file_id', '=', record.id)])
+            record.operation_count = len(record.operation_ids)
+
+    def _get_mate_receipt(self):
+        mate_receipt = self.env['servoo.stevedoring.mate.receipt']
+        for record in self:
+            record.mate_receipt_count = mate_receipt.search_count([('customs_declaration_id', 'in', [x.id for x in record.customs_declaration_ids])])
+
     def _prepare_invoice(self):
         self.ensure_one()
         journal = self.env['account.move'].with_context(default_move_type='out_invoice')._get_default_journal()
@@ -107,7 +126,14 @@ class StevedoringFile(models.Model):
             # 'partner_shipping_id': self.partner_id.id,
             'journal_id': journal.id,  # company comes from the journal
             'invoice_origin': self.name,
-            'invoice_line_ids': []
+            'invoice_line_ids': [],
+            'transport_means_id': self.vessel_id.id,
+            'travel_date': self.date,
+            'loading_place_id': self.loading_port.id,
+            'unloading_place_id': self.discharge_port.id,
+            'weight': self.unloaded_tonnage,
+            'transport_letter': '',
+            'unit_id': self.env.ref('dyen_base.unit_KG').id
         }
         return invoice_vals
 
@@ -127,10 +153,20 @@ class StevedoringFile(models.Model):
         # 1) Create invoices.
         invoice_vals_list = []
         for file in self:
-            for client in self.partner_ids:
+            for bl in file.bl_ids:
+            # for client in self.partner_ids:
                 invoice_vals = file._prepare_invoice()
-                invoice_vals['partner_id'] = client.id
-                invoice_vals['partner_shipping_id'] = client.id
+                invoice_vals['transport_letter'] = bl.name
+                # Calculer le poids des marchandises dans chaque BL
+                volume = 0.0
+                weight = 0.0
+                for good in bl.good_ids:
+                    volume += good.volume
+                    weight += good.gross_weight
+                invoice_vals['volume'] = volume
+                invoice_vals['weight'] = weight
+                invoice_vals['partner_id'] = bl.notify_id.id if bl.notify_id else bl.shipper_id.id
+                invoice_vals['partner_shipping_id'] = bl.notify_id.id if bl.notify_id else bl.shipper_id.id
                 invoiceable_lines = file._get_invoiceable_lines()
                 invoice_line_vals = []
                 for line in invoiceable_lines:

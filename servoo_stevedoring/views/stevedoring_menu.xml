@@ -25,7 +25,6 @@
                 <menuitem id="menu_formality_type_config" action="servoo_stevedoring.action_formality_type" parent="menu_stevedoring_config" />
                 <menuitem id="menu_action_document_type_config" action="servoo_stevedoring.action_document_type" parent="menu_stevedoring_config" />
 
-        
 
     </data>
 </odoo>

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220616\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-11 07:52+0000\n"
-"PO-Revision-Date: 2022-11-11 07:52+0000\n"
+"POT-Creation-Date: 2022-11-17 22:23+0000\n"
+"PO-Revision-Date: 2022-11-17 22:23+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -26,8 +26,18 @@ msgid "'OUTTURN - %s' % (object.name)"
 msgstr ""
 
 #. module: servoo_stevedoring
+#: model:ir.actions.report,print_report_name:servoo_stevedoring.action_report_shift_report
+msgid "'SHIFT REPORT - %s' % (object.name)"
+msgstr ""
+
+#. module: servoo_stevedoring
 #: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
 msgid ", BP"
+msgstr ""
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_shift_report_document
+msgid "<span>DAILY SHIFT REPORT</span>"
 msgstr ""
 
 #. module: servoo_stevedoring
@@ -162,6 +172,11 @@ msgid "C/O"
 msgstr ""
 
 #. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_shift_report_document
+msgid "CARGO"
+msgstr ""
+
+#. module: servoo_stevedoring
 #: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_mater_receipt_document
 msgid "CUSTOM DOCUMENT :"
 msgstr ""
@@ -173,6 +188,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_formality_form
 msgid "Cancel"
 msgstr "Annuler"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_shift_report_document
+msgid "Captain or Chief mate :"
+msgstr ""
 
 #. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__cargo_description
@@ -199,23 +219,23 @@ msgstr "Affréteur"
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__consignee_id
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report_wizard__consignee_id
 msgid "Client"
-msgstr "Client"
+msgstr ""
 
 #. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__partner_ids
 msgid "Clients"
-msgstr "Clients"
+msgstr ""
 
 #. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document_type__code
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality_type__code
 msgid "Code"
-msgstr "Code"
+msgstr ""
 
 #. module: servoo_stevedoring
 #: model:ir.ui.menu,name:servoo_stevedoring.menu_stevedoring_config
 msgid "Configuration"
-msgstr "Configuration"
+msgstr ""
 
 #. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__consignee_agent_id
@@ -320,6 +340,11 @@ msgid "Cubic"
 msgstr ""
 
 #. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_shift_report_document
+msgid "Cubic Meters"
+msgstr ""
+
+#. module: servoo_stevedoring
 #: model:ir.actions.act_window,name:servoo_stevedoring.actions_customs_declaration
 #: model:ir.model,name:servoo_stevedoring.model_servoo_customs_declaration
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_shipping_good__customs_declaration_id
@@ -339,6 +364,11 @@ msgid "Customs Declarations"
 msgstr "Déclarations Douane"
 
 #. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_shift_report_document
+msgid "DATE :"
+msgstr ""
+
+#. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_customs_declaration__date
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__date
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_mate_receipt__date
@@ -346,7 +376,7 @@ msgstr "Déclarations Douane"
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__date
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report_wizard__date
 msgid "Date"
-msgstr "Date"
+msgstr ""
 
 #. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__date_debut
@@ -393,7 +423,7 @@ msgstr ""
 #. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_type__description
 msgid "Description"
-msgstr "Description"
+msgstr ""
 
 #. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__destination_place
@@ -573,6 +603,11 @@ msgid "Formality Type"
 msgstr "Type de formalité"
 
 #. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_shift_report_document
+msgid "GENERAL REMARKS"
+msgstr ""
+
+#. module: servoo_stevedoring
 #: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_mater_receipt_document
 msgid ""
 "GENERAL TERMS: Our responsibility for forwarding agent or transport "
@@ -597,6 +632,11 @@ msgstr "Marchandises"
 #. module: servoo_stevedoring
 #: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_mater_receipt_document
 msgid "Gross Tonnage"
+msgstr ""
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_shift_report_document
+msgid "HATCH"
 msgstr ""
 
 #. module: servoo_stevedoring
@@ -776,6 +816,11 @@ msgid "Location"
 msgstr "Emplacement"
 
 #. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_shift_report_document
+msgid "M/TONS"
+msgstr ""
+
+#. module: servoo_stevedoring
 #: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
 msgid "M/V"
 msgstr ""
@@ -856,6 +901,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__my_activity_date_deadline
 msgid "My Activity Deadline"
 msgstr "Date limite de mon activité"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_shift_report_document
+msgid "NORMAL"
+msgstr ""
 
 #. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document_type__name
@@ -939,7 +989,7 @@ msgstr "Nuit"
 #: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_stevedoring_outturn_report_form
 #: model_terms:ir.ui.view,arch_db:servoo_stevedoring.wizard_stevedoring_outturn_report_form
 msgid "Notes"
-msgstr "Notes"
+msgstr ""
 
 #. module: servoo_stevedoring
 #: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_mater_receipt_document
@@ -985,6 +1035,11 @@ msgstr "Nombre de messages avec erreur de livraison"
 #: model:ir.model.fields,help:servoo_stevedoring.field_servoo_stevedoring_operation__message_unread_counter
 msgid "Number of unread messages"
 msgstr "Nombre de messages non lus"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_shift_report_document
+msgid "O.T"
+msgstr ""
 
 #. module: servoo_stevedoring
 #: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
@@ -1086,6 +1141,11 @@ msgid "Outturn Reports"
 msgstr ""
 
 #. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_shift_report_document
+msgid "PDO:"
+msgstr ""
+
+#. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__administration_id
 msgid "Partner"
 msgstr "Partenaire"
@@ -1094,7 +1154,7 @@ msgstr "Partenaire"
 #: code:addons/servoo_stevedoring/models/stevedoring_file.py:0
 #, python-format
 msgid "Please define an accounting sales journal for the company %s (%s)."
-msgstr "Veuillez définir un journal des ventes pour cette société %s (%s)."
+msgstr ""
 
 #. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_customs_declaration__unloading_port
@@ -1157,6 +1217,11 @@ msgid "REMARKS"
 msgstr ""
 
 #. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_shift_report_document
+msgid "REPORT N°"
+msgstr ""
+
+#. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_customs_declaration__name
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document__name
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__name
@@ -1179,11 +1244,26 @@ msgid "Responsible User"
 msgstr "Utilisateur responsable"
 
 #. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_shift_report_document
+msgid "SHIFT"
+msgstr ""
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_shift_report_document
+msgid "SHIP : M/V"
+msgstr ""
+
+#. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_customs_declaration__message_has_sms_error
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__message_has_sms_error
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__message_has_sms_error
 msgid "SMS Delivery error"
 msgstr "Erreur de livraison SMS"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
+msgid "SPACE"
+msgstr ""
 
 #. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_type__sequence_code
@@ -1198,7 +1278,12 @@ msgstr ""
 #. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__shift
 msgid "Shift"
-msgstr "Shift"
+msgstr ""
+
+#. module: servoo_stevedoring
+#: model:ir.actions.report,name:servoo_stevedoring.action_report_shift_report
+msgid "Shift Report"
+msgstr ""
 
 #. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__shipowner_id
@@ -1223,7 +1308,7 @@ msgstr "Afficher les mate receipt pour ce dossier de manutention"
 #. module: servoo_stevedoring
 #: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
 msgid "Show the operations for this stevedoring file"
-msgstr "Afficher les opérations pour ce dossier de manutention"
+msgstr "Afficher les opérations pour ce dossier d'acconage"
 
 #. module: servoo_stevedoring
 #: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
@@ -1258,6 +1343,7 @@ msgstr ""
 
 #. module: servoo_stevedoring
 #: model:ir.module.category,name:servoo_stevedoring.module_category_stevedoring_management
+#: model:ir.ui.menu,name:servoo_stevedoring.stevedoring_invoice_menu
 #: model:ir.ui.menu,name:servoo_stevedoring.stevedoring_menu
 #: model:ir.ui.menu,name:servoo_stevedoring.stevedoring_menu_root
 msgid "Stevedoring"
@@ -1281,7 +1367,9 @@ msgstr "Type de dossier de manutention"
 
 #. module: servoo_stevedoring
 #: model:ir.actions.act_window,name:servoo_stevedoring.action_stevedoring_file
+#: model:ir.actions.act_window,name:servoo_stevedoring.action_stevedoring_file_to_invoice
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_shipping_file__stevedoring_file_count
+#: model:ir.ui.menu,name:servoo_stevedoring.stevedoring_file_invoice_menu
 #: model:ir.ui.menu,name:servoo_stevedoring.stevedoring_file_menu
 #: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_shipping_file_inherit_form
 msgid "Stevedoring Files"
@@ -1308,6 +1396,11 @@ msgstr "Opérations de manutention"
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_mate_receipt_wizard__terms_and_conditions
 msgid "Terms and conditions"
 msgstr "Termes et conditions"
+
+#. module: servoo_stevedoring
+#: model_terms:ir.actions.act_window,help:servoo_stevedoring.action_stevedoring_file_to_invoice
+msgid "There is no stevedoring file to invoice!"
+msgstr "Il n'y a aucun dossier de manutention à facturer"
 
 #. module: servoo_stevedoring
 #: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_mater_receipt_document
@@ -1346,7 +1439,7 @@ msgstr "Transport"
 #. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__transported_tonnage
 msgid "Transported Tonnage (kg)"
-msgstr ""
+msgstr "Tonnage transporté (kg)"
 
 #. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__transported_quantity
@@ -1367,6 +1460,7 @@ msgstr "Type d'activité d'exception enregistrée."
 
 #. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__unit_id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation_line__unit_id
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report_line__unit_id
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report_line_wizard__unit_id
 msgid "Unit"
@@ -1503,5 +1597,6 @@ msgstr "Dossier de manutention"
 
 #. module: servoo_stevedoring
 #: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_mater_receipt_document
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_shift_report_document
 msgid "vge"
 msgstr ""
