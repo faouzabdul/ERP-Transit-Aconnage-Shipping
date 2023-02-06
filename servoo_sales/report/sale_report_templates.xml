@@ -57,7 +57,7 @@
                         </div>
                     </div>
                 </div>
-                <font size="0" style="font-size: 8pt">
+                <font size="0" style="font-size: 7pt">
                     <table width="100%" cellspacing="0" cellpadding="0">
                         <colgroup>
                             <col/>
@@ -115,7 +115,7 @@
                                 </font>
                             </td>
                             <td style="border: 1px solid #000000; padding: 0.1cm; text-align: center">
-                                <font>ON</font>
+                                <font style="text-transform:uppercase;"><span t-field="doc.agency_name" /> ON</font>
                             </td>
                         </tr>
                         <tr valign="top">
@@ -366,7 +366,7 @@
                     <br/>
                 </p>
 
-                <font size="0" style="font-size: 8pt">
+                <font size="0" style="font-size: 7pt">
                     <div class="row mt32 mb32" id="informations">
                         <div t-if="doc.object" class="col-6 mw-100 mb-2">
                             <strong>CONCERN:</strong>
@@ -473,7 +473,22 @@
 
                     <div class="clearfix" name="so_total_summary">
                         <div id="total" class="row" name="total">
-                            <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ml-auto">
+                            <div class="col-6">
+                                <p>
+                        Stopped this invoice for the sum :
+                        <br/>
+                        <b>
+                            <span t-field="doc.currency_id.name"/>
+                            :
+                            <span t-field="doc.amount_total_letter"/>
+                        </b>
+                    </p>
+                    <p style="text-transform:uppercase;">
+                        Issued by : <span t-field="doc.user_id" />
+                    </p>
+                            </div>
+                            <div class="col-2" />
+                            <div class="col-4" align="right">
                                 <table class="table table-sm">
                                     <!-- Tax totals -->
                                     <t t-set="tax_totals" t-value="json.loads(doc.tax_totals_json)"/>
@@ -497,40 +512,33 @@
                         </div>
                     </div>
 
-                    <p>
-                        Stopped this invoice for the sum :
-                        <br/>
-                        <b>
-                            <span t-field="doc.currency_id.name"/>
-                            :
-                            <span t-field="doc.amount_total_letter"/>
-                        </b>
-                    </p>
-                    <p style="text-transform:uppercase;">
-                        Issued by : <span t-field="doc.user_id" />
-                    </p>
 
-                    <div t-if="doc.signature" class="mt32 ml64 mr4" name="signature">
-                        <div class="offset-8">
-                            <strong>Signature</strong>
-                        </div>
-                        <div class="offset-8">
-                            <img t-att-src="image_data_uri(doc.signature)" style="max-height: 4cm; max-width: 8cm;"/>
-                        </div>
-                        <div class="offset-8 text-center">
-                            <p t-field="doc.signed_by"/>
-                        </div>
-                    </div>
+
+<!--                    <div t-if="doc.signature" class="mt32 ml64 mr4" name="signature">-->
+<!--                        <div class="offset-8">-->
+<!--                            <strong>Signature</strong>-->
+<!--                        </div>-->
+<!--                        <div class="offset-8">-->
+<!--                            <img t-att-src="image_data_uri(doc.signature)" style="max-height: 4cm; max-width: 8cm;"/>-->
+<!--                        </div>-->
+<!--                        <div class="offset-8 text-center">-->
+<!--                            <p t-field="doc.signed_by"/>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </font>
                 <!--                    <div class="oe_structure"/>-->
-                <font size="0" style="font-size: 7pt">
+                <font size="0" style="font-size: 6pt; padding:0" >
                     <p t-field="doc.note"/>
                     <p t-if="not is_html_empty(doc.payment_term_id.note)">
                         <span t-field="doc.payment_term_id.note"/>
                     </p>
                 </font>
             </div>
-
+            <div class="footer">
+              <div class="row" align="right">
+                  <font size="0" style="font-size: 5pt; padding:0"><span>Page </span><span class="page" />/<span class="topage" /></font>
+              </div>
+            </div>
         </t>
     </template>
 

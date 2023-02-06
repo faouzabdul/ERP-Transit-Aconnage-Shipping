@@ -29,6 +29,11 @@ class AccountMode(models.Model):
     other_currency_id = fields.Many2one('res.currency', 'Other Currency')
     amount_other_currency = fields.Float(string='Total Currency', store=True, digits=(6, 3),
                                          compute='_compute_display_amount_letter')
+    agency_name = fields.Selection([
+        ('Douala', 'Douala'),
+        ('Kribi', 'Kribi'),
+        ('Tchad', 'Tchad'),
+    ], string='Agency', default='Douala')
 
     @api.depends('amount_total', 'currency_id')
     def _compute_display_amount_letter(self):

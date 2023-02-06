@@ -31,6 +31,11 @@ class SaleOrder(models.Model):
     other_currency_id = fields.Many2one('res.currency', 'Other Currency')
     amount_other_currency = fields.Float(string='Total Currency', store=True, digits=(6, 3),
                                          compute='_compute_display_amount_letter')
+    agency_name = fields.Selection([
+        ('Douala', 'Douala'),
+        ('Kribi', 'Kribi'),
+        ('Tchad', 'Tchad'),
+    ], string='Agency', default='Douala')
 
     @api.depends('amount_total', 'currency_id')
     def _compute_display_amount_letter(self):
@@ -59,7 +64,8 @@ class SaleOrder(models.Model):
                     'custom_declaration_reference': order.custom_declaration_reference,
                     'custom_declaration_date': order.custom_declaration_date,
                     'assessed_value': order.assessed_value,
-                    'object': order.object
+                    'object': order.object,
+                    'agency_name': order.agency_name,
                 })
 
     def _compute_line_data_for_template_change(self, line):

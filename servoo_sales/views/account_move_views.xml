@@ -6,6 +6,9 @@
             <field name="model">account.move</field>
             <field name="inherit_id" ref="account.view_move_form" />
             <field name="arch" type="xml">
+                <field name="partner_id" position="before">
+                    <field name="agency_name" required="1" />
+                </field>
                 <field name="payment_reference" position="replace" />
                 <field name="narration" position="after">
                     <label for="amount_total_in_currency_signed_letter" string="Stopped this invoice for the sum" colspan="2"/>

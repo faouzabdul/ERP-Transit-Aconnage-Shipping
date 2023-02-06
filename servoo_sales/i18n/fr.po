@@ -196,6 +196,12 @@ msgstr ""
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "ON"
+msgstr "LE"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "<font>O/FILE N°</font>"
 msgstr "<font>N/DOSSIER N°</font>"
 
@@ -414,6 +420,14 @@ msgstr "Comptabilité"
 #: model:res.groups,name:servoo_sales.group_account_accountant_manager
 msgid "Accounting Administrator"
 msgstr "Administrateur Comptable"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__agency_name
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__agency_name
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__agency_name
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__agency_name
+msgid "Agency"
+msgstr "Agence"
 
 #. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order_template_line__amount_python_compute

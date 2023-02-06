@@ -60,7 +60,7 @@
                                 </div>
                             </div>
                         </div>
-                        <font size="0" style="font-size: 8pt">
+                        <font size="0" style="font-size: 7pt">
                             <table width="100%" cellspacing="0" cellpadding="0">
                                 <colgroup>
                                     <col/>
@@ -116,7 +116,7 @@
                                         </font>
                                     </td>
                                     <td style="border: 1px solid #000000; padding: 0.1cm; text-align: center">
-                                        <font>ON</font>
+                                        <font style="text-transform:uppercase;"><span t-field="o.agency_name" /> ON</font>
                                     </td>
                                 </tr>
                                 <tr valign="top">
@@ -355,7 +355,7 @@
                         <p style="margin-bottom: 0cm; line-height: 100%">
                             <br/>
                         </p>
-                        <font size="0" style="font-size: 8pt">
+                        <font size="0" style="font-size: 7pt">
                             <div class="row mt32 mb32" id="informations">
                                 <div t-if="o.object" class="col-6 mw-100 mb-2">
                                     <strong>CONCERN:</strong>
@@ -466,7 +466,20 @@
 
                             <div class="clearfix">
                                 <div id="total" class="row">
-                                    <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ml-auto">
+                                    <div class="col-6">
+                                        <p>
+                                Stopped this invoice for the sum : <br />
+                                <b><span t-field="o.currency_id.name" /> : <span t-field="o.amount_total_in_currency_signed_letter" /> </b>
+<!--                                <t t-if="o.currency_id != o.company_currency_id">-->
+<!--                                 <br /> <b><span t-field="o.company_currency_id.name" /> : <span t-field="o.amount_total_signed_letter" /> </b>-->
+<!--                                </t>-->
+                            </p>
+                            <p style="text-transform:uppercase;">
+                                Issued by : <span t-field="o.user_id" />
+                            </p>
+                                    </div>
+                                    <div class="col-2" />
+                                    <div class="col-4">
                                         <table class="table table-sm" style="page-break-inside: avoid;">
 
                                             <!--Tax totals-->
@@ -509,16 +522,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <p>
-                                Stopped this invoice for the sum : <br />
-                                <b><span t-field="o.currency_id.name" /> : <span t-field="o.amount_total_in_currency_signed_letter" /> </b>
-<!--                                <t t-if="o.currency_id != o.company_currency_id">-->
-<!--                                 <br /> <b><span t-field="o.company_currency_id.name" /> : <span t-field="o.amount_total_signed_letter" /> </b>-->
-<!--                                </t>-->
-                            </p>
-                            <p style="text-transform:uppercase;">
-                                Issued by : <span t-field="o.user_id" />
-                            </p>
+
 <!--                            <p t-if="o.move_type in ('out_invoice', 'in_refund') and o.payment_reference"-->
 <!--                               name="payment_communication">-->
 <!--                                Please use the following communication for your payment :-->
@@ -551,6 +555,11 @@
                             </div>
                         </font>
                     </div>
+                    <div class="footer">
+              <div class="row" align="right">
+                  <font size="0" style="font-size: 5pt; padding:0"><span>Page </span><span class="page" />/<span class="topage" /></font>
+              </div>
+            </div>
                 </t>
                 <t t-if="o.move_type != 'out_invoice'">
                     <t t-set="forced_vat"
