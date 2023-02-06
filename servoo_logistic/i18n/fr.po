@@ -16,6 +16,12 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: servoo_logistic
+#: model_terms:ir.ui.view,arch_db:servoo_logistic.view_servoo_logistic_form
+#: model_terms:ir.ui.view,arch_db:servoo_logistic.view_servoo_logistic_tree
+msgid "APM File Number"
+msgstr "Numéro dossier APM"
+
+#. module: servoo_logistic
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__message_needaction
 msgid "Action Needed"
 msgstr ""
@@ -39,6 +45,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__activity_type_icon
 msgid "Activity Type Icon"
 msgstr ""
+
+#. module: servoo_logistic
+#: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__agency_name
+msgid "Agency"
+msgstr "Agence"
 
 #. module: servoo_logistic
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_formality__agent_id

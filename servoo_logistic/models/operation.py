@@ -63,6 +63,11 @@ class Operation(models.Model):
         ('done', 'Done'),
         ('cancel', 'Cancel')
     ], string='Status', default='draft', tracking=1)
+    agency_name = fields.Selection([
+        ('Douala', 'Douala'),
+        ('Kribi', 'Kribi'),
+        ('Tchad', 'Tchad'),
+    ], string='Agency', default='Douala')
 
     _sql_constraints = [
         ('name_uniq', 'unique (name)', _('This reference must be unique!'))
@@ -166,7 +171,8 @@ class Operation(models.Model):
             'weight': self.gross_weight,
             'custom_declaration_reference': '',
             'custom_declaration_date': '',
-            'unit_id': self.env.ref('dyen_base.unit_KG').id
+            'unit_id': self.env.ref('dyen_base.unit_KG').id,
+            'agency_name': self.agency_name
         }
         return invoice_vals
 

@@ -118,6 +118,11 @@ msgid "Activity Type Icon"
 msgstr ""
 
 #. module: servoo_transit
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__agency_name
+msgid "Agency"
+msgstr "Agence"
+
+#. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_formality__agent_id
 msgid "Agent"
 msgstr ""
@@ -1063,3 +1068,15 @@ msgstr "Type de confitionnement"
 #: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_form
 msgid "show the invoices for this transit order"
 msgstr "Afficher les factures pour cet ordre de transit"
+
+#. module: servoo_transit
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__name
+msgid "APM File Number"
+msgstr "Numéro de dossier APM"
+
+
+#. module: servoo_transit
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__external_reference
+#: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_form
+msgid "Client Reference"
+msgstr "Référence Client"

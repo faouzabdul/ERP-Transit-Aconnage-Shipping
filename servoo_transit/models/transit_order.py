@@ -35,8 +35,8 @@ class TransitOrder(models.Model):
     net_weight = fields.Float('Net Weight (kg)', digits=(12, 3))
     goods_description = fields.Char('Description of goods')
     bill_of_lading = fields.Char('Bill of lading')
-    name = fields.Char(string='Reference', required=True, tracking=1, default=lambda self: _('New'), copy=False)
-    external_reference = fields.Char(string='External Reference')
+    name = fields.Char(string='APM File Number', required=True, tracking=1, default=lambda self: _('New'), copy=False)
+    external_reference = fields.Char(string="Client Reference")
     date_debut = fields.Datetime('Date Debut')
     date_end = fields.Datetime('Date End')
     partner_id = fields.Many2one('res.partner', 'Client', required=True)
@@ -92,9 +92,14 @@ class TransitOrder(models.Model):
     ], string='Status', default='draft')
     note = fields.Text('Notes')
     packaging_type_id = fields.Many2one('servoo.transit.packaging.type', 'Packaging type')
+    agency_name = fields.Selection([
+        ('Douala', 'Douala'),
+        ('Kribi', 'Kribi'),
+        ('Tchad', 'Tchad'),
+    ], string='Agency', default='Douala')
 
     def generate_reference(self, vals):
-        reference = str(datetime.now().year)[-2:] + 'D'
+        reference = str(datetime.now().year)[-2:] + vals['agency_name'][0] if vals['agency_name'] else 'D'
         type = vals['operation_type']
         transport_mode = self.env['res.transport.mode'].search([('id', '=', vals['transport_mode_id'])])
         if type == 'import' and transport_mode and transport_mode.code == '10':
@@ -199,7 +204,8 @@ class TransitOrder(models.Model):
             'volume': self.volume,
             'weight': self.gross_weight,
             'custom_declaration_reference': '',
-            'custom_declaration_date': ''
+            'custom_declaration_date': '',
+            'agency_name': self.agency_name
         }
         return invoice_vals
 

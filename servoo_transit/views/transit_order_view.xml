@@ -8,6 +8,7 @@
                 <tree string="Transit Orders">
                     <field name="name" />
                     <field name="external_reference" />
+                    <field name="agency_name" />
                     <field name="operation_type" />
 <!--                    <field name="operation_type" />-->
                     <field name="sub_operation_type" />
@@ -55,11 +56,12 @@
                         </div>
                         <group>
                             <group col="4">
-                                <field name="name" readonly="0" colspan="4"/>
+                                <field name="name" readonly="1"/>
+                                <field name="agency_name" required="1" />
                                 <field name="partner_id" widget="res_partner_many2one" context="{'show_address': 1, 'show_vat': True}" options='{"always_reload": True}' colspan="4"/>
-                                <field name="external_reference" colspan="4"/>
+                                <field name="external_reference" colspan="4" string="Client Reference" />
                                 <field name="operation_type" required="1"/>
-                                <field name="sub_operation_type" options="{'no_create': True}" domain="[('operation_type', '=', operation_type)]"/>
+                                <field name="sub_operation_type" options="{'no_create': True}" domain="[('operation_type', '=', operation_type)]" required="1"/>
                                 <field name="date_debut" />
                                 <field name="date_end" />
                             </group>
@@ -68,7 +70,7 @@
                                 <field name="travel_reference" />
                                 <field name="bill_of_lading" />
                                  <field name="arrival_date"/>
-                                <field name="transport_mode_id" options="{'no_create': True}"/>
+                                <field name="transport_mode_id" options="{'no_create': True}" required="1"/>
                                 <field name="transport_means_id" options="{'no_create': True}"/>
                                 <field name="departure_country_id" options="{'no_create': True}"/>
                                 <field name="loading_place_id"  options="{'no_create': True}" domain="[('country_id', '=', departure_country_id)]"/>

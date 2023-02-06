@@ -49,7 +49,8 @@
             <field name="model">servoo.logistic.operation</field>
             <field name="arch" type="xml">
                 <tree string="Operations">
-                    <field name="name" />
+                    <field name="name" string="APM File Number"/>
+                    <field name="agency_name" />
 <!--                    <field name="external_reference" />-->
                     <field name="operation_nature" />
                     <field name="operation_type" />
@@ -97,7 +98,8 @@
                         </div>
                         <group>
                             <group col="4">
-                                <field name="name" readonly="0" colspan="4"/>
+                                <field name="name" readonly="1" string="APM File Number"/>
+                                <field name="agency_name" required="1" />
                                 <field name="partner_id" widget="res_partner_many2one" context="{'show_address': 1, 'show_vat': True}" options='{"always_reload": True}' colspan="4"/>
                                 <field name="operation_nature" required="1" colspan="4" />
                                 <field name="external_reference" colspan="4"/>
