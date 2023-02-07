@@ -210,7 +210,7 @@
             </menuitem>
         </menuitem>
 <!-- hr-->
-        <menuitem id="payment_hr_menu"  parent="hr.menu_hr_root" sequence="20" name="Finance">
+        <menuitem id="payment_hr_menu"  parent="hr.menu_hr_root" sequence="20" name="Finance" groups="hr.group_hr_user">
             <menuitem name="Payment request" id="hr_payment_request_menu">
                 <menuitem id="hr_our_payment_request_menu" action="servoo_finance.action_our_payment_request" />
                 <menuitem id="logistic_payment_request_to_approve_menu" action="servoo_finance.action_our_payment_request_to_approve"
