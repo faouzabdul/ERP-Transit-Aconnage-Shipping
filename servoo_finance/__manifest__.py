@@ -25,6 +25,7 @@
         'views/payment_operation_file_view.xml',
         'views/dashboard_views.xml',
         'views/servoo_finance_menu.xml',
+        'views/account_bank_statement_view.xml',
     ],
 'assets': {
         'web.assets_backend': [
