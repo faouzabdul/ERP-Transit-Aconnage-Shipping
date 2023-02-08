@@ -22,15 +22,15 @@ class SaleOrderTemplateLine(models.Model):
                                           help=""" # Available variables:
                                                        #----------------------
                                                        # VOLUME: the volume                                                
-                                                       # TONNAGE: The tonnage of goods in the vessel
+                                                       # TONNAGE: The tonnage of goods
                                                        # rules: object containing the rules code (previously computed)
 
                                                        # Note: returned value have to be set in the variable 'result_qty'""")
     amount_python_compute = fields.Text(string='Amount Formula', default="result = 1.0",
                                         help=""" # Available variables:
                                                      #----------------------
-                                                     # VOLUME: the CBM of vessel
-                                                     # TONNAGE: The tonnage of goods in the vessel
+                                                     # VOLUME: the volume
+                                                     # TONNAGE: The tonnage of goods
                                                      # rules: object containing the rules code (previously computed)
 
                                                      # Note: returned value have to be set in the variable 'result'""")

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="wizard_supplier_invoice_form">
+        <field name="name">wizard.supplier.invoice.form</field>
+        <field name="model">servoo.account.move.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Supplier Invoice validation">
+                <sheet>
+                    <group string="Do you want to confirm the operation ?">
+                        <field name="account_move_id" invisible="1"/>
+                        <field name="state" invisible="1" />
+                    </group>
+                    <group attrs="{'invisible': [('state', '!=', 'direction_routing')]}">
+                        <field name="department_id" attrs="{'required': [('state', '=', 'direction_routing')]}"/>
+                    </group>
+                    <group col="2" attrs="{'invisible': [('state', '!=', 'accounting_approval')]}">
+                        <field name="invoice_date_due" />
+                        <field name="invoice_payment_term_id"/>
+                    </group>
+                    <group>
+                        <field name="observation" />
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_validate" string="Approve" type="object" class="oe_highlight" data-hotkey="q"/>
+                    <button string="Discard" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+     <record id="action_wizard_supplier_invoice" model="ir.actions.act_window">
+        <field name="name">Supplier Invoice</field>
+        <field name="res_model">servoo.account.move.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

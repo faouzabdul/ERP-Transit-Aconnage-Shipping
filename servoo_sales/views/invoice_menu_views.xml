@@ -7,6 +7,17 @@
         groups="servoo_sales.group_account_user"
         web_icon="account,static/description/icon.png"
         sequence="55" />
+        <menuitem id="supplier_invoice_menu_root" name="Supplier Invoice" web_icon="servoo_sales,static/description/supplier.png"
+                  groups="servoo_sales.group_supplier_invoice_management_control,servoo_sales.group_supplier_invoice_accounting,servoo_sales.group_supplier_invoice_department,servoo_sales.group_supplier_invoice_general_direction,servoo_sales.group_supplier_invoice_admissibility">
+            <menuitem id="menu_finance_payables" name="Vendors" sequence="3">
+                <menuitem id="menu_action_move_in_invoice_type" action="account.action_move_in_invoice_type" sequence="1"/>
+<!--                <menuitem id="menu_action_move_in_refund_type" action="account.action_move_in_refund_type" sequence="2"/>-->
+<!--                <menuitem id="menu_action_move_in_receipt_type" action="account.action_move_in_receipt_type" groups="account.group_purchase_receipts" sequence="3"/>-->
+<!--                <menuitem id="menu_action_account_payments_payable" action="account.action_account_payments_payable" sequence="20"/>-->
+                <menuitem id="product_product_menu_purchasable" name="Products" action="account.product_product_action_purchasable" sequence="100"/>
+                <menuitem id="menu_account_supplier" name="Vendors" action="account.res_partner_action_supplier" sequence="200"/>
+            </menuitem>
+        </menuitem>
 
         <menuitem id="invoice_menu_root" name="Invoicing" web_icon="servoo_sales,static/description/icon.png" groups="servoo_sales.group_account_invoice">
             <menuitem id="menu_finance_receivables" name="Customers" sequence="1">
@@ -29,6 +40,10 @@
             <menuitem id="logistic_invoice_menu" name="Logistic" sequence="6">
                 <menuitem id="logistic_operation_invoice_menu" action="servoo_logistic.action_operations_to_invoice" />
             </menuitem>
+<!--            <menuitem id="config_menu" name="Configuration" sequence="50" groups="sale_management.group_sale_order_template">-->
+<!--                <menuitem id="sale_order_template_menu" action="sale_management.sale_order_template_action" sequence="1" name="Invoices Templates" groups="sale_management.group_sale_order_template"/>-->
+<!--            </menuitem>-->
         </menuitem>
+
     </data>
 </odoo>

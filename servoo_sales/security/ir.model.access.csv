@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_move_agent,account.move,account.model_account_move,base.group_user,1,1,1,0
+access_account_partial_reconcile_agent,account.partial.reconcile,account.model_account_partial_reconcile,base.group_user,1,0,0,0
+access_account_account_type,account.account.type,account.model_account_account_type,base.group_user,1,0,0,0
+access_account_journal_agent,account.journal,account.model_account_journal,base.group_user,1,0,0,0
+access_account_move_line_accounting,account.move.line,account.model_account_move_line,base.group_user,1,1,1,1
+servoo_sales.access_servoo_account_move_wizard,access_servoo_account_move_wizard,servoo_sales.model_servoo_account_move_wizard,base.group_user,1,1,1,1

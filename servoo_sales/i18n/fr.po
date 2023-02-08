@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220616\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-27 10:07+0000\n"
-"PO-Revision-Date: 2023-01-27 10:07+0000\n"
+"POT-Creation-Date: 2023-02-08 10:11+0000\n"
+"PO-Revision-Date: 2023-02-08 10:11+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -53,7 +53,7 @@ msgid ""
 " # Available variables:\n"
 "                                                       #----------------------\n"
 "                                                       # VOLUME: the volume                                                \n"
-"                                                       # TONNAGE: The tonnage of goods in the vessel\n"
+"                                                       # TONNAGE: The tonnage of goods\n"
 "                                                       # rules: object containing the rules code (previously computed)\n"
 "\n"
 "                                                       # Note: returned value have to be set in the variable 'result_qty'"
@@ -71,8 +71,8 @@ msgstr ""
 msgid ""
 " # Available variables:\n"
 "                                                     #----------------------\n"
-"                                                     # VOLUME: the CBM of vessel\n"
-"                                                     # TONNAGE: The tonnage of goods in the vessel\n"
+"                                                     # VOLUME: the volume\n"
+"                                                     # TONNAGE: The tonnage of goods\n"
 "                                                     # rules: object containing the rules code (previously computed)\n"
 "\n"
 "                                                     # Note: returned value have to be set in the variable 'result'"
@@ -108,7 +108,7 @@ msgstr " cent"
 #: code:addons/servoo_sales/models/utils.py:0
 #, python-format
 msgid " million"
-msgstr " million"
+msgstr ""
 
 #. module: servoo_sales
 #: code:addons/servoo_sales/models/utils.py:0
@@ -154,6 +154,14 @@ msgstr ""
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid ""
+"<font size=\"0\" style=\"font-size: 5pt; padding:0\"><span>Page </span><span"
+" class=\"page\"/>/<span class=\"topage\"/></font>"
+msgstr ""
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "<font>ASSESSED VALUE</font>"
 msgstr "<font>VALEUR IMPOSABLE</font>"
 
@@ -192,12 +200,6 @@ msgstr "<font>N° COMPTE</font>"
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "<font>N° BL/LTA</font>"
 msgstr ""
-
-#. module: servoo_sales
-#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
-#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
-msgid "ON"
-msgstr "LE"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
@@ -386,11 +388,6 @@ msgid "<strong>Reference:</strong>"
 msgstr "<strong>Référence:</strong>"
 
 #. module: servoo_sales
-#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
-msgid "<strong>Signature</strong>"
-msgstr ""
-
-#. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "<strong>Source:</strong>"
 msgstr ""
@@ -422,6 +419,17 @@ msgid "Accounting Administrator"
 msgstr "Administrateur Comptable"
 
 #. module: servoo_sales
+#: model:ir.model.fields.selection,name:servoo_sales.selection__account_move__state__accounting_approval
+#: model:res.groups,name:servoo_sales.group_supplier_invoice_accounting
+msgid "Accounting Approval"
+msgstr "Approbation comptabilité"
+
+#. module: servoo_sales
+#: model:res.groups,name:servoo_sales.group_supplier_invoice_admissibility
+msgid "Admissibility"
+msgstr "Recevabilité"
+
+#. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__agency_name
 #: model:ir.model.fields,field_description:servoo_sales.field_account_move__agency_name
 #: model:ir.model.fields,field_description:servoo_sales.field_account_payment__agency_name
@@ -433,6 +441,12 @@ msgstr "Agence"
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order_template_line__amount_python_compute
 msgid "Amount Formula"
 msgstr "Formule Montant"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_move_form
+#: model_terms:ir.ui.view,arch_db:servoo_sales.wizard_supplier_invoice_form
+msgid "Approve"
+msgstr "Approuver"
 
 #. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__assessed_value
@@ -464,6 +478,11 @@ msgid "Billing Administrator"
 msgstr "Administrateur Facturation"
 
 #. module: servoo_sales
+#: model:ir.ui.menu,name:servoo_sales.menu_action_move_in_invoice_type
+msgid "Bills"
+msgstr "Factures"
+
+#. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "Cancelled Invoice"
 msgstr "Facture annulée"
@@ -472,6 +491,16 @@ msgstr "Facture annulée"
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order_template_line__code
 msgid "Code"
 msgstr ""
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard__create_date
+msgid "Created on"
+msgstr "Créé le"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
@@ -511,14 +540,60 @@ msgid "Customs Operations"
 msgstr "Opérations Douanières"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__department_id
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__department_id
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__department_id
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard__department_id
+msgid "Department"
+msgstr "Département"
+
+#. module: servoo_sales
+#: model:ir.model.fields.selection,name:servoo_sales.selection__account_move__state__department_approval
+#: model:res.groups,name:servoo_sales.group_supplier_invoice_department
+msgid "Department Approval"
+msgstr "Approbation du département"
+
+#. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
 msgid "Description"
+msgstr ""
+
+#. module: servoo_sales
+#: model:ir.model.fields.selection,name:servoo_sales.selection__account_move__state__direction_approval
+#: model:res.groups,name:servoo_sales.group_supplier_invoice_general_direction
+msgid "Direction Approval"
+msgstr "Approbation de la Direction"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.wizard_supplier_invoice_form
+msgid "Discard"
+msgstr "Annuler"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.wizard_supplier_invoice_form
+msgid "Do you want to confirm the operation ?"
+msgstr "Voulez-vous confirmer l'opération ?"
+
+#. module: servoo_sales
+#: model:ir.model.fields.selection,name:servoo_sales.selection__account_move__agency_name__douala
+#: model:ir.model.fields.selection,name:servoo_sales.selection__sale_order__agency_name__douala
+msgid "Douala"
 msgstr ""
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "Draft Invoice"
 msgstr "Facture brouillon"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard__invoice_date_due
+msgid "Due Date"
+msgstr "Date d'échéance"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
@@ -538,9 +613,26 @@ msgid "Helps you manage your customers invoices."
 msgstr ""
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: servoo_sales
+#: model:ir.model.fields.selection,name:servoo_sales.selection__account_move__state__in_payment
+msgid "In payment"
+msgstr "En paiement"
+
+#. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "Invoice"
 msgstr "Facture"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__invoice_line_ids
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__invoice_line_ids
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__invoice_line_ids
+msgid "Invoice lines"
+msgstr "Lignes de facture"
 
 #. module: servoo_sales
 #: model:ir.ui.menu,name:servoo_sales.menu_action_move_out_invoice_type
@@ -563,6 +655,27 @@ msgstr "Émise par :"
 #: model:ir.model,name:servoo_sales.model_account_move
 msgid "Journal Entry"
 msgstr "Pièce comptable"
+
+#. module: servoo_sales
+#: model:ir.model.fields.selection,name:servoo_sales.selection__account_move__agency_name__kribi
+#: model:ir.model.fields.selection,name:servoo_sales.selection__sale_order__agency_name__kribi
+msgid "Kribi"
+msgstr ""
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_sale_order_template_form
@@ -589,12 +702,18 @@ msgid "MAIL :"
 msgstr ""
 
 #. module: servoo_sales
+#: model:ir.model.fields.selection,name:servoo_sales.selection__account_move__state__management_control_approval
+#: model:res.groups,name:servoo_sales.group_supplier_invoice_management_control
+msgid "Management Control Approval"
+msgstr "Approbation du contrôle de gestion"
+
+#. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__transport_means_id
 #: model:ir.model.fields,field_description:servoo_sales.field_account_move__transport_means_id
 #: model:ir.model.fields,field_description:servoo_sales.field_account_payment__transport_means_id
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__transport_means_id
 msgid "Means of transportation"
-msgstr "Moyen de transport"
+msgstr "Moyens de transport"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
@@ -620,6 +739,12 @@ msgstr ""
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "ON"
+msgstr "LE"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
 msgid "ORDER"
 msgstr "BON DE COMMANDE"
 
@@ -630,6 +755,14 @@ msgstr "BON DE COMMANDE"
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__object
 msgid "Object"
 msgstr "Objet"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__observation
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__observation
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__observation
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard__observation
+msgid "Observation"
+msgstr ""
 
 #. module: servoo_sales
 #: model:ir.ui.menu,name:servoo_sales.logistic_operation_invoice_menu
@@ -667,9 +800,20 @@ msgid "Paid on"
 msgstr "Payé le"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard__invoice_payment_term_id
+msgid "Payment Terms"
+msgstr "Modalités de paiement"
+
+#. module: servoo_sales
+#: model:ir.ui.menu,name:servoo_sales.product_product_menu_purchasable
 #: model:ir.ui.menu,name:servoo_sales.product_product_menu_sellable
 msgid "Products"
 msgstr "Services"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_move_form
+msgid "Put in payment"
+msgstr "Mettre en paiement"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
@@ -707,6 +851,16 @@ msgid "Sales Order"
 msgstr "Bon de commande"
 
 #. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_move_form
+msgid "Send to Department"
+msgstr "Envoyer au département"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_move_form
+msgid "Send to Direction"
+msgstr "Envoyer à la Direction"
+
+#. module: servoo_sales
 #: model:ir.ui.menu,name:servoo_sales.shipping_invoice_menu
 msgid "Shipping"
 msgstr ""
@@ -715,6 +869,13 @@ msgstr ""
 #: model:ir.ui.menu,name:servoo_sales.shipping_file_invoice_menu
 msgid "Shipping Files"
 msgstr "Dossiers Shipping"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__state
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__state
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard__state
+msgid "Status"
+msgstr "État"
 
 #. module: servoo_sales
 #: model:ir.ui.menu,name:servoo_sales.stevedoring_invoice_menu
@@ -744,7 +905,30 @@ msgstr ""
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "Stopped this invoice for the sum : <br/>"
-msgstr "Arrêté cette facture à la somme : <br/>"
+msgstr "Arrêté cette facture pour à somme : <br/>"
+
+#. module: servoo_sales
+#: model:ir.model.fields.selection,name:servoo_sales.selection__account_move__state__direction_routing
+msgid "Submitted"
+msgstr "Soumise"
+
+#. module: servoo_sales
+#: model:ir.actions.act_window,name:servoo_sales.action_wizard_supplier_invoice
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard__account_move_id
+#: model:ir.module.category,name:servoo_sales.module_category_servoo_supplier_invoice
+#: model:ir.ui.menu,name:servoo_sales.supplier_invoice_menu_root
+msgid "Supplier Invoice"
+msgstr "Facture fournisseur"
+
+#. module: servoo_sales
+#: model:ir.model,name:servoo_sales.model_servoo_account_move_wizard
+msgid "Supplier Invoice Wizard"
+msgstr "Facture fournisseur Wizard"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.wizard_supplier_invoice_form
+msgid "Supplier Invoice validation"
+msgstr "Validation facture fournisseur"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
@@ -755,6 +939,12 @@ msgstr "ID Taxe"
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
 msgid "Taxes"
 msgstr "Taxe"
+
+#. module: servoo_sales
+#: model:ir.model.fields.selection,name:servoo_sales.selection__account_move__agency_name__tchad
+#: model:ir.model.fields.selection,name:servoo_sales.selection__sale_order__agency_name__tchad
+msgid "Tchad"
+msgstr ""
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.document_tax_totals
@@ -844,13 +1034,19 @@ msgid "Vendor Credit Note"
 msgstr "Note de crédit fournisseur"
 
 #. module: servoo_sales
+#: model:ir.ui.menu,name:servoo_sales.menu_account_supplier
+#: model:ir.ui.menu,name:servoo_sales.menu_finance_payables
+msgid "Vendors"
+msgstr "Fournisseurs"
+
+#. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__volume
 #: model:ir.model.fields,field_description:servoo_sales.field_account_move__volume
 #: model:ir.model.fields,field_description:servoo_sales.field_account_payment__volume
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__volume
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order_template__volume
 msgid "Volume (m3)"
-msgstr "Volume (m3)"
+msgstr ""
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document

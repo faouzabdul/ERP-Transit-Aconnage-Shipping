@@ -11,7 +11,8 @@
     'depends': ['dyen_base', 'sale_management', 'account'],
     'data': [
         'security/sales_security.xml',
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
+        'wizard/wizard_supplier_invoice_view.xml',
         'views/account_move_views.xml',
         'views/sale_views.xml',
         'views/sale_order_template_views.xml',
