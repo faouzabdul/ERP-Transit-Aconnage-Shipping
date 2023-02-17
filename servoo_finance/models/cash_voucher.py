@@ -75,6 +75,7 @@ class CashVoucher(models.Model):
     amount = fields.Float(string='Amount', tracking=1, digits=(6, 3))
     amount_justified = fields.Float(string='Amount justified', digits=(6, 3), tracking=1, default=0.0)
     amount_unjustified = fields.Float(string='Amount unjustified', digits=(6, 3), compute='_compute_unjustified_amount')
+    cashier_piece_total_amount = fields.Float('Total cashier piece', compute='_compute_total_cashier_piece')
     object = fields.Text('Object')
     create_uid = fields.Many2one('res.users', string='Created by', index=True, readonly=True)
     cashier_piece_ids = fields.One2many('servoo.cashier.piece', 'cash_voucher_id', 'Cashier Pieces')
@@ -84,7 +85,7 @@ class CashVoucher(models.Model):
     journal_id = fields.Many2one('account.journal', string='Cash Journal', required=True, readonly=True,
                                  states={'draft': [('readonly', False)]}, check_company=True,
                                  domain=[('type', '=', 'cash')],
-                                 default=_get_default_journal)
+                                 default=_get_default_journal, tracking=3)
 
     workflow_observation = fields.Text('Observation', tracking=3)
 
@@ -132,6 +133,13 @@ class CashVoucher(models.Model):
     def _compute_unjustified_amount(self):
         for request in self:
             request.amount_unjustified = request.amount - request.amount_justified
+
+    def _compute_total_cashier_piece(self):
+        for voucher in self:
+            amount = 0.0
+            for piece in voucher.cashier_piece_ids:
+                amount += piece.amount_total
+            voucher.cashier_piece_total_amount = amount
 
     def _search_our_vouchers(self, operator, value):
         if operator not in ['=', '!=']:

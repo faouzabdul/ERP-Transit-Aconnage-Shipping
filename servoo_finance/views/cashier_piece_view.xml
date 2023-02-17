@@ -49,24 +49,30 @@
                             <field name="employee_id" readonly="1" required="1"/>
                             <field name="employee_parent_id" readonly="1" />
                             <field name="department_id" readonly="1" required="1" colspan="4"/>
-                            <field name="file_reference" />
-                            <field name="journal_id" required="1" options="{'no_create': True}"/>
-                            <field name="cash_voucher_id" />
+                            <field name="file_reference" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="journal_id" required="1" options="{'no_create': True}" />
+                            <field name="cash_voucher_id" domain="[('state','=','justification')]" options="{'no_create': True}" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                             <field name="amount_total" />
                             <field name="amount_total_letter" readonly="1" colspan="4"/>
                             <field name="our_pieces" invisible="1" />
                             <field name="company_id" invisible="1" />
+                            <field name="account_move_id" groups="account.group_account_readonly"/>
                         </group>
                         <group col="4" string="Description">
-                            <field name="object" colspan="4" nolabel="1" required="1" />
+                            <field name="object" colspan="4" nolabel="1" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                         </group>
                         <notebook>
                             <page string="Imputation">
-                                <field name="piece_line" widget="one2many" mode="tree" >
+                                <field name="piece_line" widget="one2many" mode="tree"
+                                attrs="{'readonly': [('state', 'not in', ('draft', 'management_control_approval','accounting_approval'))]}">
                                     <tree string="Lines" editable="bottom">
                                         <field name="product_id" />
                                         <field name="description" />
+                                        <field name="partner_id" />
                                         <field name="amount" />
+                                        <field name="account_id" options="{'no_create': True}" groups="account.group_account_readonly"/>
+                                        <field name="analytic_account_id" groups="analytic.group_analytic_accounting"/>
+                                        <field name="analytic_tag_ids" groups="analytic.group_analytic_tags" widget="many2many_tags"/>
                                     </tree>
                                 </field>
                             </page>

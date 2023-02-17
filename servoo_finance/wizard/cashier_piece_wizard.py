@@ -56,7 +56,8 @@ class WizardCashierPiece(models.TransientModel):
                 'state': 'management_control_approval',
                 'workflow_observation': self.observation
             }
-            self.cashier_piece_id.cash_voucher_id.amount_justified = self.cashier_piece_id.cash_voucher_id.amount_justified + self.cashier_piece_id.amount_total
+            if self.cashier_piece_id.cash_voucher_id:
+                self.cashier_piece_id.cash_voucher_id.amount_justified +=  self.cashier_piece_id.amount_total
             if self.cashier_piece_id.cash_voucher_id.amount_unjustified <= 0:
                 self.cashier_piece_id.cash_voucher_id.state = 'done'
             group_management_control_approval = self.env.ref("servoo_finance.management_control_approval_group_user")
@@ -81,12 +82,45 @@ class WizardCashierPiece(models.TransientModel):
                     summary=_("New cashier piece %s needs the accounting approval" % self.cashier_piece_id.name)
                 )
         elif self.cashier_piece_id.state == 'accounting_approval':
+            # Check if all line have account code define
+            for line in self.cashier_piece_id.piece_line:
+                if not line.account_id:
+                    raise UserError(_("You must set account for all lines"))
+            # Create account move from cashier piece
+            lines = []
+            vals_debit = (0, 0, {
+                'account_id': self.cashier_piece_id.journal_id.default_account_id.id,
+                'name': self.cashier_piece_id.name,
+                'debit': self.cashier_piece_id.amount_total,
+                'credit': 0
+            })
+            lines.append(vals_debit)
+            for line in self.cashier_piece_id.piece_line:
+                lines.append((0, 0, {
+                    'account_id': line.account_id.id,
+                    'partner_id': line.partner_id.id,
+                    'name': line.description,
+                    'debit': 0,
+                    'credit': line.amount,
+                }))
+            account_move_vals = {
+                'journal_id': self.cashier_piece_id.journal_id.id,
+                'date': datetime.now(),
+                'line_ids': lines,
+                'ref': self.cashier_piece_id.name
+            }
+            move = self.env['account.move'].create(account_move_vals)
+            move.action_post()
             vals = {
                 'accounting_approval_agent_id': self.env.user.id,
                 'accounting_approval_date': self.date,
                 'state': 'done',
-                'workflow_observation': self.observation
+                'workflow_observation': self.observation,
+                'account_move_id': move.id
             }
+            # Update justified amount of cash_voucher if cash voucher
+            # if self.cashier_piece_id.cash_voucher_id:
+            #     self.cashier_piece_id.cash_voucher_id.amount_justified += self.cashier_piece_id.amount_total
             # if self.cashier_piece_id.cash_voucher_id.state == 'justification':
             #     self.cashier_piece_id.cash_voucher_id.state = 'done'
         return self.cashier_piece_id.update(vals)

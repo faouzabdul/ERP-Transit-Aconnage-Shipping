@@ -47,12 +47,14 @@
                             <field name="employee_id" readonly="1" required="1"/>
                             <field name="department_id" readonly="1" />
                             <field name="object" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
-                            <field name="hinterland" />
-                            <field name="amount" />
+                            <field name="hinterland" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="amount" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                             <field name="amount_justified" readonly="1" />
                             <field name="amount_unjustified" readonly="1"/>
+                            <field name="cashier_piece_total_amount" readonly="1"/>
                             <field name="justification_delay" readonly="1" force_save="1"/>
                             <field name="justification_deadline" readonly="1" force_save="1"/>
+                            <field name="journal_id" readonly="1" />
                             <field name="our_voucher" invisible="1" />
                         </group>
                         <notebook>

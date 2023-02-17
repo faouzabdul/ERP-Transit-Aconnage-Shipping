@@ -8,7 +8,9 @@
                <sheet>
                    <group string="Confirmation ?" />
                     <group col="2">
+                        <field name="state" invisible="1" />
                         <field name="date" />
+                        <field name="journal_id" attrs="{'invisible': [('state', '!=', 'cashier_approval')], 'required': [('state', '=', 'cashier_approval')]}" />
                         <field name="observation" />
                     </group>
                 </sheet>

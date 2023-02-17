@@ -10,9 +10,39 @@ class WizardCashVoucher(models.TransientModel):
     _name = 'servoo.cash.voucher.wizard'
     _description = "Payment Request workflow"
 
+    @api.model
+    def _get_default_journal(self):
+        journal_types = ['cash']
+        journal = self._search_default_journal(journal_types)
+        return journal
+
+    @api.model
+    def _search_default_journal(self, journal_types):
+        company_id = self._context.get('default_company_id', self.env.company.id)
+        domain = [('company_id', '=', company_id), ('type', 'in', journal_types)]
+        journal = None
+        if self._context.get('default_currency_id'):
+            currency_domain = domain + [('currency_id', '=', self._context['default_currency_id'])]
+            journal = self.env['account.journal'].search(currency_domain, limit=1)
+        if not journal:
+            journal = self.env['account.journal'].search(domain, limit=1)
+        if not journal:
+            company = self.env['res.company'].browse(company_id)
+            error_msg = _(
+                "No journal could be found in company %(company_name)s for any of those types: %(journal_types)s",
+                company_name=company.display_name,
+                journal_types=', '.join(journal_types),
+            )
+            raise UserError(error_msg)
+        return journal
+
     cash_voucher_id = fields.Many2one('servoo.cash.voucher', 'Payment Request', default=lambda self: self.env.context.get('active_id', None))
+    state = fields.Selection(related='cash_voucher_id.state', store=True, readonly=True)
     observation = fields.Text('Notes')
     date = fields.Date('Date', default=datetime.now(), required=True)
+    journal_id = fields.Many2one('account.journal', string='Cash Journal', check_company=True,
+                                 domain=[('type', '=', 'cash')],
+                                 default=_get_default_journal)
 
     def action_validate(self):
         dp = self.get_department(self.env.user.employee_id.department_id)
@@ -70,6 +100,7 @@ class WizardCashVoucher(models.TransientModel):
                 'state': 'justification',
                 'workflow_observation': self.observation
             }
+            self.cash_voucher_id.journal_id = self.journal_id.id
         return self.cash_voucher_id.update(vals)
 
     def action_reject(self):

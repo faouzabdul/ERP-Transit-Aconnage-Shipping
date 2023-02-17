@@ -52,8 +52,8 @@ class CashierPiece(models.Model):
                                              store=False)
     file_reference = fields.Char('File Reference')
     object = fields.Text('Object')
-    piece_line = fields.One2many('servoo.cashier.piece.line', 'cashier_piece_id', 'Request Lines')
-    document_ids = fields.One2many('servoo.cashier.piece.document', 'cashier_piece_id', 'Documents')
+    piece_line = fields.One2many('servoo.cashier.piece.line', 'cashier_piece_id', 'Request Lines', tracking=1)
+    document_ids = fields.One2many('servoo.cashier.piece.document', 'cashier_piece_id', 'Documents', tracking=1)
     create_uid = fields.Many2one('res.users', string='Created by', index=True, readonly=True)
     cash_voucher_id = fields.Many2one('servoo.cash.voucher', 'Cash Voucher')
     journal_id = fields.Many2one('account.journal', string='Cash Journal', required=True, readonly=True,
@@ -87,6 +87,7 @@ class CashierPiece(models.Model):
         ('accounting_approval', 'Accounting Approval'),
         ('done', 'Done')
     ], string='Status', readonly=True, copy=False, index=True, tracking=3, default='draft')
+    account_move_id = fields.Many2one('account.move', 'Account Move', readonly=True)
 
     @api.depends('amount_total')
     def _compute_display_amount_letter(self):
@@ -174,6 +175,11 @@ class CashierPieceLine(models.Model):
     description = fields.Char('Description', required=True)
     amount = fields.Float('Amount', required=True)
     cashier_piece_id = fields.Many2one('servoo.cashier.piece', 'Cashier Piece', required=True)
+    partner_id = fields.Many2one('res.partner', 'Partner')
+    account_id = fields.Many2one('account.account', 'Account')
+    analytic_account_id = fields.Many2one('account.analytic.account', 'Analytic Account')
+    analytic_tag_ids = fields.Many2many('account.analytic.tag', 'cashier_piece_line_analytic_tag_rel', 'cashier_piece_line_id',
+                                        'analytic_tag_id', string='Analytic Tags')
 
     @api.onchange('product_id')
     def onchange_product_id(self):

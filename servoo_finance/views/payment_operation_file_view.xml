@@ -195,6 +195,8 @@
                 <menuitem id="account_our_payment_request_menu" action="servoo_finance.action_our_payment_request" />
             <menuitem id="logistic_payment_request_to_approve_menu" action="servoo_finance.action_our_payment_request_to_approve"
             groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+                <menuitem id="account_all_payment_request_menu" action="servoo_finance.action_all_payment_request"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
             </menuitem>
             <!--            Cash voucher-->
             <menuitem name="Cash Voucher" id="account_cash_voucher_menu">
@@ -206,6 +208,8 @@
             <menuitem id="account_cashier_piece_menu" name="Cashier Piece">
                 <menuitem id="account_our_cashier_piece_menu" action="servoo_finance.action_our_cashier_piece" />
                 <menuitem id="account_cashier_piece_to_approve_menu" action="servoo_finance.action_our_cashier_piece_to_approve"
+                groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
+                <menuitem id="account_all_cashier_piece_menu" action="servoo_finance.action_all_cashier_piece"
                 groups="servoo_finance.applicant_service_approval_group_user,servoo_finance.applicant_direction_approval_group_user"/>
             </menuitem>
         </menuitem>
