@@ -853,6 +853,26 @@ class AccountBankStatement(models.Model):
                                        "This is useful if the accounting period in which the entries should normally be booked is already closed.",
                                   states={'open': [('readonly', False)]}, readonly=True)
 
+    cash_control_report_count = fields.Integer(compute="_get_cash_control_report", string='Invoices')
+
+
+    def _get_cash_control_report(self):
+        cash_control_report = self.env['account.cash.control.report']
+        for record in self:
+            record.cash_control_report_count = cash_control_report.search_count([('cash_statement_id', '=', record.id)])
+
+    def open_cash_control_report_action(self):
+        self.ensure_one()
+        xml_id = self.env.context.get('xml_id')
+        if xml_id:
+            res = self.env['ir.actions.act_window']._for_xml_id('%s' % xml_id)
+            res.update(
+                context=dict(self.env.context, create=False, group_by=False),
+                domain=[('cash_statement_id', '=', self.id)]
+            )
+            return res
+        return False
+
     def action_bank_reconcile_bank_statements(self):
         self.ensure_one()
         bank_stmt_lines = self.mapped('line_ids')
@@ -870,6 +890,7 @@ class AccountBankStatementLine(models.Model):
     move_name = fields.Char(string='Journal Entry Name', readonly=True,
                             default=False, copy=False,
                             help="Technical field holding the number given to the journal entry, automatically set when the statement line is reconciled then stored to set the same number again if the line is cancelled, set to draft and re-processed again.")
+    beneficiary = fields.Char('Beneficiary')
 
     def process_reconciliation(self, counterpart_aml_dicts=None, payment_aml_rec=None, new_aml_dicts=None):
         """Match statement lines with existing payments (eg. checks) and/or

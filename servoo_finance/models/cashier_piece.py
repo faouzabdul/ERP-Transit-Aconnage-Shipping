@@ -88,6 +88,7 @@ class CashierPiece(models.Model):
         ('done', 'Done')
     ], string='Status', readonly=True, copy=False, index=True, tracking=3, default='draft')
     account_move_id = fields.Many2one('account.move', 'Account Move', readonly=True)
+    account_bank_statement_line_id = fields.Many2one('account.bank.statement.line', 'Bank statement line', readonly=True)
 
     @api.depends('amount_total')
     def _compute_display_amount_letter(self):

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_wizard_cash_control_report_form">
+            <field name="name">wizard.cash.control.report.form</field>
+            <field name="model">account.cash.control.report.create.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Cash Control Report">
+                    <sheet>
+                        <group col="4">
+<!--                           <field name="name" />-->
+                           <field name="date" />
+                           <field name="cash_statement_id" />
+                           <field name="journal_id" />
+                           <field name="balance_start" />
+                           <field name="cash_voucher_count" />
+                           <field name="cash_voucher_amount" />
+                           <field name="theoretical_balance" />
+                           <field name="balance_end_real" />
+                       </group>
+                        <group col="4" string="Cashier">
+                            <field name="cashier_agent_id" readonly="1"/>
+                            <field name="cashier_date" readonly="1" />
+                            <field name="cashier_cni" required="1"/>
+                            <field name="cashier_note" />
+                        </group>
+
+                        <notebook>
+                            <page string="Ending Cash detail">
+                                <field name="cashbox_lines_ids" widget="one2many" mode="tree">
+                                    <tree editable="bottom" delete="false" create="false">
+                                        <field name="coin_value" readonly="1"/>
+                                        <field name="number" readonly="1"/>
+                                        <field name="subtotal" readonly="1"/>
+                                        <field name="good_coin_number" required="1"/>
+                                        <field name="good_coin_subtotal" />
+                                        <field name="bad_coin_number" required="1"/>
+                                        <field name="bad_coin_subtotal" />
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Cash Vouchers">
+                                <field name="cash_voucher_ids" widget="one2many" readonly="1">
+                                    <tree>
+                                        <field name="name" />
+                                        <field name="date" />
+                                        <field name="employee_id" />
+                                        <field name="department_id" />
+                                        <field name="object" />
+                                        <field name="amount" />
+                                        <field name="amount_justified" />
+                                        <field name="justification_deadline" />
+                                        <field name="state" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                     <footer>
+                        <button name="create_report" string="Validate" type="object" class="oe_highlight" data-hotkey="q"/>
+                        <button string="Discard" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wizard_create_cash_control_report" model="ir.actions.act_window">
+            <field name="name">Create Cash Control Report</field>
+            <field name="res_model">account.cash.control.report.create.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_wizard_cash_control_report_approve_form">
+            <field name="name">wizard.cash.control.report.approve.form</field>
+            <field name="model">account.cash.control.report.approve.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Approve Cash Control Report">
+                    <sheet>
+                        <group col="2" string="Controller">
+                            <field name="controller_agent_id" readonly="1"/>
+                            <field name="controller_date" readonly="1" />
+                            <field name="controller_cni" required="1" />
+                            <field name="controller_note" />
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="action_approve" string="Validate" type="object" class="oe_highlight" data-hotkey="q"/>
+                        <button string="Discard" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_wizard_approve_cash_control_report">
+            <field name="name">Approve Cash Control Report</field>
+            <field name="res_model">account.cash.control.report.approve.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

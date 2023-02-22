@@ -25,6 +25,15 @@
             <field name="company_id" eval="False"/>
         </record>
 
+        <record id="seq_cash_control_report" model="ir.sequence">
+            <field name="name">Cash Control Report</field>
+            <field name="code">account.cash.control.report</field>
+            <field name="prefix">APMCCR/</field>
+            <field name="suffix">/%(y)s</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
         <record id="mail_finance_feedback" model="mail.activity.type">
             <field name="name">Payment Request</field>
             <field name="icon">fa-sun-o</field>
@@ -41,6 +50,12 @@
             <field name="name">Cashier piece</field>
             <field name="icon">fa-sun-o</field>
             <field name="res_model">servoo.cashier.piece</field>
+        </record>
+
+    <record id="mail_cash_control_report_feedback" model="mail.activity.type">
+            <field name="name">Cash Control Report</field>
+            <field name="icon">fa-sun-o</field>
+            <field name="res_model">account.cash.control.report</field>
         </record>
 
 

@@ -20,9 +20,10 @@
 
 
         <menuitem id="finance_menu_root" name="Finance" web_icon="servoo_finance,static/description/icon.png" groups="servoo_finance.group_finance_user">
-<!--            <menuitem id="menu_board_journal_1" name="Dashboard" action="account.open_account_journal_dashboard_kanban" groups="servoo_finance.group_finance_manager" sequence="0"/>-->
+            <menuitem id="menu_board_journal_1" name="Dashboard Journals" action="account.open_account_journal_dashboard_kanban" sequence="0"/>
+
             <menuitem name="Dashboard" id="menu_finance_dashboard"
-                  sequence="0"
+                  sequence="1"
                   groups="servoo_finance.group_finance_manager"
                   action="servoo_finance.action_account_invoice_report_all"/>
 
@@ -66,8 +67,15 @@
                     <menuitem id="all_cashier_piece_menu" action="servoo_finance.action_all_cashier_piece" />
                 </menuitem>
             </menuitem>
+            <menuitem id="menu_acahs_control" name="Cash control report">
+                <menuitem id="cash_control_report_menu" action="servoo_finance.action_cash_control_report"
+                name="All cash control reports"/>
+                <menuitem action="servoo_finance.action_cash_control_report_to_control" id="cash_control_report_to_control"
+                          name="Cash control to approve" />
+            </menuitem>
 
             <menuitem id="menu_finance_reports" name="Reporting" sequence="20" groups="base.group_no_one">
+
                 <menuitem id="account_reports_management_menu" name="Management" sequence="4">
                     <menuitem id="menu_action_account_invoice_report_all" name="Invoice Analysis" action="account.action_account_invoice_report_all" sequence="1"/>
                 </menuitem>

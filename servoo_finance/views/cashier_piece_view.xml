@@ -45,7 +45,7 @@
                     <sheet>
                         <group col="4">
                             <field name="name" readonly="1" />
-                            <field name="date" required="1" />
+                            <field name="date" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                             <field name="employee_id" readonly="1" required="1"/>
                             <field name="employee_parent_id" readonly="1" />
                             <field name="department_id" readonly="1" required="1" colspan="4"/>
@@ -57,6 +57,7 @@
                             <field name="our_pieces" invisible="1" />
                             <field name="company_id" invisible="1" />
                             <field name="account_move_id" groups="account.group_account_readonly"/>
+                            <field name="account_bank_statement_line_id" groups="account.group_account_readonly,servoo_finance.cashier_group_user"/>
                         </group>
                         <group col="4" string="Description">
                             <field name="object" colspan="4" nolabel="1" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
@@ -71,8 +72,8 @@
                                         <field name="partner_id" />
                                         <field name="amount" />
                                         <field name="account_id" options="{'no_create': True}" groups="account.group_account_readonly"/>
-                                        <field name="analytic_account_id" groups="analytic.group_analytic_accounting"/>
-                                        <field name="analytic_tag_ids" groups="analytic.group_analytic_tags" widget="many2many_tags"/>
+                                        <field name="analytic_account_id" groups="account.group_account_readonly,analytic.group_analytic_accounting"/>
+                                        <field name="analytic_tag_ids" groups="account.group_account_readonly,analytic.group_analytic_tags" widget="many2many_tags"/>
                                     </tree>
                                 </field>
                             </page>

@@ -7,7 +7,22 @@
             <field name="inherit_id" ref="account.view_bank_statement_form" />
             <field name="arch" type="xml">
                 <field name="state" position="before">
+                    <field name="cash_control_report_count" invisible="1" />
+                    <button type="action" name="%(servoo_finance.action_wizard_create_cash_control_report)d" string="Cash Control Report"
+                            class="btn-primary" attrs="{'invisible':[('cash_control_report_count','!=', 0)]}"/>
                     <button name="action_bank_reconcile_bank_statements" string="Reconcile" type="object" class="oe_highlight" attrs="{'invisible':['|','|',('all_lines_reconciled','=',True),('line_ids','=',[]),('state', '!=', 'open')]}"/>
+                </field>
+                <button name="button_journal_entries" position="before">
+
+                    <button class="oe_stat_button" name="open_cash_control_report_action"
+                            attrs="{'invisible':[('cash_control_report_count','=', 0)]}"
+                            icon="fa-pencil-square-o" type="object"
+                                    context="{'xml_id':'servoo_finance.action_cash_control_report'}">
+                                <field name="cash_control_report_count" widget="statinfo" string="Cash Control Report"/>
+                    </button>
+                </button>
+                <field name="amount" position="before">
+                    <field name="beneficiary" optional="hidden"/>
                 </field>
             </field>
         </record>

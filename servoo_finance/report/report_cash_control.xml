@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_cash_control_document">
+        <t t-call="web.basic_layout">
+            <t t-set="doc" t-value="doc.with_context()"/>
+
+            <div class="page">
+                <font size="0" style="font-size: 9pt; padding:0">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <div class="col-4">
+                            <img style="width: 30%;" t-att-src="image_data_uri(doc.company_id.logo)"/>
+                        </div>
+                        <div class="col-8" align="center">
+                            <h5>
+                                <span>
+                                    <u>PROCÈS VERBAL DE CONTRÔLE DE LA CAISSE
+                                        <span t-field="doc.name"/>
+                                        DU
+                                        <span t-field="doc.date"/>
+                                    </u>
+                                </span>
+                            </h5>
+                        </div>
+                    </div>
+                    <p/>
+                    <p/>
+                    <table style="border: solid 1pt; padding: 0cm; text-align:center" width="100%" cellpadding="0"
+                           cellspacing="0">
+                        <colgroup>
+                            <col width="102" style="border: solid 1pt; padding: 0cm"/>
+                            <col width="102" style="border: solid 1pt; padding: 0cm"/>
+                            <col width="102" style="border: solid 1pt; padding: 0cm"/>
+                            <col width="78" style="border: solid 1pt; padding: 0cm"/>
+                            <col width="127" style="border: solid 1pt; padding: 0cm"/>
+                            <col width="102" style="border: solid 1pt; padding: 0cm"/>
+                            <col width="102" style="border: solid 1pt; padding: 0cm"/>
+                            <col width="102" style="border: solid 1pt; padding: 0cm"/>
+                            <col width="102" style="border: solid 1pt; padding: 0cm"/>
+                            <col width="102" style="border: solid 1pt; padding: 0cm"/>
+                            <col width="103" style="border: solid 1pt; padding: 0cm"/>
+                        </colgroup>
+                        <tr style="border: solid 1pt; padding: 0cm">
+                            <td rowspan="2">N° Compte</td>
+                            <td rowspan="2">Intitulé</td>
+                            <td rowspan="2">MONTANT GENERAL
+                                <br>(1)</br>
+                            </td>
+                            <td colspan="2">BONS DE CAISSE</td>
+                            <td colspan="2">PAD ET AUTRES
+                                <br>(3)</br>
+                            </td>
+                            <td rowspan="2">SOLDE THEORIQUE
+                                <br>(1)-(2)</br>
+                            </td>
+                            <td rowspan="2">SOLDE DISPONIBLE
+                                <br>(4)</br>
+                            </td>
+                            <td rowspan="2">SOLDE APM
+                                <br>(4)-(3)</br>
+                            </td>
+                            <td rowspan="2">ECART
+                            </td>
+                        </tr>
+                        <tr style="border: solid 1pt; padding: 0cm">
+                            <td>NOMBFE DE BON</td>
+                            <td>MONTANT TOTAL
+                                <br>(2)</br>
+                            </td>
+                            <td>PAD</td>
+                            <td>AUTRES</td>
+                        </tr>
+                        <tr style="border: solid 1pt; padding: 0cm">
+                            <td>
+                                <span t-field="doc.journal_id.default_account_id.code"/>
+                            </td>
+                            <td>
+                                <span t-field="doc.journal_id.name"/>
+                            </td>
+                            <td><span t-field="doc.balance_start"
+                            t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/> </td>
+                            <td>
+                                <span t-field="doc.cash_voucher_count"/>
+                            </td>
+                            <td>
+                                <span t-field="doc.cash_voucher_amount"
+                                t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <span t-field="doc.theoretical_balance"
+                                t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                            </td>
+                            <td><span t-field="doc.balance_end_real"
+                            t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/> </td>
+                            <td></td>
+                            <td>0</td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <table style="border: solid 1pt; padding: 0cm; text-align:center" width="100%" cellpadding="0"
+                           cellspacing="0">
+                        <colgroup>
+                            <col width="225" style="border: solid 1pt; padding: 0cm"/>
+                            <col width="225" style="border: solid 1pt; padding: 0cm"/>
+                            <col width="225" style="border: solid 1pt; padding: 0cm"/>
+                            <col width="225" style="border: solid 1pt; padding: 0cm"/>
+                            <col width="225" style="border: solid 1pt; padding: 0cm"/>
+                        </colgroup>
+                        <tr style="border: solid 1pt; padding: 0cm">
+                            <td>
+                                BILLETAGE SOLDE DISPONIBLE
+                            </td>
+                            <td colspan="2">
+                                BILLETS EN BON ETAT
+                            </td>
+                            <td colspan="2">
+                                BILLET DEFECTUEUX
+                            </td>
+                        </tr>
+                        <tr style="border: solid 1pt; padding: 0cm">
+                            <td>
+                            </td>
+                            <td>
+                                NOMBRE
+                            </td>
+                            <td>
+                                MONTANT
+                            </td>
+                            <td>
+                                NOMBRE
+                            </td>
+                            <td>
+                                MONTANT
+                            </td>
+                        </tr>
+                        <t t-set="good_coin_total" t-value="0"/>
+                        <t t-set="bad_coin_total" t-value="0"/>
+                        <t t-foreach="doc.cashbox_lines_ids" t-as="line">
+                            <tr style="border: solid 1pt; padding: 0cm">
+                                <t t-set="good_coin_total" t-value="good_coin_total + line.good_coin_subtotal"/>
+                                <t t-set="bad_coin_total" t-value="bad_coin_total + line.bad_coin_subtotal"/>
+                                <td>
+                                    <span t-field="line.coin_value"
+                                          t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                </td>
+                                <td>
+                                    <span t-field="line.good_coin_number"/>
+                                </td>
+                                <td>
+                                    <span t-field="line.good_coin_subtotal"
+                                          t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                </td>
+                                <td>
+                                    <span t-field="line.bad_coin_number"/>
+                                </td>
+                                <td>
+                                    <span t-field="line.bad_coin_subtotal"
+                                          t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                </td>
+                            </tr>
+
+                        </t>
+                        <tr>
+                            <td>TOTAL</td>
+                            <td></td>
+                            <td>
+                                <span
+                                        t-esc="good_coin_total"
+                                        t-options='{"widget": "monetary", "display_currency": doc.currency_id}'
+                                />
+                            </td>
+                            <td></td>
+                            <td>
+                                <span
+                                        t-esc="bad_coin_total"
+                                        t-options='{"widget": "monetary", "display_currency": doc.currency_id}'
+                                />
+                            </td>
+                        </tr>
+                        <tr style="border: solid 1pt; padding: 0cm">
+                            <td>Montant disponible en caisse (A) + (B)</td>
+                            <td colspan="4">
+                                <span
+                                        t-esc="good_coin_total + bad_coin_total"
+                                        t-options='{"widget": "monetary", "display_currency": doc.currency_id}'
+                                />
+                            </td>
+                        </tr>
+
+                    </table>
+                    <p/>
+                    <table style="border: solid 1pt; padding: 0cm;" border="1" cellspacing="0" cellpadding="0">
+                        <colgroup>
+                            <col width="512"/>
+                            <col width="60"/>
+                            <col width="552"/>
+                        </colgroup>
+                        <tr>
+                            <td>
+                                NOM ET SIGNATURE DE LA CAISSIÈRE
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>NOM ET SIGNATURE DU CONTRÔLEUR</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span t-field="doc.cashier_agent_id" />
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+                               <span t-field="doc.controller_agent_id" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img  t-if="doc.cashier_agent_id.digital_signature"
+                                              t-att-src="image_data_uri(doc.cashier_agent_id.digital_signature)"
+                                             style="width: 50%;"/></td>
+                            <td />
+                            <td><img  t-if="doc.controller_agent_id.digital_signature"
+                                              t-att-src="image_data_uri(doc.controller_agent_id.digital_signature)"
+                                             style="width: 50%;"/></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                CNI N° <span t-field="doc.cashier_cni" />
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+                                 CNI N° <span t-field="doc.controller_cni" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span t-field="doc.cashier_note" /> </td>
+                            <td />
+                            <td><span t-field="doc.controller_note" /> </td>
+                        </tr>
+                    </table>
+                </font>
+            </div>
+        </t>
+    </template>
+
+
+    <template id="report_cash_control">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="servoo_finance.report_cash_control_document"/>
+            </t>
+        </t>
+    </template>
+
+    <record id="paperformat_cash_control_report" model="report.paperformat">
+        <field name="name">Cash Control Report</field>
+        <field name="default" eval="False"/>
+        <field name="disable_shrinking" eval="True"/>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">10</field>
+        <field name="margin_bottom">8</field>
+        <field name="margin_left">8</field>
+        <field name="margin_right">8</field>
+        <field name="dpi">96</field>
+    </record>
+
+    <record id="action_report_cash_control" model="ir.actions.report">
+        <field name="name">Cash Control Report</field>
+        <field name="model">account.cash.control.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">servoo_finance.report_cash_control</field>
+        <field name="report_file">servoo_finance.report_cash_control</field>
+        <field name="print_report_name">'PROCES VERBAL - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_account_cash_control_report"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_cash_control_report"/>
+    </record>
+</odoo>

@@ -3,7 +3,11 @@
 
 from odoo import api, fields, models, _
 from datetime import datetime
+from datetime import date
 from odoo.exceptions import UserError
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 class WizardCashierPiece(models.TransientModel):
@@ -56,10 +60,35 @@ class WizardCashierPiece(models.TransientModel):
                 'state': 'management_control_approval',
                 'workflow_observation': self.observation
             }
+            # Process the cash voucher if the cashier piece has one
             if self.cashier_piece_id.cash_voucher_id:
                 self.cashier_piece_id.cash_voucher_id.amount_justified +=  self.cashier_piece_id.amount_total
             if self.cashier_piece_id.cash_voucher_id.amount_unjustified <= 0:
                 self.cashier_piece_id.cash_voucher_id.state = 'done'
+            # Create bank statement line if the cashier piece is not related to any cash voucher
+            if not self.cashier_piece_id.cash_voucher_id:
+                # get the active bank statement for the current journal and day
+                bank_statement = self.env['account.bank.statement'].search([
+                    ('journal_id', '=', self.cashier_piece_id.journal_id.id),
+                    ('date', '=', datetime.now()),
+                    ('state', '=', 'open'),
+                ])
+                # raise UserError('bank_statement %s' % bank_statement)
+                # if there is not statement, raise en exception
+                if not bank_statement:
+                    raise UserError(_("No %s cash statement is open for the day of %s. You must first open a cash statement for this day") % (self.cashier_piece_id.journal_id.name, date.today()))
+                # prepare bank statement line
+                bank_statement_line_vals = {
+                    'date': datetime.now(),
+                    'payment_ref': _('Payment of the cash piece %s' % self.cashier_piece_id.name),
+                    'beneficiary': self.cashier_piece_id.employee_id.name,
+                    'amount': -1 * self.cashier_piece_id.amount_total,
+                    'journal_id': self.cashier_piece_id.journal_id.id,
+                    'narration': self.cashier_piece_id.object,
+                    'statement_id': max([st.id for st in bank_statement]),
+                }
+                bank_statement_line = self.env['account.bank.statement.line'].create(bank_statement_line_vals)
+                self.cashier_piece_id.account_bank_statement_line_id = bank_statement_line.id
             group_management_control_approval = self.env.ref("servoo_finance.management_control_approval_group_user")
             users = group_management_control_approval.users
             for user in users:
@@ -68,6 +97,9 @@ class WizardCashierPiece(models.TransientModel):
                     summary=_("New cashier piece %s needs the management control approval" % self.cashier_piece_id.name)
                 )
         elif self.cashier_piece_id.state == 'management_control_approval':
+            for line in self.cashier_piece_id.piece_line:
+                if not line.analytic_account_id:
+                    raise UserError(_("You must set analytic account for all lines"))
             vals = {
                 'management_control_approval_agent_id': self.env.user.id,
                 'management_control_approval_date': self.date,
@@ -91,17 +123,19 @@ class WizardCashierPiece(models.TransientModel):
             vals_debit = (0, 0, {
                 'account_id': self.cashier_piece_id.journal_id.default_account_id.id,
                 'name': self.cashier_piece_id.name,
-                'debit': self.cashier_piece_id.amount_total,
-                'credit': 0
+                'debit': 0,
+                'credit': self.cashier_piece_id.amount_total,
             })
             lines.append(vals_debit)
             for line in self.cashier_piece_id.piece_line:
                 lines.append((0, 0, {
                     'account_id': line.account_id.id,
+                    'analytic_account_id': line.analytic_account_id.id,
+                    'analytic_tag_ids': [(6, 0, [at.id for at in line.analytic_tag_ids])],
                     'partner_id': line.partner_id.id,
                     'name': line.description,
-                    'debit': 0,
-                    'credit': line.amount,
+                    'debit': line.amount,
+                    'credit': 0
                 }))
             account_move_vals = {
                 'journal_id': self.cashier_piece_id.journal_id.id,
@@ -118,11 +152,11 @@ class WizardCashierPiece(models.TransientModel):
                 'workflow_observation': self.observation,
                 'account_move_id': move.id
             }
-            # Update justified amount of cash_voucher if cash voucher
-            # if self.cashier_piece_id.cash_voucher_id:
-            #     self.cashier_piece_id.cash_voucher_id.amount_justified += self.cashier_piece_id.amount_total
-            # if self.cashier_piece_id.cash_voucher_id.state == 'justification':
-            #     self.cashier_piece_id.cash_voucher_id.state = 'done'
+            # if the cashier piece has a bank statement line, link the move to this
+            if self.cashier_piece_id.account_bank_statement_line_id:
+                self.cashier_piece_id.account_bank_statement_line_id.move_id = move.id
+            # TODO
+            # See what to do if the account bank statement line is already reconciled
         return self.cashier_piece_id.update(vals)
 
     def action_reject(self):
