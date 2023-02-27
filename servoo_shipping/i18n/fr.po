@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220616\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-10 04:30+0000\n"
-"PO-Revision-Date: 2022-11-10 04:30+0000\n"
+"POT-Creation-Date: 2023-02-27 14:29+0000\n"
+"PO-Revision-Date: 2023-02-27 14:29+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -101,6 +101,18 @@ msgstr ""
 #. module: servoo_shipping
 #: model:ir.actions.report,print_report_name:servoo_shipping.action_report_pda
 msgid "'PDA - %s' % (object.name)"
+msgstr ""
+
+#. module: servoo_shipping
+#: model_terms:ir.ui.view,arch_db:servoo_shipping.report_pda_document
+msgid ""
+"<br>Beneficiary:\tAgence de Prestations Maritimes</br>\n"
+"                                        <br>Bank:\tCBC - Cameroun</br>\n"
+"                                        <br>        Po box: 4004 – Douala - Bonanjo</br>\n"
+"                                        <br>Account N°\tCM21 10008 00020 37120801001-94</br>\n"
+"                                        <br>Swift:\tCBC DC MCX</br>\n"
+"                                        <br>Corresponding\t1 - NATIXIS\tSwift: NATXFRPP – IBAN: FR76 3000 7000 1100 0996 0010 838</br>\n"
+"                                        <br>\t2 – FIMBANK Swift: FIMBMTM3 – IBAN: 060309VSTREUR013</br>"
 msgstr ""
 
 #. module: servoo_shipping
@@ -261,6 +273,24 @@ msgid ""
 msgstr ""
 
 #. module: servoo_shipping
+#: model_terms:ir.ui.view,arch_db:servoo_shipping.shipping_pda_template_view_form
+msgid ""
+"<span colspan=\"2\">Available variables:</span>\n"
+"                                <span colspan=\"2\">CBM: the CBM of vessel</span>\n"
+"                                <span colspan=\"2\">GRT: the GRT</span>\n"
+"                                <span colspan=\"2\">DAY: The number of days</span>\n"
+"                                <span colspan=\"2\">TONNAGE: The tonnage of goods in the vessel</span>\n"
+"                                <span colspan=\"2\">rules: object containing the rules code (previously computed)</span>"
+msgstr ""
+
+#. module: servoo_shipping
+#: model_terms:ir.ui.view,arch_db:servoo_shipping.shipping_pda_template_view_form
+msgid ""
+"<span colspan=\"2\">Returned value have to be set in the variable 'result_qty' for quantity</span>\n"
+"                                <span colspan=\"2\">Returned value have to be set in the variable 'result' for amount</span>"
+msgstr ""
+
+#. module: servoo_shipping
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.report_pda_document
 msgid ""
 "<span groups=\"account.group_show_line_subtotals_tax_excluded\">Amount</span>\n"
@@ -275,11 +305,6 @@ msgstr ""
 #. module: servoo_shipping
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.report_pda_document
 msgid "<span>Disc.%</span>"
-msgstr ""
-
-#. module: servoo_shipping
-#: model_terms:ir.ui.view,arch_db:servoo_shipping.report_pda_document
-msgid "<span>PDA # </span>"
 msgstr ""
 
 #. module: servoo_shipping
@@ -310,11 +335,6 @@ msgstr ""
 #. module: servoo_shipping
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.report_pda_document
 msgid "<strong>NO DAYS:</strong>"
-msgstr ""
-
-#. module: servoo_shipping
-#: model_terms:ir.ui.view,arch_db:servoo_shipping.report_pda_document
-msgid "<strong>Shipping Address:</strong>"
 msgstr ""
 
 #. module: servoo_shipping
@@ -478,6 +498,11 @@ msgstr ""
 #. module: servoo_shipping
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.report_delivery_order_document
 msgid "BP"
+msgstr ""
+
+#. module: servoo_shipping
+#: model_terms:ir.ui.view,arch_db:servoo_shipping.report_pda_document
+msgid "BP:"
 msgstr ""
 
 #. module: servoo_shipping
@@ -673,7 +698,6 @@ msgstr "Créer un bon de livraison"
 
 #. module: servoo_shipping
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.view_servoo_shipping_file_form
-#: model_terms:ir.ui.view,arch_db:servoo_shipping.view_shipping_pda_form
 msgid "Create Invoice"
 msgstr "Créér la facture"
 
@@ -691,6 +715,11 @@ msgstr "Créez un nouveau connaissement !"
 #: model_terms:ir.actions.act_window,help:servoo_shipping.action_delivery_order
 msgid "Create a new delivery order!"
 msgstr "Créez un nouveau bon de livraison !"
+
+#. module: servoo_shipping
+#: model_terms:ir.actions.act_window,help:servoo_shipping.action_shipping_file_good_type
+msgid "Create a new good type!"
+msgstr "Créer un nouveau type de marchandises!"
 
 #. module: servoo_shipping
 #: model_terms:ir.actions.act_window,help:servoo_shipping.action_shipping_file_type
@@ -718,6 +747,7 @@ msgstr "Créér un nouveau modèle de PDA"
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document__create_uid
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document_type__create_uid
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__create_uid
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_good_type__create_uid
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_type__create_uid
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality__create_uid
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality_type__create_uid
@@ -745,6 +775,7 @@ msgstr "Créé par"
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document__create_date
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document_type__create_date
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__create_date
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_good_type__create_date
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_type__create_date
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality__create_date
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality_type__create_date
@@ -993,6 +1024,7 @@ msgstr "Remise (%)"
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document__display_name
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document_type__display_name
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__display_name
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_good_type__display_name
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_type__display_name
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality__display_name
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality_type__display_name
@@ -1090,6 +1122,11 @@ msgstr "Effets"
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_dangerous_good__ems
 msgid "EmS"
+msgstr ""
+
+#. module: servoo_shipping
+#: model_terms:ir.ui.view,arch_db:servoo_shipping.report_pda_document
+msgid "Email:"
 msgstr ""
 
 #. module: servoo_shipping
@@ -1197,13 +1234,6 @@ msgid "Font awesome icon e.g. fa-tasks"
 msgstr ""
 
 #. module: servoo_shipping
-#: model:ir.model.constraint,message:servoo_shipping.constraint_servoo_shipping_pda_template_line_non_accountable_fields_null
-msgid ""
-"Forbidden product, unit price, quantity, and UoM on non-accountable sale "
-"quote line"
-msgstr ""
-
-#. module: servoo_shipping
 #: model:ir.model.constraint,message:servoo_shipping.constraint_servoo_shipping_pda_line_non_accountable_null_fields
 msgid "Forbidden values on non-accountable shipping pda line"
 msgstr ""
@@ -1284,9 +1314,22 @@ msgid "Good Lines"
 msgstr "Lignes de marchandise"
 
 #. module: servoo_shipping
+#: model:ir.actions.act_window,name:servoo_shipping.action_shipping_file_good_type
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__good_type_id
+#: model:ir.ui.menu,name:servoo_shipping.shipping_file_good_type_menu
+#: model_terms:ir.ui.view,arch_db:servoo_shipping.view_shipping_file_good_type_tree
+msgid "Good Type"
+msgstr "Type de marchandises"
+
+#. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_ship_store__good
 msgid "Good description"
 msgstr "Description de la marchandise"
+
+#. module: servoo_shipping
+#: model:ir.model,name:servoo_shipping.model_servoo_shipping_file_good_type
+msgid "Good type of shipping files"
+msgstr "Type de marchandises des dossiers shippings"
 
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_bl__good_ids
@@ -1347,6 +1390,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document__id
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document_type__id
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__id
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_good_type__id
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_type__id
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality__id
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality_type__id
@@ -1486,16 +1530,6 @@ msgid "Invoicing"
 msgstr "Facturation"
 
 #. module: servoo_shipping
-#: model_terms:ir.ui.view,arch_db:servoo_shipping.report_pda_document
-msgid "Invoicing Address:"
-msgstr ""
-
-#. module: servoo_shipping
-#: model_terms:ir.ui.view,arch_db:servoo_shipping.report_pda_document
-msgid "Invoicing and Shipping Address:"
-msgstr ""
-
-#. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_bl__message_is_follower
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_delivery_order__message_is_follower
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__message_is_follower
@@ -1560,6 +1594,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document____last_update
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document_type____last_update
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file____last_update
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_good_type____last_update
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_type____last_update
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality____last_update
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality_type____last_update
@@ -1592,6 +1627,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document__write_uid
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document_type__write_uid
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__write_uid
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_good_type__write_uid
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_type__write_uid
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality__write_uid
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality_type__write_uid
@@ -1619,6 +1655,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document__write_date
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document_type__write_date
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__write_date
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_good_type__write_date
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_type__write_date
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality__write_date
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality_type__write_date
@@ -1641,6 +1678,11 @@ msgid "Lead Time"
 msgstr ""
 
 #. module: servoo_shipping
+#: model_terms:ir.ui.view,arch_db:servoo_shipping.shipping_pda_template_view_form
+msgid "Legend for variables and rules"
+msgstr ""
+
+#. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__shipping_pda_line
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda_template__shipping_pda_template_line_ids
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.shipping_pda_template_view_form
@@ -1650,7 +1692,7 @@ msgstr "Lignes"
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__location_code
 msgid "Localisation Code"
-msgstr "Code de localisation"
+msgstr "Code de l'emplacement"
 
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_ship_store__name
@@ -1691,6 +1733,11 @@ msgid "Manager"
 msgstr "Responsable"
 
 #. module: servoo_shipping
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__manifest_number
+msgid "Manifest Number"
+msgstr ""
+
+#. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_dangerous_good__name
 msgid "Marks & Numbers"
 msgstr "Marques et numéros"
@@ -1727,11 +1774,6 @@ msgid "Missing required fields on accountable shipping pda line."
 msgstr ""
 
 #. module: servoo_shipping
-#: model:ir.model.constraint,message:servoo_shipping.constraint_servoo_shipping_pda_template_line_accountable_product_id_required
-msgid "Missing required product and UoM on accountable sale quote line."
-msgstr ""
-
-#. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_bl__my_activity_date_deadline
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_delivery_order__my_activity_date_deadline
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__my_activity_date_deadline
@@ -1747,9 +1789,9 @@ msgid "NRT"
 msgstr "Jauge nette (NRT)"
 
 #. module: servoo_shipping
-#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_bl__name
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_delivery_order__name
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document_type__name
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_good_type__name
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_type__name
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality_type__name
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_identity_document_type__name
@@ -1785,15 +1827,13 @@ msgstr "Poids net (kg)"
 #: code:addons/servoo_shipping/models/shipping_file.py:0
 #: code:addons/servoo_shipping/models/shipping_file.py:0
 #: code:addons/servoo_shipping/models/shipping_file.py:0
-#: code:addons/servoo_shipping/models/shipping_file.py:0
-#: code:addons/servoo_shipping/models/shipping_file.py:0
 #: code:addons/servoo_shipping/models/shipping_pda.py:0
 #: code:addons/servoo_shipping/models/shipping_pda.py:0
 #: code:addons/servoo_shipping/models/shipping_pda.py:0
 #: code:addons/servoo_shipping/models/shipping_pda.py:0
 #, python-format
 msgid "New"
-msgstr "Nouveau"
+msgstr ""
 
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_bl__activity_calendar_event_id
@@ -1921,13 +1961,9 @@ msgid "Only draft pdas can be marked as sent directly."
 msgstr ""
 
 #. module: servoo_shipping
-#: model_terms:ir.ui.view,arch_db:servoo_shipping.view_servoo_shipping_file_form
-msgid "Open"
-msgstr "Ouvrir"
-
-#. module: servoo_shipping
 #: model:ir.model.fields.selection,name:servoo_shipping.selection__servoo_shipping_file__state__open
 #: model:ir.model.fields.selection,name:servoo_shipping.selection__servoo_shipping_formality__state__open
+#: model_terms:ir.ui.view,arch_db:servoo_shipping.view_servoo_shipping_file_form
 msgid "Open"
 msgstr "Ouvert"
 
@@ -1961,12 +1997,14 @@ msgstr "Autre information"
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality__other_reference
 msgid "Other reference"
-msgstr ""
+msgstr "Autre référence"
 
 #. module: servoo_shipping
 #: model:ir.actions.act_window,name:servoo_shipping.action_shipping_pda
+#: model:ir.actions.act_window,name:servoo_shipping.action_shipping_pda_to_invoice
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__shipping_pda_id
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda_cancel__pda_id
+#: model:ir.ui.menu,name:servoo_shipping.shipping_pda_invoice_menu
 #: model:ir.ui.menu,name:servoo_shipping.shipping_pda_menu
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.view_shipping_pda_form
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.view_shipping_pda_tree
@@ -2026,12 +2064,6 @@ msgid "PDA sent"
 msgstr "PDA envoyé"
 
 #. module: servoo_shipping
-#: model:ir.actions.act_window,name:servoo_shipping.action_shipping_pda_to_invoice
-#: model:ir.ui.menu,name:servoo_shipping.shipping_pda_invoice_menu
-msgid "PDA to Invoice"
-msgstr ""
-
-#. module: servoo_shipping
 #: model:mail.template,name:servoo_shipping.mail_template_pda_confirmation
 msgid "PDA: Confirmation Email"
 msgstr "PDA: Mail de confirmatio"
@@ -2039,6 +2071,11 @@ msgstr "PDA: Mail de confirmatio"
 #. module: servoo_shipping
 #: model:ir.actions.report,name:servoo_shipping.action_report_pda
 msgid "PRO-FORMA DISBURSEMENT ACCOUNT"
+msgstr ""
+
+#. module: servoo_shipping
+#: model_terms:ir.ui.view,arch_db:servoo_shipping.report_pda_document
+msgid "PROFORMA DISBURSEMENTS ACCOUNT -"
 msgstr ""
 
 #. module: servoo_shipping
@@ -2245,6 +2282,7 @@ msgid "Rank or rating"
 msgstr "Rang"
 
 #. module: servoo_shipping
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_bl__name
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document__name
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__name
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality__name
@@ -2364,6 +2402,7 @@ msgid "Sequence"
 msgstr ""
 
 #. module: servoo_shipping
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_good_type__sequence_code
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_type__sequence_code
 msgid "Sequence Code"
 msgstr "Code séquence"
@@ -2434,16 +2473,12 @@ msgstr "Type de dossier shipping"
 
 #. module: servoo_shipping
 #: model:ir.actions.act_window,name:servoo_shipping.action_shipping_file
+#: model:ir.actions.act_window,name:servoo_shipping.action_shipping_file_to_invoice
+#: model:ir.ui.menu,name:servoo_shipping.shipping_file_invoice_menu
 #: model:ir.ui.menu,name:servoo_shipping.shipping_file_menu
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.view_servoo_shipping_file_tree
 msgid "Shipping Files"
 msgstr "Dossiers Shipping"
-
-#. module: servoo_shipping
-#: model:ir.actions.act_window,name:servoo_shipping.action_shipping_file_to_invoice
-#: model:ir.ui.menu,name:servoo_shipping.shipping_file_invoice_menu
-msgid "Shipping Files To Invoice"
-msgstr ""
 
 #. module: servoo_shipping
 #: model:ir.model,name:servoo_shipping.model_servoo_shipping_pda
@@ -2526,6 +2561,11 @@ msgstr "Sous-Total"
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__summer_draft
 msgid "Summer draft"
 msgstr "Tirant d'eau"
+
+#. module: servoo_shipping
+#: model_terms:ir.ui.view,arch_db:servoo_shipping.report_pda_document
+msgid "TO :"
+msgstr ""
 
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__tag_ids
@@ -2773,6 +2813,11 @@ msgid "Type of the exception activity on record."
 msgstr ""
 
 #. module: servoo_shipping
+#: model_terms:ir.ui.view,arch_db:servoo_shipping.report_pda_document
+msgid "Tél.:"
+msgstr ""
+
+#. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_dangerous_good__un_number
 msgid "UN Number"
 msgstr "Numéro UN"
@@ -2921,7 +2966,7 @@ msgstr ""
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__volume_of_goods
 msgid "Volume of goods"
-msgstr "Volume des marchadnises"
+msgstr "Volume des marchandises"
 
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_bl__voyage_number

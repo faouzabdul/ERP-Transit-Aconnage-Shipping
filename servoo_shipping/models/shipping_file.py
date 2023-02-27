@@ -17,6 +17,14 @@ class ShippingFileType(models.Model):
     sequence_code = fields.Char('Sequence Code')
 
 
+class GoodType(models.Model):
+    _name = 'servoo.shipping.file.good.type'
+    _description = 'Good type of shipping files'
+
+    name = fields.Char('Name', required=True)
+    sequence_code = fields.Char('Sequence Code', required=True)
+
+
 def _populate_manifest_structure(file):
     header = """<?xml version="1.0" encoding="utf-8"?>
 <DOCUMENT>
@@ -158,6 +166,7 @@ class ShippingFile(models.Model):
     _order = 'id desc'
 
     file_type_id = fields.Many2one('servoo.shipping.file.type', 'File Type', required=True)
+    good_type_id = fields.Many2one('servoo.shipping.file.good.type', 'Good Type')
     name = fields.Char(string='Reference', required=True, index=True, default=lambda self: _('New'), copy=False)
     shipping_pda_id = fields.Many2one('servoo.shipping.pda', 'PDA')
     partner_id = fields.Many2one('res.partner', 'Client', required=True)
@@ -248,12 +257,31 @@ class ShippingFile(models.Model):
     @api.model
     def create(self, vals):
         if vals.get('name', _('New')) == _('New'):
-            if 'company_id' in vals:
-                vals['name'] = self.env['ir.sequence'].with_context(force_company=vals['company_id']).next_by_code(
-                    'servoo.shipping.file') or _('New')
-            else:
-                vals['name'] = self.env['ir.sequence'].next_by_code('servoo.shipping.file') or _('New')
+            # if 'company_id' in vals:
+            #     vals['name'] = self.env['ir.sequence'].with_context(force_company=vals['company_id']).next_by_code(
+            #         'servoo.shipping.file') or _('New')
+            # else:
+            #     vals['name'] = self.env['ir.sequence'].next_by_code('servoo.shipping.file') or _('New')
+            vals['name'] = self.generate_reference(vals)
         return super().create(vals)
+
+    def generate_reference(self, vals):
+        reference = str(datetime.now().year)[-2:]
+        type = vals['operation_type']
+        suffix = "I" if type == 'arrival' else "E"
+        good_type = self.env['servoo.shipping.file.good.type'].search([('id', '=', vals['good_type_id'])])
+        if good_type:
+            reference += good_type.sequence_code
+        query = "SELECT count(*) FROM servoo_shipping_file WHERE name LIKE '" + reference + "%" + suffix +"'"
+        self._cr.execute(query)
+        res = self._cr.fetchone()
+        record_count = int(res[0]) + 1
+        if len(str(record_count)) == 1:
+            reference += '00'
+        elif len(str(record_count)) == 2:
+            reference += '0'
+        reference += str(record_count) + suffix
+        return reference
 
     def action_draft(self):
         return self.write({'state': 'draft'})

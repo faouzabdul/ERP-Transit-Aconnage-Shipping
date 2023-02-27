@@ -10,7 +10,7 @@
                             <font size="0" style="font-size: 5pt; padding:0">
                                 <table width="100%" cellspacing="0" cellpadding="0">
                                     <tr>
-                                        <td>
+                                        <td style="width: 100%;">
                                             <img t-att-src="image_data_uri(doc.company_id.logo)"/>
                                         </td>
                                         <td>
