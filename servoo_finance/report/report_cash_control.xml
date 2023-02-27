@@ -77,7 +77,7 @@
                             <td>
                                 <span t-field="doc.journal_id.name"/>
                             </td>
-                            <td><span t-field="doc.balance_start"
+                            <td><span t-field="doc.balance_end"
                             t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/> </td>
                             <td>
                                 <span t-field="doc.cash_voucher_count"/>
@@ -86,16 +86,24 @@
                                 <span t-field="doc.cash_voucher_amount"
                                 t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
                             </td>
-                            <td></td>
-                            <td></td>
+                            <td> <span t-field="doc.pad_amount"
+                                t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                            </td>
+                            <td> <span t-field="doc.other_amount"
+                                t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                            </td>
                             <td>
                                 <span t-field="doc.theoretical_balance"
                                 t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
                             </td>
                             <td><span t-field="doc.balance_end_real"
-                            t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/> </td>
-                            <td></td>
-                            <td>0</td>
+                            t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                            </td>
+                            <td> <span t-field="doc.apm_balance"
+                                t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                            </td>
+                            <td><span t-field="doc.gap_balance"
+                                t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/></td>
                         </tr>
                     </table>
                     <br/>

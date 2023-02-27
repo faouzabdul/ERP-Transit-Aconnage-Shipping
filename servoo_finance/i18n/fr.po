@@ -2811,8 +2811,8 @@ msgstr "Vous devez définir un compte pour toutes les lignes"
 #. module: servoo_finance
 #: code:addons/servoo_finance/wizard/cashier_piece_wizard.py:0
 #, python-format
-msgid "You must set analytic account for all lines"
-msgstr "Vous devez définir un compte analytique pour toutes les lignes"
+msgid "You must set analytic account for income and expenses"
+msgstr "Vous devez définir un compte analytique pour les produits et les charges"
 
 #. module: servoo_finance
 #. openerp-web

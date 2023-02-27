@@ -65,30 +65,30 @@ class WizardCashierPiece(models.TransientModel):
                 self.cashier_piece_id.cash_voucher_id.amount_justified +=  self.cashier_piece_id.amount_total
             if self.cashier_piece_id.cash_voucher_id.amount_unjustified <= 0:
                 self.cashier_piece_id.cash_voucher_id.state = 'done'
-            # Create bank statement line if the cashier piece is not related to any cash voucher
-            if not self.cashier_piece_id.cash_voucher_id:
-                # get the active bank statement for the current journal and day
-                bank_statement = self.env['account.bank.statement'].search([
-                    ('journal_id', '=', self.cashier_piece_id.journal_id.id),
-                    ('date', '=', datetime.now()),
-                    ('state', '=', 'open'),
-                ])
-                # raise UserError('bank_statement %s' % bank_statement)
-                # if there is not statement, raise en exception
-                if not bank_statement:
-                    raise UserError(_("No %s cash statement is open for the day of %s. You must first open a cash statement for this day") % (self.cashier_piece_id.journal_id.name, date.today()))
-                # prepare bank statement line
-                bank_statement_line_vals = {
-                    'date': datetime.now(),
-                    'payment_ref': _('Payment of the cash piece %s' % self.cashier_piece_id.name),
-                    'beneficiary': self.cashier_piece_id.employee_id.name,
-                    'amount': -1 * self.cashier_piece_id.amount_total,
-                    'journal_id': self.cashier_piece_id.journal_id.id,
-                    'narration': self.cashier_piece_id.object,
-                    'statement_id': max([st.id for st in bank_statement]),
-                }
-                bank_statement_line = self.env['account.bank.statement.line'].create(bank_statement_line_vals)
-                self.cashier_piece_id.account_bank_statement_line_id = bank_statement_line.id
+            # Create bank statement line
+            # if not self.cashier_piece_id.cash_voucher_id:
+            # get the active bank statement for the current journal and day
+            bank_statement = self.env['account.bank.statement'].search([
+                ('journal_id', '=', self.cashier_piece_id.journal_id.id),
+                ('date', '=', datetime.now()),
+                ('state', '=', 'open'),
+            ])
+            # raise UserError('bank_statement %s' % bank_statement)
+            # if there is not statement, raise en exception
+            if not bank_statement:
+                raise UserError(_("No %s cash statement is open for the day of %s. You must first open a cash statement for this day") % (self.cashier_piece_id.journal_id.name, date.today()))
+            # prepare bank statement line
+            bank_statement_line_vals = {
+                'date': datetime.now(),
+                'payment_ref': _('Payment of the cash piece %s' % self.cashier_piece_id.name),
+                'beneficiary': self.sudo().cashier_piece_id.employee_id.name,
+                'amount': -1 * self.cashier_piece_id.amount_total,
+                'journal_id': self.cashier_piece_id.journal_id.id,
+                'narration': self.cashier_piece_id.object,
+                'statement_id': max([st.id for st in bank_statement]),
+            }
+            bank_statement_line = self.env['account.bank.statement.line'].create(bank_statement_line_vals)
+            self.cashier_piece_id.account_bank_statement_line_id = bank_statement_line.id
             group_management_control_approval = self.env.ref("servoo_finance.management_control_approval_group_user")
             users = group_management_control_approval.users
             for user in users:
@@ -98,8 +98,8 @@ class WizardCashierPiece(models.TransientModel):
                 )
         elif self.cashier_piece_id.state == 'management_control_approval':
             for line in self.cashier_piece_id.piece_line:
-                if not line.analytic_account_id:
-                    raise UserError(_("You must set analytic account for all lines"))
+                if not line.analytic_account_id and (line.account_id and line.account_id.code[0] in ('6', '7')):
+                    raise UserError(_("You must set analytic account for income and expenses"))
             vals = {
                 'management_control_approval_agent_id': self.env.user.id,
                 'management_control_approval_date': self.date,
@@ -118,6 +118,10 @@ class WizardCashierPiece(models.TransientModel):
             for line in self.cashier_piece_id.piece_line:
                 if not line.account_id:
                     raise UserError(_("You must set account for all lines"))
+            # Check if income and expenses line has analytic account
+            for line in self.cashier_piece_id.piece_line:
+                if not line.analytic_account_id and (line.account_id and line.account_id.code[0] in ('6', '7')):
+                    raise UserError(_("You must set analytic account for income and expenses"))
             # Create account move from cashier piece
             lines = []
             vals_debit = (0, 0, {

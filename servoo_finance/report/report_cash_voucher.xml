@@ -92,22 +92,22 @@
                     <table width="100%" cellpadding="4" cellspacing="0">
                         <thead>
                             <tr valign="top">
-                                <td style="border:0px solid #000000; text-align:center" width="25%">
+                                <td style="border:0px solid #000000; text-align:center">
                                         Demandeur
                                 </td>
-                                <td style="border:0px solid #000000; text-align:center" width="25%">
+                                <td style="border:0px solid #000000; text-align:center">
                                        Ordonateur 
                                 </td>
-                                <td style="border:0px solid #000000; text-align:center" width="25%">
-                                        Contrôleur
-                                </td>
-                                <td style="border:0px solid #000000; text-align:center" width="25%">
+<!--                                <td style="border:0px solid #000000; text-align:center" width="25%">-->
+<!--                                        Contrôleur-->
+<!--                                </td>-->
+                                <td style="border:0px solid #000000; text-align:center">
                                         Caissier
                                 </td>
                             </tr>
                             </thead>
                             <tr valign="top">
-                                <td style="border:0px solid #000000; text-align:center" width="25%">
+                                <td style="border:0px solid #000000; text-align:center">
                                     <span t-field="doc.employee_id.name"/>
                                     <br>
                                         <img  t-if="doc.employee_id.user_id.digital_signature"
@@ -118,7 +118,7 @@
                                     <span t-field="doc.date" t-options='{"widget": "date","format": "dd/MM/yyyy"}'/>
 
                                 </td>
-                                <td style="border:0px solid #000000; text-align:center" width="25%">
+                                <td style="border:0px solid #000000; text-align:center">
                                     <span t-field="doc.direction_approval_agent_id.name"/>
                                     <br>
                                         <img t-if="doc.direction_approval_agent_id.digital_signature"
@@ -130,19 +130,19 @@
 
                                 </td>
 
-                                <td style="border:0px solid #000000; text-align:center" width="25%">
-                                    <span t-field="doc.management_control_approval_agent_id.name"/>
-                                    <br>
-                                        <img t-if="doc.management_control_approval_agent_id.digital_signature"
-                                             t-att-src="image_data_uri(doc.management_control_approval_agent_id.digital_signature)"
-                                             style="width: 100%;"/>
-                                    </br>
-                                    <br />
-                                        <span t-field="doc.management_control_approval_date"
-                                              t-options='{"widget": "date","format": "dd/MM/yyyy"}'/>
+<!--                                <td style="border:0px solid #000000; text-align:center" width="25%">-->
+<!--                                    <span t-field="doc.management_control_approval_agent_id.name"/>-->
+<!--                                    <br>-->
+<!--                                        <img t-if="doc.management_control_approval_agent_id.digital_signature"-->
+<!--                                             t-att-src="image_data_uri(doc.management_control_approval_agent_id.digital_signature)"-->
+<!--                                             style="width: 100%;"/>-->
+<!--                                    </br>-->
+<!--                                    <br />-->
+<!--                                        <span t-field="doc.management_control_approval_date"-->
+<!--                                              t-options='{"widget": "date","format": "dd/MM/yyyy"}'/>-->
 
-                                </td>
-                                <td style="border:0px solid #000000; text-align:center" width="25%">
+<!--                                </td>-->
+                                <td style="border:0px solid #000000; text-align:center">
                                     <span t-field="doc.cashier_approval_agent_id.name"/>
                                     <br>
                                         <img t-if="doc.cashier_approval_agent_id.digital_signature"

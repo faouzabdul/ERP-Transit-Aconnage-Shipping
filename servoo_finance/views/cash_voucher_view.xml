@@ -32,13 +32,13 @@
                         <button name="%(action_wizard_cash_voucher)d"  groups="servoo_finance.applicant_direction_approval_group_user, servoo_finance.general_direction_approval_group_user" class="btn-primary"
                                 attrs="{'invisible': [('state', '!=', 'direction_approval')]}" string="Approve" type="action"/>
 
-                        <button name="%(action_wizard_cash_voucher)d"  groups="servoo_finance.management_control_approval_group_user" class="btn-primary"
-                                attrs="{'invisible': [('state', '!=', 'management_control_approval')]}" string="Approve" type="action"/>
+<!--                        <button name="%(action_wizard_cash_voucher)d"  groups="servoo_finance.management_control_approval_group_user" class="btn-primary"-->
+<!--                                attrs="{'invisible': [('state', '!=', 'management_control_approval')]}" string="Approve" type="action"/>-->
 
                         <button name="%(action_wizard_cash_voucher)d"  groups="servoo_finance.cashier_group_user" class="btn-primary"
                                 attrs="{'invisible': [('state', '!=', 'cashier_approval')]}" string="Approve" type="action"/>
 
-                        <field name="state" widget="statusbar" statusbar_visible="draft,service_approval,direction_approval,management_control_approval,cashier_approval,done"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,service_approval,direction_approval,cashier_approval,done"/>
                     </header>
                     <sheet>
                         <group col="2">
@@ -74,8 +74,8 @@
                                     <field name="service_approval_date" readonly="1"/>
                                     <field name="direction_approval_agent_id"  readonly="1"/>
                                     <field name="direction_approval_date" readonly="1"/>
-                                    <field name="management_control_approval_agent_id" readonly="1"/>
-                                    <field name="management_control_approval_date" readonly="1"/>
+<!--                                    <field name="management_control_approval_agent_id" readonly="1"/>-->
+<!--                                    <field name="management_control_approval_date" readonly="1"/>-->
                                     <field name="cashier_approval_agent_id" readonly="1"/>
                                     <field name="cashier_approval_date" readonly="1"/>
                                 </group>

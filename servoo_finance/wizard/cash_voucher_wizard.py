@@ -45,7 +45,7 @@ class WizardCashVoucher(models.TransientModel):
                                  default=_get_default_journal)
 
     def action_validate(self):
-        dp = self.get_department(self.env.user.employee_id.department_id)
+        dp = self.get_department(self.sudo().env.user.employee_id.department_id)
         self.cash_voucher_id.activity_feedback(["servoo_finance.mail_cash_voucher_feedback"])
         vals = {}
         if self.cash_voucher_id.state == 'service_approval':
@@ -54,7 +54,7 @@ class WizardCashVoucher(models.TransientModel):
             group_direction_approval = self.env.ref("servoo_finance.applicant_direction_approval_group_user")
             users = group_direction_approval.users
             for user in users:
-                if user.employee_id.department_id.id in dp:
+                if user.sudo().employee_id.department_id.id in dp:
                     self.cash_voucher_id.activity_schedule(
                         "servoo_finance.mail_cash_voucher_feedback", user_id=user.id,
                         summary=_("New cash voucher %s needs the applicant direction approval" % self.cash_voucher_id.name)
@@ -72,20 +72,6 @@ class WizardCashVoucher(models.TransientModel):
                 'state': 'management_control_approval',
                 'workflow_observation': self.observation
             }
-            group_management_control = self.env.ref("servoo_finance.management_control_approval_group_user")
-            users = group_management_control.users
-            for user in users:
-                self.cash_voucher_id.activity_schedule(
-                    "servoo_finance.mail_cash_voucher_feedback", user_id=user.id,
-                    summary=_("New cash voucher %s needs the management control approval" % self.cash_voucher_id.name)
-                )
-        elif self.cash_voucher_id.state == 'management_control_approval':
-            vals = {
-                'management_control_approval_agent_id': self.env.user.id,
-                'management_control_approval_date': self.date,
-                'state': 'cashier_approval',
-                'workflow_observation': self.observation
-            }
             group_cashier_approval = self.env.ref("servoo_finance.cashier_group_user")
             users = group_cashier_approval.users
             for user in users:
@@ -93,6 +79,20 @@ class WizardCashVoucher(models.TransientModel):
                     "servoo_finance.mail_cash_voucher_feedback", user_id=user.id,
                     summary=_("New cash voucher %s needs the cashier approval" % self.cash_voucher_id.name)
                 )
+        # elif self.cash_voucher_id.state == 'management_control_approval':
+        #     vals = {
+        #         'management_control_approval_agent_id': self.env.user.id,
+        #         'management_control_approval_date': self.date,
+        #         'state': 'cashier_approval',
+        #         'workflow_observation': self.observation
+        #     }
+        #     group_cashier_approval = self.env.ref("servoo_finance.cashier_group_user")
+        #     users = group_cashier_approval.users
+        #     for user in users:
+        #         self.cash_voucher_id.activity_schedule(
+        #             "servoo_finance.mail_cash_voucher_feedback", user_id=user.id,
+        #             summary=_("New cash voucher %s needs the cashier approval" % self.cash_voucher_id.name)
+        #         )
         elif self.cash_voucher_id.state == 'cashier_approval':
             vals = {
                 'cashier_approval_agent_id': self.env.user.id,

@@ -891,6 +891,11 @@ class AccountBankStatementLine(models.Model):
                             default=False, copy=False,
                             help="Technical field holding the number given to the journal entry, automatically set when the statement line is reconciled then stored to set the same number again if the line is cancelled, set to draft and re-processed again.")
     beneficiary = fields.Char('Beneficiary')
+    receiver = fields.Selection([
+        ('pad', 'PAD'),
+        ('other', 'Other'),
+        ('apm', 'APM')
+    ], string='Receiver')
 
     def process_reconciliation(self, counterpart_aml_dicts=None, payment_aml_rec=None, new_aml_dicts=None):
         """Match statement lines with existing payments (eg. checks) and/or

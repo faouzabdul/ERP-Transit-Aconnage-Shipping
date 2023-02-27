@@ -7,7 +7,7 @@
     'version': '1.0',
     'description': """
     """,
-    'depends': ['account', 'hr', 'servoo_transit', 'servoo_logistic', 'servoo_stevedoring', 'th_caisse_externe', 'servoo_purchase'],
+    'depends': ['sale', 'account', 'hr', 'servoo_transit', 'servoo_logistic', 'servoo_stevedoring', 'th_caisse_externe', 'servoo_purchase'],
     'data': [
         'security/servoo_finance_security.xml',
         'security/ir.model.access.csv',

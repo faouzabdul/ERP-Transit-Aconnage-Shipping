@@ -106,7 +106,7 @@ class CashVoucher(models.Model):
         ('draft', 'Draft'),
         ('service_approval', 'Service Approval'),
         ('direction_approval', 'Direction Approval'),
-        ('management_control_approval', 'Management Control Approval'),
+        # ('management_control_approval', 'Management Control Approval'),
         ('cashier_approval', 'Cashier Approval'),
         ('justification', 'Justification'),
         ('done', 'Done'),

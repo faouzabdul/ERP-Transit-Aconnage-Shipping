@@ -4,7 +4,9 @@
 from odoo import api, fields, models, _
 from datetime import datetime
 from odoo.exceptions import UserError
+import logging
 
+_logger = logging.getLogger(__name__)
 
 class WizardCashControlReportCreate(models.TransientModel):
     _name ='account.cash.control.report.create.wizard'
@@ -12,12 +14,25 @@ class WizardCashControlReportCreate(models.TransientModel):
 
     @api.model
     def _get_cash_voucher(self):
-        cash_vouchers = self.env['servoo.cash.voucher'].search([
-            ('journal_id', '=', self.journal_id.id),
-            ('cashier_approval_date', '=', self.date),
-            ('cashier_approval_agent_id', '=', self.env.user.id)
+        cash_statement = self.env['account.bank.statement'].search([('id', '=', self.env.context.get('active_id', None))])[0]
+        _logger.info('cash_statement : %s' % cash_statement)
+        cash_vouchers = self.sudo().env['servoo.cash.voucher'].search([
+            ('journal_id', '=', cash_statement.journal_id.id),
+            ('state', '=', 'justification'),
         ])
-        return [(6, 0, [cv.id for cv in cash_vouchers])]
+        _logger.info('cash_vouchers : %s' % cash_vouchers)
+        _logger.info('self.journal_id.id : %s' % self.journal_id.id)
+        amount = 0.0
+        voucher_ids = []
+        for cv in cash_vouchers:
+            amount += cv.amount_unjustified
+            voucher_ids.append(cv.id)
+        # self.cash_voucher_ids = [(6, 0, voucher_ids)]
+        self.cash_voucher_count = len(cash_vouchers)
+        self.cash_voucher_amount = amount
+        self.theoretical_balance = self.balance_start - amount
+        # self.cash_voucher_ids = [(6, 0, voucher_ids)]
+        return [(6, 0, voucher_ids)]
 
     cash_statement_id = fields.Many2one('account.bank.statement', 'Cash Statement', default=lambda self: self.env.context.get('active_id', None))
     name = fields.Char('Reference')
@@ -28,6 +43,7 @@ class WizardCashControlReportCreate(models.TransientModel):
     cashbox_lines_ids = fields.One2many(related='cashbox_end_id.cashbox_lines_ids', readonly=False)
     balance_start = fields.Monetary(related='cash_statement_id.balance_start')
     balance_end_real = fields.Monetary(related='cash_statement_id.balance_end_real')
+    balance_end = fields.Monetary(related='cash_statement_id.balance_end', string='General balance')
     cash_voucher_ids = fields.Many2many('servoo.cash.voucher','wizard_cash_control_voucher_rel', string='Cash Vouchers', default=_get_cash_voucher)
     cash_voucher_count = fields.Integer(compute="_get_cash_vouchers", string='Cash voucher count')
     cash_voucher_amount = fields.Float(compute="_compute_cash_voucher_amount", string='Cash voucher amount')
@@ -36,39 +52,51 @@ class WizardCashControlReportCreate(models.TransientModel):
     cashier_date = fields.Datetime('Service Approval date', default=datetime.now())
     cashier_cni = fields.Char('Cashier CNI')
     cashier_note = fields.Text('Cashier Notes')
-
-    @api.onchange('date')
-    def onchange_date(self):
-        cash_vouchers = self.env['servoo.cash.voucher'].search([
-            ('journal_id', '=', self.journal_id.id),
-            ('cashier_approval_date', '=', self.date),
-            ('cashier_approval_agent_id', '=', self.env.user.id)
-        ])
-        amount = 0.0
-        voucher_ids=[]
-        for cv in cash_vouchers:
-            amount += cv.amount
-            voucher_ids.append(cv.id)
-        self.cash_voucher_ids = [(6, 0, voucher_ids)]
-        self.cash_voucher_count = len(cash_vouchers)
-        self.cash_voucher_amount = amount
-        self.theoretical_balance = self.balance_start - amount
+    pad_amount = fields.Float(compute="_compute_pad_and_other_amount", string='PAD')
+    other_amount = fields.Float(compute="_compute_pad_and_other_amount", string='Other')
+    apm_balance = fields.Float(compute="_compute_apm_balance", string="APM Balance")
+    gap_balance = fields.Float(string='Gap Balance', compute="_compute_gap_balance")
 
 
+    @api.depends('cash_voucher_ids')
     def _get_cash_vouchers(self):
         for record in self:
             record.cash_voucher_count = len(record.cash_voucher_ids)
 
+    @api.depends('cash_voucher_ids')
     def _compute_cash_voucher_amount(self):
         for record in self:
             amount = 0.0
             for cv in record.cash_voucher_ids:
-                amount += cv.amount
+                amount += cv.amount_unjustified
             record.cash_voucher_amount = amount
 
+    @api.depends('cash_voucher_amount', 'balance_start')
     def _compute_theoretical_balance(self):
         for record in self:
             record.theoretical_balance = record.balance_start - record.cash_voucher_amount
+
+    @api.depends('cash_statement_id')
+    def _compute_pad_and_other_amount(self):
+        for record in self:
+            amount_pad = amount_other = 0
+            for line in record.cash_statement_id.line_ids:
+                if line.receiver == 'pad':
+                    amount_pad += line.amount
+                elif line.receiver == 'other':
+                    amount_other += line.amount
+            record.pad_amount = amount_pad
+            record.other_amount = amount_other
+
+    @api.depends('balance_end_real', 'pad_amount', 'other_amount')
+    def _compute_apm_balance(self):
+        for record in self:
+            record.apm_balance = record.balance_end_real - (record.pad_amount + record.other_amount)
+
+    @api.depends('theoretical_balance', 'balance_end_real')
+    def _compute_gap_balance(self):
+        for record in self:
+            record.gap_balance = record.theoretical_balance - record.balance_end_real
 
     def create_report(self):
         vals = {

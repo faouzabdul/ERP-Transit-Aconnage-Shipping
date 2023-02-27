@@ -12,11 +12,15 @@
                            <field name="date" />
                            <field name="cash_statement_id" />
                            <field name="journal_id" />
-                           <field name="balance_start" />
+                           <field name="balance_end" />
                            <field name="cash_voucher_count" />
                            <field name="cash_voucher_amount" />
+                            <field name="pad_amount" readonly="1"/>
+                            <field name="other_amount" readonly="1"/>
                            <field name="theoretical_balance" />
                            <field name="balance_end_real" />
+                           <field name="apm_balance" />
+                           <field name="gap_balance" />
                        </group>
                         <group col="4" string="Cashier">
                             <field name="cashier_agent_id" readonly="1"/>
@@ -45,9 +49,10 @@
                                         <field name="name" />
                                         <field name="date" />
                                         <field name="employee_id" />
-                                        <field name="department_id" />
+<!--                                        <field name="department_id" />-->
                                         <field name="object" />
                                         <field name="amount" />
+                                        <field name="amount_unjustified" />
                                         <field name="amount_justified" />
                                         <field name="justification_deadline" />
                                         <field name="state" />

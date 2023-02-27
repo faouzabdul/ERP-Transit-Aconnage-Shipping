@@ -43,10 +43,15 @@ class AccountCashControlReport(models.Model):
     cashbox_lines_ids = fields.One2many(related='cashbox_end_id.cashbox_lines_ids')
     balance_start = fields.Monetary(related='cash_statement_id.balance_start')
     balance_end_real = fields.Monetary(related='cash_statement_id.balance_end_real')
+    balance_end = fields.Monetary(related='cash_statement_id.balance_end', string='General balance')
     cash_voucher_ids = fields.Many2many('servoo.cash.voucher', 'account_cash_control_voucher_rel', string='Cash Vouchers')
     cash_voucher_count = fields.Integer(compute="_get_cash_vouchers", string='Cash voucher count')
     cash_voucher_amount = fields.Float(compute="_compute_cash_voucher_amount", string='Cash voucher amount')
     theoretical_balance = fields.Float(compute="_compute_theoretical_balance", string='Theoretical Balance')
+    pad_amount = fields.Float(compute="_compute_pad_and_other_amount", string='PAD')
+    other_amount = fields.Float(compute="_compute_pad_and_other_amount", string='Other')
+    apm_balance = fields.Float(compute="_compute_apm_balance", string="APM Balance")
+    gap_balance = fields.Float(string='Gap Balance', compute="_compute_gap_balance")
     state = fields.Selection([
         ('edited', 'Edited'),
         ('controlled', 'Controlled')
@@ -73,11 +78,12 @@ class AccountCashControlReport(models.Model):
                 vals['name'] = self.env['ir.sequence'].next_by_code('account.cash.control.report') or _('New')
         return super().create(vals)
 
-
+    @api.depends('cash_voucher_ids')
     def _get_cash_vouchers(self):
         for record in self:
             record.cash_voucher_count = len(record.cash_voucher_ids)
 
+    @api.depends('cash_voucher_ids')
     def _compute_cash_voucher_amount(self):
         for record in self:
             amount = 0.0
@@ -85,6 +91,29 @@ class AccountCashControlReport(models.Model):
                 amount += cv.amount
             record.cash_voucher_amount = amount
 
+    @api.depends('cash_voucher_amount', 'balance_start')
     def _compute_theoretical_balance(self):
         for record in self:
             record.theoretical_balance = record.balance_start - record.cash_voucher_amount
+
+    @api.depends('cash_statement_id')
+    def _compute_pad_and_other_amount(self):
+        for record in self:
+            amount_pad = amount_other = 0
+            for line in record.cash_statement_id.line_ids:
+                if line.receiver == 'pad':
+                    amount_pad += line.amount
+                elif line.receiver == 'other':
+                    amount_other += line.amount
+            record.pad_amount = amount_pad
+            record.other_amount = amount_other
+
+    @api.depends('balance_end_real', 'pad_amount', 'other_amount')
+    def _compute_apm_balance(self):
+        for record in self:
+            record.apm_balance = record.balance_end_real - (record.pad_amount + record.other_amount)
+
+    @api.depends('theoretical_balance', 'balance_end_real')
+    def _compute_gap_balance(self):
+        for record in self:
+            record.gap_balance = record.theoretical_balance - record.balance_end_real

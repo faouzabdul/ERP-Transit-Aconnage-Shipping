@@ -37,11 +37,15 @@
                            <field name="date" />
                            <field name="cash_statement_id" readonly="1"/>
                            <field name="journal_id" />
-                           <field name="balance_start" />
+                           <field name="balance_end" />
                            <field name="cash_voucher_count" />
                            <field name="cash_voucher_amount" />
+                           <field name="pad_amount" readonly="1"/>
+                           <field name="other_amount" readonly="1" />
                            <field name="theoretical_balance" />
                            <field name="balance_end_real" />
+                           <field name="apm_balance" />
+                           <field name="gap_balance" />
                        </group>
                         <group col="2">
                             <group col="2" string="Cashier">

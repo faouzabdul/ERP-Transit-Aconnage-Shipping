@@ -23,6 +23,7 @@
                 </button>
                 <field name="amount" position="before">
                     <field name="beneficiary" optional="hidden"/>
+                    <field name="receiver" optional="hidden"/>
                 </field>
             </field>
         </record>
