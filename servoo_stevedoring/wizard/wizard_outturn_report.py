@@ -3,7 +3,9 @@
 
 from odoo import api, fields, models, _
 from datetime import datetime
-
+# import logging
+#
+# _logger = logging.getLogger(__name__)
 
 class WizardOutturnReport(models.TransientModel):
     _name = 'servoo.stevedoring.outturn.report.wizard'
@@ -34,11 +36,11 @@ class WizardOutturnReport(models.TransientModel):
             'date_debut': self.date_debut,
             'date_end': self.date_end,
             'consignee_id': self.consignee_id.id,
+            'line_ids': ''
         }
         line_vals = []
         for line in self.line_ids:
-            line_vals.append(
-                (0, 0, {
+            line_dict = {
                     'bl_id': line.bl_id.id,
                     'manifested_quantity': line.manifested_quantity,
                     'shortage_quantity': line.shortage_quantity,
@@ -50,7 +52,10 @@ class WizardOutturnReport(models.TransientModel):
                     'delivery_weight': line.delivery_weight,
                     'note': line.note,
                     'unit_id': line.unit_id.id,
-                })
+                    'bl_line_ids': ''
+                }
+            line_vals.append(
+                (0, 0, line_dict)
             )
             bl_line_vals = []
             for bl in line.bl_line_ids:
@@ -68,8 +73,9 @@ class WizardOutturnReport(models.TransientModel):
                         'unit_id': bl.unit_id.id,
                     })
                 )
-        line_vals['bl_line_ids'] = bl_line_vals
+                line_dict['bl_line_ids'] = bl_line_vals
         vals['line_ids'] = line_vals
+        # _logger.info("vals : %s" % vals)
         return self.env['servoo.stevedoring.outturn.report'].create(vals)
 
 
