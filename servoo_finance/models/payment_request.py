@@ -15,6 +15,7 @@ class PaymentRequest(models.Model):
     name = fields.Char('Reference', required=True, index=True, default=lambda self: _('New'), copy=False)
     company_id = fields.Many2one('res.company', 'Company', required=True, index=True,
                                  default=lambda self: self.env.company)
+    partner_id = fields.Many2one('res.partner', 'Partner')
     date = fields.Datetime('Date', default=datetime.now())
     employee_id = fields.Many2one('hr.employee', 'Requesting employee', default=lambda self: self.env.user.employee_id)
     department_id = fields.Many2one(related='employee_id.department_id', related_sudo=False)
@@ -25,6 +26,8 @@ class PaymentRequest(models.Model):
     object = fields.Text('Object')
     request_line = fields.One2many('servoo.payment.request.line', 'payment_request_id', 'Request Lines')
     create_uid = fields.Many2one('res.users', string='Created by', index=True, readonly=True)
+    document_ids = fields.One2many('servoo.payment.request.document', 'payment_request_id', 'Documents', tracking=1)
+    account_payment_id = fields.Many2one('account.payment', 'Payment')
 
     workflow_observation = fields.Text('Observation', tracking=3)
 
@@ -139,3 +142,14 @@ class PaymentRequestLine(models.Model):
     def onchange_product_id(self):
         for line in self:
             line.description = line.product_id.name
+
+class PaymentRequestDocument(models.Model):
+    _name = 'servoo.payment.request.document'
+    _description = 'Payment request Document'
+
+    payment_request_id = fields.Many2one('servoo.payment.request', 'Payment Request')
+    name = fields.Char('Reference')
+    attachment_ids = fields.Many2many(
+        'ir.attachment', 'servoo_payment_request_document_attachment_rel',
+        'document_id', 'attachment_id',
+        string='Attachments')

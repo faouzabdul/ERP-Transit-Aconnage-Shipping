@@ -6,15 +6,31 @@
         <field name="arch" type="xml">
             <form string="Payment Request">
                <sheet>
-                   <group string="Confirmation ?" />
+                   <field name="payment_request_id" invisible="1" />
+                   <field name="available_payment_method_line_ids" invisible="1" />
+                   <field name="hide_payment_method_line" invisible="1" />
+                   <group string="Confirmation ?" attrs="{'invisible': [('state', '=', 'finance_approval')]}"/>
+                   <group string="Make a payment ?" attrs="{'invisible': [('state', '!=', 'finance_approval')]}"/>
                     <group col="2">
+                        <field name="state" invisible="0" />
+                        <field name="partner_id" attrs="{'invisible': [('state', '!=', 'finance_approval')], 'required': [('state', '=', 'finance_approval')]}"/>
+                        <field name="amount" attrs="{'invisible': [('state', '!=', 'finance_approval')], 'required': [('state', '=', 'finance_approval')]}"/>
                         <field name="date" />
+                        <field name="ref" attrs="{'invisible': [('state', '!=', 'finance_approval')], 'required': [('state', '=', 'finance_approval')]}"/>
+                        <field name="journal_id" options="{'no_create': True, 'no_open': True}"
+                               attrs="{'invisible': [('state', '!=', 'finance_approval')], 'required': [('state', '=', 'finance_approval')]}"/>
+                        <field name="payment_method_line_id" options="{'no_create': True, 'no_open': True}"
+                               attrs="{'invisible': [('state', '!=', 'finance_approval')], 'required': [('state', '=', 'finance_approval')]}"/>
+                        <field name="bank_statement_id" options="{'no_create': True, 'no_open': True}"
+                               domain="[('journal_id', '=', journal_id), ('state', '=', 'open')]"
+                               attrs="{'invisible': [('state', '!=', 'finance_approval')], 'required': [('state', '=', 'finance_approval')]}"/>
                         <field name="observation" />
                     </group>
                 </sheet>
                 <footer>
                     <button name="action_validate" string="Approve" type="object" class="oe_highlight" data-hotkey="q"/>
-                    <button name="action_reject" string="Reject" type="object" class="btn-danger" data-hotkey="c"/>
+                    <button name="action_reject" string="Reject" type="object" class="btn-danger" data-hotkey="c"
+                    attrs="{'invisible': [('state', 'not in', ('service_approval', 'direction_approval'))]}"/>
                     <button string="Discard" class="btn-secondary" special="cancel" data-hotkey="z"/>
                 </footer>
             </form>

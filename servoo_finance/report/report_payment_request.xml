@@ -72,7 +72,7 @@
                     </div>
                     <br>
                         À L'ORDRE DE:
-                        <b><span t-field="doc.employee_id.name"/></b>
+                        <b><span t-field="doc.partner_id"/></b>
                     </br>
                     <br>
                         MOTIF:

@@ -51,11 +51,11 @@
                 <button name="action_cancel" position="before">
                     <button type="action" string="Create Payment Request"
                             context="{'default_file_reference': name}"
-                            name="%(action_create_payment_request)d" attrs="{'invisible': [('state', '!=', 'open')]}"
+                            name="%(action_create_payment_request)d" attrs="{'invisible': [('state', '!=', 'draft')]}"
                     />
                     <button type="action" string="Create Cash Piece"
                             context="{'default_file_reference': name}"
-                            name="%(action_create_cashier_piece)d" attrs="{'invisible': [('state', '!=', 'open')]}"
+                            name="%(action_create_cashier_piece)d" attrs="{'invisible': [('state', '!=', 'draft')]}"
                     />
 
                 </button>
@@ -94,11 +94,11 @@
                 <button name="action_cancel" position="before">
                     <button type="action" string="Create Payment Request"
                             context="{'default_file_reference': name}"
-                            name="%(action_create_payment_request)d" attrs="{'invisible': [('state', '!=', 'open')]}"
+                            name="%(action_create_payment_request)d" attrs="{'invisible': [('state', '!=', 'draft')]}"
                     />
                     <button type="action" string="Create Cash Piece"
                             context="{'default_file_reference': name}"
-                            name="%(action_create_cashier_piece)d" attrs="{'invisible': [('state', '!=', 'open')]}"
+                            name="%(action_create_cashier_piece)d" attrs="{'invisible': [('state', '!=', 'draft')]}"
                     />
                 </button>
             </field>
@@ -134,11 +134,11 @@
                 <button name="action_cancel" position="before">
                     <button type="action" string="Create Payment Request"
                             context="{'default_file_reference': name}"
-                            name="%(action_create_payment_request)d" attrs="{'invisible': [('state', '!=', 'open')]}"
+                            name="%(action_create_payment_request)d" attrs="{'invisible': [('state', '!=', 'draft')]}"
                     />
                     <button type="action" string="Create Cash Piece"
                             context="{'default_file_reference': name}"
-                            name="%(action_create_cashier_piece)d" attrs="{'invisible': [('state', '!=', 'open')]}"
+                            name="%(action_create_cashier_piece)d" attrs="{'invisible': [('state', '!=', 'draft')]}"
                     />
                 </button>
             </field>

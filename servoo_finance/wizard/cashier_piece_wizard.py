@@ -15,6 +15,7 @@ class WizardCashierPiece(models.TransientModel):
     _description = "Cashier Piece workflow"
 
     cashier_piece_id = fields.Many2one('servoo.cashier.piece', 'Cashier Piece', default=lambda self: self.env.context.get('active_id', None))
+    state = fields.Selection(related='cashier_piece_id.state', store=True, readonly=True)
     observation = fields.Text('Notes')
     date = fields.Date('Date', default=datetime.now(), required=True)
 

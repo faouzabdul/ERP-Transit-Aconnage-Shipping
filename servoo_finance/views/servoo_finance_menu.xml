@@ -22,15 +22,16 @@
         <menuitem id="finance_menu_root" name="Finance" web_icon="servoo_finance,static/description/icon.png" groups="servoo_finance.group_finance_user">
             <menuitem id="menu_board_journal_1" name="Dashboard Journals" action="account.open_account_journal_dashboard_kanban" sequence="0"/>
 
-            <menuitem name="Dashboard" id="menu_finance_dashboard"
-                  sequence="1"
-                  groups="servoo_finance.group_finance_manager"
-                  action="servoo_finance.action_account_invoice_report_all"/>
+<!--            <menuitem name="Dashboard" id="menu_finance_dashboard"-->
+<!--                  sequence="1"-->
+<!--                  groups="servoo_finance.group_finance_manager"-->
+<!--                  action="servoo_finance.action_account_invoice_report_all"/>-->
 
             <menuitem id="menu_finance_receivables" name="Customers" sequence="1">
-                <menuitem id="menu_action_move_out_invoice_type" action="action_readonly_move_out_invoice_type" sequence="1"/>
-                <menuitem id="menu_action_move_out_refund_type" action="account.action_move_out_refund_type" sequence="2"/>
-                <menuitem id="menu_action_move_out_receipt_type" action="account.action_move_out_receipt_type"  sequence="3"/>
+                <menuitem id="menu_sale_order" name="Orders" action="sale.action_quotations" sequence="1"/>
+                <menuitem id="menu_action_move_out_invoice_type" action="action_readonly_move_out_invoice_type" sequence="2"/>
+                <menuitem id="menu_action_move_out_refund_type" action="account.action_move_out_refund_type" sequence="3"/>
+                <menuitem id="menu_action_move_out_receipt_type" action="account.action_move_out_receipt_type"  sequence="4"/>
                 <menuitem id="menu_action_account_payments_receivable" action="account.action_account_payments" sequence="15"/>
                 <menuitem id="product_product_menu_sellable" name="Products" action="account.product_product_action_sellable" sequence="100"/>
                 <menuitem id="menu_account_customer" name="Customers" action="account.res_partner_action_customer" sequence="110"/>

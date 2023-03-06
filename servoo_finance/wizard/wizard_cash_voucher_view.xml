@@ -16,7 +16,9 @@
                 </sheet>
                 <footer>
                     <button name="action_validate" string="Approve" type="object" class="oe_highlight" data-hotkey="q"/>
-                    <button name="action_reject" string="Reject" type="object" class="btn-danger" data-hotkey="c"/>
+                    <button name="action_reject" string="Reject" type="object" class="btn-danger" data-hotkey="c"
+                            attrs="{'invisible': [('state', '!=', 'cashier_approval')]}"
+                    />
                     <button string="Discard" class="btn-secondary" special="cancel" data-hotkey="z"/>
                 </footer>
             </form>

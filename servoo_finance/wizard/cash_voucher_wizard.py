@@ -69,7 +69,7 @@ class WizardCashVoucher(models.TransientModel):
             vals = {
                 'direction_approval_agent_id': self.env.user.id,
                 'direction_approval_date': self.date,
-                'state': 'management_control_approval',
+                'state': 'cashier_approval',
                 'workflow_observation': self.observation
             }
             group_cashier_approval = self.env.ref("servoo_finance.cashier_group_user")

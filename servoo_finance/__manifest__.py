@@ -20,15 +20,18 @@
         'wizard/wizard_cash_voucher_view.xml',
         'wizard/wizard_cashier_piece_view.xml',
         'wizard/wizard_cash_control_report_view.xml',
+        'wizard/wizard_sale_order_payment_view.xml',
         'views/payment_request_view.xml',
         'views/cash_voucher_view.xml',
         'views/cashier_piece_view.xml',
         'views/account_move_view.xml',
+        'views/account_payment_view.xml',
         'views/payment_operation_file_view.xml',
         'views/dashboard_views.xml',
         'views/account_cash_control_view.xml',
         'views/servoo_finance_menu.xml',
         'views/account_bank_statement_view.xml',
+        'views/sale_order_view.xml',
     ],
 'assets': {
         'web.assets_backend': [

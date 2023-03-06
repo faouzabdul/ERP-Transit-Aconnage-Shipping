@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="servoo_sale_order_payment_inherit_tree">
+        <field name="name">servoo.sale.order.payment.inherit.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree" />
+        <field name="arch" type="xml">
+            <field name="state" position="after">
+                <field name="payment_state" decoration-success="payment_state == 'paid'" decoration-info="payment_state == 'partial_paid'" decoration-danger="payment_state == 'not_paid'" widget="badge" optional="show"/>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="servoo_sale_order_payment_inherit_form">
+        <field name="name">servoo.sale.order.payment.inherit.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <div name="button_box" position="after">
+                <field name="payment_state" invisible="1" />
+                <widget name="web_ribbon" title="Paid" attrs="{'invisible': [('payment_state', '!=', 'paid')]}"/>
+                <widget name="web_ribbon" title="Partially Paid" attrs="{'invisible': [('payment_state', '!=', 'partial')]}"/>
+            </div>
+            <button name="action_draft" position="before">
+                <button name="%(servoo_finance.action_wizard_sale_order_payment)d" string="Register Payment" type="action" class="btn-primary" data-hotkey="q"
+                        attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('payment_state', 'not in', ('not_paid', 'partial'))]}"
+                        groups="servoo_finance.cashier_group_user"
+                />
+            </button>
+        </field>
+    </record>
+</odoo>
