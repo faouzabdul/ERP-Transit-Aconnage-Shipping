@@ -37,16 +37,12 @@ class ShippingPda(models.Model):
                 'amount_total': amount_untaxed + amount_tax,
             })
 
-    # @api.depends('shipping_pda_line.invoice_lines')
-    # def _get_invoiced(self):
-    #     # The invoice_ids are obtained thanks to the invoice lines of the PDA
-    #     # lines, and we also search for possible refunds created directly from
-    #     # existing invoices. This is necessary since such a refund is not
-    #     # directly linked to the PDA.
-    #     for order in self:
-    #         invoices = order.shipping_pda_line.invoice_lines.move_id.filtered(lambda r: r.move_type in ('out_invoice', 'out_refund'))
-    #         order.invoice_ids = invoices
-    #         order.invoice_count = len(invoices)
+    def _get_payment(self):
+        payment = self.env['account.payment']
+        for record in self:
+            payments = payment.search([('ref', '=', record.name)])
+            record.payment_ids = payments
+            record.payment_count = len(payments)
 
     def _get_invoiced(self):
         invoice = self.env['account.move']
@@ -152,11 +148,39 @@ class ShippingPda(models.Model):
             return [('id', 'not in', shipping_pda_ids)]
         return ['&', ('shipping_pda_line.invoice_lines.move_id.move_type', 'in', ('out_invoice', 'out_refund')), ('shipping_pda_line.invoice_lines.move_id', operator, value)]
 
+
+    def _search_payment_ids(self, operator, value):
+        if operator == 'in' and value:
+            self.env.cr.execute("""
+                SELECT array_agg(pda.id)
+                    FROM servoo_shipping_pda pda
+                    JOIN account_payment ap ON ap.ref = pda.name
+                WHERE
+                    ap.payment_type = 'inbound' AND
+                    ap.id = ANY(%s)
+            """, (list(value),))
+            so_ids = self.env.cr.fetchone()[0] or []
+            return [('id', 'in', so_ids)]
+        elif operator == '=' and not value:
+            shipping_pda_ids = self._search()
+            return [('id', 'not in', shipping_pda_ids)]
+        return []
+
     name = fields.Char(string='Reference', required=True, copy=False, readonly=True, states={'draft': [('readonly', False)]}, index=True, default=lambda self: _('New'))
     origin = fields.Char(string='Source Document', help="Reference of the document that generated this sales order request.")
     client_order_ref = fields.Char(string='Customer Reference', copy=False)
     reference = fields.Char(string='Payment Ref.', copy=False,
         help='The payment communication of this shipping pda.')
+    paid_amount = fields.Float('Paid Amount')
+    payment_state = fields.Selection([
+        ('not_paid', 'Not Paid'),
+        ('paid', 'Paid'),
+        ('partial', 'Partially Paid'),
+    ], string="Payment Status", store=True, default='not_paid',
+        readonly=True, copy=False, tracking=True)
+    payment_count = fields.Integer(string='Payment Count', compute='_get_payment')
+    payment_ids = fields.Many2many("account.payment", 'account_payment_shipping_pda_rel', string='Payments',
+                                   compute="_get_payment", copy=False, search="_search_payment_ids")
     state = fields.Selection([
         ('draft', 'Draft'),
         ('sent', 'Sent'),

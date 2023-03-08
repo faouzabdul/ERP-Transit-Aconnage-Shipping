@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220616\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-27 14:29+0000\n"
-"PO-Revision-Date: 2023-02-27 14:29+0000\n"
+"POT-Creation-Date: 2023-03-08 10:57+0000\n"
+"PO-Revision-Date: 2023-03-08 10:57+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1319,7 +1319,7 @@ msgstr "Lignes de marchandise"
 #: model:ir.ui.menu,name:servoo_shipping.shipping_file_good_type_menu
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.view_shipping_file_good_type_tree
 msgid "Good Type"
-msgstr "Type de marchandises"
+msgstr "Type de marchadnises"
 
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_ship_store__good
@@ -1868,6 +1868,11 @@ msgid "Next Activity Type"
 msgstr ""
 
 #. module: servoo_shipping
+#: model:ir.model.fields.selection,name:servoo_shipping.selection__servoo_shipping_pda__payment_state__not_paid
+msgid "Not Paid"
+msgstr ""
+
+#. module: servoo_shipping
 #: model:ir.model.fields.selection,name:servoo_shipping.selection__servoo_shipping_pda_line__display_type__line_note
 #: model:ir.model.fields.selection,name:servoo_shipping.selection__servoo_shipping_pda_template_line__display_type__line_note
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.shipping_pda_template_view_form
@@ -1997,7 +2002,7 @@ msgstr "Autre information"
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality__other_reference
 msgid "Other reference"
-msgstr "Autre référence"
+msgstr ""
 
 #. module: servoo_shipping
 #: model:ir.actions.act_window,name:servoo_shipping.action_shipping_pda
@@ -2099,8 +2104,25 @@ msgid "Packing Group"
 msgstr "Groupe d'emballage"
 
 #. module: servoo_shipping
+#: model:ir.model.fields.selection,name:servoo_shipping.selection__servoo_shipping_pda__payment_state__paid
+#: model_terms:ir.ui.view,arch_db:servoo_shipping.view_shipping_pda_form
+msgid "Paid"
+msgstr ""
+
+#. module: servoo_shipping
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__paid_amount
+msgid "Paid Amount"
+msgstr ""
+
+#. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__parent_id
 msgid "Parent"
+msgstr ""
+
+#. module: servoo_shipping
+#: model:ir.model.fields.selection,name:servoo_shipping.selection__servoo_shipping_pda__payment_state__partial
+#: model_terms:ir.ui.view,arch_db:servoo_shipping.view_shipping_pda_form
+msgid "Partially Paid"
 msgstr ""
 
 #. module: servoo_shipping
@@ -2130,14 +2152,29 @@ msgid "Passengers List"
 msgstr "Liste de passagers"
 
 #. module: servoo_shipping
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__payment_count
+msgid "Payment Count"
+msgstr "Nombre de paiements"
+
+#. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__reference
 msgid "Payment Ref."
 msgstr "Ref. paiement"
 
 #. module: servoo_shipping
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__payment_state
+msgid "Payment Status"
+msgstr "Etat de paiement"
+
+#. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__payment_term_id
 msgid "Payment Terms"
 msgstr "Termes de paiement"
+
+#. module: servoo_shipping
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__payment_ids
+msgid "Payments"
+msgstr "Paiements"
 
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda_line__state
@@ -2966,7 +3003,7 @@ msgstr ""
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__volume_of_goods
 msgid "Volume of goods"
-msgstr "Volume des marchandises"
+msgstr "Volume des marchadnises"
 
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_bl__voyage_number
