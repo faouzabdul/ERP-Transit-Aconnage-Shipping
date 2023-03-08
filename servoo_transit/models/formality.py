@@ -35,6 +35,21 @@ class Formality(models.Model):
         ('done', 'Done'),
         ('cancel', 'Cancel')
     ], string='Status', default='open')
+    
+    @api.model
+    def create(self, vals):
+        formalities = super(Formality, self).create(vals)
+        for formality in formalities:
+            if formality.attachment_ids:
+                formality.attachment_ids.write({'res_model': self._name, 'res_id': formality.id})
+        return formalities
+
+    def write(self, vals):
+        formalities = super(Formality, self).write(vals)
+        for formality in self:
+            if formality.attachment_ids:
+                formality.attachment_ids.write({'res_model': self._name, 'res_id': formality.id})
+        return formalities
 
     @api.onchange('service_id')
     def onchange_service_id(self):
