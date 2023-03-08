@@ -24,3 +24,18 @@ class Document(models.Model):
         'ir.attachment', 'servoo_stevedoring_document_attachment_rel',
         'document_id', 'attachment_id',
         string='Attachments')
+
+    @api.model
+    def create(self, vals):
+        documents = super(Document, self).create(vals)
+        for document in documents:
+            if document.attachment_ids:
+                document.attachment_ids.write({'res_model': self._name, 'res_id': document.id})
+        return documents
+
+    def write(self, vals):
+        documents = super(Document, self).write(vals)
+        for document in self:
+            if document.attachment_ids:
+                document.attachment_ids.write({'res_model': self._name, 'res_id': formality.id})
+        return documents
