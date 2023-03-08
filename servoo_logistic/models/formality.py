@@ -37,6 +37,21 @@ class Formality(models.Model):
     ], string='Status', default='open')
     tax_id = fields.Many2many('account.tax', string='Taxes', context={'active_test': False})
 
+    @api.model
+    def create(self, vals):
+        formalities = super(Formality, self).create(vals)
+        for formality in formalities:
+            if formality.attachment_ids:
+                formality.attachment_ids.write({'res_model': self._name, 'res_id': formality.id})
+        return formalities
+
+    def write(self, vals):
+        formalities = super(Formality, self).write(vals)
+        for formality in self:
+            if formality.attachment_ids:
+                formality.attachment_ids.write({'res_model': self._name, 'res_id': formality.id})
+        return formalities
+
     def _compute_tax_id(self):
         for line in self:
             taxes = line.service_id.taxes_id.filtered(lambda t: t.company_id == line.env.company)

@@ -95,17 +95,18 @@ class Operation(models.Model):
         if type:
             reference += type.sequence_code if type.sequence_code else ''
         transport_mode = self.env['res.transport.mode'].search([('id', '=', vals['transport_mode_id'])])
-        if transport_mode:
-            if transport_mode.code == '10':
-                reference += "M"
-            elif transport_mode.code == "30":
-                reference += "T"
-            elif transport_mode.code == "40":
-                reference += "A"
+        if type and type.sequence_code and type.sequence_code != 'DLOG':
+            if transport_mode:
+                if transport_mode.code == '10':
+                    reference += "M"
+                elif transport_mode.code == "30":
+                    reference += "T"
+                elif transport_mode.code == "40":
+                    reference += "A"
+                elif vals['operation_type']:
+                    reference += str(vals['operation_type'][0].upper())
             elif vals['operation_type']:
                 reference += str(vals['operation_type'][0].upper())
-        elif vals['operation_type']:
-            reference += str(vals['operation_type'][0].upper())
         query = "SELECT count(*) FROM servoo_logistic_operation WHERE name LIKE '" + reference + "%'"
         self._cr.execute(query)
         res = self._cr.fetchone()

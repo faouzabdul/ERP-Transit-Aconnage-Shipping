@@ -75,11 +75,11 @@
                         <button name="action_done" states="open" type="object" string="Done" groups="servoo_logistic.logistic_group_user"/>
                         <button name="create_invoices" string="Create Invoice"
                         type="object" class="btn-primary" data-hotkey="q" groups="account.group_account_invoice"
-                        attrs="{'invisible': ['|',('state', '!=', 'open'), ('invoice_count','&gt;=',1)]}"/>
+                        attrs="{'invisible': ['|',('state', 'not in', ('open', 'done')), ('invoice_count','&gt;=',1)]}"/>
 
                         <button name="create_invoices" string="Create Invoice"
                         type="object" data-hotkey="q" groups="account.group_account_invoice"
-                        attrs="{'invisible': ['|',('state', '!=', 'open'), ('invoice_count','=',0)]}"/>
+                        attrs="{'invisible': ['|',('state', 'not in', ('open', 'done')), ('invoice_count','=',0)]}"/>
 
                         <button name="action_draft" states="cancel" type="object" string="Open" groups="servoo_logistic.logistic_group_manager"/>
                         <button name="action_cancel" states="open,done" type="object" string="Cancel" groups="servoo_logistic.logistic_group_user"/>
@@ -214,7 +214,7 @@
             <field name="res_model">servoo.logistic.operation</field>
             <field name="view_mode">tree,form</field>
             <field name="context">{}</field>
-            <field name="domain">[('state', '=', 'open'), ('invoice_count','&lt;=',1)]</field>
+            <field name="domain">[('state', 'in', ('open','done')), ('invoice_count','&lt;=',1)]</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     There is no logistic operation to invoice!
