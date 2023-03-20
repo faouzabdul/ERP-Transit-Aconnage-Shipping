@@ -40,10 +40,17 @@
             <menuitem id="logistic_invoice_menu" name="Logistic" sequence="6">
                 <menuitem id="logistic_operation_invoice_menu" action="servoo_logistic.action_operations_to_invoice" />
             </menuitem>
+            <menuitem id="menu_finance_handling_rate" name="handling Rate" action="servoo_sales.action_handling_rate" sequence="7"/>
 <!--            <menuitem id="config_menu" name="Configuration" sequence="50" groups="sale_management.group_sale_order_template">-->
 <!--                <menuitem id="sale_order_template_menu" action="sale_management.sale_order_template_action" sequence="1" name="Invoices Templates" groups="sale_management.group_sale_order_template"/>-->
 <!--            </menuitem>-->
         </menuitem>
+
+        <menuitem id="menu_sale_handling_rate"
+            name="Handling Rate"
+            parent="sale.menu_sale_config"
+            sequence="35"
+        action="servoo_sales.action_handling_rate"/>
 
     </data>
 </odoo>

@@ -16,6 +16,7 @@
                                 <span colspan="2">Available variables:</span>
                                 <span colspan="2">VOLUME: the volume</span>
                                 <span colspan="2">TONNAGE: the weight</span>
+                                <span colspan="2">HANDLING: the handling rate per tonne</span>
                                 <span colspan="2">rules: object containing the rules code (previously computed)</span>
                             </group>
                             <group>

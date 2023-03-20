@@ -23,6 +23,7 @@ class SaleOrderTemplateLine(models.Model):
                                                        #----------------------
                                                        # VOLUME: the volume                                                
                                                        # TONNAGE: The tonnage of goods
+                                                       # HANDLING: The handling rate per tonne
                                                        # rules: object containing the rules code (previously computed)
 
                                                        # Note: returned value have to be set in the variable 'result_qty'""")
@@ -31,6 +32,7 @@ class SaleOrderTemplateLine(models.Model):
                                                      #----------------------
                                                      # VOLUME: the volume
                                                      # TONNAGE: The tonnage of goods
+                                                     # HANDLING: The handling rate per tonne
                                                      # rules: object containing the rules code (previously computed)
 
                                                      # Note: returned value have to be set in the variable 'result'""")

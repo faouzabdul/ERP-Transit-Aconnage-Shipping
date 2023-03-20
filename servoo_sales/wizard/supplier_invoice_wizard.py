@@ -38,9 +38,12 @@ class WizardSupplierInvoice(models.TransientModel):
             self.account_move_id.action_post()
             # vals['invoice_date'] = datetime.now()
         elif self.account_move_id.state == 'management_control_approval':
-            state = 'in_payment'
+            state = 'posted'
         vals['state'] = state
         self.account_move_id.update(vals)
         # if self.account_move_id.state == 'accounting_approval':
         #     self.account_move_id.action_post()
+
+    def action_send_to_accounting(self):
+        self.account_move_id.update({'state': 'accounting_approval'})
 

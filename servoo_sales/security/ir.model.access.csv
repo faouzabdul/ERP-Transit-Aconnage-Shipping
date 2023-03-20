@@ -5,3 +5,5 @@ access_account_account_type,account.account.type,account.model_account_account_t
 access_account_journal_agent,account.journal,account.model_account_journal,base.group_user,1,0,0,0
 access_account_move_line_accounting,account.move.line,account.model_account_move_line,base.group_user,1,1,1,1
 servoo_sales.access_servoo_account_move_wizard,access_servoo_account_move_wizard,servoo_sales.model_servoo_account_move_wizard,base.group_user,1,1,1,1
+servoo_sales.access_servoo_handling_rate,access_servoo_handling_rate,servoo_sales.model_servoo_handling_rate,base.group_user,1,1,1,1
+servoo_sales.access_servoo_handling_rate_category,access_servoo_handling_rate_category,servoo_sales.model_servoo_handling_rate_category,base.group_user,1,1,1,1

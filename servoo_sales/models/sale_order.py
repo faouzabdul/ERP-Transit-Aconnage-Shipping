@@ -36,6 +36,8 @@ class SaleOrder(models.Model):
         ('Kribi', 'Kribi'),
         ('Tchad', 'Tchad'),
     ], string='Agency', default='Douala')
+    handling = fields.Float('Handling Rate')
+    handling_rate_id = fields.Many2one('servoo.handling.rate', 'Good Type')
 
     @api.depends('amount_total', 'currency_id')
     def _compute_display_amount_letter(self):
@@ -95,6 +97,7 @@ class SaleOrder(models.Model):
         var_dict = {
             'VOLUME': self.volume,
             'TONNAGE': self.weight,
+            'HANDLING': self.handling,
             'rules': rules
         }
         return dict(var_dict)
@@ -136,7 +139,11 @@ class SaleOrder(models.Model):
         if not is_html_empty(template.note):
             self.note = template.note
 
-    @api.onchange('weight', 'volume')
+    @api.onchange('weight', 'volume', 'handling')
     def onchange_variables(self):
         localdict = self.init_dicts()
         self._get_template_lines(self.sale_order_template_id.id, localdict)
+
+    @api.onchange('handling_rate_id')
+    def onchange_hanlding_rate(self):
+        self.handling = self.handling_rate_id.rate

@@ -39,6 +39,8 @@
                         <field name="custom_declaration_date" />
                         <field name="number_of_packages" />
                         <field name="object" colspan="4"/>
+                        <field name="handling_rate_id" />
+                        <field name="handling" />
                     </group>
                 </notebook>
             </field>

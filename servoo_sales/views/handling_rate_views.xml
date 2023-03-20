@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_servoo_handling_rate_tree">
+        <field name="name">servoo.handling.rate.tree</field>
+        <field name="model">servoo.handling.rate</field>
+        <field name="arch" type="xml">
+            <tree string="Handling Rate" editable="top">
+                <field name="name" />
+                <field name="category_id" />
+                <field name="office_code_id" />
+                <field name="operation" />
+                <field name="rate" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_handling_rate">
+        <field name="name">Handling Rate</field>
+        <field name="res_model">servoo.handling.rate</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree</field>
+    </record>
+</odoo>

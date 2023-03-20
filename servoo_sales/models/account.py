@@ -4,6 +4,7 @@
 from odoo import models, fields, api, _
 from . import utils
 from odoo.tools import is_html_empty
+from datetime import datetime
 
 
 class AccountMode(models.Model):
@@ -43,19 +44,20 @@ class AccountMode(models.Model):
     department_id = fields.Many2one('hr.department', 'Department')
     observation = fields.Text('Observation', tracking=2)
     state = fields.Selection(selection_add=[
+        ('draft', 'Draft'),
         ('direction_routing', 'Submitted'),
         ('department_approval', 'Department Approval'),
         ('direction_approval', 'Direction Approval'),
         ('accounting_approval', 'Accounting Approval'),
         ('management_control_approval', 'Management Control Approval'),
-        ('in_payment', 'In payment'),
+        ('posted', 'Posted'),
+        ('cancel', 'Cancelled'),
     ], ondelete={
         'direction_routing': 'cascade',
         'department_approval': 'cascade',
         'direction_approval': 'cascade',
         'accounting_approval': 'cascade',
-        'management_control_approval': 'cascade',
-        'in_payment': 'cascade',
+        'management_control_approval': 'cascade'
     })
     invoice_line_ids = fields.One2many(states={'draft': [('readonly', False)],
                                                'direction_routing': [('readonly', False)],
@@ -64,6 +66,7 @@ class AccountMode(models.Model):
                                                'accounting_approval': [('readonly', False)],
                                                'management_control_approval': [('readonly', False)],
                                                })
+    apm_reference = fields.Char('APM Reference')
 
     @api.depends('amount_total', 'currency_id')
     def _compute_display_amount_letter(self):
@@ -80,6 +83,37 @@ class AccountMode(models.Model):
 
     def action_submit(self):
         return self.write({'state': 'direction_routing'})
+
+    def _generate_APM_reference(self, source):
+        ref=''
+        if source[:2].isnumeric():
+            ref = str(datetime.now().year)[-2:] + 'F' + source[2:-3]
+        if ref:
+            query = "SELECT count(*) FROM account_move WHERE apm_reference LIKE '" + ref + "%'"
+            self._cr.execute(query)
+            res = self._cr.fetchone()
+            record_count = int(res[0]) + 1
+            if len(str(record_count)) == 1:
+                ref += '00'
+            elif len(str(record_count)) == 2:
+                ref += '0'
+            ref += str(record_count)
+        return ref
+
+    @api.model
+    def create(self, vals):
+        if vals.get('move_type') == 'out_invoice':
+            vals['apm_reference'] = self._generate_APM_reference(vals.get('invoice_origin'))
+        return super(AccountMode, self).create(vals)
+
+    api.model
+    def write(self, vals):
+        super(AccountMode, self).write(vals)
+        if not self.apm_reference:
+            self.apm_reference = self._generate_APM_reference(self.invoice_origin)
+        return
+
+
 
     # def _compute_line_data_for_template_change(self, line):
     #     return {

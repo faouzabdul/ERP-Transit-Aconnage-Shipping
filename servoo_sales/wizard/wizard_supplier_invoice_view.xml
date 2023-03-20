@@ -33,6 +33,37 @@
         <field name="name">Supplier Invoice</field>
         <field name="res_model">servoo.account.move.wizard</field>
         <field name="view_mode">form</field>
+         <field name="view_id" ref="wizard_supplier_invoice_form" />
+        <field name="target">new</field>
+    </record>
+
+    <record model="ir.ui.view" id="wizard_supplier_validation_form">
+        <field name="name">wizard.supplier.validation.form</field>
+        <field name="model">servoo.account.move.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Supplier Invoice Validation">
+                <sheet>
+                    <group string="Do you want to confirm the operation ?">
+                        <field name="account_move_id" invisible="1"/>
+                        <field name="state" invisible="1" />
+                    </group>
+                    <group>
+                        <field name="observation" />
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_send_to_accounting" string="Approve" type="object" class="oe_highlight" data-hotkey="q"/>
+                    <button string="Discard" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizard_supplier_validation_invoice" model="ir.actions.act_window">
+        <field name="name">Supplier Invoice</field>
+        <field name="res_model">servoo.account.move.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="wizard_supplier_validation_form" />
         <field name="target">new</field>
     </record>
 </odoo>
