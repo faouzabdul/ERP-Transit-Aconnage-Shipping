@@ -18,11 +18,13 @@ class SaleOrderTemplateLine(models.Model):
     _inherit = "sale.order.template.line"
 
     code = fields.Char('Code')
-    quantity_python_compute = fields.Char(default='result_qty = 1.0', string='Quantity formula',
+    quantity_python_compute = fields.Text(default='result_qty = 1.0', string='Quantity formula',
                                           help=""" # Available variables:
                                                        #----------------------
                                                        # VOLUME: the volume                                                
                                                        # TONNAGE: The tonnage of goods
+                                                       # QUANTITY: The quantity of goods
+                                                       # ROYALTY: The royalty rate per tonne
                                                        # HANDLING: The handling rate per tonne
                                                        # rules: object containing the rules code (previously computed)
 
@@ -32,6 +34,8 @@ class SaleOrderTemplateLine(models.Model):
                                                      #----------------------
                                                      # VOLUME: the volume
                                                      # TONNAGE: The tonnage of goods
+                                                     # QUANTITY: The quantity of goods
+                                                     # ROYALTY: The royalty rate per tonne
                                                      # HANDLING: The handling rate per tonne
                                                      # rules: object containing the rules code (previously computed)
 

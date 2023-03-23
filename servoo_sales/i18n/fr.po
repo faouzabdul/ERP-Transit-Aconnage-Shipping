@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220616\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-09 09:40+0000\n"
-"PO-Revision-Date: 2023-02-09 09:40+0000\n"
+"POT-Creation-Date: 2023-03-23 08:32+0000\n"
+"PO-Revision-Date: 2023-03-23 08:32+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,6 @@ msgstr ""
 "                    Voici l'erreur reçue :\n"
 "                    %s\n"
 "                    "
-
 #. module: servoo_sales
 #: code:addons/servoo_sales/models/sale_order_template.py:0
 #, python-format
@@ -46,7 +45,6 @@ msgstr ""
 "                Voici l'erreur reçue:\n"
 "                %s\n"
 "                "
-
 #. module: servoo_sales
 #: model:ir.model.fields,help:servoo_sales.field_sale_order_template_line__quantity_python_compute
 msgid ""
@@ -54,6 +52,8 @@ msgid ""
 "                                                       #----------------------\n"
 "                                                       # VOLUME: the volume                                                \n"
 "                                                       # TONNAGE: The tonnage of goods\n"
+"                                                       # QUANTITY: The quantity of goods\n"
+"                                                       # ROYALTY: The royalty rate per tonne\n"
 "                                                       # HANDLING: The handling rate per tonne\n"
 "                                                       # rules: object containing the rules code (previously computed)\n"
 "\n"
@@ -63,11 +63,12 @@ msgstr ""
 "                                                       #----------------------\n"
 "                                                       # VOLUME: le volume de la marchandise                                                \n"
 "                                                       # TONNAGE: Le tonnage des marchandises\n"
+"                                                       # QUANTITY: La quantité des marchandises\n"
+"                                                       # ROYALTY: Le tarif de la redevance marchandise\n"
 "                                                       # HANDLING: Le tarif de manutention par tonne\n"
 "                                                       # rules: objet contenant le code des règles (précédemment calculé)\n"
 "\n"
 "                                                       # Remarque : la valeur renvoyée doit être définie dans la variable 'result_qty'"
-
 
 #. module: servoo_sales
 #: model:ir.model.fields,help:servoo_sales.field_sale_order_template_line__amount_python_compute
@@ -76,21 +77,23 @@ msgid ""
 "                                                     #----------------------\n"
 "                                                     # VOLUME: the volume\n"
 "                                                     # TONNAGE: The tonnage of goods\n"
+"                                                     # QUANTITY: The quantity of goods\n"
+"                                                     # ROYALTY: The royalty rate per tonne\n"
 "                                                     # HANDLING: The handling rate per tonne\n"
 "                                                     # rules: object containing the rules code (previously computed)\n"
 "\n"
 "                                                     # Note: returned value have to be set in the variable 'result'"
 msgstr ""
-" # Variables disponibles:\n"
+" # Available variables:\n"
 "                                                     #----------------------\n"
 "                                                     # VOLUME: le volume de la marchandise\n"
-"                                                     # TONNAGE: Le tonnage des marchandises\n"
-"                                                     # HANDLING: Le tarif de manutention par tonne\n"
-"                                                     # rules: objet contenant le code des règles (précédemment calculé)\n"
+"                                                     # TONNAGE: Le tonnage of des marchandises\n"
+"                                                     # QUANTITY: La quantité des marchandises\n"
+"                                                     # ROYALTY: Le tarif de la redevance marchandise\n"
+"                                                     # HANDLING: Le tarif de manutention\n"
+"                                                     # rules: object containing the rules code (previously computed)\n"
 "\n"
 "                                                     # Remarque : la valeur renvoyée doit être définie dans la variable 'result'"
-
-
 #. module: servoo_sales
 #: code:addons/servoo_sales/models/utils.py:0
 #, python-format
@@ -249,12 +252,16 @@ msgid ""
 "<span colspan=\"2\">Available variables:</span>\n"
 "                                <span colspan=\"2\">VOLUME: the volume</span>\n"
 "                                <span colspan=\"2\">TONNAGE: the weight</span>\n"
+"                                <span colspan=\"2\">QUANTITY: the quantity</span>\n"
+"                                <span colspan=\"2\">ROYALTY: the royalty rate</span>\n"
 "                                <span colspan=\"2\">HANDLING: the handling rate per tonne</span>\n"
 "                                <span colspan=\"2\">rules: object containing the rules code (previously computed)</span>"
 msgstr ""
 "<span colspan=\"2\">Available variables:</span>\n"
 "                                <span colspan=\"2\">VOLUME: le volume</span>\n"
 "                                <span colspan=\"2\">TONNAGE: le tonnage</span>\n"
+"                                <span colspan=\"2\">QUANTITY: la quantité</span>\n"
+"                                <span colspan=\"2\">ROYALTY: la redevance marchandise</span>\n"
 "                                <span colspan=\"2\">HANDLING: Le tarif de manutention par tonne</span>\n"
 "                                <span colspan=\"2\">rules: objet contenant les code des règles (précédement calculées)</span>"
 
@@ -526,11 +533,15 @@ msgstr ""
 
 #. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard__create_uid
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate__create_uid
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate_category__create_uid
 msgid "Created by"
 msgstr "Créé par"
 
 #. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard__create_date
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate__create_date
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate_category__create_date
 msgid "Created on"
 msgstr "Créé le"
 
@@ -609,6 +620,8 @@ msgstr "Annuler"
 
 #. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard__display_name
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate__display_name
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate_category__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -646,6 +659,11 @@ msgid "Email:"
 msgstr ""
 
 #. module: servoo_sales
+#: model:ir.model.fields.selection,name:servoo_sales.selection__servoo_handling_rate__operation__export
+msgid "Export"
+msgstr ""
+
+#. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "FCFA"
@@ -659,16 +677,15 @@ msgstr "Type de marchandise"
 #. module: servoo_sales
 #: model:ir.actions.act_window,name:servoo_sales.action_handling_rate
 #: model:ir.model,name:servoo_sales.model_servoo_handling_rate
-#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__handling
 #: model:ir.ui.menu,name:servoo_sales.menu_sale_handling_rate
 #: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_handling_rate_tree
 msgid "Handling Rate"
-msgstr "Tarif manutention"
+msgstr "Tarif redevance"
 
 #. module: servoo_sales
 #: model:ir.model,name:servoo_sales.model_servoo_handling_rate_category
 msgid "Handling Rate Category"
-msgstr "Catégorie tarif manutention"
+msgstr "Catégorie tarif redevance"
 
 #. module: servoo_sales
 #: model:ir.module.category,description:servoo_sales.module_category_servoo_Invoice
@@ -677,8 +694,20 @@ msgstr ""
 
 #. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard__id
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate__id
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate_category__id
 msgid "ID"
 msgstr ""
+
+#. module: servoo_sales
+#: model:ir.model.fields.selection,name:servoo_sales.selection__servoo_handling_rate__operation__import
+msgid "Import"
+msgstr ""
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__include_tax_for_handling
+msgid "Include Taxes"
+msgstr "Inclure la taxe"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
@@ -722,16 +751,22 @@ msgstr ""
 
 #. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard____last_update
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate____last_update
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate_category____last_update
 msgid "Last Modified on"
 msgstr "Dernière modification le"
 
 #. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard__write_uid
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate__write_uid
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate_category__write_uid
 msgid "Last Updated by"
 msgstr "Dernière mise à jour par"
 
 #. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard__write_date
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate__write_date
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate_category__write_date
 msgid "Last Updated on"
 msgstr "Dernière mise à jour le"
 
@@ -771,7 +806,7 @@ msgstr "Approbation du contrôle de gestion"
 #: model:ir.model.fields,field_description:servoo_sales.field_account_payment__transport_means_id
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__transport_means_id
 msgid "Means of transportation"
-msgstr ""
+msgstr "Moyen de transport"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
@@ -890,6 +925,11 @@ msgid "QUOTATION"
 msgstr "DEVIS"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__quantity
+msgid "Quantity"
+msgstr "Quantité"
+
+#. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order_template_line__quantity_python_compute
 msgid "Quantity formula"
 msgstr "Formule Quantité"
@@ -905,12 +945,8 @@ msgid "Quotation Template Line"
 msgstr "Ligne Modèle de devis"
 
 #. module: servoo_sales
-#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
-msgid "Rate"
-msgstr "Taux"
-
-#. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate__rate
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
 msgid "Rate"
 msgstr "Tarif"
 
@@ -918,6 +954,11 @@ msgstr "Tarif"
 #: model:ir.ui.menu,name:servoo_sales.menu_action_move_out_receipt_type
 msgid "Receipts"
 msgstr "Reçus"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__handling
+msgid "Royalty Rate"
+msgstr "Tarif redevance"
 
 #. module: servoo_sales
 #: model:ir.model,name:servoo_sales.model_sale_order
@@ -1211,12 +1252,12 @@ msgstr "quatre"
 #: code:addons/servoo_sales/models/utils.py:0
 #, python-format
 msgid "fourteen"
-msgstr "quatorze
+msgstr "quatorze"
 
 #. module: servoo_sales
 #: model:ir.ui.menu,name:servoo_sales.menu_finance_handling_rate
 msgid "handling Rate"
-msgstr "Tarif manutention"
+msgstr "Tarif redevance"
 
 #. module: servoo_sales
 #: model:ir.module.category,description:servoo_sales.module_category_servoo_account

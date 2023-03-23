@@ -36,7 +36,9 @@ class SaleOrder(models.Model):
         ('Kribi', 'Kribi'),
         ('Tchad', 'Tchad'),
     ], string='Agency', default='Douala')
-    handling = fields.Float('Handling Rate')
+    handling = fields.Float('Royalty Rate')
+    include_tax_for_handling = fields.Boolean('Include Taxes')
+    quantity = fields.Integer('Quantity')
     handling_rate_id = fields.Many2one('servoo.handling.rate', 'Good Type')
 
     @api.depends('amount_total', 'currency_id')
@@ -98,6 +100,8 @@ class SaleOrder(models.Model):
             'VOLUME': self.volume,
             'TONNAGE': self.weight,
             'HANDLING': self.handling,
+            'ROYALTY': self.handling,
+            'QUANTITY': self.quantity,
             'rules': rules
         }
         return dict(var_dict)
@@ -139,7 +143,7 @@ class SaleOrder(models.Model):
         if not is_html_empty(template.note):
             self.note = template.note
 
-    @api.onchange('weight', 'volume', 'handling')
+    @api.onchange('weight', 'volume', 'handling', 'quantity')
     def onchange_variables(self):
         localdict = self.init_dicts()
         self._get_template_lines(self.sale_order_template_id.id, localdict)
@@ -147,3 +151,20 @@ class SaleOrder(models.Model):
     @api.onchange('handling_rate_id')
     def onchange_hanlding_rate(self):
         self.handling = self.handling_rate_id.rate
+
+    @api.onchange('include_tax_for_handling')
+    def onchange_include_tax(self):
+        if self.handling == 0.0:
+            return
+        rate = self.handling
+        if self.include_tax_for_handling:
+            rate += round(rate * 0.1925)
+        else:
+            rate = self.handling_rate_id.rate
+        self.handling = rate
+
+    def _prepare_invoice(self):
+        vals = super(SaleOrder, self)._prepare_invoice()
+        if self.origin:
+            vals['invoice_origin'] = self.origin
+        return vals

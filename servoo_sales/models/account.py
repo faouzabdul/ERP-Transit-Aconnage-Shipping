@@ -5,6 +5,9 @@ from odoo import models, fields, api, _
 from . import utils
 from odoo.tools import is_html_empty
 from datetime import datetime
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 class AccountMode(models.Model):
@@ -86,7 +89,7 @@ class AccountMode(models.Model):
 
     def _generate_APM_reference(self, source):
         ref=''
-        if source[:2].isnumeric():
+        if source and source[:2].isnumeric():
             ref = str(datetime.now().year)[-2:] + 'F' + source[2:-3]
         if ref:
             query = "SELECT count(*) FROM account_move WHERE apm_reference LIKE '" + ref + "%'"
@@ -108,10 +111,11 @@ class AccountMode(models.Model):
 
     api.model
     def write(self, vals):
-        super(AccountMode, self).write(vals)
+        # _logger.info('apm_reference : %s - invoice_origin: %s' % (self.apm_reference, self.invoice_origin))
         if not self.apm_reference:
-            self.apm_reference = self._generate_APM_reference(self.invoice_origin)
-        return
+            origin = vals['invoice_origin'] if vals.get('invoice_origin') else self.invoice_origin
+            vals['apm_reference'] = self._generate_APM_reference(origin)
+        return super(AccountMode, self).write(vals)
 
 
 
