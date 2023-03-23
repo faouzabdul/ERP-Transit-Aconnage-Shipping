@@ -1514,7 +1514,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='SCV'>
-            <field name='name'>HEAVY/BULKY PACKAGE SUPPLEMENT &lt; 4 m3</field>
+            <field name='name'>HEAVY/BULKY PACKAGE SUPPLEMENT &gt; 4 m3</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>SCV</field>
             <field name='sale_ok' eval='True'/>
@@ -1522,7 +1522,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='SCL'>
-            <field name='name'>HEAVY PACKAGE SUPPLEMENT &lt; 5T&lt; 10T</field>
+            <field name='name'>HEAVY PACKAGE SUPPLEMENT &gt; 5T&lt; 10T</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>SCL</field>
             <field name='sale_ok' eval='True'/>
@@ -1530,7 +1530,7 @@
             <field name='operation_type'>handling</field>
         </record>
         <record model='product.product' id='SCS'>
-            <field name='name'>HEAVY PACKAGE SUPPLEMENT &lt; 10T</field>
+            <field name='name'>HEAVY PACKAGE SUPPLEMENT &gt; 10T</field>
             <field name='detailed_type'>benefit</field>
             <field name='default_code'>SCS</field>
             <field name='sale_ok' eval='True'/>

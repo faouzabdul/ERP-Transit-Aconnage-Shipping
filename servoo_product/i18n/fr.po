@@ -1,0 +1,1891 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* servoo_product
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0-20220616\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-03 06:49+0000\n"
+"PO-Revision-Date: 2023-02-03 06:49+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: servoo_product
+#: model:ir.model.fields,help:servoo_product.field_product_product__detailed_type
+#: model:ir.model.fields,help:servoo_product.field_product_template__detailed_type
+msgid ""
+"A storable product is a product for which you manage stock. The Inventory app has to be installed.\n"
+"A consumable product is a product for which stock is not managed.\n"
+"A service is a non-material product you provide."
+msgstr ""
+"Un article stockable est un article dont on gère le stock. L'application \"Inventaire\" doit être installée. \n"
+"Un article consommable, par contre, est un article pour lequel le stock n'est pas géré.\n"
+"Un service est un produit immatériel que vous fournissez."
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FAD
+#: model:product.template,name:servoo_product.FAD_product_template
+msgid "ADMINISTRATIVE FEES"
+msgstr "FRAIS ADMINISTRATIFS"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.HAD
+#: model:product.template,name:servoo_product.HAD_product_template
+msgid "AGENCY FEES"
+msgstr "HONORAIRE AGREE EN DOUANE (H.A.D)"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.HAC
+#: model:product.template,name:servoo_product.HAC_product_template
+msgid "AGENCY FEES - CAMEROON"
+msgstr "FRAIS D'AGENCE - CAMEROUN"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.HAT
+#: model:product.template,name:servoo_product.HAT_product_template
+msgid "AGENCY FEES - CHAD"
+msgstr "FRAIS D'AGENCE - TCHAD"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FHA
+#: model:product.template,name:servoo_product.FHA_product_template
+msgid "AGENCY FEES - Lump sum"
+msgstr "HONORAIRE AGREE EN DOUANE - Forfait"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FRA
+#: model:product.template,name:servoo_product.FRA_product_template
+msgid "AIR FREIGHT"
+msgstr "FRET AERIEN"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.AER
+#: model:product.template,name:servoo_product.AER_product_template
+msgid "AIRPORT FEES"
+msgstr "FRAIS AEROPORTUAIRE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RAN
+#: model:product.template,name:servoo_product.RAN_product_template
+msgid "AIRPORT FEES TAX"
+msgstr "REDEVANCE AEROPORTUAIRE ADC (non taxable)"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RAT
+#: model:product.template,name:servoo_product.RAT_product_template
+msgid "AIRPORT FEES WITHOUT TAX"
+msgstr "REDEVANCE AEROPORTUAIRE ADC (taxable)"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.ADC
+#: model:product.template,name:servoo_product.ADC_product_template
+msgid "AIRPORT FEES with tax - ADC"
+msgstr "REDEVANCE ADC - non taxable"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.ADT
+#: model:product.template,name:servoo_product.ADT_product_template
+msgid "AIRPORT FEES without tax - ADC"
+msgstr "REDEVANCE ADC - taxable"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RDV
+#: model:product.template,name:servoo_product.RDV_product_template
+msgid "AIRPORT ROYALTIES"
+msgstr "REDEVANCE AEROPORTUAIRE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MID
+#: model:product.template,name:servoo_product.MID_product_template
+msgid "AVAILABLE EQUIPMENT / EQUIPMENT"
+msgstr "MISE À DISPOSITION ENGIN/MATERIELS"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MBL
+#: model:product.template,name:servoo_product.MBL_product_template
+msgid "B/L MODIFICATION FEES"
+msgstr "FRAIS DE MODIFICATION B/L"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FTO
+#: model:product.template,name:servoo_product.FTO_product_template
+msgid "BADS LATE WITHDRAWAL FEES"
+msgstr "FRAIS DE RETRAIT TARDIF BAD"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.BAE
+#: model:product.template,name:servoo_product.BAE_product_template
+msgid "BAE OBTAINING FEES"
+msgstr "FRAIS D'OBTENTION BAE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.ENS
+#: model:product.template,name:servoo_product.ENS_product_template
+msgid "BAGGING"
+msgstr "ENSACHAGE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.COB
+#: model:product.template,name:servoo_product.COB_product_template
+msgid "BANK COMMISSION"
+msgstr "COMMISSION BANQUE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.DOM
+#: model:product.template,name:servoo_product.DOM_product_template
+msgid "BANK DOMICILIATION"
+msgstr "DOMICILIATION BANCAIRE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FCA
+#: model:product.template,name:servoo_product.FCA_product_template
+msgid "BANK GUARANTEE FEES"
+msgstr "FRAIS DE CAUTIONNEMENT BANCAIRE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RSD
+#: model:product.template,name:servoo_product.RSD_product_template
+msgid "BL / TELEX RELEASE TRANSMISSION FEES"
+msgstr "FRAIS D'EMISSION OBL / TELEX RELEASE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FBL
+#: model:product.template,name:servoo_product.FBL_product_template
+msgid "BL FEES"
+msgstr "FRAIS B/L"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FBR
+#: model:product.template,name:servoo_product.FBR_product_template
+msgid "BL FEES + LIFTING"
+msgstr "FRAIS B/L + RELEVAGE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TBL
+#: model:product.product,name:servoo_product.TIC
+#: model:product.template,name:servoo_product.TBL_product_template
+#: model:product.template,name:servoo_product.TIC_product_template
+msgid "BL STAMP"
+msgstr "TIMBRE sur B/L"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.BNF
+#: model:product.template,name:servoo_product.BNF_product_template
+msgid "BNF FEES"
+msgstr "BNF"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.SPD
+#: model:product.template,name:servoo_product.SPD_product_template
+msgid "BOARDING PARK STAY – Debited"
+msgstr "SEJOUR PARC D'EMBARQUEMENT - Débités"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.SPG
+#: model:product.template,name:servoo_product.SPG_product_template
+msgid "BOARDING PARK STAY – Logs"
+msgstr "SEJOUR PARC D'EMBARQUEMENT - Grumes"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MBC
+#: model:product.template,name:servoo_product.MBC_product_template
+msgid "BORD HANDLING - Bulk"
+msgstr "MANUTENTION BORD - Conventionnel"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.ETP
+#: model:product.template,name:servoo_product.ETP_product_template
+msgid "BOTTLE STAMPING"
+msgstr "ESTAMPILLATION DES BOUTEILLES"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.SVL
+#: model:product.template,name:servoo_product.SVL_product_template
+msgid "BULKY PACKAGE SUPPLEMENT"
+msgstr "MANUT. SUPPL. COLIS VOLUMINEUX > 4 m3"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.SVV
+#: model:product.template,name:servoo_product.SVV_product_template
+msgid "BULKY VEHICLES SUPPLEMENT"
+msgstr "MANUT. SUPPL. VOLUME - Véh., … > 100 m3"
+
+#. module: servoo_product
+#: model:ir.model.fields.selection,name:servoo_product.selection__product_template__detailed_type__benefit
+#: model:ir.model.fields.selection,name:servoo_product.selection__product_template__type__benefit
+msgid "Benefit"
+msgstr "Prestations"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.PAS
+#: model:product.template,name:servoo_product.PAS_product_template
+msgid "CAR FLEET - Volume overload < 100 m³"
+msgstr ""
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.ATF
+#: model:product.template,name:servoo_product.ATF_product_template
+msgid "CERTIFICATE OF FREIGHT"
+msgstr "ATTESTATION DE FRET"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.COR
+#: model:product.template,name:servoo_product.COR_product_template
+msgid "CERTIFICATE OF ORIGIN"
+msgstr "CERTIFICAT D'ORIGINE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.COF
+#: model:product.template,name:servoo_product.COF_product_template
+msgid "CERTIFICATE OF ORIGIN - Formule A"
+msgstr "CERTIFICAT D'ORIGINE - Formule A"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.CPD
+#: model:product.template,name:servoo_product.CPD_product_template
+msgid "CHANGE OF DISCHARGING PORT"
+msgstr "CHANGEMENT DE PORT DE DESTINATION"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.CPE
+#: model:product.template,name:servoo_product.CPE_product_template
+msgid "CHANGE OF LOADING PORT"
+msgstr "CHANGEMENT DE PORT D'EMBARQUEMENT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.CDN
+#: model:product.template,name:servoo_product.CDN_product_template
+msgid "CHANGE OF VESSEL"
+msgstr "CHANGEMENT DE NAVIRE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.CIV
+#: model:product.template,name:servoo_product.CIV_product_template
+msgid "CIVIO"
+msgstr ""
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.CLR
+#: model:product.template,name:servoo_product.CLR_product_template
+msgid "CLEARANCE"
+msgstr "DEDOUANEMENT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.ADP
+#: model:product.template,name:servoo_product.ADP_product_template
+msgid "CLEARANCE & WEIGHT CERTIFICATES"
+msgstr "ATTEST. DEDOUANEMENT & POIDS"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.ATD
+#: model:product.template,name:servoo_product.ATD_product_template
+msgid "CLEARANCE CERTIFICATE"
+msgstr "ATTESTATION DE DEDOUANEMENT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FDG
+#: model:product.template,name:servoo_product.FDG_product_template
+msgid "CLEARING FEES"
+msgstr "FRAIS DE DEGROUPAGE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.CMF
+#: model:product.template,name:servoo_product.CMF_product_template
+msgid "COMMISSION / FREIGHT"
+msgstr "COMMISSION / FRET"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.CCC
+#: model:product.template,name:servoo_product.CCC_product_template
+msgid "COMMISSION PARTICIPATION CONGOLESE"
+msgstr "COMMISSION PARTICIPATION CONGOLAISE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FDT
+#: model:product.template,name:servoo_product.FDT_product_template
+msgid "CONTAINER DETENTION FEES"
+msgstr "FRAIS DE DETENTION CONTENEUR"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.REP
+#: model:product.template,name:servoo_product.REP_product_template
+msgid "CONTAINER REPAIR COST"
+msgstr "FRAIS DE REPARATION CONTENEUR"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.CON
+#: model:product.template,name:servoo_product.CON_product_template
+msgid "CONVEYING"
+msgstr "CONVOYAGE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.DDI
+#: model:product.template,name:servoo_product.DDI_product_template
+msgid "CUSTOM'S DUTIES AND TAXES"
+msgstr "DROITS ET TAXES DE DOUANES"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.PRO
+#: model:product.template,name:servoo_product.PRO_product_template
+msgid "CUSTOM'S PROTOCOL"
+msgstr "PROTOCOLE DOUANE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.VAP
+#: model:product.template,name:servoo_product.VAP_product_template
+msgid "CUSTOM'S VACATION & PHYTOSANITARY INSPECTION"
+msgstr "VACATION DOUANE ET INSPECTION PHYTO."
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.DCD
+#: model:product.template,name:servoo_product.DCD_product_template
+msgid "CUSTOMS DOCUMENTATION"
+msgstr "DOCUMENTATION DOUANIERE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.DDD
+#: model:product.template,name:servoo_product.DDD_product_template
+msgid "CUSTOMS DUSTIES (WITHOUT PRECOMPTE TE BANK CHARGES)"
+msgstr "DROITS DE DOUANES (sans précompte + frais bancaire)"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.DDF
+#: model:product.template,name:servoo_product.DDF_product_template
+msgid "CUSTOMS DUTIES + Bank fees"
+msgstr "DROITS DE DOUANES + Frais bancaires"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.DDG
+#: model:product.template,name:servoo_product.DDG_product_template
+msgid "CUSTOMS DUTIES + GUCE & BANK fees"
+msgstr "DROITS DE DOUANE + FICHE GUCE + Frais bancaires"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.ESD
+#: model:product.template,name:servoo_product.ESD_product_template
+msgid "CUSTOMS ESCORT"
+msgstr "ESCORTE DOUANE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FDD
+#: model:product.product,name:servoo_product.FDO
+#: model:product.template,name:servoo_product.FDD_product_template
+#: model:product.template,name:servoo_product.FDO_product_template
+msgid "CUSTOMS FORMALITIES"
+msgstr "FORMALITES DOUANIERES"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RAP
+#: model:product.template,name:servoo_product.RAP_product_template
+msgid "CUSTOMS LOADING REPORT"
+msgstr "RAPPORT DE CHARGEMENT DOUANE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.ADE
+#: model:product.template,name:servoo_product.ADE_product_template
+msgid "CUSTOMS PENALTY"
+msgstr "AMENDE DOUANE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.VAC
+#: model:product.template,name:servoo_product.VAC_product_template
+msgid "CUSTOMS VACATION"
+msgstr "VACATION DOUANE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.VIS
+#: model:product.template,name:servoo_product.VIS_product_template
+msgid "CUSTOMS VISIT"
+msgstr "VISITE DOUANE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FDI
+#: model:product.template,name:servoo_product.FDI_product_template
+msgid "D.I FEES"
+msgstr "FRAIS DE D.I"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MDG
+#: model:product.template,name:servoo_product.MDG_product_template
+msgid "DANGEROUS PRODUCTS INCREASE"
+msgstr "MAJORATION PRODUITS DANGEREUX"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.GPG
+#: model:product.template,name:servoo_product.GPG_product_template
+msgid "DECONSOLIDATION FEES"
+msgstr "DEBOURS DEGROUPAGE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.DGP
+#: model:product.template,name:servoo_product.DGP_product_template
+msgid "DECONSOLIDATION FEES - with taxes"
+msgstr "DEBOURS DEGROUPAGE - Taxable"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.DGE
+#: model:product.template,name:servoo_product.DGE_product_template
+msgid "DECONSOLIDATION FEES - without taxes"
+msgstr "DEBOURS DEGROUPAGE - Non taxable"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RIS
+#: model:product.template,name:servoo_product.RIS_product_template
+msgid "DEDUCTION IS supplement collected"
+msgstr "RETENUE IS supplément perçu"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.AED
+#: model:product.template,name:servoo_product.AED_product_template
+msgid "DEFINITIVE ATTESTATION OF EXPORTATION"
+msgstr "ATTESTATION DEFINITIVE D'EXPORTATION"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.LIV
+#: model:product.template,name:servoo_product.LIV_product_template
+msgid "DELIVERY"
+msgstr "LIVRAISON"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RSL
+#: model:product.template,name:servoo_product.RSL_product_template
+msgid "DELIVERY DISCOUNT"
+msgstr "REMISE LIVRAISON"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.SUR
+#: model:product.template,name:servoo_product.SUR_product_template
+msgid "DEMURRAGES"
+msgstr "SURESTARIES"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.DEP
+#: model:product.template,name:servoo_product.DEP_product_template
+msgid "DESTUFFING"
+msgstr "DEPOTAGE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.EDI
+#: model:product.template,name:servoo_product.EDI_product_template
+msgid "DIRECT CLEARING FEES"
+msgstr "ENLÈVEMENT DIRECT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FED
+#: model:product.template,name:servoo_product.FED_product_template
+msgid "DIRECT CLEARING FORMALITIES"
+msgstr "FORMALITES D'ENLEVEMENT DIRECT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RMS
+#: model:product.template,name:servoo_product.RMS_product_template
+msgid "DISCOUNT 25% - Cargo in transit"
+msgstr "REMISE 25% - Cargaison en transit"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RPO
+#: model:product.template,name:servoo_product.RPO_product_template
+msgid "DISCOUNT ON POSITIONING"
+msgstr "REMISE SUR POSITIONNEMENT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.COV
+#: model:product.template,name:servoo_product.COV_product_template
+msgid "DIT COVID TEST FEES"
+msgstr "FRAIS DE COVID DIT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FRD
+#: model:product.template,name:servoo_product.FRD_product_template
+msgid "DOCUMENTARY DELIVERY FEES"
+msgstr "FRAIS DE REMISE DOCUMENTAIRE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.DCM
+#: model:product.template,name:servoo_product.DCM_product_template
+msgid "DOCUMENTATION"
+msgstr ""
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.DOC
+#: model:product.template,name:servoo_product.DOC_product_template
+msgid "DOCUMENTATION & COMMUNICATION"
+msgstr ""
+
+#. module: servoo_product
+#: model:ir.model.fields.selection,name:servoo_product.selection__product_template__detailed_type__disbursement
+#: model:ir.model.fields.selection,name:servoo_product.selection__product_template__type__disbursement
+msgid "Disbursement"
+msgstr "Débours"
+
+#. module: servoo_product
+#: model:ir.model.fields.selection,name:servoo_product.selection__product_template__detailed_type__disbursement_benefit
+#: model:ir.model.fields.selection,name:servoo_product.selection__product_template__type__disbursement_benefit
+msgid "Disbursement + Benefit"
+msgstr "Débours + Presta"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.BES
+#: model:product.template,name:servoo_product.BES_product_template
+msgid "E.C.T.N"
+msgstr "B.E.S.C"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.GRU
+#: model:product.template,name:servoo_product.GRU_product_template
+msgid "EARTH CRANE RENTAL"
+msgstr "LOCATION GRUE TERRE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FSO
+#: model:product.template,name:servoo_product.FSO_product_template
+msgid "EXIT FEES"
+msgstr "FRAIS DE SORTIE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.POS
+#: model:product.template,name:servoo_product.POS_product_template
+msgid "EXPORT POSITIONING"
+msgstr "POSITIONNEMENT EXPORT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.PTP
+#: model:product.template,name:servoo_product.PTP_product_template
+msgid "EXPORT POSITIONING AND TRANSPORTATION"
+msgstr "POSITIONNEMENT ET TRANSPORT TCs PLEINS"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TED
+#: model:product.template,name:servoo_product.TED_product_template
+msgid "EXTRA LEGAL WORK DIRECT REMOVAL"
+msgstr "TEL ENLÈVEMENT DIRECT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TEP
+#: model:product.template,name:servoo_product.TEP_product_template
+msgid "EXTRA LEGAL WORK REMOVAL UNDER PLAN"
+msgstr "TEL ENLÈVEMENT SOUS PLAN"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TDV
+#: model:product.template,name:servoo_product.TDV_product_template
+msgid "EXTRA LEGAL WORK REQUEST FOR VALIDATION"
+msgstr "TEL DEMANDE DE VALIDATION"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TDT
+#: model:product.template,name:servoo_product.TDT_product_template
+msgid "EXTRA LEGAL WORK TARIFF DECOMMISSIONING"
+msgstr "TEL DÉCLASSEMENT TARIFAIRE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TEL
+#: model:product.template,name:servoo_product.TEL_product_template
+msgid "EXTRA LEGAL WORK/CUSTOMS"
+msgstr "T.E.L DOUANE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.POR
+#: model:product.template,name:servoo_product.POR_product_template
+msgid "EXTRA PORTAGE"
+msgstr ""
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.COM
+#: model:product.template,name:servoo_product.COM_product_template
+msgid "FEES ON DISBURSEMENTS"
+msgstr "COMMISSIONS SUR DEBOURS"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.COD
+#: model:product.template,name:servoo_product.COD_product_template
+msgid "FEES ON DISBURSEMENTS 2%"
+msgstr "COMMISSIONS SUR DEBOURS 2%"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.DOS
+#: model:product.template,name:servoo_product.DOS_product_template
+msgid "FILE OPENING"
+msgstr "FRAIS DE DOSSIER"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FFI
+#: model:product.template,name:servoo_product.FFI_product_template
+msgid "FILE OPENING FEES"
+msgstr "FRAIS FIXES D'OUVERTURE DE DOSSIER"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FDB
+#: model:product.template,name:servoo_product.FDB_product_template
+msgid "FILES FEES + STAMP ON BL"
+msgstr "FRAIS DE DOSSIER + TIMBRE SUR BL"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FXS
+#: model:product.template,name:servoo_product.FXS_product_template
+msgid "FIXED FEES"
+msgstr "FRAIS FIXES"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.EAF
+#: model:product.template,name:servoo_product.EAF_product_template
+msgid "FREIGHT ATTESTATION ISSUE FEES"
+msgstr "FRAIS D'EMISSION D'ATTESTATION DE FRET"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RFR
+#: model:product.template,name:servoo_product.RFR_product_template
+msgid "FREIGHT DISCOUNT"
+msgstr "REMISE SUR FRET"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RDF
+#: model:product.template,name:servoo_product.RDF_product_template
+msgid "FRONTIER CUSTOMS FEE"
+msgstr "REDEVANCE DOUANE FRONTIÈRE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FUG
+#: model:product.template,name:servoo_product.FUG_product_template
+msgid "FUMIGATION"
+msgstr ""
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.LTA
+#: model:product.template,name:servoo_product.LTA_product_template
+msgid "GOOD ON AWB"
+msgstr "BON SUR LTA"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.CCL
+#: model:product.template,name:servoo_product.CCL_product_template
+msgid "GOODS MOVMENT CERTIFICATE - CEMAC"
+msgstr "CERTIFICAT CIRCULATION - CEMAC"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.CCE
+#: model:product.template,name:servoo_product.CCE_product_template
+msgid "GOODS MOVMENT CERTIFICATE - EUR. 1"
+msgstr "CERTIFICAT CIRCULATION - EUR. 1"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.GPS
+#: model:product.template,name:servoo_product.GPS_product_template
+msgid "GPS FORMALITIES"
+msgstr "FORMALITES GPS"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.GUC
+#: model:product.product,name:servoo_product.GUS
+#: model:product.template,name:servoo_product.GUC_product_template
+#: model:product.template,name:servoo_product.GUS_product_template
+msgid "GUCE FEES"
+msgstr "FICHE GUCE + SAISIE"
+
+#. module: servoo_product
+#: model:ir.model.fields.selection,name:servoo_product.selection__product_template__detailed_type__guarantee
+#: model:ir.model.fields.selection,name:servoo_product.selection__product_template__type__guarantee
+msgid "Guarantee"
+msgstr "Caution"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.LRE
+#: model:product.template,name:servoo_product.LRE_product_template
+msgid "HAMARLIFT LIFTING"
+msgstr "RELEVAGE HAMARLIFT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MAN
+#: model:product.template,name:servoo_product.MAN_product_template
+msgid "HANDLING"
+msgstr "handling"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MRL
+#: model:product.template,name:servoo_product.MRL_product_template
+msgid "HANDLING & LIFTING"
+msgstr "MANUTENTION & RELEVAGE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MTR
+#: model:product.template,name:servoo_product.MTR_product_template
+msgid "HANDLING & TRANSPORT"
+msgstr "MANUTENTION & TRANSPORT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MAP
+#: model:product.template,name:servoo_product.MAP_product_template
+msgid "HANDLING 40F/kg - Min. perception"
+msgstr "MANUTENTION 40F/kg - Min. percept."
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MNP
+#: model:product.template,name:servoo_product.MNP_product_template
+msgid "HANDLING WITH HAMMARLIFT"
+msgstr "MANIPULATION AVEC HAMMARLIFT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.SCS
+#: model:product.template,name:servoo_product.SCS_product_template
+msgid "HEAVY PACKAGE SUPPLEMENT > 10T"
+msgstr "MANUT. SUPPL. COLIS LOURDS > 10T"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.SCL
+#: model:product.template,name:servoo_product.SCL_product_template
+msgid "HEAVY PACKAGE SUPPLEMENT > 5T< 10T"
+msgstr "MANUT. SUPPL. COLIS LOURDS > 5T< 10T"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.SCV
+#: model:product.template,name:servoo_product.SCV_product_template
+msgid "HEAVY/BULKY PACKAGE SUPPLEMENT > 4 m3"
+msgstr "MANUT. SUPPL. COLIS VOLUMINEUX > 4 m3"
+
+#. module: servoo_product
+#: model:ir.model.fields.selection,name:servoo_product.selection__product_product__operation_type__handling
+msgid "Handling"
+msgstr "Manutention"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RDI
+#: model:product.template,name:servoo_product.RDI_product_template
+msgid "I.T FEE"
+msgstr "REDEVANCE INFORMATIQUE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FPL
+#: model:product.template,name:servoo_product.FPL_product_template
+msgid "LEAD FEES"
+msgstr "FRAIS DE PLOMB"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.REL
+#: model:product.template,name:servoo_product.REL_product_template
+msgid "LIFTING"
+msgstr "RELEVAGE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RLV
+#: model:product.template,name:servoo_product.RLV_product_template
+msgid "LIFTING - 20'"
+msgstr "RELEVAGE - 20'"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RLF
+#: model:product.template,name:servoo_product.RLF_product_template
+msgid "LIFTING - 40'"
+msgstr "RELEVAGE - 40'"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RLC
+#: model:product.template,name:servoo_product.RLC_product_template
+msgid "LIFTING - Bulk"
+msgstr "RELEVAGE - Conventionnel"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.LIQ
+#: model:product.template,name:servoo_product.LIQ_product_template
+msgid "LIQUIDATION"
+msgstr ""
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.AUE
+#: model:product.template,name:servoo_product.AUE_product_template
+msgid "LOADING AUTHORIZATION"
+msgstr "AUTORISATION D'EMBARQUEMENT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.ASS
+#: model:product.template,name:servoo_product.ASS_product_template
+msgid "LOCAL INSURANCE"
+msgstr "ASSURANCE LOCALE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FOR
+#: model:product.template,name:servoo_product.FOR_product_template
+msgid "LUMP SUM"
+msgstr "FORFAIT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.LVI
+#: model:product.template,name:servoo_product.LVI_product_template
+msgid "LVI FEES"
+msgstr "LVI"
+
+#. module: servoo_product
+#: model:ir.model.fields.selection,name:servoo_product.selection__product_product__operation_type__logistic
+msgid "Logistic"
+msgstr "Logistique"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RBL
+#: model:product.template,name:servoo_product.RBL_product_template
+msgid "MANIFEST CORRECTION FEES"
+msgstr "FRAIS DE CORRECTION DE MANIFESTE / BLs"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MDE
+#: model:product.template,name:servoo_product.MDE_product_template
+msgid "MOBILIZATION/DEMOBILIZATION LIVESTOCK MACHINE"
+msgstr "MOBILISATION/DEMOBILISATION ENGIN D'ELEVAGE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.DCH
+#: model:product.template,name:servoo_product.DCH_product_template
+msgid "OFFLOADING"
+msgstr "DECHARGEMENT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MBO
+#: model:product.template,name:servoo_product.MBO_product_template
+msgid "ON BOARD HANDLING"
+msgstr "MANUTENTION BORD"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MBT
+#: model:product.template,name:servoo_product.MBT_product_template
+msgid "ON BOARD HANDLING - 20'"
+msgstr "MANUTENTION BORD - 20'"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MBF
+#: model:product.template,name:servoo_product.MBF_product_template
+msgid "ON BOARD HANDLING - 40'"
+msgstr "MANUTENTION BORD - 40'"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.DEA
+#: model:product.template,name:servoo_product.DEA_product_template
+msgid "OTHER DISBURSEMENTS"
+msgstr "DEBOURS AUTRES"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.20S
+#: model:product.template,name:servoo_product.20S_product_template
+msgid "OVERWEIGHT INCREASE - 20' < 15 T"
+msgstr ""
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.40S
+#: model:product.template,name:servoo_product.40S_product_template
+msgid "OVERWEIGHT INCREASE - 40' < 24 T"
+msgstr ""
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MAJ
+#: model:product.template,name:servoo_product.MAJ_product_template
+msgid "OVERWEIGHT INCREASE – TC"
+msgstr "MAJORATION SURPOIDS - TC"
+
+#. module: servoo_product
+#: model:ir.model.fields,field_description:servoo_product.field_product_product__operation_type
+msgid "Operation"
+msgstr "Opération"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.CEM
+#: model:product.template,name:servoo_product.CEM_product_template
+msgid "PACKING CERTIFICATE"
+msgstr "CERTIFICAT D'EMPOTAGE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.PAD
+#: model:product.template,name:servoo_product.PAD_product_template
+msgid "PAD FEES"
+msgstr "REDEVANCE PAD"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RSV
+#: model:product.template,name:servoo_product.RSV_product_template
+msgid "PAD FEES - Empty bags"
+msgstr "REDEVANCE PAD - Sacs vides"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.PAK
+#: model:product.template,name:servoo_product.PAK_product_template
+msgid "PAK FEES"
+msgstr "REDEVANCE PAK"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.CDC
+#: model:product.product,name:servoo_product.REM
+#: model:product.template,name:servoo_product.CDC_product_template
+#: model:product.template,name:servoo_product.REM_product_template
+msgid "PAPER WORK"
+msgstr "REMISE DOCUMENTAIRE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TRS
+#: model:product.template,name:servoo_product.TRS_product_template
+msgid "PARK TRANSFER"
+msgstr "TRANSFERT AU PARC"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RSA
+#: model:product.template,name:servoo_product.RSA_product_template
+msgid "PARKING DISCOUNT STEVEDORE"
+msgstr "REMISE STATIONNEMENT ACCONIER"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.CPH
+#: model:product.template,name:servoo_product.CPH_product_template
+msgid "PHYTOSANITARY CERTIFICATE"
+msgstr "CERTIFICAT PHYTOSANITAIRE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.THY
+#: model:product.template,name:servoo_product.THY_product_template
+msgid "PHYTOSANITARY TAX"
+msgstr "TAXE PHYTOSANITAIRE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FBD
+#: model:product.template,name:servoo_product.FBD_product_template
+msgid "PLUGING FEES - DIT"
+msgstr "FRAIS DE BRANCHEMENT - DIT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.ESC
+#: model:product.template,name:servoo_product.ESC_product_template
+msgid "POLICE ESCORT"
+msgstr "ESCORTE GENDARMERIE / POLICE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.DPT
+#: model:product.template,name:servoo_product.DPT_product_template
+msgid "PORT DOCUMENTATION"
+msgstr "DOCUMENTATION PORTUAIRE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FPO
+#: model:product.template,name:servoo_product.FPO_product_template
+msgid "PORT FEES"
+msgstr "FRAIS PORTUAIRE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.PGT
+#: model:product.template,name:servoo_product.PGT_product_template
+msgid "PRESTATIONS GESTIO. PARC AUTO"
+msgstr ""
+
+#. module: servoo_product
+#: model:ir.model,name:servoo_product.model_product_product
+msgid "Product"
+msgstr "Article"
+
+#. module: servoo_product
+#: model:ir.model,name:servoo_product.model_product_template
+msgid "Product Template"
+msgstr "Modèle d'article"
+
+#. module: servoo_product
+#: model:ir.model.fields,field_description:servoo_product.field_product_product__detailed_type
+#: model:ir.model.fields,field_description:servoo_product.field_product_template__detailed_type
+msgid "Product Type"
+msgstr "Type d'article"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RCT
+#: model:product.template,name:servoo_product.RCT_product_template
+msgid "RECEIPT OF TCs ON OUR SITE"
+msgstr "RECEPTION DES TCs SUR NOTRE SITE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.REC
+#: model:product.template,name:servoo_product.REC_product_template
+msgid "RECONDITIONING BAGS DISCHARGED"
+msgstr "RECONDITIONNEMENT SACS DÉCHIRÉS"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.AIT
+#: model:product.template,name:servoo_product.AIT_product_template
+msgid "REGISTRATION CERTIFICATE. TEMPORARY"
+msgstr "ATTESTATION IMMATRICUL. TEMPORAIRE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.LOE
+#: model:product.template,name:servoo_product.LOE_product_template
+msgid "RENTAL ENGINE"
+msgstr "LOCATION ENGINS"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.LOP
+#: model:product.template,name:servoo_product.LOP_product_template
+msgid "RENTAL LOADING SHOVEL"
+msgstr "LOCATION PELLE CHARGEUSE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.LES
+#: model:product.template,name:servoo_product.LES_product_template
+msgid "RENTAL SPACE"
+msgstr "LOCATION ESPACE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.LOG
+#: model:product.template,name:servoo_product.LOG_product_template
+msgid "RENTAL TRUCK / ENGINE"
+msgstr "LOCATION CAMION / ENGIN"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.LOR
+#: model:product.template,name:servoo_product.LOR_product_template
+msgid "RENTAL TUGBOAT"
+msgstr "LOCATION REMORQUEUR"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RVM
+#: model:product.template,name:servoo_product.RVM_product_template
+msgid "RETURN OF EMPTY CONTAINER"
+msgstr "RELEVAGE TC VIDE AU PARC À CONTENEURS"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TSA
+#: model:product.template,name:servoo_product.TSA_product_template
+msgid "SANITARY TAX"
+msgstr "TAXE SANITAIRE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RSC
+#: model:product.template,name:servoo_product.RSC_product_template
+msgid "SCANNER FEE + PROTOCOL + Bank charges"
+msgstr "REDEVANCE SCANNER + PROTOCOLE + Frais bancaires"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FRT
+#: model:product.template,name:servoo_product.FRT_product_template
+msgid "SEA FREIGHT"
+msgstr "FRET MARITIME"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.PES
+#: model:product.template,name:servoo_product.PES_product_template
+msgid "SEPBC PENALTIES AND CARE"
+msgstr "PEINES ET SOINS SEPBC"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.SCA
+#: model:product.template,name:servoo_product.SCA_product_template
+msgid "SGS SCANNER"
+msgstr ""
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MTF
+#: model:product.template,name:servoo_product.MTF_product_template
+msgid "SHORE HADLING - 20'"
+msgstr "MANUTENTION TERRE - 20'"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MFF
+#: model:product.template,name:servoo_product.MFF_product_template
+msgid "SHORE HADLING - 40'"
+msgstr "MANUTENTION TERRE - 40'"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MTC
+#: model:product.template,name:servoo_product.MTC_product_template
+msgid "SHORE HADLING - Bulk"
+msgstr "MANUTENTION TERRE - Conventionnel"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MPR
+#: model:product.template,name:servoo_product.MPR_product_template
+msgid "SHORE HADLING - Spare parts"
+msgstr "MANUTENTION TERRE - Accessoires/Pcs rechange"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MEN
+#: model:product.template,name:servoo_product.MEN_product_template
+msgid "SHORE HADLING - Vehicles, …"
+msgstr "MANUTENTION TERRE - Véhicules / Engins …"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MVH
+#: model:product.template,name:servoo_product.MVH_product_template
+msgid "SHORE HADLING - vehicle < 50 m3"
+msgstr ""
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MVE
+#: model:product.template,name:servoo_product.MVE_product_template
+msgid "SHORE HADLING - vehicle <= 15 m3"
+msgstr "MANUTENTION TERRE - véh./engin <= 15 m3"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MVS
+#: model:product.template,name:servoo_product.MVS_product_template
+msgid "SHORE HADLING - vehicle <= 50 m3"
+msgstr "MANUTENTION TERRE - véh./engin <= 50 m3"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MTE
+#: model:product.template,name:servoo_product.MTE_product_template
+msgid "SHORE HANDLING"
+msgstr "MANUTENTION TERRE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TPA
+#: model:product.template,name:servoo_product.TPA_product_template
+msgid "SOCOMAR CAR FLEET TRANSFER"
+msgstr "TRANSFERT PARC AUTOS SOCOMAR"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RHA
+#: model:product.template,name:servoo_product.RHA_product_template
+msgid "SPECIAL DISCOUNT ON HAD"
+msgstr "REMISE SPECIALE SUR HAD"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TIM
+#: model:product.template,name:servoo_product.TIM_product_template
+msgid "STAMP"
+msgstr "TIMBRE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TCG
+#: model:product.template,name:servoo_product.TCG_product_template
+msgid "STAMP ON GRAY CARD"
+msgstr "TIMBRE SUR CARTE GRISE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.ACO
+#: model:product.template,name:servoo_product.ACO_product_template
+msgid "STEVEDORING"
+msgstr "ACCONAGE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.ARD
+#: model:product.template,name:servoo_product.ARD_product_template
+msgid "STEVEDORING + LIFTING"
+msgstr "ACCONAGE + RELEVAGE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.STD
+#: model:product.template,name:servoo_product.STD_product_template
+msgid "STORAGE DIT"
+msgstr "STATIONNEMENT DIT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.RDS
+#: model:product.template,name:servoo_product.RDS_product_template
+msgid "STORAGE FEES"
+msgstr "REDEVANCE STOCKAGE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.STP
+#: model:product.template,name:servoo_product.STP_product_template
+msgid "STORAGE PAD"
+msgstr "STATIONNEMENT PAD"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.STA
+#: model:product.template,name:servoo_product.STA_product_template
+msgid "STORAGE STEVEDORE"
+msgstr "STATIONNEMENT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TRM
+#: model:product.template,name:servoo_product.TRM_product_template
+msgid "STORE TRANSFER"
+msgstr "TRANSFERT MAGASIN"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TMM
+#: model:product.template,name:servoo_product.TMM_product_template
+msgid "STORE TRANSFER 40F/kg - Min. perception"
+msgstr "TRANSFERT MAGASIN 40F/kg - Min. percept."
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.EMP
+#: model:product.product,name:servoo_product.STU
+#: model:product.template,name:servoo_product.EMP_product_template
+#: model:product.template,name:servoo_product.STU_product_template
+msgid "STUFFING"
+msgstr "EMPOTAGE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.SMB
+#: model:product.template,name:servoo_product.SMB_product_template
+msgid "SUPPLEMENT MANUT. BORD"
+msgstr ""
+
+#. module: servoo_product
+#: model:ir.model.fields.selection,name:servoo_product.selection__product_product__operation_type__shipping
+msgid "Shipping"
+msgstr "Shipping"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.IMP
+#: model:product.template,name:servoo_product.IMP_product_template
+msgid "TAXES (Gray card mutation + Stamp on gray card)"
+msgstr "IMPÔTS (Mutation carte grise + Droits timbre)"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.VDR
+#: model:product.template,name:servoo_product.VDR_product_template
+msgid "TC RESIDUAL VALUE"
+msgstr "VALEUR DE RESIDUELLE TC"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TEX
+#: model:product.template,name:servoo_product.TEX_product_template
+msgid "TEL EXO DUTY AND CUSTOMS TAX"
+msgstr "TEL EXO DROIT ET TAXE DE DOUANE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FTR
+#: model:product.template,name:servoo_product.FTR_product_template
+msgid "TELEX RELEASE FEES"
+msgstr "FRAIS DE TELEX RELEASE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.DIT
+#: model:product.template,name:servoo_product.DIT_product_template
+msgid "TERMINAL HANDLING CHARGES - DIT"
+msgstr "MANUTENTION + RELEGAGE -DIT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.THC
+#: model:product.template,name:servoo_product.THC_product_template
+msgid "THC"
+msgstr ""
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TTM
+#: model:product.template,name:servoo_product.TTM_product_template
+msgid "TMFD CAR FLEET TRANSFER"
+msgstr "TRANSFERT PARC AUTOS TMFD"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TRF
+#: model:product.template,name:servoo_product.TRF_product_template
+msgid "TRANSFER"
+msgstr "TRANSFERT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FTS
+#: model:product.template,name:servoo_product.FTS_product_template
+msgid "TRANSFER FEES - Car fleet. SOCOMAR"
+msgstr "FRAIS DE TRANSFERT - Parc auto. SOCOMAR"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TTR
+#: model:product.template,name:servoo_product.TTR_product_template
+msgid "TRANSIT DOCUMENT"
+msgstr "TITRE DE TRANSIT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TRN
+#: model:product.template,name:servoo_product.TRN_product_template
+msgid "TRANSIT FEES"
+msgstr "FRAIS DE TRANSIT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FRM
+#: model:product.template,name:servoo_product.FRM_product_template
+msgid "TRANSIT FORMALITIES"
+msgstr "FORMALITES DE TRANSIT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FOT
+#: model:product.template,name:servoo_product.FOT_product_template
+msgid "TRANSIT FORMALITIES (T.E.L douane)"
+msgstr "FORMALITES DE TRANSIT (T.E.L douane)"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TRA
+#: model:product.template,name:servoo_product.TRA_product_template
+msgid "TRANSPORT"
+msgstr ""
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TRL
+#: model:product.template,name:servoo_product.TRL_product_template
+msgid "TRANSPORT - DELIVERY"
+msgstr "TRANSPORT - LIVRAISON"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TND
+#: model:product.template,name:servoo_product.TND_product_template
+msgid "TRANSPORT - FOT"
+msgstr "TRANSPORT - non déchargé"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.CTR
+#: model:product.template,name:servoo_product.CTR_product_template
+msgid "TRANSPORT COMMISSION"
+msgstr "COMMISSION SUR TRANSPORT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TTP
+#: model:product.template,name:servoo_product.TTP_product_template
+msgid "TRANSPORT STAMP"
+msgstr "TIMBRE DE TRANSPORT"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.THM
+#: model:product.template,name:servoo_product.THM_product_template
+msgid "TRANSPORT with Self loader"
+msgstr "TRANSPORT avec Hammarlift"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.TCP
+#: model:product.template,name:servoo_product.TCP_product_template
+msgid "TRANSPORT with low-bed"
+msgstr "TRANSPORT avec Porte-char"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.IMO
+#: model:product.template,name:servoo_product.IMO_product_template
+msgid "TRUCK IMMOBILISATION"
+msgstr "IMMOBILISATION CAMION / REMORQUE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.DCC
+#: model:product.template,name:servoo_product.DCC_product_template
+msgid "TRUCK UNLOADING"
+msgstr "DECHARGEMENT CAMION"
+
+#. module: servoo_product
+#: model:ir.model.fields.selection,name:servoo_product.selection__product_product__operation_type__transit
+msgid "Transit"
+msgstr "Transit"
+
+#. module: servoo_product
+#: model:ir.model.fields,field_description:servoo_product.field_product_product__type
+#: model:ir.model.fields,field_description:servoo_product.field_product_template__type
+msgid "Type"
+msgstr ""
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.ESP
+#: model:product.template,name:servoo_product.ESP_product_template
+msgid "UNDERHOIST REMOVAL"
+msgstr "ENLEVEMENT SOUS-PALAN"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MJC
+#: model:product.template,name:servoo_product.MJC_product_template
+msgid "UPDATE TAXPAYER CARD"
+msgstr "MISE À JOUR CARTE CONTRIBUABLE"
+
+#. module: servoo_product
+#: model:product.product,uom_name:servoo_product.20S
+#: model:product.product,uom_name:servoo_product.40S
+#: model:product.product,uom_name:servoo_product.ACO
+#: model:product.product,uom_name:servoo_product.ADC
+#: model:product.product,uom_name:servoo_product.ADE
+#: model:product.product,uom_name:servoo_product.ADP
+#: model:product.product,uom_name:servoo_product.ADT
+#: model:product.product,uom_name:servoo_product.AED
+#: model:product.product,uom_name:servoo_product.AER
+#: model:product.product,uom_name:servoo_product.AIT
+#: model:product.product,uom_name:servoo_product.ARD
+#: model:product.product,uom_name:servoo_product.ASS
+#: model:product.product,uom_name:servoo_product.ATD
+#: model:product.product,uom_name:servoo_product.ATF
+#: model:product.product,uom_name:servoo_product.ATP
+#: model:product.product,uom_name:servoo_product.AUE
+#: model:product.product,uom_name:servoo_product.AVV
+#: model:product.product,uom_name:servoo_product.BAE
+#: model:product.product,uom_name:servoo_product.BES
+#: model:product.product,uom_name:servoo_product.BNF
+#: model:product.product,uom_name:servoo_product.CCC
+#: model:product.product,uom_name:servoo_product.CCE
+#: model:product.product,uom_name:servoo_product.CCL
+#: model:product.product,uom_name:servoo_product.CDC
+#: model:product.product,uom_name:servoo_product.CDN
+#: model:product.product,uom_name:servoo_product.CEM
+#: model:product.product,uom_name:servoo_product.CIV
+#: model:product.product,uom_name:servoo_product.CLR
+#: model:product.product,uom_name:servoo_product.CMF
+#: model:product.product,uom_name:servoo_product.COB
+#: model:product.product,uom_name:servoo_product.COD
+#: model:product.product,uom_name:servoo_product.COF
+#: model:product.product,uom_name:servoo_product.COM
+#: model:product.product,uom_name:servoo_product.CON
+#: model:product.product,uom_name:servoo_product.COR
+#: model:product.product,uom_name:servoo_product.COV
+#: model:product.product,uom_name:servoo_product.CPD
+#: model:product.product,uom_name:servoo_product.CPE
+#: model:product.product,uom_name:servoo_product.CPH
+#: model:product.product,uom_name:servoo_product.CTR
+#: model:product.product,uom_name:servoo_product.DCC
+#: model:product.product,uom_name:servoo_product.DCD
+#: model:product.product,uom_name:servoo_product.DCH
+#: model:product.product,uom_name:servoo_product.DCM
+#: model:product.product,uom_name:servoo_product.DDD
+#: model:product.product,uom_name:servoo_product.DDF
+#: model:product.product,uom_name:servoo_product.DDG
+#: model:product.product,uom_name:servoo_product.DDI
+#: model:product.product,uom_name:servoo_product.DEA
+#: model:product.product,uom_name:servoo_product.DEP
+#: model:product.product,uom_name:servoo_product.DGE
+#: model:product.product,uom_name:servoo_product.DGP
+#: model:product.product,uom_name:servoo_product.DIT
+#: model:product.product,uom_name:servoo_product.DOC
+#: model:product.product,uom_name:servoo_product.DOM
+#: model:product.product,uom_name:servoo_product.DOS
+#: model:product.product,uom_name:servoo_product.DPT
+#: model:product.product,uom_name:servoo_product.DSV
+#: model:product.product,uom_name:servoo_product.EAF
+#: model:product.product,uom_name:servoo_product.EDI
+#: model:product.product,uom_name:servoo_product.EMP
+#: model:product.product,uom_name:servoo_product.ENS
+#: model:product.product,uom_name:servoo_product.ESC
+#: model:product.product,uom_name:servoo_product.ESD
+#: model:product.product,uom_name:servoo_product.ESP
+#: model:product.product,uom_name:servoo_product.ETP
+#: model:product.product,uom_name:servoo_product.FAD
+#: model:product.product,uom_name:servoo_product.FBD
+#: model:product.product,uom_name:servoo_product.FBL
+#: model:product.product,uom_name:servoo_product.FBR
+#: model:product.product,uom_name:servoo_product.FCA
+#: model:product.product,uom_name:servoo_product.FDB
+#: model:product.product,uom_name:servoo_product.FDD
+#: model:product.product,uom_name:servoo_product.FDG
+#: model:product.product,uom_name:servoo_product.FDI
+#: model:product.product,uom_name:servoo_product.FDO
+#: model:product.product,uom_name:servoo_product.FDT
+#: model:product.product,uom_name:servoo_product.FDV
+#: model:product.product,uom_name:servoo_product.FED
+#: model:product.product,uom_name:servoo_product.FFI
+#: model:product.product,uom_name:servoo_product.FHA
+#: model:product.product,uom_name:servoo_product.FOD
+#: model:product.product,uom_name:servoo_product.FOR
+#: model:product.product,uom_name:servoo_product.FOT
+#: model:product.product,uom_name:servoo_product.FPL
+#: model:product.product,uom_name:servoo_product.FPO
+#: model:product.product,uom_name:servoo_product.FRA
+#: model:product.product,uom_name:servoo_product.FRD
+#: model:product.product,uom_name:servoo_product.FRM
+#: model:product.product,uom_name:servoo_product.FRT
+#: model:product.product,uom_name:servoo_product.FSO
+#: model:product.product,uom_name:servoo_product.FTO
+#: model:product.product,uom_name:servoo_product.FTR
+#: model:product.product,uom_name:servoo_product.FTS
+#: model:product.product,uom_name:servoo_product.FUG
+#: model:product.product,uom_name:servoo_product.FVA
+#: model:product.product,uom_name:servoo_product.FXS
+#: model:product.product,uom_name:servoo_product.GPG
+#: model:product.product,uom_name:servoo_product.GPS
+#: model:product.product,uom_name:servoo_product.GRU
+#: model:product.product,uom_name:servoo_product.GUC
+#: model:product.product,uom_name:servoo_product.GUS
+#: model:product.product,uom_name:servoo_product.HAC
+#: model:product.product,uom_name:servoo_product.HAD
+#: model:product.product,uom_name:servoo_product.HAT
+#: model:product.product,uom_name:servoo_product.IMO
+#: model:product.product,uom_name:servoo_product.IMP
+#: model:product.product,uom_name:servoo_product.LES
+#: model:product.product,uom_name:servoo_product.LIQ
+#: model:product.product,uom_name:servoo_product.LIV
+#: model:product.product,uom_name:servoo_product.LOE
+#: model:product.product,uom_name:servoo_product.LOG
+#: model:product.product,uom_name:servoo_product.LOP
+#: model:product.product,uom_name:servoo_product.LOR
+#: model:product.product,uom_name:servoo_product.LRE
+#: model:product.product,uom_name:servoo_product.LTA
+#: model:product.product,uom_name:servoo_product.LVI
+#: model:product.product,uom_name:servoo_product.MAG
+#: model:product.product,uom_name:servoo_product.MAJ
+#: model:product.product,uom_name:servoo_product.MAN
+#: model:product.product,uom_name:servoo_product.MAP
+#: model:product.product,uom_name:servoo_product.MBC
+#: model:product.product,uom_name:servoo_product.MBF
+#: model:product.product,uom_name:servoo_product.MBL
+#: model:product.product,uom_name:servoo_product.MBO
+#: model:product.product,uom_name:servoo_product.MBT
+#: model:product.product,uom_name:servoo_product.MDE
+#: model:product.product,uom_name:servoo_product.MDG
+#: model:product.product,uom_name:servoo_product.MEN
+#: model:product.product,uom_name:servoo_product.MFF
+#: model:product.product,uom_name:servoo_product.MID
+#: model:product.product,uom_name:servoo_product.MJC
+#: model:product.product,uom_name:servoo_product.MNP
+#: model:product.product,uom_name:servoo_product.MPR
+#: model:product.product,uom_name:servoo_product.MRL
+#: model:product.product,uom_name:servoo_product.MTC
+#: model:product.product,uom_name:servoo_product.MTE
+#: model:product.product,uom_name:servoo_product.MTF
+#: model:product.product,uom_name:servoo_product.MTR
+#: model:product.product,uom_name:servoo_product.MVE
+#: model:product.product,uom_name:servoo_product.MVH
+#: model:product.product,uom_name:servoo_product.MVS
+#: model:product.product,uom_name:servoo_product.PAD
+#: model:product.product,uom_name:servoo_product.PAK
+#: model:product.product,uom_name:servoo_product.PAS
+#: model:product.product,uom_name:servoo_product.PBC
+#: model:product.product,uom_name:servoo_product.PES
+#: model:product.product,uom_name:servoo_product.PGT
+#: model:product.product,uom_name:servoo_product.POR
+#: model:product.product,uom_name:servoo_product.POS
+#: model:product.product,uom_name:servoo_product.PPB
+#: model:product.product,uom_name:servoo_product.PRO
+#: model:product.product,uom_name:servoo_product.PTC
+#: model:product.product,uom_name:servoo_product.PTP
+#: model:product.product,uom_name:servoo_product.RAN
+#: model:product.product,uom_name:servoo_product.RAP
+#: model:product.product,uom_name:servoo_product.RAT
+#: model:product.product,uom_name:servoo_product.RBL
+#: model:product.product,uom_name:servoo_product.RCT
+#: model:product.product,uom_name:servoo_product.RDF
+#: model:product.product,uom_name:servoo_product.RDI
+#: model:product.product,uom_name:servoo_product.RDS
+#: model:product.product,uom_name:servoo_product.RDV
+#: model:product.product,uom_name:servoo_product.REC
+#: model:product.product,uom_name:servoo_product.REL
+#: model:product.product,uom_name:servoo_product.REM
+#: model:product.product,uom_name:servoo_product.REP
+#: model:product.product,uom_name:servoo_product.RFR
+#: model:product.product,uom_name:servoo_product.RHA
+#: model:product.product,uom_name:servoo_product.RIS
+#: model:product.product,uom_name:servoo_product.RLC
+#: model:product.product,uom_name:servoo_product.RLF
+#: model:product.product,uom_name:servoo_product.RLV
+#: model:product.product,uom_name:servoo_product.RMS
+#: model:product.product,uom_name:servoo_product.RPO
+#: model:product.product,uom_name:servoo_product.RSA
+#: model:product.product,uom_name:servoo_product.RSC
+#: model:product.product,uom_name:servoo_product.RSD
+#: model:product.product,uom_name:servoo_product.RSL
+#: model:product.product,uom_name:servoo_product.RSV
+#: model:product.product,uom_name:servoo_product.RVM
+#: model:product.product,uom_name:servoo_product.SCA
+#: model:product.product,uom_name:servoo_product.SCL
+#: model:product.product,uom_name:servoo_product.SCS
+#: model:product.product,uom_name:servoo_product.SCV
+#: model:product.product,uom_name:servoo_product.SMB
+#: model:product.product,uom_name:servoo_product.SPD
+#: model:product.product,uom_name:servoo_product.SPG
+#: model:product.product,uom_name:servoo_product.STA
+#: model:product.product,uom_name:servoo_product.STD
+#: model:product.product,uom_name:servoo_product.STP
+#: model:product.product,uom_name:servoo_product.STU
+#: model:product.product,uom_name:servoo_product.SUR
+#: model:product.product,uom_name:servoo_product.SVL
+#: model:product.product,uom_name:servoo_product.SVV
+#: model:product.product,uom_name:servoo_product.TBL
+#: model:product.product,uom_name:servoo_product.TCG
+#: model:product.product,uom_name:servoo_product.TCP
+#: model:product.product,uom_name:servoo_product.TDT
+#: model:product.product,uom_name:servoo_product.TDV
+#: model:product.product,uom_name:servoo_product.TED
+#: model:product.product,uom_name:servoo_product.TEL
+#: model:product.product,uom_name:servoo_product.TEP
+#: model:product.product,uom_name:servoo_product.TEX
+#: model:product.product,uom_name:servoo_product.THC
+#: model:product.product,uom_name:servoo_product.THM
+#: model:product.product,uom_name:servoo_product.THY
+#: model:product.product,uom_name:servoo_product.TIC
+#: model:product.product,uom_name:servoo_product.TIM
+#: model:product.product,uom_name:servoo_product.TMM
+#: model:product.product,uom_name:servoo_product.TND
+#: model:product.product,uom_name:servoo_product.TPA
+#: model:product.product,uom_name:servoo_product.TRA
+#: model:product.product,uom_name:servoo_product.TRF
+#: model:product.product,uom_name:servoo_product.TRL
+#: model:product.product,uom_name:servoo_product.TRM
+#: model:product.product,uom_name:servoo_product.TRN
+#: model:product.product,uom_name:servoo_product.TRS
+#: model:product.product,uom_name:servoo_product.TSA
+#: model:product.product,uom_name:servoo_product.TTM
+#: model:product.product,uom_name:servoo_product.TTP
+#: model:product.product,uom_name:servoo_product.TTR
+#: model:product.product,uom_name:servoo_product.VAC
+#: model:product.product,uom_name:servoo_product.VAP
+#: model:product.product,uom_name:servoo_product.VDR
+#: model:product.product,uom_name:servoo_product.VIS
+#: model:product.template,uom_name:servoo_product.20S_product_template
+#: model:product.template,uom_name:servoo_product.40S_product_template
+#: model:product.template,uom_name:servoo_product.ACO_product_template
+#: model:product.template,uom_name:servoo_product.ADC_product_template
+#: model:product.template,uom_name:servoo_product.ADE_product_template
+#: model:product.template,uom_name:servoo_product.ADP_product_template
+#: model:product.template,uom_name:servoo_product.ADT_product_template
+#: model:product.template,uom_name:servoo_product.AED_product_template
+#: model:product.template,uom_name:servoo_product.AER_product_template
+#: model:product.template,uom_name:servoo_product.AIT_product_template
+#: model:product.template,uom_name:servoo_product.ARD_product_template
+#: model:product.template,uom_name:servoo_product.ASS_product_template
+#: model:product.template,uom_name:servoo_product.ATD_product_template
+#: model:product.template,uom_name:servoo_product.ATF_product_template
+#: model:product.template,uom_name:servoo_product.ATP_product_template
+#: model:product.template,uom_name:servoo_product.AUE_product_template
+#: model:product.template,uom_name:servoo_product.AVV_product_template
+#: model:product.template,uom_name:servoo_product.BAE_product_template
+#: model:product.template,uom_name:servoo_product.BES_product_template
+#: model:product.template,uom_name:servoo_product.BNF_product_template
+#: model:product.template,uom_name:servoo_product.CCC_product_template
+#: model:product.template,uom_name:servoo_product.CCE_product_template
+#: model:product.template,uom_name:servoo_product.CCL_product_template
+#: model:product.template,uom_name:servoo_product.CDC_product_template
+#: model:product.template,uom_name:servoo_product.CDN_product_template
+#: model:product.template,uom_name:servoo_product.CEM_product_template
+#: model:product.template,uom_name:servoo_product.CIV_product_template
+#: model:product.template,uom_name:servoo_product.CLR_product_template
+#: model:product.template,uom_name:servoo_product.CMF_product_template
+#: model:product.template,uom_name:servoo_product.COB_product_template
+#: model:product.template,uom_name:servoo_product.COD_product_template
+#: model:product.template,uom_name:servoo_product.COF_product_template
+#: model:product.template,uom_name:servoo_product.COM_product_template
+#: model:product.template,uom_name:servoo_product.CON_product_template
+#: model:product.template,uom_name:servoo_product.COR_product_template
+#: model:product.template,uom_name:servoo_product.COV_product_template
+#: model:product.template,uom_name:servoo_product.CPD_product_template
+#: model:product.template,uom_name:servoo_product.CPE_product_template
+#: model:product.template,uom_name:servoo_product.CPH_product_template
+#: model:product.template,uom_name:servoo_product.CTR_product_template
+#: model:product.template,uom_name:servoo_product.DCC_product_template
+#: model:product.template,uom_name:servoo_product.DCD_product_template
+#: model:product.template,uom_name:servoo_product.DCH_product_template
+#: model:product.template,uom_name:servoo_product.DCM_product_template
+#: model:product.template,uom_name:servoo_product.DDD_product_template
+#: model:product.template,uom_name:servoo_product.DDF_product_template
+#: model:product.template,uom_name:servoo_product.DDG_product_template
+#: model:product.template,uom_name:servoo_product.DDI_product_template
+#: model:product.template,uom_name:servoo_product.DEA_product_template
+#: model:product.template,uom_name:servoo_product.DEP_product_template
+#: model:product.template,uom_name:servoo_product.DGE_product_template
+#: model:product.template,uom_name:servoo_product.DGP_product_template
+#: model:product.template,uom_name:servoo_product.DIT_product_template
+#: model:product.template,uom_name:servoo_product.DOC_product_template
+#: model:product.template,uom_name:servoo_product.DOM_product_template
+#: model:product.template,uom_name:servoo_product.DOS_product_template
+#: model:product.template,uom_name:servoo_product.DPT_product_template
+#: model:product.template,uom_name:servoo_product.DSV_product_template
+#: model:product.template,uom_name:servoo_product.EAF_product_template
+#: model:product.template,uom_name:servoo_product.EDI_product_template
+#: model:product.template,uom_name:servoo_product.EMP_product_template
+#: model:product.template,uom_name:servoo_product.ENS_product_template
+#: model:product.template,uom_name:servoo_product.ESC_product_template
+#: model:product.template,uom_name:servoo_product.ESD_product_template
+#: model:product.template,uom_name:servoo_product.ESP_product_template
+#: model:product.template,uom_name:servoo_product.ETP_product_template
+#: model:product.template,uom_name:servoo_product.FAD_product_template
+#: model:product.template,uom_name:servoo_product.FBD_product_template
+#: model:product.template,uom_name:servoo_product.FBL_product_template
+#: model:product.template,uom_name:servoo_product.FBR_product_template
+#: model:product.template,uom_name:servoo_product.FCA_product_template
+#: model:product.template,uom_name:servoo_product.FDB_product_template
+#: model:product.template,uom_name:servoo_product.FDD_product_template
+#: model:product.template,uom_name:servoo_product.FDG_product_template
+#: model:product.template,uom_name:servoo_product.FDI_product_template
+#: model:product.template,uom_name:servoo_product.FDO_product_template
+#: model:product.template,uom_name:servoo_product.FDT_product_template
+#: model:product.template,uom_name:servoo_product.FDV_product_template
+#: model:product.template,uom_name:servoo_product.FED_product_template
+#: model:product.template,uom_name:servoo_product.FFI_product_template
+#: model:product.template,uom_name:servoo_product.FHA_product_template
+#: model:product.template,uom_name:servoo_product.FOD_product_template
+#: model:product.template,uom_name:servoo_product.FOR_product_template
+#: model:product.template,uom_name:servoo_product.FOT_product_template
+#: model:product.template,uom_name:servoo_product.FPL_product_template
+#: model:product.template,uom_name:servoo_product.FPO_product_template
+#: model:product.template,uom_name:servoo_product.FRA_product_template
+#: model:product.template,uom_name:servoo_product.FRD_product_template
+#: model:product.template,uom_name:servoo_product.FRM_product_template
+#: model:product.template,uom_name:servoo_product.FRT_product_template
+#: model:product.template,uom_name:servoo_product.FSO_product_template
+#: model:product.template,uom_name:servoo_product.FTO_product_template
+#: model:product.template,uom_name:servoo_product.FTR_product_template
+#: model:product.template,uom_name:servoo_product.FTS_product_template
+#: model:product.template,uom_name:servoo_product.FUG_product_template
+#: model:product.template,uom_name:servoo_product.FVA_product_template
+#: model:product.template,uom_name:servoo_product.FXS_product_template
+#: model:product.template,uom_name:servoo_product.GPG_product_template
+#: model:product.template,uom_name:servoo_product.GPS_product_template
+#: model:product.template,uom_name:servoo_product.GRU_product_template
+#: model:product.template,uom_name:servoo_product.GUC_product_template
+#: model:product.template,uom_name:servoo_product.GUS_product_template
+#: model:product.template,uom_name:servoo_product.HAC_product_template
+#: model:product.template,uom_name:servoo_product.HAD_product_template
+#: model:product.template,uom_name:servoo_product.HAT_product_template
+#: model:product.template,uom_name:servoo_product.IMO_product_template
+#: model:product.template,uom_name:servoo_product.IMP_product_template
+#: model:product.template,uom_name:servoo_product.LES_product_template
+#: model:product.template,uom_name:servoo_product.LIQ_product_template
+#: model:product.template,uom_name:servoo_product.LIV_product_template
+#: model:product.template,uom_name:servoo_product.LOE_product_template
+#: model:product.template,uom_name:servoo_product.LOG_product_template
+#: model:product.template,uom_name:servoo_product.LOP_product_template
+#: model:product.template,uom_name:servoo_product.LOR_product_template
+#: model:product.template,uom_name:servoo_product.LRE_product_template
+#: model:product.template,uom_name:servoo_product.LTA_product_template
+#: model:product.template,uom_name:servoo_product.LVI_product_template
+#: model:product.template,uom_name:servoo_product.MAG_product_template
+#: model:product.template,uom_name:servoo_product.MAJ_product_template
+#: model:product.template,uom_name:servoo_product.MAN_product_template
+#: model:product.template,uom_name:servoo_product.MAP_product_template
+#: model:product.template,uom_name:servoo_product.MBC_product_template
+#: model:product.template,uom_name:servoo_product.MBF_product_template
+#: model:product.template,uom_name:servoo_product.MBL_product_template
+#: model:product.template,uom_name:servoo_product.MBO_product_template
+#: model:product.template,uom_name:servoo_product.MBT_product_template
+#: model:product.template,uom_name:servoo_product.MDE_product_template
+#: model:product.template,uom_name:servoo_product.MDG_product_template
+#: model:product.template,uom_name:servoo_product.MEN_product_template
+#: model:product.template,uom_name:servoo_product.MFF_product_template
+#: model:product.template,uom_name:servoo_product.MID_product_template
+#: model:product.template,uom_name:servoo_product.MJC_product_template
+#: model:product.template,uom_name:servoo_product.MNP_product_template
+#: model:product.template,uom_name:servoo_product.MPR_product_template
+#: model:product.template,uom_name:servoo_product.MRL_product_template
+#: model:product.template,uom_name:servoo_product.MTC_product_template
+#: model:product.template,uom_name:servoo_product.MTE_product_template
+#: model:product.template,uom_name:servoo_product.MTF_product_template
+#: model:product.template,uom_name:servoo_product.MTR_product_template
+#: model:product.template,uom_name:servoo_product.MVE_product_template
+#: model:product.template,uom_name:servoo_product.MVH_product_template
+#: model:product.template,uom_name:servoo_product.MVS_product_template
+#: model:product.template,uom_name:servoo_product.PAD_product_template
+#: model:product.template,uom_name:servoo_product.PAK_product_template
+#: model:product.template,uom_name:servoo_product.PAS_product_template
+#: model:product.template,uom_name:servoo_product.PBC_product_template
+#: model:product.template,uom_name:servoo_product.PES_product_template
+#: model:product.template,uom_name:servoo_product.PGT_product_template
+#: model:product.template,uom_name:servoo_product.POR_product_template
+#: model:product.template,uom_name:servoo_product.POS_product_template
+#: model:product.template,uom_name:servoo_product.PPB_product_template
+#: model:product.template,uom_name:servoo_product.PRO_product_template
+#: model:product.template,uom_name:servoo_product.PTC_product_template
+#: model:product.template,uom_name:servoo_product.PTP_product_template
+#: model:product.template,uom_name:servoo_product.RAN_product_template
+#: model:product.template,uom_name:servoo_product.RAP_product_template
+#: model:product.template,uom_name:servoo_product.RAT_product_template
+#: model:product.template,uom_name:servoo_product.RBL_product_template
+#: model:product.template,uom_name:servoo_product.RCT_product_template
+#: model:product.template,uom_name:servoo_product.RDF_product_template
+#: model:product.template,uom_name:servoo_product.RDI_product_template
+#: model:product.template,uom_name:servoo_product.RDS_product_template
+#: model:product.template,uom_name:servoo_product.RDV_product_template
+#: model:product.template,uom_name:servoo_product.REC_product_template
+#: model:product.template,uom_name:servoo_product.REL_product_template
+#: model:product.template,uom_name:servoo_product.REM_product_template
+#: model:product.template,uom_name:servoo_product.REP_product_template
+#: model:product.template,uom_name:servoo_product.RFR_product_template
+#: model:product.template,uom_name:servoo_product.RHA_product_template
+#: model:product.template,uom_name:servoo_product.RIS_product_template
+#: model:product.template,uom_name:servoo_product.RLC_product_template
+#: model:product.template,uom_name:servoo_product.RLF_product_template
+#: model:product.template,uom_name:servoo_product.RLV_product_template
+#: model:product.template,uom_name:servoo_product.RMS_product_template
+#: model:product.template,uom_name:servoo_product.RPO_product_template
+#: model:product.template,uom_name:servoo_product.RSA_product_template
+#: model:product.template,uom_name:servoo_product.RSC_product_template
+#: model:product.template,uom_name:servoo_product.RSD_product_template
+#: model:product.template,uom_name:servoo_product.RSL_product_template
+#: model:product.template,uom_name:servoo_product.RSV_product_template
+#: model:product.template,uom_name:servoo_product.RVM_product_template
+#: model:product.template,uom_name:servoo_product.SCA_product_template
+#: model:product.template,uom_name:servoo_product.SCL_product_template
+#: model:product.template,uom_name:servoo_product.SCS_product_template
+#: model:product.template,uom_name:servoo_product.SCV_product_template
+#: model:product.template,uom_name:servoo_product.SMB_product_template
+#: model:product.template,uom_name:servoo_product.SPD_product_template
+#: model:product.template,uom_name:servoo_product.SPG_product_template
+#: model:product.template,uom_name:servoo_product.STA_product_template
+#: model:product.template,uom_name:servoo_product.STD_product_template
+#: model:product.template,uom_name:servoo_product.STP_product_template
+#: model:product.template,uom_name:servoo_product.STU_product_template
+#: model:product.template,uom_name:servoo_product.SUR_product_template
+#: model:product.template,uom_name:servoo_product.SVL_product_template
+#: model:product.template,uom_name:servoo_product.SVV_product_template
+#: model:product.template,uom_name:servoo_product.TBL_product_template
+#: model:product.template,uom_name:servoo_product.TCG_product_template
+#: model:product.template,uom_name:servoo_product.TCP_product_template
+#: model:product.template,uom_name:servoo_product.TDT_product_template
+#: model:product.template,uom_name:servoo_product.TDV_product_template
+#: model:product.template,uom_name:servoo_product.TED_product_template
+#: model:product.template,uom_name:servoo_product.TEL_product_template
+#: model:product.template,uom_name:servoo_product.TEP_product_template
+#: model:product.template,uom_name:servoo_product.TEX_product_template
+#: model:product.template,uom_name:servoo_product.THC_product_template
+#: model:product.template,uom_name:servoo_product.THM_product_template
+#: model:product.template,uom_name:servoo_product.THY_product_template
+#: model:product.template,uom_name:servoo_product.TIC_product_template
+#: model:product.template,uom_name:servoo_product.TIM_product_template
+#: model:product.template,uom_name:servoo_product.TMM_product_template
+#: model:product.template,uom_name:servoo_product.TND_product_template
+#: model:product.template,uom_name:servoo_product.TPA_product_template
+#: model:product.template,uom_name:servoo_product.TRA_product_template
+#: model:product.template,uom_name:servoo_product.TRF_product_template
+#: model:product.template,uom_name:servoo_product.TRL_product_template
+#: model:product.template,uom_name:servoo_product.TRM_product_template
+#: model:product.template,uom_name:servoo_product.TRN_product_template
+#: model:product.template,uom_name:servoo_product.TRS_product_template
+#: model:product.template,uom_name:servoo_product.TSA_product_template
+#: model:product.template,uom_name:servoo_product.TTM_product_template
+#: model:product.template,uom_name:servoo_product.TTP_product_template
+#: model:product.template,uom_name:servoo_product.TTR_product_template
+#: model:product.template,uom_name:servoo_product.VAC_product_template
+#: model:product.template,uom_name:servoo_product.VAP_product_template
+#: model:product.template,uom_name:servoo_product.VDR_product_template
+#: model:product.template,uom_name:servoo_product.VIS_product_template
+msgid "Units"
+msgstr ""
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FVA
+#: model:product.template,name:servoo_product.FVA_product_template
+msgid "VALIDATION FEES"
+msgstr "FRAIS DE VALIDATION"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FDV
+#: model:product.template,name:servoo_product.FDV_product_template
+msgid "VARIOUS FEES"
+msgstr "FRAIS DIVERS"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.FOD
+#: model:product.template,name:servoo_product.FOD_product_template
+msgid "VARIOUS PACKAGES"
+msgstr "FORFAITS DIVERS"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.AVV
+#: model:product.template,name:servoo_product.AVV_product_template
+msgid "VEHICLE INSURANCE + WIND SCREEN"
+msgstr "ASSURANCE VEHICULE + VIGNETTE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.DSV
+#: model:product.template,name:servoo_product.DSV_product_template
+msgid "VEHICLE STAY IN THE VEHICLE PARK"
+msgstr "SEJOUR VEHICULE AU PARC A VEHICULES"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.MAG
+#: model:product.template,name:servoo_product.MAG_product_template
+msgid "WAREHOUSING"
+msgstr "MAGASINAGE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.PTC
+#: model:product.template,name:servoo_product.PTC_product_template
+msgid "WEIGHING CONTAINER"
+msgstr "PESEE CONTENEUR"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.ATP
+#: model:product.template,name:servoo_product.ATP_product_template
+msgid "WEIGHT CERTIFICATE"
+msgstr "ATTESTATION DE POIDS"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.PBC
+#: model:product.template,name:servoo_product.PBC_product_template
+msgid "WEIGHTBRIDGE FEES"
+msgstr "PONT BASCULE"
+
+#. module: servoo_product
+#: model:product.product,name:servoo_product.PPB
+#: model:product.template,name:servoo_product.PPB_product_template
+msgid "WEIGHTBRIDGE PENALITY"
+msgstr "PENALITES DE PONT BASCULE"
