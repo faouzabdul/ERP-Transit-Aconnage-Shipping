@@ -58,11 +58,11 @@
                         <button name="create_invoices" string="Create Invoice"
                                 groups="account.group_account_invoice"
                                 type="object" class="btn-primary" data-hotkey="q"
-                                attrs="{'invisible': ['|',('state', '!=', 'open'), ('invoice_count','&gt;=',1)]}"/>
+                                attrs="{'invisible': ['|',('state', 'not in', ('open', 'done')), ('invoice_count','&gt;=',1)]}"/>
 
                         <button name="create_invoices" string="Create Invoice"
                                 type="object" data-hotkey="q" groups="account.group_account_invoice"
-                                attrs="{'invisible': ['|',('state', '!=', 'open'), ('invoice_count','=',0)]}"/>
+                                attrs="{'invisible': ['|',('state', 'not in', ('open', 'done')), ('invoice_count','=',0)]}"/>
 
                         <button name="%(action_wizard_stevedoring_outturn_report)d"
                                 groups="servoo_stevedoring.stevedoring_group_user"
