@@ -169,7 +169,7 @@ class Operation(models.Model):
             'unloading_place_id': self.unloading_place_id.id,
             'transport_letter': self.bill_of_lading,
             'volume': self.volume,
-            'weight': self.gross_weight,
+            'weight': self.weight,
             'custom_declaration_reference': '',
             'custom_declaration_date': '',
             'unit_id': self.env.ref('dyen_base.unit_KG').id,
