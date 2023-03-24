@@ -39,12 +39,28 @@
                         <field name="custom_declaration_date" />
                         <field name="number_of_packages" />
                         <field name="object" colspan="4"/>
+
+
+                    </group>
+                    <group string="Main good royalty rate" col="4">
                         <field name="handling_rate_id" />
                         <field name="include_tax_for_handling" />
                         <field name="handling" />
                         <field name="quantity" />
-
                     </group>
+                    <group string="Second good royalty rate" col="4">
+                        <field name="handling_rate_2_id" />
+                        <field name="include_tax_for_handling2" />
+                        <field name="handling2" />
+                        <field name="quantity2" />
+                    </group>
+                    <group string="Third good royalty rate" col="4">
+                        <field name="handling_rate_3_id" />
+                        <field name="include_tax_for_handling3" />
+                        <field name="handling3" />
+                        <field name="quantity3" />
+                    </group>
+
                 </notebook>
             </field>
         </record>

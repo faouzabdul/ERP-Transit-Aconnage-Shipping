@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220616\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-23 08:32+0000\n"
-"PO-Revision-Date: 2023-03-23 08:32+0000\n"
+"POT-Creation-Date: 2023-03-24 08:15+0000\n"
+"PO-Revision-Date: 2023-03-24 08:15+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -30,6 +30,7 @@ msgstr ""
 "                    Voici l'erreur reçue :\n"
 "                    %s\n"
 "                    "
+
 #. module: servoo_sales
 #: code:addons/servoo_sales/models/sale_order_template.py:0
 #, python-format
@@ -52,9 +53,10 @@ msgid ""
 "                                                       #----------------------\n"
 "                                                       # VOLUME: the volume                                                \n"
 "                                                       # TONNAGE: The tonnage of goods\n"
-"                                                       # QUANTITY: The quantity of goods\n"
-"                                                       # ROYALTY: The royalty rate per tonne\n"
-"                                                       # HANDLING: The handling rate per tonne\n"
+"                                                       # QUANTITY: The quantity for the main good type\n"
+"                                                       # ROYALTY: The royalty rate for the main good type\n"
+"                                                       # QUANTITY2, QUANTITY3: The quantity of the second and third good type\n"
+"                                                       # ROYALTY2, ROYALTY3: The royalty rate for second and third good type\n"
 "                                                       # rules: object containing the rules code (previously computed)\n"
 "\n"
 "                                                       # Note: returned value have to be set in the variable 'result_qty'"
@@ -63,9 +65,10 @@ msgstr ""
 "                                                       #----------------------\n"
 "                                                       # VOLUME: le volume de la marchandise                                                \n"
 "                                                       # TONNAGE: Le tonnage des marchandises\n"
-"                                                       # QUANTITY: La quantité des marchandises\n"
-"                                                       # ROYALTY: Le tarif de la redevance marchandise\n"
-"                                                       # HANDLING: Le tarif de manutention par tonne\n"
+"                                                       # QUANTITY: La quantité pour le principal type de marchandises\n"
+"                                                       # ROYALTY: Le tarif de la redevance pour le principal type de marchandise\n"
+"                                                       # QUANTITY2, QUANTITY3: La quantité du deuxième et du troisième type de marchandise\n"
+"                                                       # ROYALTY2, ROYALTY3: Le tarif de la redevance du deuxième et du troisième type de bien\n"
 "                                                       # rules: objet contenant le code des règles (précédemment calculé)\n"
 "\n"
 "                                                       # Remarque : la valeur renvoyée doit être définie dans la variable 'result_qty'"
@@ -79,21 +82,24 @@ msgid ""
 "                                                     # TONNAGE: The tonnage of goods\n"
 "                                                     # QUANTITY: The quantity of goods\n"
 "                                                     # ROYALTY: The royalty rate per tonne\n"
-"                                                     # HANDLING: The handling rate per tonne\n"
+"                                                     # QUANTITY2, QUANTITY3: The quantity of the second and third good type\n"
+"                                                     # ROYALTY2, ROYALTY3: The royalty rate for second and third good type\n"
 "                                                     # rules: object containing the rules code (previously computed)\n"
 "\n"
 "                                                     # Note: returned value have to be set in the variable 'result'"
 msgstr ""
-" # Available variables:\n"
-"                                                     #----------------------\n"
-"                                                     # VOLUME: le volume de la marchandise\n"
-"                                                     # TONNAGE: Le tonnage of des marchandises\n"
-"                                                     # QUANTITY: La quantité des marchandises\n"
-"                                                     # ROYALTY: Le tarif de la redevance marchandise\n"
-"                                                     # HANDLING: Le tarif de manutention\n"
-"                                                     # rules: object containing the rules code (previously computed)\n"
+" # Variables disponibles:\n"
+"                                                       #----------------------\n"
+"                                                       # VOLUME: le volume de la marchandise                                                \n"
+"                                                       # TONNAGE: Le tonnage des marchandises\n"
+"                                                       # QUANTITY: La quantité pour le principal type de marchandises\n"
+"                                                       # ROYALTY: Le tarif de la redevance pour le principal type de marchandise\n"
+"                                                       # QUANTITY2, QUANTITY3: La quantité du deuxième et du troisième type de marchandise\n"
+"                                                       # ROYALTY2, ROYALTY3: Le tarif de la redevance du deuxième et du troisième type de bien\n"
+"                                                       # rules: objet contenant le code des règles (précédemment calculé)\n"
 "\n"
-"                                                     # Remarque : la valeur renvoyée doit être définie dans la variable 'result'"
+"                                                       # Remarque : la valeur renvoyée doit être définie dans la variable 'result'"
+
 #. module: servoo_sales
 #: code:addons/servoo_sales/models/utils.py:0
 #, python-format
@@ -252,18 +258,21 @@ msgid ""
 "<span colspan=\"2\">Available variables:</span>\n"
 "                                <span colspan=\"2\">VOLUME: the volume</span>\n"
 "                                <span colspan=\"2\">TONNAGE: the weight</span>\n"
-"                                <span colspan=\"2\">QUANTITY: the quantity</span>\n"
-"                                <span colspan=\"2\">ROYALTY: the royalty rate</span>\n"
-"                                <span colspan=\"2\">HANDLING: the handling rate per tonne</span>\n"
+"                                <span colspan=\"2\">QUANTITY: the quantity for the main good type</span>\n"
+"                                <span colspan=\"2\">ROYALTY: the royalty rate for the main good type</span>\n"
+"                                <span colspan=\"2\">QUANTITY2, QUANTITY3: the quantity for second and third good type</span>\n"
+"                                <span colspan=\"2\">ROYALTY2, ROYALTY3: the royalty rate for the second and third good type</span>\n"
 "                                <span colspan=\"2\">rules: object containing the rules code (previously computed)</span>"
 msgstr ""
 "<span colspan=\"2\">Available variables:</span>\n"
 "                                <span colspan=\"2\">VOLUME: le volume</span>\n"
 "                                <span colspan=\"2\">TONNAGE: le tonnage</span>\n"
-"                                <span colspan=\"2\">QUANTITY: la quantité</span>\n"
-"                                <span colspan=\"2\">ROYALTY: la redevance marchandise</span>\n"
-"                                <span colspan=\"2\">HANDLING: Le tarif de manutention par tonne</span>\n"
+"                                <span colspan=\"2\">QUANTITY: la quantité pour le principal type de marchandise</span>\n"
+"                                <span colspan=\"2\">ROYALTY: la redevance marchandise pour le principal type de marchandise</span>\n"
+"                                <span colspan=\"2\">QUANTITY2, QUANTITY3: la quantité pour le deuxième et le troisième type de marchandise</span>\n"
+"                                <span colspan=\"2\">ROYALTY2, ROYALTY3: le taux de redevance pour le deuxième et le troisième type de marchandise</span>\n"
 "                                <span colspan=\"2\">rules: objet contenant les code des règles (précédement calculées)</span>"
+
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_sale_order_template_form
@@ -675,6 +684,16 @@ msgid "Good Type"
 msgstr "Type de marchandise"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__handling_rate_2_id
+msgid "Good Type 2"
+msgstr "Type de marchandise 2"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__handling_rate_3_id
+msgid "Good Type 3"
+msgstr "Type de marchandise 3"
+
+#. module: servoo_sales
 #: model:ir.actions.act_window,name:servoo_sales.action_handling_rate
 #: model:ir.model,name:servoo_sales.model_servoo_handling_rate
 #: model:ir.ui.menu,name:servoo_sales.menu_sale_handling_rate
@@ -710,6 +729,16 @@ msgid "Include Taxes"
 msgstr "Inclure la taxe"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__include_tax_for_handling2
+msgid "Include Taxes 2"
+msgstr "Inclure la taxe 2"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__include_tax_for_handling3
+msgid "Include Taxes 3"
+msgstr "Inclure la taxe 3"
+
+#. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "Invoice"
 msgstr "Facture"
@@ -742,6 +771,11 @@ msgstr "Émise par :"
 #: model:ir.model,name:servoo_sales.model_account_move
 msgid "Journal Entry"
 msgstr "Pièce comptable"
+
+#. module: servoo_sales
+#: model:ir.model,name:servoo_sales.model_account_move_line
+msgid "Journal Item"
+msgstr "Écriture comptable"
 
 #. module: servoo_sales
 #: model:ir.model.fields.selection,name:servoo_sales.selection__account_move__agency_name__kribi
@@ -795,6 +829,11 @@ msgid "MAIL :"
 msgstr ""
 
 #. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_order_form
+msgid "Main good royalty rate"
+msgstr "Tarif de redevance marchandise principal"
+
+#. module: servoo_sales
 #: model:ir.model.fields.selection,name:servoo_sales.selection__account_move__state__management_control_approval
 #: model:res.groups,name:servoo_sales.group_supplier_invoice_management_control
 msgid "Management Control Approval"
@@ -806,7 +845,7 @@ msgstr "Approbation du contrôle de gestion"
 #: model:ir.model.fields,field_description:servoo_sales.field_account_payment__transport_means_id
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__transport_means_id
 msgid "Means of transportation"
-msgstr "Moyen de transport"
+msgstr "Moyens de transport"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
@@ -930,6 +969,16 @@ msgid "Quantity"
 msgstr "Quantité"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__quantity2
+msgid "Quantity 2"
+msgstr "Qunatité 2"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__quantity3
+msgid "Quantity 3"
+msgstr "Quantité 3"
+
+#. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order_template_line__quantity_python_compute
 msgid "Quantity formula"
 msgstr "Formule Quantité"
@@ -958,12 +1007,27 @@ msgstr "Reçus"
 #. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__handling
 msgid "Royalty Rate"
-msgstr "Tarif redevance"
+msgstr "Tarif de redevance"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__handling2
+msgid "Royalty Rate 2"
+msgstr "Tarif de redevance 2"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__handling3
+msgid "Royalty Rate 3"
+msgstr "Tarif de redevance 3"
 
 #. module: servoo_sales
 #: model:ir.model,name:servoo_sales.model_sale_order
 msgid "Sales Order"
 msgstr "Bon de commande"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_order_form
+msgid "Second good royalty rate"
+msgstr "Tarif de redevance secondaire"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_move_form
@@ -1076,6 +1140,11 @@ msgstr "Taxe"
 #: model:ir.model.fields.selection,name:servoo_sales.selection__sale_order__agency_name__tchad
 msgid "Tchad"
 msgstr ""
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_order_form
+msgid "Third good royalty rate"
+msgstr "Tarif de redevance tertiaire"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.document_tax_totals
@@ -1257,7 +1326,7 @@ msgstr "quatorze"
 #. module: servoo_sales
 #: model:ir.ui.menu,name:servoo_sales.menu_finance_handling_rate
 msgid "handling Rate"
-msgstr "Tarif redevance"
+msgstr "Tarif manutention"
 
 #. module: servoo_sales
 #: model:ir.module.category,description:servoo_sales.module_category_servoo_account

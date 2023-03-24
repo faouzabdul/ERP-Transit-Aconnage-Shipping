@@ -386,8 +386,8 @@
                         <thead style="display: table-row-group">
                             <tr>
                                 <th name="th_description" class="text-left">Description</th>
-                                <th name="th_quantity" class="text-right">Rate</th>
-                                <th name="th_priceunit" class="text-right">Base</th>
+                                <th name="th_quantity" class="text-right">Base</th>
+                                <th name="th_priceunit" class="text-right">Rate</th>
                                 <th name="th_discount" t-if="display_discount" class="text-right"
                                     groups="product.group_discount_per_so_line">
                                     <span>Disc.%</span>
@@ -416,17 +416,23 @@
                                             <span t-field="line.name"/>
                                         </td>
                                         <td name="td_quantity" class="text-right">
-                                            <t t-if="line.product_uom_qty &lt; 1 and line.product_uom_qty &gt; 0"><span
-                                                    t-esc="line.product_uom_qty * 100"/>%
-                                            </t>
-                                            <t t-else="">
-                                                <span t-field="line.product_uom_qty"/>
-                                            </t>
+<!--                                            <t t-if="line.product_uom_qty &lt; 1 and line.product_uom_qty &gt; 0"><span-->
+<!--                                                    t-esc="line.product_uom_qty * 100"/>%-->
+<!--                                            </t>-->
+<!--                                            <t t-else="">-->
+<!--                                                <span t-field="line.product_uom_qty"/>-->
+<!--                                            </t>-->
                                             <!--                                            <span t-field="line.product_uom_qty" t-options='{"widget": "percentage"}'/>-->
-                                            <!--                                        <span t-field="line.product_uom"/>-->
+                                                                                    <span t-field="line.product_uom_qty"/>
                                         </td>
                                         <td name="td_priceunit" class="text-right">
-                                            <span t-field="line.price_unit"/>
+                                            <t t-if="line.price_unit &lt; 1 and line.price_unit &gt; 0"><span
+                                                    t-esc="line.price_unit * 100"/>%
+                                            </t>
+                                            <t t-else="">
+                                                <span t-field="line.price_unit"/>
+                                            </t>
+<!--                                            <span t-field="line.price_unit"/>-->
                                         </td>
                                         <td t-if="display_discount" class="text-right"
                                             groups="product.group_discount_per_so_line">

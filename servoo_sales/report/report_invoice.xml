@@ -375,11 +375,11 @@
                                             <span>Description</span>
                                         </th>
                                         <th name="th_quantity" class="text-right">
-                                            <span>Rate</span>
+                                            <span>Base</span>
                                         </th>
                                         <th name="th_priceunit"
                                             t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
-                                            <span>Base</span>
+                                            <span>Rate</span>
                                         </th>
                                         <th name="th_price_unit" t-if="display_discount"
                                             t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
@@ -413,12 +413,15 @@
                                                     <span t-field="line.name" t-options="{'widget': 'text'}"/>
                                                 </td>
                                                 <td class="text-right">
-                                                    <t t-if="line.quantity &lt; 1 and line.quantity &gt; 0"><span t-esc="line.quantity * 100"/>%</t>
-                                                    <t t-else=""><span t-field="line.quantity"/></t>
+<!--                                                    <t t-if="line.quantity &lt; 1 and line.quantity &gt; 0"><span t-esc="line.quantity * 100"/>%</t>-->
+<!--                                                    <t t-else=""><span t-field="line.quantity"/></t>-->
+                                                    <span t-field="line.quantity"/>
 <!--                                                    <span t-field="line.product_uom_id" groups="uom.group_uom"/>-->
                                                 </td>
                                                 <td t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
-                                                    <span class="text-nowrap" t-field="line.price_unit"/>
+                                                    <t t-if="line.price_unit &lt; 1 and line.price_unit &gt; 0"><span class="text-nowrap" t-esc="line.price_unit * 100"/>%</t>
+                                                    <t t-else=""><span class="text-nowrap" t-field="line.price_unit"/></t>
+<!--                                                    <span class="text-nowrap" t-field="line.price_unit"/>-->
                                                 </td>
                                                 <td t-if="display_discount"
                                                     t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">

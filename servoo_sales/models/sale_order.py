@@ -41,6 +41,17 @@ class SaleOrder(models.Model):
     quantity = fields.Integer('Quantity')
     handling_rate_id = fields.Many2one('servoo.handling.rate', 'Good Type')
 
+    handling2 = fields.Float('Royalty Rate 2')
+    include_tax_for_handling2 = fields.Boolean('Include Taxes 2')
+    quantity2 = fields.Integer('Quantity 2')
+    handling_rate_2_id = fields.Many2one('servoo.handling.rate', 'Good Type 2')
+
+    handling3 = fields.Float('Royalty Rate 3')
+    include_tax_for_handling3 = fields.Boolean('Include Taxes 3')
+    quantity3 = fields.Integer('Quantity 3')
+    handling_rate_3_id = fields.Many2one('servoo.handling.rate', 'Good Type 3')
+
+
     @api.depends('amount_total', 'currency_id')
     def _compute_display_amount_letter(self):
         for order in self:
@@ -99,9 +110,12 @@ class SaleOrder(models.Model):
         var_dict = {
             'VOLUME': self.volume,
             'TONNAGE': self.weight,
-            'HANDLING': self.handling,
             'ROYALTY': self.handling,
+            'ROYALTY2': self.handling2,
+            'ROYALTY3': self.handling3,
             'QUANTITY': self.quantity,
+            'QUANTITY2': self.quantity2,
+            'QUANTITY3': self.quantity3,
             'rules': rules
         }
         return dict(var_dict)
@@ -143,7 +157,7 @@ class SaleOrder(models.Model):
         if not is_html_empty(template.note):
             self.note = template.note
 
-    @api.onchange('weight', 'volume', 'handling', 'quantity')
+    @api.onchange('weight', 'volume', 'handling', 'quantity','handling2', 'quantity2','handling3', 'quantity3')
     def onchange_variables(self):
         localdict = self.init_dicts()
         self._get_template_lines(self.sale_order_template_id.id, localdict)
@@ -151,6 +165,14 @@ class SaleOrder(models.Model):
     @api.onchange('handling_rate_id')
     def onchange_hanlding_rate(self):
         self.handling = self.handling_rate_id.rate
+
+    @api.onchange('handling_rate_2_id')
+    def onchange_hanlding_rate2(self):
+        self.handling2 = self.handling_rate_2_id.rate
+
+    @api.onchange('handling_rate_3_id')
+    def onchange_hanlding_rate3(self):
+        self.handling3 = self.handling_rate_3_id.rate
 
     @api.onchange('include_tax_for_handling')
     def onchange_include_tax(self):
@@ -162,6 +184,28 @@ class SaleOrder(models.Model):
         else:
             rate = self.handling_rate_id.rate
         self.handling = rate
+
+    @api.onchange('include_tax_for_handling2')
+    def onchange_include_tax2(self):
+        if self.handling2 == 0.0:
+            return
+        rate = self.handling2
+        if self.include_tax_for_handling2:
+            rate += round(rate * 0.1925)
+        else:
+            rate = self.handling_rate_2_id.rate
+        self.handling2 = rate
+
+    @api.onchange('include_tax_for_handling3')
+    def onchange_include_tax3(self):
+        if self.handling3 == 0.0:
+            return
+        rate = self.handling3
+        if self.include_tax_for_handling3:
+            rate += round(rate * 0.1925)
+        else:
+            rate = self.handling_rate_3_id.rate
+        self.handling3 = rate
 
     def _prepare_invoice(self):
         vals = super(SaleOrder, self)._prepare_invoice()

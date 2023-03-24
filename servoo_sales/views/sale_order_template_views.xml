@@ -16,9 +16,10 @@
                                 <span colspan="2">Available variables:</span>
                                 <span colspan="2">VOLUME: the volume</span>
                                 <span colspan="2">TONNAGE: the weight</span>
-                                <span colspan="2">QUANTITY: the quantity</span>
-                                <span colspan="2">ROYALTY: the royalty rate</span>
-                                <span colspan="2">HANDLING: the handling rate per tonne</span>
+                                <span colspan="2">QUANTITY: the quantity for the main good type</span>
+                                <span colspan="2">ROYALTY: the royalty rate for the main good type</span>
+                                <span colspan="2">QUANTITY2, QUANTITY3: the quantity for second and third good type</span>
+                                <span colspan="2">ROYALTY2, ROYALTY3: the royalty rate for the second and third good type</span>
                                 <span colspan="2">rules: object containing the rules code (previously computed)</span>
                             </group>
                             <group>

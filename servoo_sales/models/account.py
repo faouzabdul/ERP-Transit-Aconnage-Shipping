@@ -10,7 +10,7 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-class AccountMode(models.Model):
+class AccountMove(models.Model):
     _inherit = 'account.move'
 
     transport_means_id = fields.Many2one('res.transport.means', string="Means of transportation")
@@ -107,7 +107,7 @@ class AccountMode(models.Model):
     def create(self, vals):
         if vals.get('move_type') == 'out_invoice':
             vals['apm_reference'] = self._generate_APM_reference(vals.get('invoice_origin'))
-        return super(AccountMode, self).create(vals)
+        return super(AccountMove, self).create(vals)
 
     api.model
     def write(self, vals):
@@ -115,7 +115,15 @@ class AccountMode(models.Model):
         if not self.apm_reference:
             origin = vals['invoice_origin'] if vals.get('invoice_origin') else self.invoice_origin
             vals['apm_reference'] = self._generate_APM_reference(origin)
-        return super(AccountMode, self).write(vals)
+        return super(AccountMove, self).write(vals)
+
+    def _get_total_disbursement(self):
+        amount = 0.0
+        for move in self:
+            for line in move.invoice_line_ids:
+                if line.product_id.detailed_type == 'disbursement':
+                    amount += line.price_subtotal
+        return amount
 
 
 
@@ -185,3 +193,23 @@ class AccountMode(models.Model):
     # def onchange_variables(self):
     #     localdict = self.init_dicts()
     #     self._get_template_lines(self.sale_order_template_id.id, localdict)
+
+class AccountMoveLine(models.Model):
+    _inherit = 'account.move.line'
+
+    @api.onchange('product_id')
+    def _onchange_product_id(self):
+        for line in self:
+            if not line.product_id or line.display_type in ('line_section', 'line_note'):
+                continue
+
+            line.name = line._get_computed_name()
+            line.account_id = line._get_computed_account()
+            taxes = line._get_computed_taxes()
+            if taxes and line.move_id.fiscal_position_id:
+                taxes = line.move_id.fiscal_position_id.map_tax(taxes)
+            line.tax_ids = taxes
+            line.product_uom_id = line._get_computed_uom()
+            line.price_unit = line._get_computed_price_unit()
+            if self.product_id.default_code in ('COM', 'COD'):
+                line.quantity = line.move_id._get_total_disbursement()

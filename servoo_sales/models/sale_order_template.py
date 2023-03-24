@@ -23,9 +23,10 @@ class SaleOrderTemplateLine(models.Model):
                                                        #----------------------
                                                        # VOLUME: the volume                                                
                                                        # TONNAGE: The tonnage of goods
-                                                       # QUANTITY: The quantity of goods
-                                                       # ROYALTY: The royalty rate per tonne
-                                                       # HANDLING: The handling rate per tonne
+                                                       # QUANTITY: The quantity for the main good type
+                                                       # ROYALTY: The royalty rate for the main good type
+                                                       # QUANTITY2, QUANTITY3: The quantity of the second and third good type
+                                                       # ROYALTY2, ROYALTY3: The royalty rate for second and third good type
                                                        # rules: object containing the rules code (previously computed)
 
                                                        # Note: returned value have to be set in the variable 'result_qty'""")
@@ -36,7 +37,8 @@ class SaleOrderTemplateLine(models.Model):
                                                      # TONNAGE: The tonnage of goods
                                                      # QUANTITY: The quantity of goods
                                                      # ROYALTY: The royalty rate per tonne
-                                                     # HANDLING: The handling rate per tonne
+                                                     # QUANTITY2, QUANTITY3: The quantity of the second and third good type
+                                                     # ROYALTY2, ROYALTY3: The royalty rate for second and third good type
                                                      # rules: object containing the rules code (previously computed)
 
                                                      # Note: returned value have to be set in the variable 'result'""")
