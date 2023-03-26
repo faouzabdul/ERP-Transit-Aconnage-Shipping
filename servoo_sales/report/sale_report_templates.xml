@@ -318,14 +318,8 @@
                                 <font>O/FILE N°</font>
                             </td>
                             <td colspan="2" style="text-align: center;border: 1px solid #000000; padding: 0.1cm">
-                                <!--                            <td-->
-                                <!--                                    style="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">-->
-
-                                <!--                                <font>O/FILE N°</font>-->
-                                <!--                            </td>-->
-                                <!--                            <td style="text-align: center;border: 1px solid #000000; padding: 0.1cm">-->
                                 <font>
-                                    <br/>
+                                    <b><span t-field="doc.origin" /> </b>
                                 </font>
                             </td>
                             <td style="border: none; padding: 0cm">

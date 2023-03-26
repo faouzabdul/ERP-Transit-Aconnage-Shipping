@@ -180,7 +180,7 @@ class SaleOrder(models.Model):
             return
         rate = self.handling
         if self.include_tax_for_handling:
-            rate += round(rate * 0.1925)
+            rate += rate * 0.1925
         else:
             rate = self.handling_rate_id.rate
         self.handling = rate
@@ -191,7 +191,7 @@ class SaleOrder(models.Model):
             return
         rate = self.handling2
         if self.include_tax_for_handling2:
-            rate += round(rate * 0.1925)
+            rate += rate * 0.1925
         else:
             rate = self.handling_rate_2_id.rate
         self.handling2 = rate
@@ -202,7 +202,7 @@ class SaleOrder(models.Model):
             return
         rate = self.handling3
         if self.include_tax_for_handling3:
-            rate += round(rate * 0.1925)
+            rate += rate * 0.1925
         else:
             rate = self.handling_rate_3_id.rate
         self.handling3 = rate
