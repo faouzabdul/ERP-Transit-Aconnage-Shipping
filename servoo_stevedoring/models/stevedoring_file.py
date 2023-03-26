@@ -183,7 +183,7 @@ class StevedoringFile(models.Model):
         moves = self.env['account.move'].sudo().with_context(default_move_type='out_invoice').create(invoice_vals_list)
         action = self.env["ir.actions.actions"]._for_xml_id("account.action_move_out_invoice_type")
         if len(moves) > 1:
-            action['domain'] = [('id', 'in', invoices.ids)]
+            action['domain'] = [('id', 'in', moves.ids)]
         elif len(moves) == 1:
             form_view = [(self.env.ref('account.view_move_form').id, 'form')]
             if 'views' in action:
