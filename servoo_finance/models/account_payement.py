@@ -20,6 +20,7 @@ class AccountPayment(models.Model):
             bank_statement_line_vals = {
                 'date': payment.date,
                 'payment_ref': payment.ref,
+                'narration': payment.payment_reference,
                 'partner_id': payment.partner_id.id,
                 'amount': (-1 * payment.amount) if payment.payment_type == 'outbound' else payment.amount,
                 'journal_id': payment.journal_id.id,

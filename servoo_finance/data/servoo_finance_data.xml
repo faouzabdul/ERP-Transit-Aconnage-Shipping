@@ -25,6 +25,14 @@
             <field name="company_id" eval="False"/>
         </record>
 
+        <record id="seq_servoo_cash_return" model="ir.sequence">
+            <field name="name">Cash Return</field>
+            <field name="code">servoo.cash.return</field>
+            <field name="prefix">CR</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
         <record id="seq_cash_control_report" model="ir.sequence">
             <field name="name">Cash Control Report</field>
             <field name="code">account.cash.control.report</field>

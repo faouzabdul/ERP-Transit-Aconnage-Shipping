@@ -23,10 +23,22 @@
             </div>
             <button name="action_draft" position="before">
                 <button name="%(servoo_finance.action_wizard_sale_order_payment)d" string="Register Payment" type="action" class="btn-primary" data-hotkey="q"
-                        attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('payment_state', 'not in', ('not_paid', 'partial'))]}"
+                        attrs="{'invisible': ['|', ('state', '=', 'draft'), ('payment_state', 'not in', ('not_paid', 'partial'))]}"
                         groups="servoo_finance.cashier_group_user"
                 />
             </button>
+            <notebook position="inside">
+                <page string="Payments">
+                    <field name="payment_ids" readonly="1" widget="one2many">
+<!--                        <tree>-->
+<!--                            <field name="date" />-->
+<!--                            <field name="name" />-->
+<!--                            <field name="journal_id" />-->
+<!--                            <field name="amount_company_currency_signed" widget="monetary" string="Amount"/>-->
+<!--                        </tree>-->
+                    </field>
+                </page>
+            </notebook>
         </field>
     </record>
 </odoo>

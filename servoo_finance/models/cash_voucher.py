@@ -76,9 +76,11 @@ class CashVoucher(models.Model):
     amount_justified = fields.Float(string='Amount justified', digits=(6, 3), tracking=1, default=0.0)
     amount_unjustified = fields.Float(string='Amount unjustified', digits=(6, 3), compute='_compute_unjustified_amount')
     cashier_piece_total_amount = fields.Float('Total cashier piece', compute='_compute_total_cashier_piece')
+    cash_return_total_amount = fields.Float('Total cash return', compute='_compute_total_cash_return')
     object = fields.Text('Object')
     create_uid = fields.Many2one('res.users', string='Created by', index=True, readonly=True)
     cashier_piece_ids = fields.One2many('servoo.cashier.piece', 'cash_voucher_id', 'Cashier Pieces')
+    cash_return_ids = fields.One2many('servoo.cash.return', 'cash_voucher_id', 'Cash Returns')
     justification_delay = fields.Integer('Justification Delay (days)', default=7)
     hinterland = fields.Boolean('For hinterland operation ?')
     justification_deadline = fields.Date('Justification Deadline', default=onchange_hinterland)
@@ -140,6 +142,13 @@ class CashVoucher(models.Model):
             for piece in voucher.cashier_piece_ids:
                 amount += piece.amount_total
             voucher.cashier_piece_total_amount = amount
+
+    def _compute_total_cash_return(self):
+        for voucher in self:
+            amount = 0.0
+            for cash_return in voucher.cash_return_ids:
+                amount += cash_return.amount
+            voucher.cash_return_total_amount = amount
 
     def _search_our_vouchers(self, operator, value):
         if operator not in ['=', '!=']:

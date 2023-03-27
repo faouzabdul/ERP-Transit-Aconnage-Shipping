@@ -46,6 +46,22 @@
                 <menuitem id="menu_account_supplier" name="Vendors" action="account.res_partner_action_supplier" sequence="200"/>
             </menuitem>
 
+            <menuitem id="menu_finance_department_files" name="Department Files" sequence="3">
+                <menuitem id="finance_shipping_invoice_menu" name="Shipping" sequence="4">
+                    <menuitem id="shipping_pda_invoice_menu" action="servoo_shipping.action_shipping_pda_to_invoice" />
+                    <menuitem id="shipping_file_invoice_menu" action="servoo_shipping.action_shipping_file_to_invoice" />
+                </menuitem>
+                <menuitem id="finance_stevedoring_invoice_menu" name="Stevedoring" sequence="5">
+                    <menuitem id="stevedoring_file_invoice_menu" action="servoo_stevedoring.action_stevedoring_file_to_invoice" />
+                </menuitem>
+                <menuitem id="finance_transit_invoice_menu" name="Customs Operations" sequence="5">
+                    <menuitem id="transit_order_invoice_menu" action="servoo_transit.action_transit_order_to_invoice" />
+                </menuitem>
+                <menuitem id="finance_logistic_invoice_menu" name="Logistic" sequence="6">
+                    <menuitem id="logistic_operation_invoice_menu" action="servoo_logistic.action_operations_to_invoice" />
+                </menuitem>
+            </menuitem>
+
             <menuitem id="sub_menu_finance" name="Finance" sequence="3">
                 <menuitem id="payment_request_menu" name="Payment Request"  sequence="3">
                     <menuitem id="our_payment_request_menu" action="servoo_finance.action_our_payment_request" />
@@ -68,7 +84,7 @@
                     <menuitem id="all_cashier_piece_menu" action="servoo_finance.action_all_cashier_piece" />
                 </menuitem>
             </menuitem>
-            <menuitem id="menu_acahs_control" name="Cash control report">
+            <menuitem id="menu_cash_control" name="Cash control report">
                 <menuitem id="cash_control_report_menu" action="servoo_finance.action_cash_control_report"
                 name="All cash control reports"/>
                 <menuitem action="servoo_finance.action_cash_control_report_to_control" id="cash_control_report_to_control"

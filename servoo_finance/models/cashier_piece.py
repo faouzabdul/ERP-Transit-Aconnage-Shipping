@@ -164,7 +164,7 @@ class CashierPiece(models.Model):
                 vals['name'] = self.env['ir.sequence'].with_context(force_company=vals['company_id']).next_by_code(
                     'servoo.cashier.piece') or _('New')
             else:
-                vals['name'] = self.env['ir.sequence'].next_by_code('servoo.purchase.need') or _('New')
+                vals['name'] = self.env['ir.sequence'].next_by_code('servoo.cashier.piece') or _('New')
         return super().create(vals)
 
 
@@ -198,3 +198,18 @@ class CashierPieceDocument(models.Model):
         'ir.attachment', 'servoo_cashier_piece_document_attachment_rel',
         'document_id', 'attachment_id',
         string='Attachments')
+
+    @api.model
+    def create(self, vals):
+        documents = super(CashierPieceDocument, self).create(vals)
+        for document in documents:
+            if document.attachment_ids:
+                document.attachment_ids.write({'res_model': self._name, 'res_id': document.id})
+        return documents
+
+    def write(self, vals):
+        documents = super(CashierPieceDocument, self).write(vals)
+        for document in self:
+            if document.attachment_ids:
+                document.attachment_ids.write({'res_model': self._name, 'res_id': document.id})
+        return documents

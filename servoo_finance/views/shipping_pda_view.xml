@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="servoo_shipping_pda_finance_inherit_form">
+        <field name="name">servoo.shipping.pda.finance.inherit.form</field>
+        <field name="model">servoo.shipping.pda</field>
+        <field name="inherit_id" ref="servoo_shipping.view_shipping_pda_form" />
+        <field name="arch" type="xml">
+            <button name="action_draft" position="before">
+                <button name="%(servoo_finance.action_wizard_pda_payment)d" string="Register Payment" type="action" class="btn-primary" data-hotkey="q"
+                        attrs="{'invisible': ['|', ('state', '=', 'draft'), ('payment_state', 'not in', ('not_paid', 'partial'))]}"
+                        groups="servoo_finance.cashier_group_user"
+                />
+            </button>
+            <notebook position="inside">
+                <page string="Payments">
+                    <field name="payment_ids" readonly="1" widget="one2many">
+<!--                        <tree>-->
+<!--                            <field name="date" />-->
+<!--                            <field name="name" />-->
+<!--                            <field name="journal_id" />-->
+<!--                            <field name="amount_company_currency_signed" widget="monetary" string="Amount"/>-->
+<!--                        </tree>-->
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

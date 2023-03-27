@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="wizard_cash_return_form">
+            <field name="name">wizard.cash.return.form</field>
+            <field name="model">servoo.cash.return.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Cash Return">
+                    <sheet>
+                        <group string="Register a cashier return" />
+                        <group col="2">
+                            <field name="date" required="1"/>
+                            <field name="cash_voucher_id" readonly="1" required="1"/>
+                            <field name="journal_id" readonly="1"/>
+                            <field name="amount" readonly="1" />
+                            <field name="bank_statement_id" required="1"
+                            options="{'no_create': True, 'no_open': True}"
+                               domain="[('journal_id', '=', journal_id), ('state', '=', 'open')]"/>
+                        </group>
+                    </sheet>
+
+                    <footer>
+                    <button name="action_validate" string="Approve" type="object" class="oe_highlight" data-hotkey="q"/>
+
+                    <button string="Discard" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wizard_cash_return" model="ir.actions.act_window">
+            <field name="name">Cash Return</field>
+            <field name="res_model">servoo.cash.return.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

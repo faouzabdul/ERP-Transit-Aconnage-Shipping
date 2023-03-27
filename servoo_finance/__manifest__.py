@@ -21,6 +21,8 @@
         'wizard/wizard_cashier_piece_view.xml',
         'wizard/wizard_cash_control_report_view.xml',
         'wizard/wizard_sale_order_payment_view.xml',
+        'wizard/wizard_cash_return_view.xml',
+        'wizard/wizard_pda_payment_view.xml',
         'views/payment_request_view.xml',
         'views/cash_voucher_view.xml',
         'views/cashier_piece_view.xml',
@@ -32,6 +34,7 @@
         'views/servoo_finance_menu.xml',
         'views/account_bank_statement_view.xml',
         'views/sale_order_view.xml',
+        'views/shipping_pda_view.xml',
     ],
 'assets': {
         'web.assets_backend': [

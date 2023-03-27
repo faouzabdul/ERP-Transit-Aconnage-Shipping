@@ -36,6 +36,7 @@ servoo_finance.access_account_cash_control_report_approve_wizard,access_account_
 access_account_cashbox,account.bank.statement.cashbox,account.model_account_bank_statement_cashbox,servoo_finance.cashier_group_user,1,1,1,1
 access_account_cashbox_line,account.bank.statement.cashbox.line,account.model_account_cashbox_line,servoo_finance.cashier_group_user,1,1,1,1
 access_account_bank_statement_group_readonly,account.bank.statement.group.invoice,account.model_account_bank_statement,servoo_finance.cashier_group_user,1,0,0,0
+access_account_payment_group_readonly,account.payment,account.model_account_payment,base.group_user,1,0,0,0
 access_account_bank_statement_group_invoice,account.bank.statement.group.invoice,account.model_account_bank_statement,servoo_finance.cashier_group_user,1,0,0,0
 access_account_bank_statement_line_group_readonly,account.bank.statement.line.group.invoice,account.model_account_bank_statement_line,servoo_finance.cashier_group_user,1,0,0,0
 access_account_bank_statement_line_group_invoice,account.bank.statement.line.group.invoice,account.model_account_bank_statement_line,servoo_finance.cashier_group_user,1,0,0,0
@@ -43,3 +44,8 @@ access_account_bank_statement,account.bank.statement,account.model_account_bank_
 access_account_bank_statement_line,account.bank.statement.line,account.model_account_bank_statement_line,servoo_finance.cashier_group_user,1,1,1,1
 
 servoo_finance.access_sale_order_payment_wizard,access_sale_order_payment_wizard,servoo_finance.model_sale_order_payment_wizard,base.group_user,1,1,1,0
+
+servoo_finance.access_servoo_cash_return,access_servoo_cash_return,servoo_finance.model_servoo_cash_return,base.group_user,1,1,1,0
+servoo_finance.access_servoo_cash_return_wizard,access_servoo_cash_return_wizard,servoo_finance.model_servoo_cash_return_wizard,base.group_user,1,1,1,0
+
+servoo_finance.access_servoo_shipping_pda_wizard,access_servoo_shipping_pda_wizard,servoo_finance.model_servoo_shipping_pda_wizard,base.group_user,1,1,1,1

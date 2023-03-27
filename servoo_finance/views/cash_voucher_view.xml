@@ -38,6 +38,8 @@
                         <button name="%(action_wizard_cash_voucher)d"  groups="servoo_finance.cashier_group_user" class="btn-primary"
                                 attrs="{'invisible': [('state', '!=', 'cashier_approval')]}" string="Approve" type="action"/>
 
+                        <button name="%(action_wizard_cash_return)d" groups="servoo_finance.cashier_group_user" class="btn-primary"
+                                attrs="{'invisible': [('state', '!=', 'justification')]}" string="Cash Return" type="action" />
                         <field name="state" widget="statusbar" statusbar_visible="draft,service_approval,direction_approval,cashier_approval,done"/>
                     </header>
                     <sheet>
@@ -52,6 +54,7 @@
                             <field name="amount_justified" readonly="1" />
                             <field name="amount_unjustified" readonly="1"/>
                             <field name="cashier_piece_total_amount" readonly="1"/>
+                            <field name="cash_return_total_amount" readonly="1"/>
                             <field name="justification_delay" readonly="1" force_save="1"/>
                             <field name="justification_deadline" readonly="1" force_save="1"/>
                             <field name="journal_id" readonly="1" />
@@ -65,6 +68,15 @@
                                         <field name="employee_id" />
                                         <field name="amount_total" />
                                         <field name="state" />
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Cash Returns">
+                                <field name="cash_return_ids" widget="one2many" mode="tree" readonly="1">
+                                    <tree string="Cash Return">
+                                        <field name="name" />
+                                        <field name="date" />
+                                        <field name="amount" />
                                     </tree>
                                 </field>
                             </page>

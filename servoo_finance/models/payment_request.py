@@ -73,7 +73,7 @@ class PaymentRequest(models.Model):
         group_service_approval = self.env.ref("servoo_finance.applicant_service_approval_group_user")
         users = group_service_approval.users
         for user in users:
-            if user.employee_id.department_id.id == self.department_id.id:
+            if user.sudo().employee_id.department_id.id == self.sudo().department_id.id:
                 self.activity_schedule(
                     "servoo_finance.mail_finance_feedback", user_id=user.id,
                     summary=_("New payment request %s needs the applicant service approval" % self.name)
@@ -153,3 +153,18 @@ class PaymentRequestDocument(models.Model):
         'ir.attachment', 'servoo_payment_request_document_attachment_rel',
         'document_id', 'attachment_id',
         string='Attachments')
+
+    @api.model
+    def create(self, vals):
+        documents = super(PaymentRequestDocument, self).create()
+        for document in documents:
+            if document.attachment_ids:
+                document.attachment_ids.write({'res_model': self._name, 'res_id': document.id})
+        return documents
+
+    def write(self, vals):
+        documents = super(PaymentRequestDocument, self).write(vals)
+        for document in self:
+            if document.attachment_ids:
+                document.attachment_ids.write({'res_model': self._name, 'res_id': formality.id})
+        return documents
