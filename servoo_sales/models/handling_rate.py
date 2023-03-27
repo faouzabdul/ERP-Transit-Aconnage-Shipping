@@ -21,6 +21,13 @@ class HandlingRate(models.Model):
     ], string='Sens Operation')
     category_id = fields.Many2one('servoo.handling.rate.category', 'Category')
 
+    def name_get(self):
+        result = []
+        for rate in self:
+            name = rate.name + (rate.operation and (' [' + rate.operation + ']') or '')
+            result.append((rate.id, name))
+        return result
+
 
 class HandlingRateCategory(models.Model):
     _name = 'servoo.handling.rate.category'
