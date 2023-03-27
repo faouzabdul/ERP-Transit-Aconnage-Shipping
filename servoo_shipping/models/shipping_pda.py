@@ -11,6 +11,9 @@ from odoo.osv import expression
 from odoo.tools import float_is_zero, html_keep_url, is_html_empty
 
 from odoo.addons.payment import utils as payment_utils
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 class ShippingPda(models.Model):
@@ -171,7 +174,7 @@ class ShippingPda(models.Model):
     client_order_ref = fields.Char(string='Customer Reference', copy=False)
     reference = fields.Char(string='Payment Ref.', copy=False,
         help='The payment communication of this shipping pda.')
-    paid_amount = fields.Float('Paid Amount')
+    paid_amount = fields.Float('Paid Amount', compute='_get_amount_paid')
     payment_state = fields.Selection([
         ('not_paid', 'Not Paid'),
         ('paid', 'Paid'),
@@ -292,9 +295,32 @@ class ShippingPda(models.Model):
     cbm_vessel = fields.Float('CBM Vessel', digits=(12, 4), required=False, tracking=6, states={'cancel': [('readonly', True)], 'won': [('readonly', True)], 'lost': [('readonly', True)]})
     location_code = fields.Many2one('res.locode', 'Localisation Code', tracking=6, states={'cancel': [('readonly', True)], 'won': [('readonly', True)], 'lost': [('readonly', True)]})
 
+    other_currency_id = fields.Many2one('res.currency', 'Other Currency')
+    amount_other_currency = fields.Float(string='Total Currency', store=True, digits=(6, 3),
+                                         compute='_compute_other_amount')
+
     _sql_constraints = [
         ('date_order_conditional_required', "CHECK( (state IN ('won', 'done') AND date_pda IS NOT NULL) OR state NOT IN ('won', 'done') )", "A confirmed shipping PDA requires a confirmation date."),
     ]
+
+    @api.depends('amount_total', 'currency_id')
+    def _compute_other_amount(self):
+        for pda in self:
+            currency_code = 'XAF'
+            if pda.currency_id.name == 'XAF':
+                currency_code = 'EUR'
+            other_currency = self.env['res.currency'].search([('name', '=', currency_code)])
+            rate = pda.currency_id.inverse_rate if pda.currency_id.name == 'EUR' else other_currency.rate
+            # _logger.info("other_currency : %s-%s\nrate: %s - inverse rate: %s" % (other_currency.name, rate, other_currency.rate, other_currency.inverse_rate))
+            pda.other_currency_id = other_currency and other_currency.id
+            pda.amount_other_currency = pda.amount_total * rate
+
+    def _get_amount_paid(self):
+        for pda in self:
+            amount = 0.0
+            for payment in pda.payment_ids:
+                amount += payment.amount
+            pda.paid_amount = amount
 
     @api.onchange('loa', 'beam', 'summer_draft')
     def compute_cbm(self):

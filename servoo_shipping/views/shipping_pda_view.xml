@@ -20,11 +20,13 @@
                     <field name="amount_untaxed" sum="Total Tax Excluded" widget="monetary" optional="hide"/>
                     <field name="amount_tax" sum="Tax Total" widget="monetary" optional="hide"/>
                     <field name="amount_total" sum="Total Tax Included" widget="monetary" decoration-bf="1" optional="show"/>
+                    <field name="amount_other_currency" sum="Total" widget="monetary" options="{'currency_field': 'other_currency_id'}" decoration-bf="1" optional="show"/>
                     <field name="currency_id" invisible="1"/>
+                    <field name="other_currency_id" invisible="1"/>
                     <field name="state" decoration-success="state == 'won'" decoration-info="state == 'draft'" decoration-warning="state == 'lost'" widget="badge" optional="show"/>
                     <field name="payment_state" decoration-success="payment_state == 'paid'" decoration-info="payment_state == 'partial'" decoration-danger="payment_state == 'not_paid'" widget="badge" optional="show"/>
                     <field name="tag_ids" optional="hide" widget="many2many_tags" options="{'color_field': 'color'}"/>
-                    <field name="state" invisible="1"/>
+<!--                    <field name="state" invisible="1"/>-->
                 </tree>
             </field>
         </record>
@@ -369,6 +371,12 @@
                                 </group>
                                 <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
                                     <field name="tax_totals_json" widget="account-tax-totals-field" nolabel="1" colspan="2"/>
+                                     <label for="amount_other_currency" string="Other Total"/>
+<!--                                    <field name="amount_other_currency" widget="monetary" options="{'currency_field': 'other_currency_id'}" nolabel="1"/>-->
+                                    <div class="o_row">
+                                         <field name="amount_other_currency" />
+                                         <field name="other_currency_id" readonly="1"/>
+                                    </div>
                                 </group>
                                 <div class="oe_clear"/>
                             </group>
