@@ -186,9 +186,14 @@
                                         </t>
                                     </font>
                                 </br>
-                                <!--                            <p>-->
-                                <!--                                <font >RC/DLA/2018/B/2764</font>-->
-                                <!--                            </p>-->
+                                <br>
+                                    <font>
+                                        <t t-if="doc.partner_id.commercial_register_number">
+                                            RCCM :
+                                            <span t-field="doc.partner_id.commercial_register_number"/>
+                                        </t>
+                                    </font>
+                                </br>
                             </td>
                         </tr>
                         <tr valign="top">

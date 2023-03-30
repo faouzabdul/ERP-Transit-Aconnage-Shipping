@@ -541,6 +541,12 @@ msgid "Code"
 msgstr ""
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_res_partner__commercial_register_number
+#: model:ir.model.fields,field_description:servoo_sales.field_res_users__commercial_register_number
+msgid "Commercial Register Number"
+msgstr "N° Registre de commerce"
+
+#. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard__create_uid
 #: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate__create_uid
 #: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate_category__create_uid

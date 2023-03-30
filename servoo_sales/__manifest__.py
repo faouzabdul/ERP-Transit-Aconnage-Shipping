@@ -17,6 +17,7 @@
         'views/sale_views.xml',
         'views/sale_order_template_views.xml',
         'views/handling_rate_views.xml',
+        'views/partner_views.xml',
         'report/sale_report_templates.xml',
         'report/report_invoice.xml',
         'views/invoice_menu_views.xml',
