@@ -5,7 +5,7 @@
             <field name="name">servoo.shipping.file.tree</field>
             <field name="model">servoo.shipping.file</field>
             <field name="arch" type="xml">
-                <tree string="Shipping Files">
+                <tree string="Shipping Files" decoration-success="state == 'done'" decoration-info="state == 'open'" decoration-warning="state == 'draft'">
                     <field name="name" />
                     <field name="file_type_id" />
                     <field name="good_type_id" />
@@ -17,7 +17,7 @@
                     <field name="voyage_number" />
                     <field name="gross_weight" />
                     <field name="net_weight" />
-                    <field name="state" />
+                    <field name="state" widget="badge" decoration-success="state == 'done'" decoration-info="state == 'open'" decoration-warning="state == 'draft'"/>
                 </tree>
             </field>
         </record>
@@ -40,7 +40,7 @@
 
                         <button name="action_draft" states="cancel" type="object" string="Open"
                                 groups="servoo_shipping.shipping_group_manager"/>
-                        <button name="action_cancel" states="open,done" type="object" string="Cancel" groups="servoo_shipping.shipping_group_user"/>
+                        <button name="%(action_wizard_shipping_file_cancel)d" states="draft,open,done" type="action" string="Cancel" groups="servoo_shipping.shipping_group_manager"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,open,done"/>
                     </header>
                     <sheet>

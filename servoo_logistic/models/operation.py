@@ -61,13 +61,14 @@ class Operation(models.Model):
         ('draft', 'Draft'),
         ('open', 'Open'),
         ('done', 'Done'),
-        ('cancel', 'Cancel')
+        ('cancel', 'Cancelled')
     ], string='Status', default='draft', tracking=1)
     agency_name = fields.Selection([
         ('Douala', 'Douala'),
         ('Kribi', 'Kribi'),
         ('Tchad', 'Tchad'),
     ], string='Agency', default='Douala')
+    cancel_note = fields.Text('Cancel Motivation', tracking=2)
 
     _sql_constraints = [
         ('name_uniq', 'unique (name)', _('This reference must be unique!'))

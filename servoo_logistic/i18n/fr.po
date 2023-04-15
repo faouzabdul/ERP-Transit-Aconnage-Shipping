@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220616\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-20 09:04+0000\n"
-"PO-Revision-Date: 2022-12-20 09:04+0000\n"
+"POT-Creation-Date: 2023-04-15 20:21+0000\n"
+"PO-Revision-Date: 2023-04-15 20:21+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -62,6 +62,11 @@ msgid "Amount"
 msgstr "Montant"
 
 #. module: servoo_logistic
+#: model_terms:ir.ui.view,arch_db:servoo_logistic.wizard_logistic_operation_cancel_form
+msgid "Approve"
+msgstr "Approuver"
+
+#. module: servoo_logistic
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__arrival_date
 msgid "Arrival Date"
 msgstr "Date d'arrivée"
@@ -86,11 +91,25 @@ msgstr "Connaissement"
 
 #. module: servoo_logistic
 #: model:ir.model.fields.selection,name:servoo_logistic.selection__servoo_logistic_formality__state__cancel
-#: model:ir.model.fields.selection,name:servoo_logistic.selection__servoo_logistic_operation__state__cancel
 #: model_terms:ir.ui.view,arch_db:servoo_logistic.view_servoo_logistic_form
 #: model_terms:ir.ui.view,arch_db:servoo_logistic.view_servoo_logistic_formality_form
 msgid "Cancel"
 msgstr "Annuler"
+
+#. module: servoo_logistic
+#: model:ir.actions.act_window,name:servoo_logistic.action_wizard_logistic_operation_cancel
+msgid "Cancel Logistic Operation"
+msgstr "Annulation Dossier Logistique"
+
+#. module: servoo_logistic
+#: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__cancel_note
+msgid "Cancel Motivation"
+msgstr "Motif d'annulation"
+
+#. module: servoo_logistic
+#: model:ir.model.fields.selection,name:servoo_logistic.selection__servoo_logistic_operation__state__cancel
+msgid "Cancelled"
+msgstr "Annulé"
 
 #. module: servoo_logistic
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_vehicle__category_id
@@ -149,6 +168,7 @@ msgstr "Créer une nouvelle opération"
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_formality__create_uid
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_formality_type__create_uid
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__create_uid
+#: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_cancel_wizard__create_uid
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_nature__create_uid
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_vehicle__create_uid
 msgid "Created by"
@@ -160,6 +180,7 @@ msgstr "Créé par"
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_formality__create_date
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_formality_type__create_date
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__create_date
+#: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_cancel_wizard__create_date
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_nature__create_date
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_vehicle__create_date
 msgid "Created on"
@@ -178,12 +199,12 @@ msgstr "Date de fin"
 #. module: servoo_logistic
 #: model_terms:ir.ui.view,arch_db:servoo_logistic.view_servoo_logistic_form
 msgid "Delivery"
-msgstr ""
+msgstr "Livraison"
 
 #. module: servoo_logistic
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__delivery_date
 msgid "Delivery Date"
-msgstr "Daet de livraison"
+msgstr "Date de livraison"
 
 #. module: servoo_logistic
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__delivery_place
@@ -213,11 +234,17 @@ msgid "Destination Country"
 msgstr "Pays de destination"
 
 #. module: servoo_logistic
+#: model_terms:ir.ui.view,arch_db:servoo_logistic.wizard_logistic_operation_cancel_form
+msgid "Discard"
+msgstr "Annuler"
+
+#. module: servoo_logistic
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_document__display_name
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_document_type__display_name
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_formality__display_name
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_formality_type__display_name
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__display_name
+#: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_cancel_wizard__display_name
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_nature__display_name
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_vehicle__display_name
 msgid "Display Name"
@@ -266,6 +293,11 @@ msgstr "Types de document"
 #: model_terms:ir.ui.view,arch_db:servoo_logistic.view_servoo_logistic_formality_form
 msgid "Done"
 msgstr "Terminé"
+
+#. module: servoo_logistic
+#: model:ir.model.fields.selection,name:servoo_logistic.selection__servoo_logistic_operation__agency_name__douala
+msgid "Douala"
+msgstr ""
 
 #. module: servoo_logistic
 #: model:ir.model.fields.selection,name:servoo_logistic.selection__servoo_logistic_operation__state__draft
@@ -372,6 +404,7 @@ msgstr "Gérer vos opérations de logistique"
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_formality__id
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_formality_type__id
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__id
+#: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_cancel_wizard__id
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_nature__id
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_vehicle__id
 msgid "ID"
@@ -416,11 +449,17 @@ msgid "Is Follower"
 msgstr ""
 
 #. module: servoo_logistic
+#: model:ir.model.fields.selection,name:servoo_logistic.selection__servoo_logistic_operation__agency_name__kribi
+msgid "Kribi"
+msgstr ""
+
+#. module: servoo_logistic
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_document____last_update
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_document_type____last_update
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_formality____last_update
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_formality_type____last_update
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation____last_update
+#: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_cancel_wizard____last_update
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_nature____last_update
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_vehicle____last_update
 msgid "Last Modified on"
@@ -432,6 +471,7 @@ msgstr "Dernière modification le"
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_formality__write_uid
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_formality_type__write_uid
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__write_uid
+#: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_cancel_wizard__write_uid
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_nature__write_uid
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_vehicle__write_uid
 msgid "Last Updated by"
@@ -443,6 +483,7 @@ msgstr "Dernière modification par"
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_formality__write_date
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_formality_type__write_date
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__write_date
+#: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_cancel_wizard__write_date
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_nature__write_date
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_vehicle__write_date
 msgid "Last Updated on"
@@ -469,6 +510,11 @@ msgstr "Lieu de chargement"
 #: model:ir.ui.menu,name:servoo_logistic.logistic_menu_root
 msgid "Logistic"
 msgstr "Logistique"
+
+#. module: servoo_logistic
+#: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_cancel_wizard__logistic_operation_id
+msgid "Logistic operation"
+msgstr "Operation de logistique"
 
 #. module: servoo_logistic
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__message_main_attachment_id
@@ -513,7 +559,7 @@ msgstr "Nom"
 #: code:addons/servoo_logistic/models/operation.py:0
 #, python-format
 msgid "New"
-msgstr ""
+msgstr "Nouveau"
 
 #. module: servoo_logistic
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__activity_calendar_event_id
@@ -558,6 +604,11 @@ msgstr ""
 #. module: servoo_logistic
 #: model:ir.model.fields,help:servoo_logistic.field_servoo_logistic_operation__message_unread_counter
 msgid "Number of unread messages"
+msgstr ""
+
+#. module: servoo_logistic
+#: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation_cancel_wizard__observation
+msgid "Observation"
 msgstr ""
 
 #. module: servoo_logistic
@@ -672,6 +723,11 @@ msgid "Taxes"
 msgstr ""
 
 #. module: servoo_logistic
+#: model:ir.model.fields.selection,name:servoo_logistic.selection__servoo_logistic_operation__agency_name__tchad
+msgid "Tchad"
+msgstr ""
+
+#. module: servoo_logistic
 #: model_terms:ir.actions.act_window,help:servoo_logistic.action_operations_to_invoice
 msgid "There is no logistic operation to invoice!"
 msgstr "Il n'y a aucune opération de logistique à facturer"
@@ -782,6 +838,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__weight
 msgid "Weight"
 msgstr "Poids (kg)"
+
+#. module: servoo_logistic
+#: model:ir.model,name:servoo_logistic.model_servoo_logistic_operation_cancel_wizard
+msgid "Wizard for cancel logistic operation"
+msgstr ""
+
+#. module: servoo_logistic
+#: model_terms:ir.ui.view,arch_db:servoo_logistic.wizard_logistic_operation_cancel_form
+msgid "logistic operation Cancel"
+msgstr ""
 
 #. module: servoo_logistic
 #: model:ir.model,name:servoo_logistic.model_servoo_logistic_operation

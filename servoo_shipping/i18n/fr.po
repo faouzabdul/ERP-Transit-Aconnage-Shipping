@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220616\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-27 08:22+0000\n"
-"PO-Revision-Date: 2023-03-27 08:22+0000\n"
+"POT-Creation-Date: 2023-04-15 20:31+0000\n"
+"PO-Revision-Date: 2023-04-15 20:31+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -400,7 +400,7 @@ msgstr "État d'activité"
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__activity_type_icon
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__activity_type_icon
 msgid "Activity Type Icon"
-msgstr "Icône du type d'activité"
+msgstr ""
 
 #. module: servoo_shipping
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.shipping_pda_template_view_form
@@ -459,6 +459,11 @@ msgstr "Compte analytique"
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda_line__analytic_tag_ids
 msgid "Analytic Tags"
 msgstr ""
+
+#. module: servoo_shipping
+#: model_terms:ir.ui.view,arch_db:servoo_shipping.wizard_shipping_file_cancel_form
+msgid "Approve"
+msgstr "Approuver"
 
 #. module: servoo_shipping
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.shipping_pda_template_view_form
@@ -544,7 +549,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__cbm_vessel
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda_template__cbm_vessel
 msgid "CBM Vessel"
-msgstr "CBM Navire"
+msgstr ""
 
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__call_sign
@@ -554,15 +559,14 @@ msgstr "Signe d'appel"
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__campaign_id
 msgid "Campaign"
-msgstr "Campagne"
+msgstr ""
 
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda_line__product_updatable
 msgid "Can Edit Product"
-msgstr "Peut modifier le produit"
+msgstr ""
 
 #. module: servoo_shipping
-#: model:ir.model.fields.selection,name:servoo_shipping.selection__servoo_shipping_file__state__cancel
 #: model:ir.model.fields.selection,name:servoo_shipping.selection__servoo_shipping_formality__state__cancel
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.servoo_shipping_pda_cancel_view_form
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.view_servoo_shipping_file_form
@@ -571,12 +575,23 @@ msgid "Cancel"
 msgstr "Annuler"
 
 #. module: servoo_shipping
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__cancel_note
+msgid "Cancel Motivation"
+msgstr "Motif d'annulation"
+
+#. module: servoo_shipping
 #: code:addons/servoo_shipping/models/shipping_pda.py:0
 #, python-format
 msgid "Cancel PDA"
 msgstr "Annuler PDA"
 
 #. module: servoo_shipping
+#: model:ir.actions.act_window,name:servoo_shipping.action_wizard_shipping_file_cancel
+msgid "Cancel Shipping File"
+msgstr "Annulation du dossier shipping"
+
+#. module: servoo_shipping
+#: model:ir.model.fields.selection,name:servoo_shipping.selection__servoo_shipping_file__state__cancel
 #: model:ir.model.fields.selection,name:servoo_shipping.selection__servoo_shipping_pda__state__cancel
 msgid "Cancelled"
 msgstr "Annulé"
@@ -632,7 +647,7 @@ msgstr "Classe"
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__partner_id
 msgid "Client"
-msgstr "Client"
+msgstr ""
 
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document_type__code
@@ -747,6 +762,7 @@ msgstr "Créér un nouveau modèle de PDA"
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document__create_uid
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document_type__create_uid
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__create_uid
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_cancel_wizard__create_uid
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_good_type__create_uid
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_type__create_uid
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality__create_uid
@@ -775,6 +791,7 @@ msgstr "Créé par"
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document__create_date
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document_type__create_date
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__create_date
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_cancel_wizard__create_date
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_good_type__create_date
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_type__create_date
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality__create_date
@@ -940,7 +957,7 @@ msgstr ""
 #. module: servoo_shipping
 #: model:ir.model.fields.selection,name:servoo_shipping.selection__servoo_shipping_bl__state__delivered
 msgid "Delivered"
-msgstr "Livré"
+msgstr ""
 
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__partner_shipping_id
@@ -1005,8 +1022,9 @@ msgstr "Rem.%"
 
 #. module: servoo_shipping
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.wizard_shipping_delivery_order_form
+#: model_terms:ir.ui.view,arch_db:servoo_shipping.wizard_shipping_file_cancel_form
 msgid "Discard"
-msgstr ""
+msgstr "Annuler"
 
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda_line__discount
@@ -1024,6 +1042,7 @@ msgstr "Remise (%)"
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document__display_name
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document_type__display_name
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__display_name
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_cancel_wizard__display_name
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_good_type__display_name
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_type__display_name
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality__display_name
@@ -1084,7 +1103,7 @@ msgstr "Terminé"
 #: code:addons/servoo_shipping/models/shipping_pda.py:0
 #, python-format
 msgid "Down Payments"
-msgstr "Acomptes"
+msgstr ""
 
 #. module: servoo_shipping
 #: model:ir.model.fields,help:servoo_shipping.field_servoo_shipping_pda_line__is_downpayment
@@ -1142,7 +1161,7 @@ msgstr "Taux de change"
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__expected_date
 msgid "Expected Date"
-msgstr "Date prévue"
+msgstr ""
 
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_person__identity_document_expiry_date
@@ -1390,6 +1409,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document__id
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document_type__id
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__id
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_cancel_wizard__id
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_good_type__id
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_type__id
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality__id
@@ -1594,6 +1614,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document____last_update
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document_type____last_update
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file____last_update
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_cancel_wizard____last_update
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_good_type____last_update
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_type____last_update
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality____last_update
@@ -1627,6 +1648,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document__write_uid
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document_type__write_uid
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__write_uid
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_cancel_wizard__write_uid
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_good_type__write_uid
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_type__write_uid
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality__write_uid
@@ -1655,6 +1677,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document__write_date
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_document_type__write_date
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__write_date
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_cancel_wizard__write_date
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_good_type__write_date
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_type__write_date
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality__write_date
@@ -1955,6 +1978,11 @@ msgid "OF"
 msgstr ""
 
 #. module: servoo_shipping
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_cancel_wizard__observation
+msgid "Observation"
+msgstr ""
+
+#. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_ship_store__use
 msgid "Official use"
 msgstr "Utilisation officielle"
@@ -2012,7 +2040,7 @@ msgstr "Montant total devise"
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_formality__other_reference
 msgid "Other reference"
-msgstr "Autre référence"
+msgstr ""
 
 #. module: servoo_shipping
 #: model:ir.actions.act_window,name:servoo_shipping.action_shipping_pda
@@ -2511,6 +2539,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_ship_store__file_id
 msgid "Shipping File"
 msgstr "Dossier shipping"
+
+#. module: servoo_shipping
+#: model_terms:ir.ui.view,arch_db:servoo_shipping.wizard_shipping_file_cancel_form
+msgid "Shipping File Cancel"
+msgstr "Annulation Dossier Shipping"
 
 #. module: servoo_shipping
 #: model:ir.actions.act_window,name:servoo_shipping.action_shipping_file_type
@@ -3067,6 +3100,11 @@ msgid "Weight (kg)"
 msgstr "Poids (kg)"
 
 #. module: servoo_shipping
+#: model:ir.model,name:servoo_shipping.model_servoo_shipping_file_cancel_wizard
+msgid "Wizard for cancel shipping file"
+msgstr ""
+
+#. module: servoo_shipping
 #: model:ir.model.fields.selection,name:servoo_shipping.selection__servoo_shipping_pda__state__won
 msgid "Won"
 msgstr "Gagné"
@@ -3160,6 +3198,11 @@ msgstr "Marchandise"
 #: model:ir.ui.menu,name:servoo_shipping.shipping_menu_root
 msgid "shipping"
 msgstr "Shipping"
+
+#. module: servoo_shipping
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file_cancel_wizard__shipping_file_id
+msgid "shipping File"
+msgstr ""
 
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_dangerous_good__file_id

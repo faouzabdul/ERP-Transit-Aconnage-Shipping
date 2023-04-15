@@ -88,8 +88,8 @@ class TransitOrder(models.Model):
         ('draft', 'Draft'),
         ('open', 'Open'),
         ('done', 'Done'),
-        ('cancel', 'Cancel')
-    ], string='Status', default='draft')
+        ('cancel', 'Cancelled')
+    ], string='Status', default='draft', tracking=1)
     note = fields.Text('Notes')
     packaging_type_id = fields.Many2one('servoo.transit.packaging.type', 'Packaging type')
     agency_name = fields.Selection([
@@ -97,6 +97,7 @@ class TransitOrder(models.Model):
         ('Kribi', 'Kribi'),
         ('Tchad', 'Tchad'),
     ], string='Agency', default='Douala')
+    cancel_note = fields.Text('Cancel Motivation', tracking=2)
 
     def generate_reference(self, vals):
         reference = str(datetime.now().year)[-2:] + vals['agency_name'][0] if vals['agency_name'] else 'D'

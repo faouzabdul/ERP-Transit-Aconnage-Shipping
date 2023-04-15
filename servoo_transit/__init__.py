@@ -2,3 +2,4 @@
 # Author: Marius YENKE MBEUYO
 
 from . import models
+from . import wizard

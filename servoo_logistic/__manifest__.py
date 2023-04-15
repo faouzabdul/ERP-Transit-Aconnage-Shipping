@@ -13,6 +13,7 @@
         'security/logistic_security.xml',
         'security/ir.model.access.csv',
         'data/logistic_data.xml',
+        'wizard/wizard_cancel_logistic_operation_view.xml',
         'views/document_view.xml',
         'views/formality_view.xml',
         'views/operation_view.xml',

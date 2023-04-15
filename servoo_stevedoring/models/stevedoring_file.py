@@ -67,12 +67,13 @@ class StevedoringFile(models.Model):
         ('draft', 'Draft'),
         ('open', 'Open'),
         ('done', 'Done'),
-        ('cancel', 'Cancel')
+        ('cancel', 'Cancelled')
     ], string='Status', default='draft', tracking=1)
     user_id = fields.Many2one('res.users', 'User')
     outturn_count = fields.Integer(compute="_get_outturn", string='Outturns')
     operation_count = fields.Integer(compute="_get_operation", string='Operations')
     mate_receipt_count = fields.Integer(compute="_get_mate_receipt", string='Mate receipts')
+    cancel_note = fields.Text('Cancel Motivation', tracking=2)
 
     @api.model
     def create(self, vals):

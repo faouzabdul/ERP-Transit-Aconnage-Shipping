@@ -185,8 +185,8 @@ class ShippingFile(models.Model):
         ('draft', 'Draft'),
         ('open', 'Open'),
         ('done', 'Done'),
-        ('cancel', 'Cancel')
-    ], string='Status', default='draft')
+        ('cancel', 'Cancelled')
+    ], string='Status', default='draft', tracking=1)
     manifest_number = fields.Char('Manifest Number')
     # FAL 1: General Information
     vessel = fields.Many2one('res.transport.means', string="Vessel", tracking=1)
@@ -229,6 +229,7 @@ class ShippingFile(models.Model):
     passenger_ids = fields.One2many('servoo.shipping.passenger', 'file_id', 'Passengers List')
     # FAL 7: Dangerous Goods Manifest
     dangerous_good_ids = fields.One2many('servoo.shipping.dangerous.good', 'file_id', 'Dangerous Goods')
+    cancel_note = fields.Text('Cancel Motivation', tracking=2)
 
     _sql_constraints = [
         ('name_uniq', 'unique (name)', _('This reference must be unique!'))
