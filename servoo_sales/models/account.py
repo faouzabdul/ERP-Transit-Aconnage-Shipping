@@ -89,6 +89,14 @@ class AccountMove(models.Model):
 
     def _generate_APM_reference(self, source):
         ref=''
+        if source:
+            q = "SELECT apm_reference FROM account_move where invoice_origin = '%s' and apm_reference is not null" % source
+            self._cr.execute(q)
+            res = self._cr.fetchall()
+            if res:
+                # _logger.info('res : %s' % res)
+                ref = res[0][0] + "-" + str(len(res))
+                return ref
         if source and source[:2].isnumeric():
             ref = str(datetime.now().year)[-2:] + 'F' + source[2:-3]
         if ref:
