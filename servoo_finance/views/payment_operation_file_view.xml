@@ -7,7 +7,7 @@
             <field name="model">servoo.transit.order</field>
             <field name="inherit_id" ref="servoo_transit.view_servoo_transit_form" />
             <field name="arch" type="xml">
-                <button name="action_cancel" position="before">
+                <button name="action_draft" position="before">
                     <button type="action" string="Create Payment Request"
                             context="{'default_file_reference': name}"
                             name="%(action_create_payment_request)d" attrs="{'invisible': [('state', '!=', 'open')]}"
@@ -48,7 +48,7 @@
             <field name="model">servoo.shipping.file</field>
             <field name="inherit_id" ref="servoo_shipping.view_servoo_shipping_file_form" />
             <field name="arch" type="xml">
-                <button name="action_cancel" position="before">
+                <button name="action_draft" position="before">
                     <button type="action" string="Create Payment Request"
                             context="{'default_file_reference': name}"
                             name="%(action_create_payment_request)d" attrs="{'invisible': [('state', '!=', 'draft')]}"
@@ -91,7 +91,7 @@
             <field name="model">servoo.stevedoring.file</field>
             <field name="inherit_id" ref="servoo_stevedoring.view_servoo_stevedoring_file_form" />
             <field name="arch" type="xml">
-                <button name="action_cancel" position="before">
+                <button name="action_draft" position="before">
                     <button type="action" string="Create Payment Request"
                             context="{'default_file_reference': name}"
                             name="%(action_create_payment_request)d" attrs="{'invisible': [('state', '!=', 'draft')]}"
@@ -131,7 +131,7 @@
             <field name="model">servoo.logistic.operation</field>
             <field name="inherit_id" ref="servoo_logistic.view_servoo_logistic_form" />
             <field name="arch" type="xml">
-                <button name="action_cancel" position="before">
+                <button name="action_draft" position="before">
                     <button type="action" string="Create Payment Request"
                             context="{'default_file_reference': name}"
                             name="%(action_create_payment_request)d" attrs="{'invisible': [('state', '!=', 'draft')]}"

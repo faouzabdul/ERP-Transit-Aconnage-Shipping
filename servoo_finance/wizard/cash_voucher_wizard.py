@@ -49,7 +49,7 @@ class WizardCashVoucher(models.TransientModel):
         self.cash_voucher_id.activity_feedback(["servoo_finance.mail_cash_voucher_feedback"])
         vals = {}
         if self.cash_voucher_id.state == 'service_approval':
-            if self.cash_voucher_id.department_id.id not in dp:
+            if self.sudo().cash_voucher_id.department_id.id not in dp:
                 raise UserError(_("you cannot approve a request from another department or branch"))
             group_direction_approval = self.env.ref("servoo_finance.applicant_direction_approval_group_user")
             users = group_direction_approval.users

@@ -156,7 +156,7 @@ class PaymentRequestDocument(models.Model):
 
     @api.model
     def create(self, vals):
-        documents = super(PaymentRequestDocument, self).create()
+        documents = super(PaymentRequestDocument, self).create(vals)
         for document in documents:
             if document.attachment_ids:
                 document.attachment_ids.write({'res_model': self._name, 'res_id': document.id})

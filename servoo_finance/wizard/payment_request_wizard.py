@@ -86,16 +86,16 @@ class WizardPaymentRequest(models.TransientModel):
 
 
     def action_validate(self):
-        dp = self.get_department(self.env.user.employee_id.department_id)
+        dp = self.get_department(self.sudo().env.user.employee_id.department_id)
         self.payment_request_id.activity_feedback(["servoo_finance.mail_finance_feedback"])
         vals = {}
         if self.payment_request_id.state == 'service_approval':
-            if self.payment_request_id.department_id.id not in dp:
+            if self.sudo().payment_request_id.department_id.id not in dp:
                 raise UserError(_("you cannot approve a request from another department or branch"))
             group_direction_approval = self.env.ref("servoo_finance.applicant_direction_approval_group_user")
             users = group_direction_approval.users
             for user in users:
-                if user.employee_id.department_id.id in dp:
+                if user.sudo().employee_id.department_id.id in dp:
                     self.payment_request_id.activity_schedule(
                         "servoo_finance.mail_finance_feedback", user_id=user.id,
                         summary=_("New payment request %s needs the applicant direction approval" % self.payment_request_id.name)
