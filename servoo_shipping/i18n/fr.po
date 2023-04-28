@@ -2506,7 +2506,7 @@ msgstr "Magasin du navire"
 #. module: servoo_shipping
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.view_servoo_shipping_file_form
 msgid "Ship's Stores"
-msgstr "Magasinq du navire"
+msgstr "Magasins du navire"
 
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__store_ids

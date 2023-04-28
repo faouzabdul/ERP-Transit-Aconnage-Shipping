@@ -102,7 +102,7 @@
                                     <!--                                <field name="passenger_count" readonly="1"/>-->
                                 </group>
                         <notebook>
-                            <page string="Bills of lading">
+                            <page string="Bills of lading" name="bill_of_lading">
                                 <field name="bl_ids" widget="one2many" mode="tree,form"
                                 context="{
                                     'default_vessel_id': vessel,
@@ -174,7 +174,7 @@
                                     </tree>
                                 </field>
                             </page>
-                            <page string="Cargo Declaration">
+                            <page string="Cargo Declaration" name="good_declaration">
                                 <field name="good_ids" widget="one2many" mode="tree">
                                     <tree string="Good Lines" editable="bottom">
                                         <field name="name" required="1"/>
@@ -186,7 +186,7 @@
                                     </tree>
                                 </field>
                             </page>
-                            <page string="Containers">
+                            <page string="Containers" name="containers">
                                 <field name="container_ids" widget="one2many" mode="tree">
                                     <tree string="Container Lines" editable="bottom">
                                         <field name="container_id" required="1"/>
@@ -200,7 +200,7 @@
                                     </tree>
                                 </field>
                             </page>
-                            <page string="Ship's Stores">
+                            <page string="Ship's Stores" name="ship_store">
                                 <field name="store_ids" widget="one2many" mode="tree">
                                     <tree string="Ship's Store" editable="bottom">
                                         <field name="name" required="1"/>
@@ -211,7 +211,7 @@
                                     </tree>
                                 </field>
                             </page>
-                            <page string="Crew's Effects">
+                            <page string="Crew's Effects" name="crew_effects">
                                 <field name="crew_effect_ids" widget="one2many" mode="tree">
                                     <tree string="Crew's Effects" editable="bottom">
                                         <field name="crew_id"/>
@@ -220,7 +220,7 @@
                                     </tree>
                                 </field>
                             </page>
-                            <page string="Crew List">
+                            <page string="Crew List" name="crew_list">
                                 <field name="crew_ids" widget="one2many" mode="tree">
                                     <tree string="Crew List" editable="bottom">
                                         <field name="crew_id" required="1"/>
@@ -228,7 +228,7 @@
                                     </tree>
                                 </field>
                             </page>
-                            <page string="Passenger List">
+                            <page string="Passenger List" name="passenger_list">
                                 <field name="passenger_ids" widget="one2many" mode="tree">
                                     <tree string="Passenger List" editable="bottom">
                                         <field name="passenger_id"/>
@@ -239,7 +239,7 @@
                                     </tree>
                                 </field>
                             </page>
-                            <page string="Dangerous Good">
+                            <page string="Dangerous Good" name="dangerous_goods">
                                 <field name="dangerous_good_ids" widget="one2many" mode="tree">
                                     <tree string="Dangerous Goods">
                                         <field name="stowage"/>
@@ -258,7 +258,7 @@
                                     </tree>
                                 </field>
                             </page>
-                            <page string="Formalities">
+                            <page string="Formalities" name="formalities">
                                 <field name="formality_line" widget="one2many" mode="tree,kanban">
                                     <tree string="Formalities Lines" editable="bottom"
                                           decoration-success="state=='done'" decoration-muted="state=='cancel'">
@@ -275,7 +275,7 @@
                                     </tree>
                                 </field>
                             </page>
-                            <page string="Documents">
+                            <page string="Documents" name="documents">
                                 <field name="document_ids"
                                        mode="tree,kanban"
                                 >
