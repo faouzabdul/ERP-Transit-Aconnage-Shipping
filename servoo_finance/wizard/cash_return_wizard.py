@@ -10,7 +10,7 @@ class WizardCashReturn(models.TransientModel):
     _name = 'servoo.cash.return.wizard'
     _description = 'Cash Return'
 
-    date = fields.Datetime('Date', default=datetime.now())
+    date = fields.Datetime('Date', default=lambda self: fields.datetime.now())
     cash_voucher_id = fields.Many2one('servoo.cash.voucher', 'Cash Voucher', default=lambda self: self.env.context.get('active_id', None))
     journal_id = fields.Many2one(related='cash_voucher_id.journal_id')
     amount = fields.Float(related='cash_voucher_id.amount_unjustified')

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="paperformat_bon_caisse" model="report.paperformat">
+		<field name="name">Bon de caisse A4</field>
+		<field name="default" eval="True"/>
+		<field name="orientation">Portrait</field>
+		<field name="margin_top">5</field>
+		<field name="margin_top">3</field>
+		<field name="header_line">TRUE</field>
+		<field name="dpi">90</field>
+	</record>
+    <report
+		id = "th_caisse_externe_report"
+		model = "account.caisse.line"
+		string = "Reçu"
+		report_type = "qweb-pdf"
+		name = "th_caisse_externe.th_caisse_externe_report_view_report_view"
+		file = "th_caisse_externe.th_caisse_externe_report_view_report_view"
+		paperformat="paperformat_bon_caisse"
+		/>
+		<template id="report_cash_payment">
+			<t t-call="web.html_container">
+				<t t-call="web.basic_layout">
+                <style>
+					.page, table{
+						font-size:18px;
+					}
+					h2{
+						text-align:center;
+						text-decoration: underline;
+					}
+
+					.table{
+						border-collapse:collapse;
+						border:1px solid black;
+						width: 100%;
+					}
+					.table th{
+						border:1px solid black;
+					}
+					.table td{
+						border:1px solid black;
+					}
+					.table tr{
+						border:1px solid black;
+					}
+					
+					p{
+						text-align:right;
+					}
+					
+				</style>
+                <t t-foreach="docs" t-as="o">
+                   <div class="page">
+						<div class="entete">
+							<table width="100%">
+								<tr>
+									<td width="20%" rowspan="2"><img style="width: 100px;" t-att-src="image_data_uri(o.company_id.logo)"/></td>
+									<td><t t-esc="o.company_id.name"/></td>
+									<td width="30%" style="text-align:right;">Imprimé le,<t t-esc="datetime.datetime.now().strftime('%d/%m/%Y')"/></td>
+								</tr>
+								<tr>
+									<td>Email : <t t-esc="o.company_id.email" /></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Tel : <t t-esc="o.company_id.phone" /></td>
+									<td></td>
+								</tr>
+							</table>
+
+							<h2>REÇU N°<t t-esc="o.reference"/></h2>
+							<p>Date d'opération :<t t-esc="o.date.strftime('%d/%m/%Y')"/></p>
+						</div>
+						<div>
+							<table width="100%"> 
+								<tr>
+									<td width="30%">Libellé d'opération</td>
+									<td>: <t t-esc="o.libelle"/></td>
+								</tr>
+								<tr>
+									<td>Montant</td>
+									<td>: <t t-esc="'{:,.0f}'.format(abs(o.montant)).replace(',', ' ').replace('.', ',')"/> <t t-esc="o.caisse_id.type_id.currency_id.name"/></td>
+								</tr>
+								<tr>
+									<td>Montant en toutes lettres</td>
+									<td>: <t t-esc="o.montant_en_lettre"/> <t t-esc="o.caisse_id.type_id.currency_id.name"/></td>
+								</tr>
+							</table>
+						</div>
+						<br/>
+						<div>
+							<table width="100%" class="table"> 
+								<tr>
+									<th>Caisse</th>
+									<th>Designation</th>
+									<th>Tiers</th>
+									<th>Montant</th>
+									<th>Devise</th>
+								</tr>
+								<tr>
+									<td><t t-esc="o.caisse_id.type_id.name"/></td>
+									<td><t t-esc="o.libelle"/></td>
+									<td><t t-esc="o.partner_id.name"/></td>
+									<td><t t-esc="'{:,.0f}'.format(abs(o.montant)).replace(',', ' ').replace('.', ',')"/></td>
+									<td><t t-esc="o.caisse_id.type_id.currency_id.symbol"/></td>
+								</tr>
+							</table>
+						</div>
+						<br/>
+						<div class="pied" id="pied">
+							<table width="100%">
+								<tr>									
+									<th width="25%">Visa agent saisie</th>
+									<th>Approbation</th>
+									<th width="45%">Visa de la direction</th>
+									<t t-if="o.categorie_id.type_operation == '1'">
+										<th width="25%">Bénéficiaire</th>
+									</t>
+									<t t-else="">
+										<th width="25%">Tier</th>
+									</t>
+								</tr>
+								<tr height="150">									
+									<th width="25%"><t t-esc="o.caisse_id.user_id.name"/></th>
+									<th  width="25%"></th>
+									<th width="45%"></th>
+									<t t-if="o.categorie_id.type_operation == '1'">
+										<th width="25%"><t t-esc="o.beneficiaire"/></th>
+									</t>
+									<t t-else="">
+										<th width="25%"><t t-esc="o.partner_id.name"/></th>
+									</t>
+								</tr>
+							</table>
+						</div>
+				   </div>
+				</t>
+				</t>		
+            </t>
+        </template>
+</odoo>

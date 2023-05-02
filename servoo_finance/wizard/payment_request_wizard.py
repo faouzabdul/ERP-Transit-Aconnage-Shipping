@@ -32,7 +32,7 @@ class WizardPaymentRequest(models.TransientModel):
     state = fields.Selection(related='payment_request_id.state', store=True, readonly=True)
     # state = fields.Char('state', default=_get_default_state)
     observation = fields.Text('Notes')
-    date = fields.Date('Date', default=datetime.now(), required=True)
+    date = fields.Date('Date', default=lambda self: fields.datetime.now(), required=True)
     # account payment information
     partner_id = fields.Many2one('res.partner', string="Supplier", default=_get_default_partner)
     amount = fields.Float(string="Amount", default=_get_default_amount)

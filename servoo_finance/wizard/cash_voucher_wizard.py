@@ -36,10 +36,10 @@ class WizardCashVoucher(models.TransientModel):
             raise UserError(error_msg)
         return journal
 
-    cash_voucher_id = fields.Many2one('servoo.cash.voucher', 'Payment Request', default=lambda self: self.env.context.get('active_id', None))
+    cash_voucher_id = fields.Many2one('servoo.cash.voucher', 'Cash Voucher', default=lambda self: self.env.context.get('active_id', None))
     state = fields.Selection(related='cash_voucher_id.state', store=True, readonly=True)
     observation = fields.Text('Notes')
-    date = fields.Date('Date', default=datetime.now(), required=True)
+    date = fields.Date('Date', default=lambda self: fields.datetime.now(), required=True)
     journal_id = fields.Many2one('account.journal', string='Cash Journal', check_company=True,
                                  domain=[('type', '=', 'cash')],
                                  default=_get_default_journal)

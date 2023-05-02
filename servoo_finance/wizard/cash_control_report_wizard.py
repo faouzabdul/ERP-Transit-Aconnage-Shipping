@@ -36,7 +36,7 @@ class WizardCashControlReportCreate(models.TransientModel):
 
     cash_statement_id = fields.Many2one('account.bank.statement', 'Cash Statement', default=lambda self: self.env.context.get('active_id', None))
     name = fields.Char('Reference')
-    date = fields.Date('Date', default=datetime.now())
+    date = fields.Date('Date', default=lambda self: fields.datetime.now())
     journal_id = fields.Many2one(related='cash_statement_id.journal_id')
     currency_id = fields.Many2one('res.currency', related='journal_id.currency_id')
     cashbox_end_id = fields.Many2one(related='cash_statement_id.cashbox_end_id', string="Ending Cashbox")
@@ -49,7 +49,7 @@ class WizardCashControlReportCreate(models.TransientModel):
     cash_voucher_amount = fields.Float(compute="_compute_cash_voucher_amount", string='Cash voucher amount')
     theoretical_balance = fields.Float(compute="_compute_theoretical_balance", string='Theoretical Balance')
     cashier_agent_id = fields.Many2one('res.users', 'Service Approval Agent', default=lambda self: self.env.user.id)
-    cashier_date = fields.Datetime('Service Approval date', default=datetime.now())
+    cashier_date = fields.Datetime('Service Approval date', default=lambda self: fields.datetime.now())
     cashier_cni = fields.Char('Cashier CNI')
     cashier_note = fields.Text('Cashier Notes')
     pad_amount = fields.Float(compute="_compute_pad_and_other_amount", string='PAD')
@@ -128,7 +128,7 @@ class WizardCashControlReportApprove(models.TransientModel):
     cash_control_report_id = fields.Many2one('account.cash.control.report', 'Cash control reporty',
                                         default=lambda self: self.env.context.get('active_id', None))
     controller_agent_id = fields.Many2one('res.users', 'Controller Agent', default=lambda self: self.env.user.id)
-    controller_date = fields.Datetime('Control date', default=datetime.now())
+    controller_date = fields.Datetime('Control date', default=lambda self: fields.datetime.now())
     controller_cni = fields.Char('Controller CNI')
     controller_note = fields.Text('Controller Notes')
 
