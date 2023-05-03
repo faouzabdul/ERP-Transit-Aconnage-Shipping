@@ -14,6 +14,7 @@
         'views/fleet_fuel_tank_views.xml',
         'views/fleet_vehicle_log_fuel_views.xml',
         'data/fleet_data.xml',
+        'data/fleet_data_1.xml',
     ],
     'installable': True,
     'auto_install': False,

@@ -1,0 +1,2693 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+   
+<!-- BENNE-->
+    <record model='fleet.vehicle.model.category' id='category_BENNE'>
+       <field name='name'>BENNE</field>
+    </record>
+    <record model='fleet.vehicle.model.category' id='category_ENGIN'>
+       <field name='name'>ENGIN</field>
+   </record>
+   <record model='fleet.vehicle.model.category' id='category_SEMI_REMORQ'>
+        <field name='name'>SEMI REMORQ</field>
+   </record>
+    <record model='fleet.vehicle.model.category' id='category_TRACTEUR'>
+      <field name='name'>TRACTEUR</field>
+    </record>
+   <record model='fleet.vehicle.model.category' id='category_VEHICULE_DE_TOURISME'>
+        <field name='name'>VEHICULE DE TOURISME</field>
+   </record>
+
+     <record id='brand_howo' model='fleet.vehicle.model.brand'>
+            <field name='name'>HOWO</field>
+        </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_howo_tracteur'>
+            <field name='name'>HOWO</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_howo'/>
+            <field name="category_id" ref="category_TRACTEUR" />
+        </record>
+
+    <record id='brand_suziki' model='fleet.vehicle.model.brand'>
+      <field name='name'>SUZIKI</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_suziki_tracteur'>
+            <field name='name'>SUZIKI</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_suziki'/>
+            <field name="category_id" ref="category_TRACTEUR" />
+        </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_suziki_tourisme'>
+            <field name='name'>SUZIKI</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_suziki'/>
+            <field name="category_id" ref="category_VEHICULE_DE_TOURISME" />
+        </record>
+
+    <record id='brand_toyota' model='fleet.vehicle.model.brand'>
+      <field name='name'>TOYOTA</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_toyota_tourisme'>
+            <field name='name'>TOYOTA</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_toyota'/>
+            <field name="category_id" ref="category_VEHICULE_DE_TOURISME" />
+    </record> 
+
+    <record id='brand_ford' model='fleet.vehicle.model.brand'>
+      <field name='name'>FORD</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_ford_tourisme'>
+            <field name='name'>FORD</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_ford'/>
+            <field name="category_id" ref="category_VEHICULE_DE_TOURISME" />
+    </record> 
+
+    <record id='brand_kia' model='fleet.vehicle.model.brand'>
+      <field name='name'>KIA</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_kia_tourisme'>
+            <field name='name'>KIA</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_kia'/>
+            <field name="category_id" ref="category_VEHICULE_DE_TOURISME" />
+    </record> 
+
+    <record id='brand_suziki_alto' model='fleet.vehicle.model.brand'>
+      <field name='name'>SUZIKI ALTO</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_suziki_alto_tourisme'>
+            <field name='name'>SUZIKI ALTO</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_suziki_alto'/>
+            <field name="category_id" ref="category_VEHICULE_DE_TOURISME" />
+    </record> 
+
+    <record id='brand_hyundai' model='fleet.vehicle.model.brand'>
+      <field name='name'>HYUNDAI</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_hyundai_tourisme'>
+            <field name='name'>HYUNDAI</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_hyundai'/>
+            <field name="category_id" ref="category_VEHICULE_DE_TOURISME" />
+    </record> 
+
+    <record id='brand_suziki_spresso' model='fleet.vehicle.model.brand'>
+      <field name='name'>SUZIKI SPRESSO</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_suziki_spresso_tourisme'>
+            <field name='name'>SUZIKI SPRESSO</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_suziki_spresso'/>
+            <field name="category_id" ref="category_VEHICULE_DE_TOURISME" />
+    </record> 
+    
+    <record id='brand_mercedes' model='fleet.vehicle.model.brand'>
+      <field name='name'>MERCEDES</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_mercedes_tourisme'>
+            <field name='name'>MERCEDES</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_mercedes'/>
+            <field name="category_id" ref="category_VEHICULE_DE_TOURISME" />
+    </record>
+
+    <record id='brand_nissan_nivara' model='fleet.vehicle.model.brand'>
+      <field name='name'>NISSAN NIVARA</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_nissan_nivara_tourisme'>
+            <field name='name'>NISSAN NIVARA</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_nissan_nivara'/>
+            <field name="category_id" ref="category_VEHICULE_DE_TOURISME" />
+    </record>
+
+    <record id='brand_volkswagen' model='fleet.vehicle.model.brand'>
+      <field name='name'>VOLKSWAGEN</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_volkswagen_tourisme'>
+            <field name='name'>VOLKSWAGEN</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_volkswagen'/>
+            <field name="category_id" ref="category_VEHICULE_DE_TOURISME" />
+    </record>
+
+    <record id='brand_land_cruiser' model='fleet.vehicle.model.brand'>
+      <field name='name'>LAND CRUISER</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_land_cruiser_tourisme'>
+            <field name='name'>LAND CRUISER</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_land_cruiser'/>
+            <field name="category_id" ref="category_VEHICULE_DE_TOURISME" />
+    </record>
+
+    <record id='brand_mutsubishi' model='fleet.vehicle.model.brand'>
+      <field name='name'>MUTSUBISHI</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_mutsubishi_tourisme'>
+            <field name='name'>MUTSUBISHI</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_mutsubishi'/>
+            <field name="category_id" ref="category_VEHICULE_DE_TOURISME" />
+    </record>
+
+    <record id='brand_renault' model='fleet.vehicle.model.brand'>
+      <field name='name'>RENAULT</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_renault_tourisme'>
+            <field name='name'>RENAULT</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_renault'/>
+            <field name="category_id" ref="category_VEHICULE_DE_TOURISME" />
+    </record>
+    
+    <record id='brand_amicam' model='fleet.vehicle.model.brand'>
+      <field name='name'>AMICAM</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_amicam_remorqu'>
+            <field name='name'>AMICAM</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_amicam'/>
+             <field name="category_id" ref="category_SEMI_REMORQ" />
+    </record> 
+
+     <record id='brand_box_loader' model='fleet.vehicle.model.brand'>
+      <field name='name'>BOX LOADER</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_box_loader_remorqu'>
+            <field name='name'>BOX LOADER</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_box_loader'/>
+             <field name="category_id" ref="category_SEMI_REMORQ" />
+    </record> 
+
+    <record id='brand_flatbed_trailer' model='fleet.vehicle.model.brand'>
+      <field name='name'>FLATBED TRAILER</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_flatbed_trailer_remorqu'>
+            <field name='name'>FLATBED TRAILER</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_flatbed_trailer'/>
+             <field name="category_id" ref="category_SEMI_REMORQ" />
+    </record> 
+
+    <record id='brand_enem' model='fleet.vehicle.model.brand'>
+      <field name='name'>ENEM</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_enem_remorqu'>
+            <field name='name'>ENEM</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_enem'/>
+             <field name="category_id" ref="category_SEMI_REMORQ" />
+    </record> 
+
+     <record id='brand_wielton' model='fleet.vehicle.model.brand'>
+      <field name='name'>WIELTON </field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_wielton_remorqu'>
+            <field name='name'>WIELTON </field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_wielton'/>
+             <field name="category_id" ref="category_SEMI_REMORQ" />
+    </record> 
+
+     <record id='brand_ccmm' model='fleet.vehicle.model.brand'>
+      <field name='name'>CCMM</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_ccmm_remorqu'>
+            <field name='name'>CCMM</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_ccmm'/>
+             <field name="category_id" ref="category_SEMI_REMORQ" />
+    </record> 
+
+    <record id='brand_tih' model='fleet.vehicle.model.brand'>
+      <field name='name'>TIH</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_tih_remorqu'>
+            <field name='name'>TIH</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_tih'/>
+             <field name="category_id" ref="category_SEMI_REMORQ" />
+    </record> 
+
+    <record id='brand_sdlg' model='fleet.vehicle.model.brand'>
+      <field name='name'>SDLG</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_sdlg_engin'>
+            <field name='name'>SDLG</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_sdlg'/>
+             <field name="category_id" ref="category_ENGIN" />
+    </record> 
+
+    <record id='brand_terex' model='fleet.vehicle.model.brand'>
+      <field name='name'>TEREX</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_terex_engin'>
+            <field name='name'>TEREX</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_terex'/>
+             <field name="category_id" ref="category_ENGIN" />
+    </record> 
+
+    <record id='brand_sem' model='fleet.vehicle.model.brand'>
+      <field name='name'>SEM</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_sem_engin'>
+            <field name='name'>SEM</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_sem'/>
+             <field name="category_id" ref="category_ENGIN" />
+    </record> 
+
+    <record id='brand_xiamen' model='fleet.vehicle.model.brand'>
+      <field name='name'>XIAMEN</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_xiamen_engin'>
+            <field name='name'>XIAMEN</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_xiamen'/>
+             <field name="category_id" ref="category_ENGIN" />
+    </record> 
+
+     <record id='brand_goodsense' model='fleet.vehicle.model.brand'>
+      <field name='name'>GOODSENSE</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_goodsense_engin'>
+            <field name='name'>GOODSENSE</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_goodsense'/>
+             <field name="category_id" ref="category_ENGIN" />
+    </record> 
+
+    <record id='brand_caterpillar' model='fleet.vehicle.model.brand'>
+      <field name='name'>CATERPILLAR</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_caterpillar_engin'>
+            <field name='name'>CATERPILLAR</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_caterpillar'/>
+             <field name="category_id" ref="category_ENGIN" />
+    </record> 
+
+    <record id='brand_hyster' model='fleet.vehicle.model.brand'>
+      <field name='name'>HYSTER</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_hyster_engin'>
+            <field name='name'>HYSTER</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_hyster'/>
+             <field name="category_id" ref="category_ENGIN" />
+    </record> 
+
+    <record id='brand_kalmar' model='fleet.vehicle.model.brand'>
+      <field name='name'>KALMAR</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_kalmar_engin'>
+            <field name='name'>KALMAR</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_kalmar'/>
+             <field name="category_id" ref="category_ENGIN" />
+    </record> 
+
+    <record id='brand_kotmatsu' model='fleet.vehicle.model.brand'>
+      <field name='name'>KOTMATSU</field>
+    </record>
+    <record model='fleet.vehicle.model' id='vehicle_model_kotmatsu_engin'>
+            <field name='name'>KOTMATSU</field>
+            <field name='vehicle_type'>car</field>
+            <field name='brand_id' ref='brand_kotmatsu'/>
+             <field name="category_id" ref="category_ENGIN" />
+    </record>
+
+    
+
+    <!--contract : type contract -->
+
+         <record model='fleet.service.type' id='contract_type_carte_grise'>
+            <field name='name'>CARTE GRISE</field>
+            <field name='category'>contract</field>
+        </record>
+         <record model='fleet.service.type' id='contract_type_assurance'>
+            <field name='name'>ASSURANCE</field>
+            <field name='category'>contract</field>
+        </record>
+         <record model='fleet.service.type' id='contract_type_visite_technique'>
+            <field name='name'>VISITE TECHNIQUE</field>
+            <field name='category'>contract</field>
+        </record>
+
+    <!-- voiture semi-remorque -->
+    <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR642AH'>
+            <field name='license_plate'>LTSR 642 AH </field>
+            <field name='model_id' ref="vehicle_model_box_loader_remorqu" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR642AH'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR642AH" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR642AH</field>
+            <field name="expiration_date">2024-04-17</field>
+         </record>
+
+          <record model='fleet.vehicle.log.contract' id='contract_log_LTSR642AHVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR642AH" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model="res.partner" id="res_partner_GMC">
+         <field name="name">GMC</field>
+          <field name="company_type">company</field>
+         </record>
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR642AHAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR642AH" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-04-07</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+         </record>
+     <!-- END -->
+
+      <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR587AI'>
+            <field name='license_plate'>LTSR 587 AI </field>
+            <field name='model_id' ref="vehicle_model_flatbed_trailer_remorqu" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR587AI'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR587AI" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR587AI</field>
+            <field name="expiration_date">2024-07-01</field>
+         </record>
+
+          <record model='fleet.vehicle.log.contract' id='contract_log_LTSR587AIVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR587AI" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR587AIAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR587AI" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+         </record>
+        <!-- END -->
+
+         <!-- START -->
+         <record model='fleet.vehicle' id='vehicle_lt_LTSR589AI'>
+            <field name='license_plate'>LTSR 589 AI </field>
+            <field name='model_id' ref="vehicle_model_flatbed_trailer_remorqu" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR589AI'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR589AI" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR589AI</field>
+            <field name="expiration_date">2024-07-01</field>
+         </record>
+
+          <record model='fleet.vehicle.log.contract' id='contract_log_LTSR589AIVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR589AI" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2019-08-20</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR589AIAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR589AI" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2018-06-07</field>
+            <field name="state">expired</field>
+         </record>
+       <!-- END -->
+
+        <!-- START -->
+         <record model='fleet.vehicle' id='vehicle_lt_LTSR585AI'>
+            <field name='license_plate'>LTSR 585 AI </field>
+            <field name='model_id' ref="vehicle_model_flatbed_trailer_remorqu" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR585AI'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR585AI" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR585AI</field>
+            <field name="expiration_date">2024-07-01</field>
+         </record>
+
+          <record model='fleet.vehicle.log.contract' id='contract_log_LTSR585AIVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR585AI" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2012-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+        <record model="res.partner" id="res_partner_ALLIANZ">
+         <field name="name">ALLIANZ</field>
+          <field name="company_type">company</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR585AIAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR585AI" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2022-06-07</field>
+            <field name="state">expired</field>
+             <field name="insurer_id" ref="res_partner_ALLIANZ" />
+         </record>
+       <!-- END -->
+
+       <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR072AE'>
+            <field name='license_plate'>LTSR 072 AE</field>
+            <field name='model_id' ref="vehicle_model_box_loader_remorqu" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR072AE'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR072AE" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR072AE</field>
+            <field name="expiration_date">2021-05-12</field>
+            <field name="state">expired</field>
+         </record>
+
+          <record model='fleet.vehicle.log.contract' id='contract_log_LTSR072AEVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR072AE" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR072AEAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR072AE" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-01-04</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+         </record>
+     <!-- END -->
+
+     <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR588AI'>
+            <field name='license_plate'>LTSR 588 AI </field>
+            <field name='model_id' ref="vehicle_model_flatbed_trailer_remorqu" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR588AI'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR588AI" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR588AI</field>
+            <field name="expiration_date">2024-07-01</field>
+         </record>
+
+          <record model='fleet.vehicle.log.contract' id='contract_log_LTSR588AIVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR588AI" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR588AIAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR588AI" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+         </record>
+        <!-- END -->
+
+         <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR590AI'>
+            <field name='license_plate'>LTSR 590 AI</field>
+            <field name='model_id' ref="vehicle_model_flatbed_trailer_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR590AIAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR590AI" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR590AIVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR590AI" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR590AI'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR590AI" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR590AI</field>
+            <field name="expiration_date">2024-07-01</field>
+         </record>
+
+        <!-- END -->
+
+         <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR591AI'>
+            <field name='license_plate'>LTSR 591 AI</field>
+            <field name='model_id' ref="vehicle_model_flatbed_trailer_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR591AIAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR591AI" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2020-11-03</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR591AIVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR591AI" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2021-05-01</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR591AICG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR591AI" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR591AI</field>
+            <field name="expiration_date">2029-11-19</field>
+         </record>
+
+        <!-- END -->
+
+         <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR805AF'>
+            <field name='license_plate'>LTSR 805 AF</field>
+            <field name='model_id' ref="vehicle_model_flatbed_trailer_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR805AFAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR805AF" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-08-19</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">open</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR805AFVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR805AF" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR805AFCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR805AF" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR805AF</field>
+            <field name="expiration_date">2025-09-05</field>
+         </record>
+
+        <!-- END -->
+
+         <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR918AJ'>
+            <field name='license_plate'>LTSR 918 AJ</field>
+            <field name='model_id' ref="vehicle_model_flatbed_trailer_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR918AJAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR918AJ" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-03-04</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR918AJVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR918AJ" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR805AFCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR805AF" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR805AF</field>
+            <field name="expiration_date">2025-09-05</field>
+         </record>
+
+        <!-- END -->
+
+         <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR914AJ'>
+            <field name='license_plate'>LTSR 914 AJ</field>
+            <field name='model_id' ref="vehicle_model_enem_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR914AJAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR914AJ" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-01-04</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR914AJVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR918AJ" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR914AJCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR914AJ" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR914AJ</field>
+            <field name="expiration_date">2025-03-05</field>
+         </record>
+
+        <!-- END -->
+
+        <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR915AJ'>
+            <field name='license_plate'>LTSR 915 AJ</field>
+            <field name='model_id' ref="vehicle_model_enem_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR915AJAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR915AJ" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-03-04</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR915AJVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR915AJ" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR915AJCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR915AJ" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR915AJ</field>
+            <field name="expiration_date">2025-03-05</field>
+         </record>
+
+        <!-- END -->
+
+        <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR916AJ'>
+            <field name='license_plate'>LTSR 916 AJ</field>
+            <field name='model_id' ref="vehicle_model_enem_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR916AJAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR916AJ" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2024-03-04</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">open</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR916AJVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR916AJ" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR916AJCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR916AJ" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR916AJ</field>
+            <field name="expiration_date">2025-03-05</field>
+         </record>
+        <!-- END -->
+
+        <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR917AJ'>
+            <field name='license_plate'>LTSR 917 AJ</field>
+            <field name='model_id' ref="vehicle_model_enem_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR917AJAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR917AJ" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2024-03-04</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">open</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR917AJVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR917AJ" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR917AJCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR917AJ" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR917AJ</field>
+            <field name="expiration_date">2025-03-05</field>
+         </record>
+        <!-- END -->
+
+         <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR917AJ'>
+            <field name='license_plate'>LTSR 917 AJ</field>
+            <field name='model_id' ref="vehicle_model_enem_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR917AJAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR917AJ" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2024-03-04</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">open</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR917AJVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR917AJ" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR917AJCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR917AJ" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR917AJ</field>
+            <field name="expiration_date">2025-03-05</field>
+         </record>
+        <!-- END -->
+
+        <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR656AI'>
+            <field name='license_plate'>LTSR 656 AI</field>
+            <field name='model_id' ref="vehicle_model_enem_remorqu" />
+        </record>
+
+        
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR656AIVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR656AI" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2019-05-17</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR656AICG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR656AI" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR656AI</field>
+            <field name="expiration_date">2024-07-09</field>
+         </record>
+        <!-- END -->
+
+        <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR983AB'>
+            <field name='license_plate'>LTSR 983 AB</field>
+            <field name='model_id' ref="vehicle_model_box_loader_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR983ABAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR983AB" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-03-30</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR983ABVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR983AB" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR983ABCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR983AB" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR983AB</field>
+            <field name="expiration_date">2031-05-15</field>
+         </record>
+        <!-- END -->
+
+
+        <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR592AI'>
+            <field name='license_plate'>LTSR 592 AI</field>
+            <field name='model_id' ref="vehicle_model_box_loader_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR592AIAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR592AI" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2021-08-18</field>
+            <field name="state">expired</field>
+         </record>
+
+          <!-- <record model='fleet.vehicle.log.contract' id='contract_log_LTSR592AI'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR592AI" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2019-06-31</field>
+            <field name="state">expired</field>
+         </record>   -->
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR592AICG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR592AI" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR592AI</field>
+            <field name="expiration_date">2024-07-09</field>
+         </record>
+        <!-- END -->
+
+         <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR872AE'>
+            <field name='license_plate'>LTSR 872 AE</field>
+            <field name='model_id' ref="vehicle_model_box_loader_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR872AEAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR872AE" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2018-03-02</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR872AEVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR872AE" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2018-06-13</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR872AECG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR872AE" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR592AI</field>
+            <field name="expiration_date">2021-07-09</field>
+         </record>
+        <!-- END -->
+
+         <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR655AI'>
+            <field name='license_plate'>LTSR 655 AI</field>
+            <field name='model_id' ref="vehicle_model_box_loader_remorqu" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR655AI'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR655AI" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR655AI</field>
+            <field name="expiration_date">2024-07-09</field>
+        </record> 
+        <!-- END -->
+
+       <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR590AN'>
+            <field name='license_plate'>LTSR 590 AN</field>
+            <field name='model_id' ref="vehicle_model_box_loader_remorqu" />
+        </record>
+        <!-- END -->
+
+        <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR593AI'>
+            <field name='license_plate'>LTSR 593 AI</field>
+            <field name='model_id' ref="vehicle_model_box_loader_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR593AICG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR593AI" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR593AI</field>
+            <field name="expiration_date">2024-07-01</field>
+        </record>
+        <!-- END -->
+
+         <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR617AP'>
+            <field name='license_plate'>LTSR 617 AP</field>
+            <field name='model_id' ref="vehicle_model_amicam_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR617APAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR617AP" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="insurer_id" ref="res_partner_ALLIANZ" />
+            <field name="expiration_date">2022-04-26</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR617APVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR617AP" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR617APCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR617AP" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR617AP</field>
+            <field name="expiration_date">2028-04-23</field>
+         </record>
+        <!-- END -->
+
+        <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR622AP'>
+            <field name='license_plate'>LTSR 622 AP</field>
+            <field name='model_id' ref="vehicle_model_amicam_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR622APAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR622AP" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="insurer_id" ref="res_partner_ALLIANZ" />
+            <field name="expiration_date">2022-04-26</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR622APVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR622AP" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR622APCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR622AP" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR622AP</field>
+            <field name="expiration_date">2028-04-23</field>
+         </record>
+        <!-- END -->
+
+        <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR620AP'>
+            <field name='license_plate'>LTSR 620 AP</field>
+            <field name='model_id' ref="vehicle_model_amicam_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR620APAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR620AP" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="expiration_date">2022-04-27</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR620APVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR620AP" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR620APCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR620AP" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR620AP</field>
+            <field name="expiration_date">2028-04-23</field>
+         </record>
+        <!-- END -->
+
+        <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR614AP'>
+            <field name='license_plate'>LTSR 614 AP</field>
+            <field name='model_id' ref="vehicle_model_amicam_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR614APAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR614AP" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="expiration_date">2022-04-27</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR614APVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR614AP" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR614APCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR614AP" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR614AP</field>
+            <field name="expiration_date">2028-04-23</field>
+         </record>
+        <!-- END -->
+
+        <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR616AP'>
+            <field name='license_plate'>LTSR 616 AP</field>
+            <field name='model_id' ref="vehicle_model_amicam_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR616APAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR616AP" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="insurer_id" ref="res_partner_ALLIANZ" />
+            <field name="expiration_date">2022-04-26</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR616APVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR616AP" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR616APCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR616AP" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR616AP</field>
+            <field name="expiration_date">2028-04-23</field>
+         </record>
+        <!-- END -->
+
+         <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR609AP'>
+            <field name='license_plate'>LTSR 609 AP</field>
+            <field name='model_id' ref="vehicle_model_amicam_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR609APAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR609AP" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="insurer_id" ref="res_partner_ALLIANZ" />
+            <field name="expiration_date">2022-04-26</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR609APVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR609AP" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR609APCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR609AP" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR609AP</field>
+            <field name="expiration_date">2028-04-23</field>
+         </record>
+        <!-- END -->
+
+         <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR621AP'>
+            <field name='license_plate'>LTSR 621 AP</field>
+            <field name='model_id' ref="vehicle_model_amicam_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR621APAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR621AP" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="insurer_id" ref="res_partner_ALLIANZ" />
+            <field name="expiration_date">2022-04-26</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR621APVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR621AP" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR621APCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR621AP" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR621AP</field>
+            <field name="expiration_date">2028-04-23</field>
+         </record>
+        <!-- END -->
+
+         <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR618AP'>
+            <field name='license_plate'>LTSR 618 AP</field>
+            <field name='model_id' ref="vehicle_model_amicam_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR618APAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR618AP" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="insurer_id" ref="res_partner_ALLIANZ" />
+            <field name="expiration_date">2022-05-11</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR618APVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR618AP" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR618APCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR618AP" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR618AP</field>
+            <field name="expiration_date">2028-04-23</field>
+         </record>
+        <!-- END -->
+
+        <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR615AP'>
+            <field name='license_plate'>LTSR 615 AP</field>
+            <field name='model_id' ref="vehicle_model_amicam_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR615APAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR615AP" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="expiration_date">2022-04-26</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR615APVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR615AP" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR615APCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR615AP" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR615AP</field>
+            <field name="expiration_date">2028-04-23</field>
+         </record>
+        <!-- END -->
+
+        <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR619AP'>
+            <field name='license_plate'>LTSR 619 AP</field>
+            <field name='model_id' ref="vehicle_model_amicam_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR619APAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR619AP" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="insurer_id" ref="res_partner_ALLIANZ" />
+            <field name="expiration_date">2022-04-26</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR619APVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR619AP" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR619APCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR619AP" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR619AP</field>
+            <field name="expiration_date">2028-04-23</field>
+         </record>
+        <!-- END -->
+
+        <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR679AP'>
+            <field name='license_plate'>LTSR 679 AP</field>
+            <field name='model_id' ref="vehicle_model_amicam_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR679APAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR679AP" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="expiration_date">2023-07-03</field>
+            <field name="state">open</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR679APVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR679AP" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR679APCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR679AP" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR679AP</field>
+            <field name="expiration_date">2029-07-29</field>
+         </record>
+        <!-- END -->
+
+         <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR678AR'>
+            <field name='license_plate'>LTSR 678 AR</field>
+            <field name='model_id' ref="vehicle_model_wielton_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR678ARAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR678AR" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="expiration_date">2023-07-03</field>
+            <field name="state">open</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR678ARVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR678AR" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR678ARCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR678AR" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR678AR</field>
+            <field name="expiration_date">2029-07-29</field>
+         </record>
+        <!-- END -->
+
+        <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR684AR'>
+            <field name='license_plate'>LTSR 684 AR</field>
+            <field name='model_id' ref="vehicle_model_wielton_remorqu" />
+        </record>
+
+        <!-- END -->
+
+         <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR683AR'>
+            <field name='license_plate'>LTSR 683 AR</field>
+            <field name='model_id' ref="vehicle_model_wielton_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR683ARAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR683AR" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2019-07-03</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR683ARCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR683AR" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR678AR</field>
+            <field name="expiration_date">2029-07-29</field>
+         </record>
+        <!-- END -->
+
+        <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR682AR'>
+            <field name='license_plate'>LTSR 682 AR</field>
+            <field name='model_id' ref="vehicle_model_wielton_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR682ARAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR682AR" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="expiration_date">2023-07-03</field>
+            <field name="state">open</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR682ARVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR682AR" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR682ARCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR682AR" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR682AR</field>
+            <field name="expiration_date">2029-07-29</field>
+         </record>
+        <!-- END -->
+
+        <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR681AR'>
+            <field name='license_plate'>LTSR 681 AR</field>
+            <field name='model_id' ref="vehicle_model_wielton_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR681ARAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR681AR" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="expiration_date">2021-07-03</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR681ARVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR681AR" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR681ARCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR681AR" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR681AR</field>
+            <field name="expiration_date">2029-07-29</field>
+         </record>
+        <!-- END -->
+
+        <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR680AR'>
+            <field name='license_plate'>LTSR 680 AR</field>
+            <field name='model_id' ref="vehicle_model_wielton_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR680ARAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR680AR" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="expiration_date">2021-07-03</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR680ARVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR680AR" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR680ARCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR680AR" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR680AR</field>
+            <field name="expiration_date">2029-07-29</field>
+         </record>
+        <!-- END -->
+
+        <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR547AR'>
+            <field name='license_plate'>LTSR 547 AR</field>
+            <field name='model_id' ref="vehicle_model_wielton_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR547ARAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR547AR" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="expiration_date">2023-07-07</field>
+            <field name="state">open</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR547ARVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR547AR" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR547ARCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR547AR" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR547AR</field>
+            <field name="expiration_date">2029-06-28</field>
+         </record>
+        <!-- END -->
+
+        <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR548AR'>
+            <field name='license_plate'>LTSR 548 AR</field>
+            <field name='model_id' ref="vehicle_model_enem_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR548ARAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR548AR" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="expiration_date">2023-07-07</field>
+            <field name="state">open</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR548ARVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR548AR" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR548ARCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR548AR" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR548AR</field>
+            <field name="expiration_date">2029-06-28</field>
+         </record>
+        <!-- END -->
+
+         <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR549AR'>
+            <field name='license_plate'>LTSR 549 AR</field>
+            <field name='model_id' ref="vehicle_model_enem_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR5489RAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR549AR" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="expiration_date">2023-07-07</field>
+            <field name="state">open</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR549ARVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR549AR" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR549ARCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR549AR" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR549AR</field>
+            <field name="expiration_date">2029-06-28</field>
+         </record>
+        <!-- END -->
+
+        <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR550AR'>
+            <field name='license_plate'>LTSR 550 AR</field>
+            <field name='model_id' ref="vehicle_model_enem_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR5450RAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR550AR" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="expiration_date">2023-07-07</field>
+            <field name="state">open</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR550ARVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR550AR" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR550ARCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR550AR" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR550AR</field>
+            <field name="expiration_date">2029-06-28</field>
+         </record>
+        <!-- END -->
+
+        <!-- START -->
+        <record model='fleet.vehicle' id='vehicle_lt_LTSR551AR'>
+            <field name='license_plate'>LTSR 551 AR</field>
+            <field name='model_id' ref="vehicle_model_enem_remorqu" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSR551RAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR551AR" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="expiration_date">2023-07-07</field>
+            <field name="state">open</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR551ARVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR551AR" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSR551ARCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSR551AR" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSR551AR</field>
+            <field name="expiration_date">2029-06-28</field>
+         </record>
+        <!-- END -->
+        
+
+    <!-- voiture de tourisme -->
+     <record model='fleet.vehicle' id='vehicle_lt_135'>
+            <field name='license_plate'>LT 135 LT</field>
+            <field name='model_id' ref="vehicle_model_suziki_tourisme" />
+        </record>
+        <record model='fleet.vehicle' id='vehicle_lt_705EE'>
+            <field name='license_plate'>LT 705 EE</field>
+            <field name='model_id' ref="vehicle_model_toyota_tourisme" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LT705EE'>
+            <field name='vehicle_id' ref="vehicle_lt_705EE" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT705EE</field>
+            <field name="expiration_date">2022-05-26</field>
+        </record>
+
+        <record model='fleet.vehicle' id='vehicle_lt_249JA'>
+            <field name='license_plate'>LT 249 JA</field>
+            <field name='model_id' ref="vehicle_model_toyota_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT7249JA'>
+            <field name='vehicle_id' ref="vehicle_lt_249JA" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT249JA</field>
+            <field name="expiration_date">2029-04-29</field>
+        </record>
+
+        <record model='fleet.vehicle' id='vehicle_lt_079FH'>
+            <field name='license_plate'>LT 079 FH</field>
+            <field name='model_id' ref="vehicle_model_toyota_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT079FH'>
+            <field name='vehicle_id' ref="vehicle_lt_079FH" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT079FH</field>
+            <field name="expiration_date">2025-02-25</field>
+        </record>
+
+         <record model='fleet.vehicle' id='vehicle_lt_078FH'>
+            <field name='license_plate'>LT 078 FH</field>
+            <field name='model_id' ref="vehicle_model_toyota_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT078FH'>
+            <field name='vehicle_id' ref="vehicle_lt_078FH" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT078FH</field>
+            <field name="expiration_date">2025-02-25</field>
+        </record>
+
+        <record model='fleet.vehicle' id='vehicle_lt_945JM'>
+            <field name='license_plate'>LT 945 JM</field>
+            <field name='model_id' ref="vehicle_model_ford_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT945JM'>
+            <field name='vehicle_id' ref="vehicle_lt_945JM" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT945JM</field>
+            <field name="expiration_date">2030-01-29</field>
+        </record>
+
+         <record model='fleet.vehicle' id='vehicle_lt_743KO'>
+            <field name='license_plate'>LT 743 KO</field>
+            <field name='model_id' ref="vehicle_model_kia_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT743KO'>
+            <field name='vehicle_id' ref="vehicle_lt_743KO" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT743KO</field>
+            <field name="expiration_date">2031-04-28</field>
+        </record>
+
+         <record model='fleet.vehicle' id='vehicle_lt_012KP'>
+            <field name='license_plate'>LT 012 KP</field>
+            <field name='model_id' ref="vehicle_model_kia_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT012KP'>
+            <field name='vehicle_id' ref="vehicle_lt_012KP" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT012KP</field>
+            <field name="expiration_date">2031-04-28</field>
+        </record>
+
+         <record model='fleet.vehicle' id='vehicle_lt_334JZ'>
+            <field name='license_plate'>LT 334 JZ</field>
+            <field name='model_id' ref="vehicle_model_suziki_alto_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT334JZ'>
+            <field name='vehicle_id' ref="vehicle_lt_334JZ" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT334JZ</field>
+            <field name="expiration_date">2030-09-04</field>
+        </record>
+
+        <record model='fleet.vehicle' id='vehicle_lt_335JZ'>
+            <field name='license_plate'>LT 335 JZ</field>
+            <field name='model_id' ref="vehicle_model_suziki_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT335JZ'>
+            <field name='vehicle_id' ref="vehicle_lt_335JZ" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT335JZ</field>
+            <field name="expiration_date">2030-09-04</field>
+        </record>
+
+         <record model='fleet.vehicle' id='vehicle_lt_788'>
+            <field name='license_plate'>LT 788 KB</field>
+            <field name='model_id' ref="vehicle_model_hyundai_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT788'>
+            <field name='vehicle_id' ref="vehicle_lt_788" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT788KB</field>
+            <field name="expiration_date">2030-10-20</field>
+        </record>
+
+        <record model='fleet.vehicle' id='vehicle_lt_810kB'>
+            <field name='license_plate'>LT 810 KB</field>
+            <field name='model_id' ref="vehicle_model_hyundai_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT810kB'>
+            <field name='vehicle_id' ref="vehicle_lt_810kB" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT810kB</field>
+            <field name="expiration_date">2030-10-20</field>
+        </record>
+
+         <record model='fleet.vehicle' id='vehicle_lt_766Z'>
+            <field name='license_plate'>LT 766 JZ</field>
+            <field name='model_id' ref="vehicle_model_hyundai_tourisme" />
+        </record>
+
+         <record model='fleet.vehicle' id='vehicle_lt_812KB'>
+            <field name='license_plate'>LT 812 KB</field>
+            <field name='model_id' ref="vehicle_model_hyundai_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT812KB'>
+            <field name='vehicle_id' ref="vehicle_lt_812KB" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT812KB</field>
+            <field name="expiration_date">2030-10-20</field>
+        </record>
+
+        <record model='fleet.vehicle' id='vehicle_lt_336JZ'>
+            <field name='license_plate'>LT 336 JZ</field>
+            <field name='model_id' ref="vehicle_model_suziki_spresso_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT336JZ'>
+            <field name='vehicle_id' ref="vehicle_lt_336JZ" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT336JZ</field>
+            <field name="expiration_date">2030-09-04</field>
+        </record>
+
+        <record model='fleet.vehicle' id='vehicle_lt_340JZ'>
+            <field name='license_plate'>LT 340 JZ</field>
+            <field name='model_id' ref="vehicle_model_suziki_alto_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT340JZ'>
+            <field name='vehicle_id' ref="vehicle_lt_340JZ" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT340JZJZ</field>
+            <field name="expiration_date">2030-09-04</field>
+        </record>
+
+        <record model='fleet.vehicle' id='vehicle_lt_415GQ'>
+            <field name='license_plate'>LT 415 GQ</field>
+            <field name='model_id' ref="vehicle_model_toyota_tourisme" />
+        </record>
+         <record model='fleet.vehicle.log.contract' id='contract_log_LT415GQ'>
+            <field name='vehicle_id' ref="vehicle_lt_415GQ" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT415GQ</field>
+            <field name="expiration_date">2026-08-18</field>
+        </record>
+
+        <record model='fleet.vehicle' id='vehicle_lt_580GQ'>
+            <field name='license_plate'>LT 580 GQ</field>
+            <field name='model_id' ref="vehicle_model_toyota_tourisme" />
+        </record>
+         <record model='fleet.vehicle.log.contract' id='contract_log_LT580GQ'>
+            <field name='vehicle_id' ref="vehicle_lt_580GQ" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT580GQ</field>
+            <field name="expiration_date">2020-11-29</field>
+        </record>
+
+        <record model='fleet.vehicle' id='vehicle_lt_631AF'>
+            <field name='license_plate'>LT 631 AF</field>
+            <field name='model_id' ref="vehicle_model_toyota_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT631AF'>
+            <field name='vehicle_id' ref="vehicle_lt_631AF" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT631AF</field>
+            <field name="expiration_date">2028-05-25</field>
+        </record>
+
+        <record model='fleet.vehicle' id='vehicle_lt_116LX'>
+            <field name='license_plate'>LT 116 LX</field>
+            <field name='model_id' ref="vehicle_model_toyota_tourisme" />
+        </record>
+         <record model='fleet.vehicle.log.contract' id='contract_log_LT116LX'>
+            <field name='vehicle_id' ref="vehicle_lt_116LX" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT116LX</field>
+            <field name="expiration_date">2032-09-13</field>
+        </record>
+
+        <record model='fleet.vehicle' id='vehicle_lt_610MW'>
+            <field name='license_plate'>LT 610 MW</field>
+            <field name='model_id' ref="vehicle_model_toyota_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT610MW'>
+            <field name='vehicle_id' ref="vehicle_lt_610MW" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT610MW</field>
+            <field name="expiration_date">2032-09-07</field>
+        </record>
+
+        <record model='fleet.vehicle' id='vehicle_lt_696JX'>
+            <field name='license_plate'>LT 696 JX</field>
+            <field name='model_id' ref="vehicle_model_mercedes_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT696JX'>
+            <field name='vehicle_id' ref="vehicle_lt_696JX" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT696JX</field>
+            <field name="expiration_date">2030-07-28</field>
+        </record>
+
+
+         <record model='fleet.vehicle' id='vehicle_ch_482002'>
+            <field name='license_plate'>CH 482002</field>
+            <field name='model_id' ref="vehicle_model_hyundai_tourisme" />
+        </record>
+         <record model='fleet.vehicle' id='vehicle_ch_349713'>
+            <field name='license_plate'>CH 349713</field>
+            <field name='model_id' ref="vehicle_model_nissan_nivara_tourisme" />
+        </record>
+        
+        <record model='fleet.vehicle' id='vehicle_lt_630IO'>
+            <field name='license_plate'>LT 630 IO</field>
+            <field name='model_id' ref="vehicle_model_toyota_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT630IO'>
+            <field name='vehicle_id' ref="vehicle_lt_630IO" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT630IO</field>
+            <field name="expiration_date">2020-11-29</field>
+        </record>
+
+        <record model='fleet.vehicle' id='vehicle_lt_111FS'>
+            <field name='license_plate'>LT 111 FS</field>
+            <field name='model_id' ref="vehicle_model_hyundai_tourisme" />
+        </record>
+         <record model='fleet.vehicle.log.contract' id='contract_log_LT111FS'>
+            <field name='vehicle_id' ref="vehicle_lt_111FS" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT111FS</field>
+            <field name="expiration_date">2020-11-29</field>
+        </record>
+        
+       <record model='fleet.vehicle' id='vehicle_lt_224JW'>
+            <field name='license_plate'>LT 224 JW</field>
+            <field name='model_id' ref="vehicle_model_volkswagen_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT224JW'>
+            <field name='vehicle_id' ref="vehicle_lt_224JW" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT224JW</field>
+            <field name="expiration_date">2030-07-03</field>
+        </record>
+
+         <record model='fleet.vehicle' id='vehicle_lt_766JJ'>
+            <field name='license_plate'>LT 766 JJ</field>
+            <field name='model_id' ref="vehicle_model_toyota_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT766JJ'>
+            <field name='vehicle_id' ref="vehicle_lt_766JJ" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT766JJ</field>
+            <field name="expiration_date">2029-11-20</field>
+        </record>
+
+         <record model='fleet.vehicle' id='vehicle_lt_777KS'>
+            <field name='license_plate'>LT 777 KS</field>
+            <field name='model_id' ref="vehicle_model_toyota_tourisme" />
+        </record>
+
+         <record model='fleet.vehicle' id='vehicle_lt_031JS'>
+            <field name='license_plate'>LT 031 JS</field>
+            <field name='model_id' ref="vehicle_model_toyota_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT031JS'>
+            <field name='vehicle_id' ref="vehicle_lt_031JS" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT031JS</field>
+            <field name="expiration_date">2030-04-16</field>
+        </record>
+
+        <record model='fleet.vehicle' id='vehicle_lt_113KY'>
+            <field name='license_plate'>CE 113 KY</field>
+            <field name='model_id' ref="vehicle_model_toyota_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT113KY'>
+            <field name='vehicle_id' ref="vehicle_lt_113KY" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">CE113KY</field>
+            <field name="expiration_date">2030-03-21</field>
+        </record>
+
+         <record model='fleet.vehicle' id='vehicle_lt_879FP'>
+            <field name='license_plate'>LT 879 FP</field>
+            <field name='model_id' ref="vehicle_model_hyundai_tourisme" />
+        </record>
+        <record model='fleet.vehicle' id='vehicle_lt_508JO'>
+            <field name='license_plate'>LT 508 JO</field>
+            <field name='model_id' ref="vehicle_model_land_cruiser_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT508JO'>
+            <field name='vehicle_id' ref="vehicle_lt_508JO" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT508JO</field>
+            <field name="expiration_date">2030-02-24</field>
+        </record>
+
+        <record model='fleet.vehicle' id='vehicle_lt_879FP'>
+            <field name='license_plate'>LT 879 FP</field>
+            <field name='model_id' ref="vehicle_model_hyundai_tourisme" />
+        </record>
+        
+        <record model='fleet.vehicle' id='vehicle_lt_624FJ'>
+            <field name='license_plate'>LT 624 FJ</field>
+            <field name='model_id' ref="vehicle_model_mutsubishi_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT624FJ'>
+            <field name='vehicle_id' ref="vehicle_lt_624FJ" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT624FJ</field>
+            <field name="expiration_date">2025-04-24</field>
+        </record>
+
+         <record model='fleet.vehicle' id='vehicle_ch_411404'>
+            <field name='license_plate'>CH 411404 </field>
+            <field name='model_id' ref="vehicle_model_suziki_tourisme" />
+        </record>
+         <record model='fleet.vehicle' id='vehicle_lt_135LT'>
+            <field name='license_plate'>LT 135 LT</field>
+            <field name='model_id' ref="vehicle_model_suziki_tourisme" />
+        </record>
+        <record model='fleet.vehicle' id='vehicle_lt_953DI'>
+            <field name='license_plate'>LT 953 DI</field>
+            <field name='model_id' ref="vehicle_model_toyota_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT953DI'>
+            <field name='vehicle_id' ref="vehicle_lt_953DI" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT953DI</field>
+            <field name="expiration_date">2022-09-03</field>
+        </record>
+
+        <record model='fleet.vehicle' id='vehicle_lt_253JA'>
+            <field name='license_plate'>LT 253 JA</field>
+            <field name='model_id' ref="vehicle_model_toyota_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT253JA'>
+            <field name='vehicle_id' ref="vehicle_lt_253JA" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT253JA</field>
+            <field name="expiration_date">2029-04-29</field>
+        </record>
+
+        <record model='fleet.vehicle' id='vehicle_lt_727KR'>
+            <field name='license_plate'>LT 727 KR</field>
+            <field name='model_id' ref="vehicle_model_renault_tourisme" />
+        </record>
+         <record model='fleet.vehicle.log.contract' id='contract_log_LT727KR'>
+            <field name='vehicle_id' ref="vehicle_lt_727KR" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT727KR</field>
+            <field name="expiration_date">2031-06-11</field>
+        </record>
+
+        <record model='fleet.vehicle' id='vehicle_lt_795KB'>
+            <field name='license_plate'>LT 795 KB</field>
+            <field name='model_id' ref="vehicle_model_hyundai_tourisme" />
+        </record>
+        <record model='fleet.vehicle' id='vehicle_lt_485JR'>
+            <field name='license_plate'>LT 485 JR</field>
+            <field name='model_id' ref="vehicle_model_hyundai_tourisme" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT485JR'>
+            <field name='vehicle_id' ref="vehicle_lt_485JR" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT485JR</field>
+            <field name="expiration_date">2030-04-07</field>
+        </record>
+
+        <!-- engin -->
+        <record model='fleet.vehicle' id='vehicle_lt_SE914AG'>
+            <field name='license_plate'>LTSE 914 AG</field>
+            <field name='model_id' ref="vehicle_model_sdlg_engin" />
+        </record>
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE914AGCG'>
+            <field name='vehicle_id' ref="vehicle_lt_SE914AG" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE914AG</field>
+            <field name="expiration_date">2030-04-07</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE914AGAS'>
+            <field name='vehicle_id' ref="vehicle_lt_SE914AG" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-03-19</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+         </record>
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE914AGVT'>
+            <field name='vehicle_id' ref="vehicle_lt_SE914AG" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+        <record model="res.partner" id="res_partner_ATLANTIQUEASSURANCE">
+            <field name="name">ATLANTIQUE ASSURANCE</field>
+            <field name="company_type">company</field>
+        </record>
+
+
+         <record model='fleet.vehicle' id='vehicle_lt_LTSE878AG'>
+            <field name='license_plate'>LTSE 878 AG</field>
+            <field name='model_id' ref="vehicle_model_terex_engin" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE878AGCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE878AG" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE878AG</field>
+            <field name="expiration_date">2030-04-07</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE878AGAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE878AG" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-03-29</field>
+            <field name="insurer_id" ref="res_partner_ATLANTIQUEASSURANCE" />
+            <field name="state">expired</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE878AGVT'>
+             <field name='vehicle_id' ref="vehicle_lt_LTSE878AG" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+
+        <record model='fleet.vehicle' id='vehicle_lt_LTSE879AG'>
+            <field name='license_plate'>LTSE 879 AG</field>
+            <field name='model_id' ref="vehicle_model_terex_engin" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE879AGCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE879AG" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE879AG</field>
+            <field name="expiration_date">2030-04-07</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE879AGAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE879AG" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-03-11</field>
+            <field name="insurer_id" ref="res_partner_ATLANTIQUEASSURANCE" />
+            <field name="state">expired</field>
+         </record>
+         
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE879AGVT'>
+             <field name='vehicle_id' ref="vehicle_lt_LTSE879AG" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+         </record>
+
+
+         <record model='fleet.vehicle' id='vehicle_lt_LTSE088AH'>
+            <field name='license_plate'>LTSE 088 AH</field>
+            <field name='model_id' ref="vehicle_model_sdlg_engin" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE088AHCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE088AH" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE088AH</field>
+            <field name="expiration_date">2030-06-30</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE088AHAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE088AH" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-07-08</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">open</field>
+        </record>
+         
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE088AHVT'>
+             <field name='vehicle_id' ref="vehicle_lt_LTSE088AH" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+
+        <record model='fleet.vehicle' id='vehicle_lt_LTSE891AC'>
+            <field name='license_plate'>LTSE 891 AC</field>
+            <field name='model_id' ref="vehicle_model_sem_engin" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE891ACCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE891AC" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE891AC</field>
+            <field name="expiration_date">2024-12-31</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE891ACAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE891AC" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2022-09-13</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+        </record>
+         
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE891ACVS'>
+             <field name='vehicle_id' ref="vehicle_lt_LTSE891AC" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+
+        <record model='fleet.vehicle' id='vehicle_lt_LTSE467AH'>
+            <field name='license_plate'>LTSE 467 AH</field>
+            <field name='model_id' ref="vehicle_model_xiamen_engin" />
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE467AHCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE467AH" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE467AH</field>
+            <field name="expiration_date">2031-02-26</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE467AHAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE467AH" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-01-21</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+        </record>
+         
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE467AHVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE467AH" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+
+        <record model='fleet.vehicle' id='vehicle_lt_LTSE464AH'>
+            <field name='license_plate'>LTSE 464 AH</field>
+            <field name='model_id' ref="vehicle_model_xiamen_engin" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE467AHAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE464AH" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-01-21</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE464AHVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE464AH" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE464AHCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE464AH" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE464AH</field>
+            <field name="expiration_date">2031-02-26</field>
+        </record>
+
+
+         <record model='fleet.vehicle' id='vehicle_lt_LTSE471AH'>
+            <field name='license_plate'>LTSE 471 AH</field>
+            <field name='model_id' ref="vehicle_model_xiamen_engin" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE471AHAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE471AH" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-01-21</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE471AHVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE471AH" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE471AHCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE471AH" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE471AH</field>
+            <field name="expiration_date">2031-02-26</field>
+        </record>
+
+        <record model='fleet.vehicle' id='vehicle_lt_LTSE468AH'>
+            <field name='license_plate'>LTSE 468 AH</field>
+            <field name='model_id' ref="vehicle_model_xiamen_engin" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE468HAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE468AH" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-01-21</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE468AHVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE468AH" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE468AHCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE468AH" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE468AH</field>
+            <field name="expiration_date">2031-02-26</field>
+        </record>
+
+
+        <record model='fleet.vehicle' id='vehicle_lt_LTSE470AH'>
+            <field name='license_plate'>LTSE 470 AH</field>
+            <field name='model_id' ref="vehicle_model_xiamen_engin" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE470HAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE470AH" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-01-21</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE470AHVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE470AH" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE470AHCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE470AH" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE470AH</field>
+            <field name="expiration_date">2031-02-26</field>
+        </record>
+
+
+        <record model='fleet.vehicle' id='vehicle_lt_LTSE465AH'>
+            <field name='license_plate'>LTSE 465 AH</field>
+            <field name='model_id' ref="vehicle_model_xiamen_engin" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE465HAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE465AH" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-01-21</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE465AHVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE465AH" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE465AHCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE465AH" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE465AH</field>
+            <field name="expiration_date">2031-02-26</field>
+        </record>
+
+
+        <record model='fleet.vehicle' id='vehicle_lt_LTSE466AH'>
+            <field name='license_plate'>LTSE 466 AH</field>
+            <field name='model_id' ref="vehicle_model_xiamen_engin" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE466HAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE466AH" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-01-21</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE466AHVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE466AH" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE466AHCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE466AH" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE466AH</field>
+            <field name="expiration_date">2031-02-26</field>
+        </record>
+         
+       <record model='fleet.vehicle' id='vehicle_lt_LTSE469AH'>
+            <field name='license_plate'>LTSE 469 AH</field>
+            <field name='model_id' ref="vehicle_model_xiamen_engin" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE469HAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE469AH" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-01-21</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE469AHVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE469AH" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE469AHCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE469AH" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE469AH</field>
+            <field name="expiration_date">2031-02-26</field>
+        </record>
+
+
+        <record model='fleet.vehicle' id='vehicle_lt_LTSE463AH'>
+            <field name='license_plate'>LTSE 463 AH</field>
+            <field name='model_id' ref="vehicle_model_xiamen_engin" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE463HAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE463AH" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-01-21</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE463AHVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE463AH" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE463AHCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE463AH" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE463AH</field>
+            <field name="expiration_date">2031-02-26</field>
+        </record>
+
+        <record model='fleet.vehicle' id='vehicle_lt_LTSE462AH'>
+            <field name='license_plate'>LTSE 462 AH</field>
+            <field name='model_id' ref="vehicle_model_xiamen_engin" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE462HAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE462AH" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-03-21</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE462AHVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE462AH" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE462AHCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE462AH" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE462AH</field>
+            <field name="expiration_date">2031-02-26</field>
+        </record>
+
+
+        <record model='fleet.vehicle' id='vehicle_lt_LTSE308AF'>
+            <field name='license_plate'>LTSE 308 AF</field>
+            <field name='model_id' ref="vehicle_model_goodsense_engin" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE308AFAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE308AF" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-05-09</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">open</field>
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE308AFVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE308AF" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE308AFCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE308AF" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE308AF</field>
+            <field name="expiration_date">2028-02-14</field>
+        </record>
+
+
+         <record model='fleet.vehicle' id='vehicle_lt_LTSE307AF'>
+            <field name='license_plate'>LTSE 307 AF</field>
+            <field name='model_id' ref="vehicle_model_goodsense_engin" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE307AFAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE307AF" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-05-09</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">open</field>
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE307AFVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE307AF" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE307AFCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE307AF" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE308AF</field>
+            <field name="expiration_date">2028-02-14</field>
+        </record>
+
+
+        <record model='fleet.vehicle' id='vehicle_lt_LTSE310AF'>
+            <field name='license_plate'>LTSE 310 AF</field>
+            <field name='model_id' ref="vehicle_model_goodsense_engin" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE310AFAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE310AF" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-05-09</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">open</field>
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE310AFVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE310AF" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE310AFCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE310AF" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE310AF</field>
+            <field name="expiration_date">2028-02-14</field>
+        </record>
+
+
+        <record model='fleet.vehicle' id='vehicle_lt_LTSE309AF'>
+            <field name='license_plate'>LTSE 309 AF</field>
+            <field name='model_id' ref="vehicle_model_goodsense_engin" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE309AFAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE309AF" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2022-03-15</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE309AFVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE309AF" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE309AFCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE309AF" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE309AF</field>
+            <field name="expiration_date">2028-02-14</field>
+        </record>
+
+
+        <record model='fleet.vehicle' id='vehicle_lt_LTSE536AF'>
+            <field name='license_plate'>LTSE 536 AF</field>
+            <field name='model_id' ref="vehicle_model_caterpillar_engin" />
+        </record>
+
+        <record model="res.partner" id="res_partner_CHANASASS">
+         <field name="name">CHANAS ASS</field>
+          <field name="company_type">company</field>
+         </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE536AFAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE536AF" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2022-08-16</field>
+            <field name="insurer_id" ref="res_partner_CHANASASS" />
+            <field name="state">expired</field>
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE536AFVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE536AF" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE536AFCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE536AF" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE536AF</field>
+            <field name="expiration_date">2028-08-28</field>
+        </record>
+
+
+        <record model='fleet.vehicle' id='vehicle_lt_LTSE395AF'>
+            <field name='license_plate'>LTSE 395 AF</field>
+            <field name='model_id' ref="vehicle_model_sem_engin" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE395AFAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE395AF" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2022-03-07</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE395AFVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE395AF" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE395AFCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE395AF" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE395AF</field>
+            <field name="expiration_date">2031-01-27</field>
+        </record>
+
+
+
+        <record model='fleet.vehicle' id='vehicle_lt_LTSE896AC'>
+            <field name='license_plate'>LTSE 896 AC</field>
+            <field name='model_id' ref="vehicle_model_sem_engin" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE896ACAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE896AC" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE896ACVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE896AC" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE896ACCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE896AC" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE896AC</field>
+            <field name="expiration_date">2025-01-05</field>
+        </record>
+
+
+
+        <record model='fleet.vehicle' id='vehicle_lt_LTSE409AH'>
+            <field name='license_plate'>LTSE 409 AH</field>
+            <field name='model_id' ref="vehicle_model_sem_engin" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE409AHAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE409AH" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-05-27</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">open</field>
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE409AHVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE409AH" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE409AHCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE409AH" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE409AH</field>
+            <field name="expiration_date">2031-01-27</field>
+        </record>
+
+
+        <record model='fleet.vehicle' id='vehicle_lt_LTSE041AG'>
+            <field name='license_plate'>LTSE 041 AG</field>
+            <field name='model_id' ref="vehicle_model_hyster_engin" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE041AGAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE041AG" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-03-28</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE041AGVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE041AG" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE041AGCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE041AG" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE041AG</field>
+            <field name="expiration_date">2029-01-09</field>
+        </record>
+
+
+        <record model='fleet.vehicle' id='vehicle_lt_LT176AI'>
+            <field name='license_plate'>LT 176 AI</field>
+            <field name='model_id' ref="vehicle_model_kalmar_engin" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LT176AIAS'>
+            <field name='vehicle_id' ref="vehicle_lt_LT176AI" />
+            <field name='cost_subtype_id' ref="contract_type_assurance" />
+            <field name="expiration_date">2023-03-17</field>
+            <field name="insurer_id" ref="res_partner_GMC" />
+            <field name="state">expired</field>
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LT176AIVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LT176AI" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT176AICG'>
+            <field name='vehicle_id' ref="vehicle_lt_LT176AI" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT176AI</field>
+            <field name="expiration_date">2032-04-28</field>
+        </record>
+
+
+         <record model='fleet.vehicle' id='vehicle_lt_LTSE393AG'>
+            <field name='license_plate'>LTSE 393 AG</field>
+            <field name='model_id' ref="vehicle_model_kotmatsu_engin" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE393AGVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE393AG" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LT176AICG'>
+            <field name='vehicle_id' ref="vehicle_lt_LT176AI" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LT176AI</field>
+            <field name="expiration_date">2019-04-15</field>
+        </record>
+
+
+        <record model='fleet.vehicle' id='vehicle_lt_LTSE239AF'>
+            <field name='license_plate'>LTSE 239 AF</field>
+            <field name='model_id' ref="vehicle_model_kotmatsu_engin" />
+        </record>
+
+         <record model='fleet.vehicle.log.contract' id='contract_log_LTSE239AFVT'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE239AF" />
+            <field name='cost_subtype_id' ref="contract_type_visite_technique" />
+            <field name="expiration_date">2022-12-31</field>
+            <field name="state">expired</field>
+        </record>
+
+        <record model='fleet.vehicle.log.contract' id='contract_log_LTSE239AFCG'>
+            <field name='vehicle_id' ref="vehicle_lt_LTSE239AF" />
+            <field name='cost_subtype_id' ref="contract_type_carte_grise" />
+            <field name="ins_ref">LTSE239AF</field>
+            <field name="expiration_date">2018-01-12</field>
+        </record>
+
+</odoo>
