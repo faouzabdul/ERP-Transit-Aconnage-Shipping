@@ -13,9 +13,10 @@ class StevedoringOperation(models.Model):
 
     user_id = fields.Many2one('res.users', 'User')
     name = fields.Char(string='Reference', required=True, index=True, default=lambda self: _('New'), copy=False)
-    date_debut = fields.Datetime('Date debut', default=datetime.now())
+    date_debut = fields.Datetime('Date debut', default=lambda self: fields.datetime.now())
     date_end = fields.Datetime('Date end')
-    stevedoring_file_id = fields.Many2one('servoo.stevedoring.file', 'Stevedoring File', required=True)
+    stevedoring_file_id = fields.Many2one('servoo.stevedoring.file', 'Stevedoring File')
+    shipping_file_id = fields.Many2one('servoo.shipping.file', 'Shipping File')
     operation_nature = fields.Selection([
         ('loading', 'Loading'),
         ('unloading', 'Unloading'),

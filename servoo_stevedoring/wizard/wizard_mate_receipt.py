@@ -16,7 +16,7 @@ class WizardMateReceipt(models.TransientModel):
     vessel_id = fields.Many2one('res.transport.means', related='customs_declaration_id.vessel_id')
     terms_and_conditions = fields.Char('Terms and conditions')
     note = fields.Text('Notes')
-    date = fields.Date('Date', default=datetime.now())
+    date = fields.Date('Date', default=lambda self: fields.datetime.now())
 
     def action_validate(self):
         vals = {

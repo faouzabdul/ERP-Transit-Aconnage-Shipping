@@ -16,6 +16,7 @@ class CustomsDeclaration(models.Model):
     loading_port = fields.Many2one('res.locode', 'Port of loading', index=True)
     unloading_port = fields.Many2one('res.locode', 'Port of discharge', index=True)
     stevedoring_file_id = fields.Many2one('servoo.stevedoring.file', 'Stevedoring File')
+    shipping_file_id = fields.Many2one('servoo.shipping.file', 'Shipping File')
     good_ids = fields.One2many('servoo.shipping.good', 'customs_declaration_id', string='Goods',
                                auto_join=True, index=True, copy=True)
     vessel_id = fields.Many2one('res.transport.means', string="Vessel", index=True)

@@ -8,20 +8,22 @@ from datetime import datetime
 class OutturnReport(models.Model):
     _name = 'servoo.stevedoring.outturn.report'
     _description = 'Outturn Report'
+    _order = 'id desc'
 
     name = fields.Char('Name', required=True, index=True, default=lambda self: _('New'), copy=False)
     consignee_id = fields.Many2one('res.partner', 'Client')
     date_debut = fields.Datetime('Date of commence')
     date_end = fields.Datetime('Date of complete')
-    date = fields.Date('Date', default=datetime.now())
+    date = fields.Date('Date', default=lambda self: fields.datetime.now())
     create_uid = fields.Many2one('res.users', string='Created by', index=True, readonly=True)
     line_ids = fields.One2many('servoo.stevedoring.outturn.report.line', 'outturn_id', string='Lines',
                                auto_join=True, copy=True)
     stevedoring_file_id = fields.Many2one('servoo.stevedoring.file', 'Stevedoring File')
-    vessel_id = fields.Many2one('res.transport.means', related='stevedoring_file_id.vessel_id')
-    loading_port = fields.Many2one('res.locode', related='stevedoring_file_id.loading_port')
-    discharge_port = fields.Many2one('res.locode', related='stevedoring_file_id.discharge_port')
-    voyage_number = fields.Char(related='stevedoring_file_id.voyage_number')
+    shipping_file_id = fields.Many2one('servoo.shipping.file', 'Shipping File')
+    vessel_id = fields.Many2one('res.transport.means', 'Vessel')
+    loading_port = fields.Many2one('res.locode', 'Loading Port')
+    discharge_port = fields.Many2one('res.locode', 'Discharge Port')
+    voyage_number = fields.Char('Voyage Number')
 
     @api.model
     def create(self, vals):

@@ -34,7 +34,8 @@
                             <field name="consignee_id" widget="res_partner_many2one" colspan="2"
                                            context="{'show_address': 1, 'show_vat': True}"
                                            options='{"always_reload": True}' required="1"/>
-                            <field name="stevedoring_file_id" required="1"/>
+                            <field name="stevedoring_file_id" required="0"/>
+                            <field name="shipping_file_id" required="0"/>
                             <field name="vessel_id" />
                             <field name="voyage_number" />
                             <field name="loading_port" />

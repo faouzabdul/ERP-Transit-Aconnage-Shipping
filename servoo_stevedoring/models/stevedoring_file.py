@@ -25,7 +25,7 @@ class StevedoringFile(models.Model):
     partner_id = fields.Many2one('res.partner', 'Client')
     partner_ids = fields.Many2many('res.partner', string='Clients', tracking=1)
     external_reference = fields.Char('External Reference')
-    date = fields.Date('Date', required=True, default=datetime.now())
+    date = fields.Date('Date', required=True, default=lambda self: fields.datetime.now())
     vessel_id = fields.Many2one('res.transport.means', 'Vessel')
     voyage_number = fields.Char('Voyage number')
     shipowner_id = fields.Many2one('res.partner', 'Shipowner')

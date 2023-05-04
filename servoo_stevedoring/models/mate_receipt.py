@@ -8,6 +8,7 @@ from datetime import datetime
 class MateReceipt(models.Model):
     _name = 'servoo.stevedoring.mate.receipt'
     _description = 'Mate Receipt'
+    _order = 'id desc'
 
     name = fields.Char('Reference', required=True, index=True, default=lambda self: _('New'), copy=False)
     customs_declaration_id = fields.Many2one('servoo.customs.declaration', 'Customs Declaration', required=True)
@@ -16,7 +17,7 @@ class MateReceipt(models.Model):
     unloading_port = fields.Many2one('res.locode', related='customs_declaration_id.unloading_port')
     vessel_id = fields.Many2one('res.transport.means', related='customs_declaration_id.vessel_id')
     note = fields.Text('Notes')
-    date = fields.Date('Date', default=datetime.now())
+    date = fields.Date('Date', default=lambda self: fields.datetime.now())
     create_uid = fields.Many2one('res.users')
     terms_and_conditions = fields.Char('Terms and conditions')
 

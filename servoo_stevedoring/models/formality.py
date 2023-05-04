@@ -20,7 +20,7 @@ class Formality(models.Model):
     service_id = fields.Many2one('product.product', 'Service')
     name = fields.Char('Reference')
     other_reference = fields.Char('Other reference')
-    start_date = fields.Datetime('Start Date', default=datetime.now())
+    start_date = fields.Datetime('Start Date', default=lambda self: fields.datetime.now())
     end_date = fields.Datetime('End Date')
     amount = fields.Float('Amount', digits='Product Price')
     file_id = fields.Many2one('servoo.stevedoring.file', 'File', required=True, ondelete='cascade', index=True, copy=False)

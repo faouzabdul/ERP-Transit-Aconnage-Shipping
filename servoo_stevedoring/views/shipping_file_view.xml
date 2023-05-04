@@ -7,17 +7,156 @@
             <field name="inherit_id" ref="servoo_shipping.view_servoo_shipping_file_form" />
             <field name="arch" type="xml">
                 <button name="return_action_to_open" position="after">
-                    <field name="stevedoring_file_count" invisible="1" />
-                    <button name="return_open_stevedoring_action"
-                            attrs="{'invisible': [('stevedoring_file_count','&gt;=',1)]}"
-                                type="object"
-                                class="oe_stat_button"
-                                icon="fa-pencil-square-o"
-                                context="{'xml_id':'servoo_stevedoring.action_stevedoring_file'}"
-                                help="show the stevedoring files for this shipping file">
-                            <field name="stevedoring_file_count" widget="statinfo" string="Stevedoring Files"/>
-                        </button>
+<!--                    <field name="stevedoring_file_count" invisible="1" />-->
+<!--                    <button name="return_open_stevedoring_action"-->
+<!--                            attrs="{'invisible': [('stevedoring_file_count','&gt;=',1)]}"-->
+<!--                                type="object"-->
+<!--                                class="oe_stat_button"-->
+<!--                                icon="fa-pencil-square-o"-->
+<!--                                context="{'xml_id':'servoo_stevedoring.action_stevedoring_file'}"-->
+<!--                                help="show the stevedoring files for this shipping file">-->
+<!--                            <field name="stevedoring_file_count" widget="statinfo" string="Stevedoring Files"/>-->
+<!--                        </button>-->
+                            <button name="open_operation_action" type="object" class="oe_stat_button" icon="fa-list-ul"
+                                            context="{'xml_id':'servoo_stevedoring.action_stevedoring_operation'}"
+                                            help="Show the operations for this shipping file">
+                                        <field name="operation_count" widget="statinfo" string="Operations"/>
+                            </button>
+
+                            <button name="open_operation_action" type="object" class="oe_stat_button" icon="fa-align-justify"
+                                    context="{'xml_id':'servoo_stevedoring.actions_outturn_report'}"
+                                    help="Show the outturn reports for this shipping file">
+                                <field name="outturn_count" widget="statinfo" string="Outturns Reports"/>
+                            </button>
+
+                            <button name="open_mate_receipt" type="object" class="oe_stat_button" icon="fa-align-justify"
+                                    context="{'xml_id':'servoo_stevedoring.actions_mate_receipt'}"
+                                    help="Show the mate receipts for this shipping file">
+                                <field name="mate_receipt_count" widget="statinfo" string="Mate Receipts"/>
+                            </button>
                 </button>
+                <button name="create_invoices" position="after">
+                    <button name="%(action_wizard_shipping_outturn_report)d"
+                                groups="servoo_stevedoring.stevedoring_group_user"
+                                                string="Create Outturn Report" type="action"/>
+                </button>
+                <notebook position="before">
+                    <group string="Stevedoring" col="4">
+                        <field name="partner_ids" widget="many2many_tags" colspan="4"/>
+                        <field name="date_debut_operation" />
+                        <field name="date_end_operation" />
+                        <label for="manifested_quantity" />
+                        <div class="o_row">
+                             <field name="manifested_quantity" />
+                             <field name="unit_id" options="{'no_open': True, 'no_create': False}" />
+                        </div>
+                        <field name="manifested_tonnage" />
+                        <label for="unloaded_quantity" />
+                        <div class="o_row">
+                             <field name="unloaded_quantity" />
+                             <field name="unit_id" options="{'no_open': True, 'no_create': False}"  readonly="1"/>
+                        </div>
+                        <field name="unloaded_tonnage" />
+                        <label for="transported_quantity" />
+                        <div class="o_row">
+                             <field name="transported_quantity" />
+                             <field name="unit_id" options="{'no_open': True, 'no_create': False}"  readonly="1"/>
+                        </div>
+                        <field name="transported_tonnage" />
+                    </group>
+                </notebook>
+
+<!--                <notebook position="inside">-->
+                   <xpath expr="//page[@name='containers']" position="after">
+                       <page string="Customs Declarations">
+                                <field name="customs_declaration_ids" widget="one2many" mode="tree,form"
+                                    context="{'default_vessel_id' : vessel, 'default_voyage_number': voyage_number}"
+                                >
+                                    <tree string="Customs Declaration">
+                                        <field name="name" />
+                                        <field name="date" />
+                                        <field name="charger_id" />
+                                        <field name="loading_port" />
+                                        <field name="unloading_port" />
+                                        <field name="mate_receipt_count" invisible="1" />
+                                        <button name="%(action_wizard_stevedoring_mate_receipt)d"
+                                                groups="servoo_stevedoring.stevedoring_group_user"
+                                                string="Create Mate Receipt" type="action"
+                                                attrs="{'invisible': [('mate_receipt_count','&gt;=',1)]}"
+                                                class="btn-primary"/>
+                                    </tree>
+                                    <form string="Customs Declaration">
+                                        <sheet>
+                                            <group col="4">
+                                                <field name="name" />
+                                                <field name="date" />
+                                                <field name="charger_id" colspan="4"/>
+                                                <field name="vessel_id" />
+                                                <field name="voyage_number" />
+                                                <field name="loading_port" />
+                                                <field name="unloading_port" />
+                                            </group>
+                                            <notebook>
+                                                <page string="Goods">
+                                                    <field name="good_ids" widget="one2many" mode="tree" required="1">
+                                                        <tree string="Cargo Description" editable="bottom">
+                                                            <field name="name" />
+                                                            <field name="quantity" />
+                                                            <field name="unit_id" />
+                                                            <field name="gross_weight" />
+                                                            <field name="volume" />
+                                                        </tree>
+                                                    </field>
+                                                </page>
+                                            </notebook>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        <page string="Stevedoring Operations">
+                                <field name="operation_ids" widget="one2many" mode="tree,form">
+                                    <tree string="Operation">
+                                        <field name="name" />
+                                        <field name="date_debut" />
+                                        <field name="date_end" />
+                                        <field name="operation_nature" />
+                                        <field name="name_of_responsible" />
+                                        <button name="%(action_report_shift_report)d" type="action"
+                                                class="oe_stat_button" icon="fa-print"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group col="4">
+                                                <field name="name"/>
+                                                <field name="operation_nature"/>
+                                                <field name="date_debut" required="1"/>
+                                                <field name="date_end"/>
+                                                <field name="shift" />
+                                                <field name="name_of_responsible" required="1"/>
+                                            </group>
+                                            <notebook>
+                                                <page string="Operation Lines">
+                                                    <field name="operation_line_ids" widget="one2many"
+                                                           mode="tree,form" required="1">
+                                                        <tree editable="bottom">
+                                                            <field name="product_id"/>
+                                                            <field name="cargo_description"/>
+                                                            <field name="location"/>
+                                                            <field name="quantity"/>
+                                                            <field name="unit_id"/>
+                                                            <field name="weight" />
+                                                            <field name="volume"/>
+                                                            <field name="note"/>
+                                                        </tree>
+                                                    </field>
+                                                </page>
+                                            </notebook>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                   </xpath>
+<!--                </notebook>-->
             </field>
         </record>
     </data>
