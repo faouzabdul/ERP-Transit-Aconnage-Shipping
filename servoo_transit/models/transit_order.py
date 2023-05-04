@@ -34,9 +34,9 @@ class TransitOrder(models.Model):
     gross_weight = fields.Float('Gross Weight (kg)', digits=(12, 3))
     net_weight = fields.Float('Net Weight (kg)', digits=(12, 3))
     goods_description = fields.Char('Description of goods')
-    bill_of_lading = fields.Char('Bill of lading')
+    bill_of_lading = fields.Char('Bill of lading', tracking=2)
     name = fields.Char(string='APM File Number', required=True, tracking=1, default=lambda self: _('New'), copy=False)
-    external_reference = fields.Char(string="Client Reference")
+    external_reference = fields.Char(string="Client Reference", tracking=2)
     date_debut = fields.Datetime('Date Debut')
     date_end = fields.Datetime('Date End')
     partner_id = fields.Many2one('res.partner', 'Client', required=True)
@@ -99,6 +99,12 @@ class TransitOrder(models.Model):
     ], string='Agency', default='Douala')
     cancel_note = fields.Text('Cancel Motivation', tracking=2)
 
+    @api.returns('self', lambda value: value.id)
+    def copy(self, default=None):
+        default = dict(default or {})
+        default['bill_of_lading'] = ''
+        return super(TransitOrder, self).copy(default)
+
     def generate_reference(self, vals):
         reference = str(datetime.now().year)[-2:] + vals['agency_name'][0] if vals['agency_name'] else 'D'
         type = vals['operation_type']
@@ -116,10 +122,16 @@ class TransitOrder(models.Model):
         elif type == 'transit':
             reference += 'TRI'
         if transport_mode and transport_mode.code in ('10', '40'):
-            query = "SELECT count(*) FROM servoo_transit_order WHERE name LIKE '" + reference + "%'"
+            # query = "SELECT count(*) FROM servoo_transit_order WHERE name LIKE '" + reference + "%'"
+            query = "SELECT name FROM servoo_transit_order WHERE name LIKE '" + reference + "%' order by id desc limit 1"
             self._cr.execute(query)
-            res = self._cr.fetchone()
-            record_count = int(res[0]) + 1
+            # res = self._cr.fetchone()
+            res = self._cr.fetchall()
+            record_count = len(res) + 1
+            if res and res[0][0][-4:].isnumeric():
+                record_count = int(res[-1][0][-4:]) + 1
+            elif res and res[0][0][-3:].isnumeric():
+                record_count = int(res[-1][0][-3:]) + 1
             if len(str(record_count)) == 1:
                 reference += '00'
             elif len(str(record_count)) == 2:

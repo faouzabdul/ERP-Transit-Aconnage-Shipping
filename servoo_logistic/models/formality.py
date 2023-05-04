@@ -20,7 +20,7 @@ class Formality(models.Model):
     service_id = fields.Many2one('product.product', 'Service')
     name = fields.Char('Description')
     other_reference = fields.Char('Other reference')
-    start_date = fields.Datetime('Start Date', default=datetime.now())
+    start_date = fields.Datetime('Start Date', default=lambda self: fields.datetime.now())
     end_date = fields.Datetime('End Date')
     amount = fields.Float('Amount', digits='Product Price')
     operation_id = fields.Many2one('servoo.logistic.operation', 'Operation', required=True, ondelete='cascade', index=True, copy=False)
