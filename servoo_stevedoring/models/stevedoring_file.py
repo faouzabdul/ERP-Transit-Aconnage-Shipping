@@ -74,6 +74,10 @@ class StevedoringFile(models.Model):
     operation_count = fields.Integer(compute="_get_operation", string='Operations')
     mate_receipt_count = fields.Integer(compute="_get_mate_receipt", string='Mate receipts')
     cancel_note = fields.Text('Cancel Motivation', tracking=2)
+    invoice_state = fields.Selection([
+        ('not_invoiced', 'Not Invoiced'),
+        ('invoiced', 'Invoiced')
+    ], string='Invoice State', default='not_invoiced')
 
     @api.model
     def create(self, vals):
@@ -96,6 +100,8 @@ class StevedoringFile(models.Model):
         invoice = self.env['account.move']
         for record in self:
             record.invoice_count = invoice.search_count([('invoice_origin', '=', record.name)])
+            if record.invoice_count > 0:
+                record.invoice_state = 'invoiced'
 
     def _get_outturn(self):
         outturn = self.env['servoo.stevedoring.outturn.report']

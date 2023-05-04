@@ -621,6 +621,17 @@ msgid "Insurance Amount"
 msgstr "Montant assurance"
 
 #. module: servoo_transit
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__invoice_state
+msgid "Invoice State"
+msgstr "Etat de facturation"
+
+#. module: servoo_transit
+#: model:ir.model.fields.selection,name:servoo_transit.selection__servoo_transit_order__invoice_state__invoiced
+#: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_form
+msgid "Invoiced"
+msgstr "Facturé"
+
+#. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__invoice_count
 #: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_form
 msgid "Invoices"
@@ -775,6 +786,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__activity_type_id
 msgid "Next Activity Type"
 msgstr ""
+
+#. module: servoo_transit
+#: model:ir.model.fields.selection,name:servoo_transit.selection__servoo_transit_order__invoice_state__not_invoiced
+msgid "Not Invoiced"
+msgstr "Non facturé"
 
 #. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__note

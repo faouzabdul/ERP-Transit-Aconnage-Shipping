@@ -820,6 +820,17 @@ msgid "Invoice Elements"
 msgstr "Éléments de facture"
 
 #. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__invoice_state
+msgid "Invoice State"
+msgstr "Etat de facturation"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields.selection,name:servoo_stevedoring.selection__servoo_stevedoring_file__invoice_state__invoiced
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
+msgid "Invoiced"
+msgstr "Facturé"
+
+#. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__invoice_count
 #: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
 msgid "Invoices"
@@ -1109,6 +1120,11 @@ msgstr "Résumé de l'activité suivante"
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__activity_type_id
 msgid "Next Activity Type"
 msgstr "Type d'activité suivant"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields.selection,name:servoo_stevedoring.selection__servoo_stevedoring_file__invoice_state__not_invoiced
+msgid "Not Invoiced"
+msgstr "Non facturé"
 
 #. module: servoo_stevedoring
 #: model:ir.model.fields.selection,name:servoo_stevedoring.selection__servoo_stevedoring_operation__shift__night

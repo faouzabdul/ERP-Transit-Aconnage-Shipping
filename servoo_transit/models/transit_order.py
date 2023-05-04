@@ -98,6 +98,10 @@ class TransitOrder(models.Model):
         ('Tchad', 'Tchad'),
     ], string='Agency', default='Douala')
     cancel_note = fields.Text('Cancel Motivation', tracking=2)
+    invoice_state = fields.Selection([
+        ('not_invoiced', 'Not Invoiced'),
+        ('invoiced', 'Invoiced')
+    ], string='Invoice State', default='not_invoiced')
 
     @api.returns('self', lambda value: value.id)
     def copy(self, default=None):
@@ -145,6 +149,8 @@ class TransitOrder(models.Model):
         invoice = self.env['account.move']
         for record in self:
             record.invoice_count = invoice.search_count([('invoice_origin', '=', record.name)])
+            if record.invoice_count > 0:
+                record.invoice_state = 'invoiced'
 
     @api.onchange('currency_id')
     def onchange_currency_id(self):

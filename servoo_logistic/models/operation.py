@@ -69,6 +69,10 @@ class Operation(models.Model):
         ('Tchad', 'Tchad'),
     ], string='Agency', default='Douala')
     cancel_note = fields.Text('Cancel Motivation', tracking=2)
+    invoice_state = fields.Selection([
+        ('not_invoiced', 'Not Invoiced'),
+        ('invoiced', 'Invoiced')
+    ], string='Invoice State', default='not_invoiced')
 
     _sql_constraints = [
         ('name_uniq', 'unique (name)', _('This reference must be unique!'))
@@ -78,6 +82,8 @@ class Operation(models.Model):
         invoice = self.env['account.move']
         for record in self:
             record.invoice_count = invoice.search_count([('invoice_origin', '=', record.name)])
+            if record.invoice_count > 0:
+                record.invoice_state = 'invoiced'
 
     @api.model
     def create(self, vals):

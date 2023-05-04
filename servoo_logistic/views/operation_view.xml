@@ -61,6 +61,7 @@
                     <field name="weight" />
                     <field name="goods_description" />
                     <field name="state" widget="badge" decoration-success="state == 'done'" decoration-info="state == 'open'" decoration-warning="state == 'draft'"/>
+                    <field name="invoice_state" widget="badge" decoration-success="invoice_state == 'invoiced'" decoration-warning="invoice_state == 'not_invoiced'" />
                 </tree>
             </field>
         </record>
@@ -96,6 +97,8 @@
                             <field name="invoice_count" widget="statinfo" string="Invoices"/>
                         </button>
                         </div>
+                        <field name="invoice_state" invisible="1" />
+                        <widget name="web_ribbon" title="Invoiced" attrs="{'invisible': [('invoice_state', '!=', 'invoiced')]}"/>
                         <group>
                             <group col="4">
                                 <field name="name" readonly="1" string="APM File Number"/>

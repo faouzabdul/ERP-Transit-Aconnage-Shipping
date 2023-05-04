@@ -230,6 +230,10 @@ class ShippingFile(models.Model):
     # FAL 7: Dangerous Goods Manifest
     dangerous_good_ids = fields.One2many('servoo.shipping.dangerous.good', 'file_id', 'Dangerous Goods')
     cancel_note = fields.Text('Cancel Motivation', tracking=2)
+    invoice_state = fields.Selection([
+        ('not_invoiced', 'Not Invoiced'),
+        ('invoiced', 'Invoiced')
+    ], string='Invoice State', default='not_invoiced')
 
     _sql_constraints = [
         ('name_uniq', 'unique (name)', _('This reference must be unique!'))
@@ -246,6 +250,8 @@ class ShippingFile(models.Model):
         invoice = self.env['account.move']
         for record in self:
             record.invoice_count = invoice.search_count([('invoice_origin', '=', record.name)])
+            if record.invoice_count > 0:
+                record.invoice_state = 'invoiced'
 
     # def _get_crew_count(self):
     #     for record in self:

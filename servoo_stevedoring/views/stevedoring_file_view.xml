@@ -42,6 +42,7 @@
                     <field name="vessel_id" />
                     <field name="voyage_number" />
                     <field name="state" widget="badge" decoration-success="state == 'done'" decoration-info="state == 'open'" decoration-warning="state == 'draft'" />
+                    <field name="invoice_state" widget="badge" decoration-success="invoice_state == 'invoiced'" decoration-warning="invoice_state == 'not_invoiced'" />
                 </tree>
             </field>
         </record>
@@ -100,6 +101,8 @@
                                 <field name="mate_receipt_count" widget="statinfo" string="Mate Receipts"/>
                             </button>
                         </div>
+                        <field name="invoice_state" invisible="1" />
+                        <widget name="web_ribbon" title="Invoiced" attrs="{'invisible': [('invoice_state', '!=', 'invoiced')]}"/>
                         <group>
                             <group col="4">
                                 <group colspan="2">

@@ -1520,10 +1520,21 @@ msgid "Invoice Lines"
 msgstr "Lignes de facture"
 
 #. module: servoo_shipping
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__invoice_state
+msgid "Invoice State"
+msgstr "Etat de facturation"
+
+#. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__invoice_status
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda_line__invoice_status
 msgid "Invoice Status"
 msgstr "Statut de la facture"
+
+#. module: servoo_shipping
+#: model:ir.model.fields.selection,name:servoo_shipping.selection__servoo_shipping_file__invoice_state__invoiced
+#: model_terms:ir.ui.view,arch_db:servoo_shipping.view_servoo_shipping_file_form
+msgid "Invoiced"
+msgstr "Facturé"
 
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda_line__qty_invoiced
@@ -1889,6 +1900,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__activity_type_id
 msgid "Next Activity Type"
 msgstr ""
+
+#. module: servoo_shipping
+#: model:ir.model.fields.selection,name:servoo_shipping.selection__servoo_shipping_file__invoice_state__not_invoiced
+msgid "Not Invoiced"
+msgstr "Non facturé"
 
 #. module: servoo_shipping
 #: model:ir.model.fields.selection,name:servoo_shipping.selection__servoo_shipping_pda__payment_state__not_paid
