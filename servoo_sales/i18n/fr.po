@@ -547,6 +547,11 @@ msgid "Commercial Register Number"
 msgstr "N° Registre de commerce"
 
 #. module: servoo_sales
+#: model:ir.model.fields.selection,name:servoo_sales.selection__servoo_handling_rate__rate_type__commodity_fee
+msgid "Commodity Fee"
+msgstr "Redevance marchandise"
+
+#. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard__create_uid
 #: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate__create_uid
 #: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate_category__create_uid
@@ -705,7 +710,12 @@ msgstr "Type de marchandise 3"
 #: model:ir.ui.menu,name:servoo_sales.menu_sale_handling_rate
 #: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_handling_rate_tree
 msgid "Handling Rate"
-msgstr "Tarif redevance"
+msgstr "Tarif"
+
+#. module: servoo_sales
+#: model:ir.model.fields.selection,name:servoo_sales.selection__servoo_handling_rate__rate_type__handling_rate
+msgid "Handling Rate"
+msgstr "Tarif manutention"
 
 #. module: servoo_sales
 #: model:ir.model,name:servoo_sales.model_servoo_handling_rate_category
@@ -836,8 +846,8 @@ msgstr ""
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_order_form
-msgid "Main good royalty rate"
-msgstr "Tarif de redevance marchandise principal"
+msgid "Main rate"
+msgstr "Tarif principal"
 
 #. module: servoo_sales
 #: model:ir.model.fields.selection,name:servoo_sales.selection__account_move__state__management_control_approval
@@ -944,6 +954,11 @@ msgid "Paid on"
 msgstr "Payé le"
 
 #. module: servoo_sales
+#: model:ir.model.fields.selection,name:servoo_sales.selection__servoo_handling_rate__rate_type__parking_rate
+msgid "Parking Rate"
+msgstr "Tarif de stationnement"
+
+#. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard__invoice_payment_term_id
 msgid "Payment Terms"
 msgstr "Modalités de paiement"
@@ -1012,18 +1027,38 @@ msgstr "Reçus"
 
 #. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__handling
-msgid "Royalty Rate"
-msgstr "Tarif de redevance"
+msgid "Rate"
+msgstr "Tarif"
 
 #. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__handling2
-msgid "Royalty Rate 2"
-msgstr "Tarif de redevance 2"
+msgid "Rate 2"
+msgstr "Tarif 2"
 
 #. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__handling3
-msgid "Royalty Rate 3"
-msgstr "Tarif de redevance 3"
+msgid "Rate 3"
+msgstr "Tarif 3"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__rate_type
+msgid "Rate Type"
+msgstr "Type de tarif"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__rate_type_2
+msgid "Rate Type 2"
+msgstr "Type de tarif 2"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__rate_type_3
+msgid "Rate Type 3"
+msgstr "Type de tarif 3"
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate__rate_type
+msgid "Rate type"
+msgstr "Type de tarif"
 
 #. module: servoo_sales
 #: model:ir.model,name:servoo_sales.model_sale_order
@@ -1032,8 +1067,8 @@ msgstr "Bon de commande"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_order_form
-msgid "Second good royalty rate"
-msgstr "Tarif de redevance secondaire"
+msgid "Second rate"
+msgstr "Tarif secondaire"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_move_form
@@ -1149,8 +1184,8 @@ msgstr ""
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_order_form
-msgid "Third good royalty rate"
-msgstr "Tarif de redevance tertiaire"
+msgid "Third rate"
+msgstr "Tarif tertiaire"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.document_tax_totals
@@ -1332,7 +1367,7 @@ msgstr "quatorze"
 #. module: servoo_sales
 #: model:ir.ui.menu,name:servoo_sales.menu_finance_handling_rate
 msgid "handling Rate"
-msgstr "Tarif manutention"
+msgstr "Tarif"
 
 #. module: servoo_sales
 #: model:ir.module.category,description:servoo_sales.module_category_servoo_account

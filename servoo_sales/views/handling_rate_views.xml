@@ -5,6 +5,7 @@
         <field name="model">servoo.handling.rate</field>
         <field name="arch" type="xml">
             <tree string="Handling Rate" editable="top">
+                <field name="rate_type" />
                 <field name="name" />
                 <field name="category_id" />
                 <field name="office_code_id" />

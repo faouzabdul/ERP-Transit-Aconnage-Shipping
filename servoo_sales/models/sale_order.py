@@ -36,20 +36,23 @@ class SaleOrder(models.Model):
         ('Kribi', 'Kribi'),
         ('Tchad', 'Tchad'),
     ], string='Agency', default='Douala')
-    handling = fields.Float('Royalty Rate')
+    handling = fields.Float('Rate')
     include_tax_for_handling = fields.Boolean('Include Taxes')
     quantity = fields.Integer('Quantity')
     handling_rate_id = fields.Many2one('servoo.handling.rate', 'Good Type')
+    rate_type = fields.Selection(related='handling_rate_id.rate_type', string='Rate Type')
 
-    handling2 = fields.Float('Royalty Rate 2')
+    handling2 = fields.Float('Rate 2')
     include_tax_for_handling2 = fields.Boolean('Include Taxes 2')
     quantity2 = fields.Integer('Quantity 2')
     handling_rate_2_id = fields.Many2one('servoo.handling.rate', 'Good Type 2')
+    rate_type_2 = fields.Selection(related='handling_rate_2_id.rate_type', string='Rate Type 2')
 
-    handling3 = fields.Float('Royalty Rate 3')
+    handling3 = fields.Float('Rate 3')
     include_tax_for_handling3 = fields.Boolean('Include Taxes 3')
     quantity3 = fields.Integer('Quantity 3')
     handling_rate_3_id = fields.Many2one('servoo.handling.rate', 'Good Type 3')
+    rate_type_3 = fields.Selection(related='handling_rate_3_id.rate_type', string='Rate Type 3')
 
 
     @api.depends('amount_total', 'currency_id')

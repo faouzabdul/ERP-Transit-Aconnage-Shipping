@@ -7,6 +7,12 @@ from odoo.exceptions import UserError, ValidationError
 
 _logger = logging.getLogger(__name__)
 
+RATE_TYPE_LIST = [
+    ('commodity_fee', 'Commodity Fee'),
+    ('parking_rate', 'Parking Rate'),
+    ('handling_rate', 'Handling Rate')
+]
+
 
 class HandlingRate(models.Model):
     _name = 'servoo.handling.rate'
@@ -20,6 +26,7 @@ class HandlingRate(models.Model):
         ('export', 'Export')
     ], string='Sens Operation')
     category_id = fields.Many2one('servoo.handling.rate.category', 'Category')
+    rate_type = fields.Selection(RATE_TYPE_LIST, string='Rate type', default='commodity_fee')
 
     def name_get(self):
         result = []

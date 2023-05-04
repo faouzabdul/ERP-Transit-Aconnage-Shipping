@@ -42,20 +42,23 @@
 
 
                     </group>
-                    <group string="Main good royalty rate" col="4">
-                        <field name="handling_rate_id" />
+                    <group string="Main rate" col="4">
+                        <field name="handling_rate_id" colspan="4"/>
+                        <field name="rate_type" readonly="1" />
                         <field name="include_tax_for_handling" />
                         <field name="handling" />
                         <field name="quantity" />
                     </group>
-                    <group string="Second good royalty rate" col="4">
-                        <field name="handling_rate_2_id" />
+                    <group string="Second rate" col="4">
+                        <field name="handling_rate_2_id" colspan="4"/>
+                        <field name="rate_type_2" readonly="1" />
                         <field name="include_tax_for_handling2" />
                         <field name="handling2" />
                         <field name="quantity2" />
                     </group>
-                    <group string="Third good royalty rate" col="4">
-                        <field name="handling_rate_3_id" />
+                    <group string="Third rate" col="4">
+                        <field name="handling_rate_3_id" colspan="4"/>
+                        <field name="rate_type_3" readonly="1" />
                         <field name="include_tax_for_handling3" />
                         <field name="handling3" />
                         <field name="quantity3" />
