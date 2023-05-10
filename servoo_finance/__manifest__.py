@@ -23,6 +23,7 @@
         'wizard/wizard_sale_order_payment_view.xml',
         'wizard/wizard_cash_return_view.xml',
         'wizard/wizard_pda_payment_view.xml',
+        'wizard/wizard_account_payment_register_view.xml',
         'views/payment_request_view.xml',
         'views/cash_voucher_view.xml',
         'views/cashier_piece_view.xml',

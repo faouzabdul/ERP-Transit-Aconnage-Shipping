@@ -485,6 +485,7 @@ msgstr "Seuil de rapprochement bancaire"
 #. module: servoo_finance
 #: model:ir.model,name:servoo_finance.model_account_bank_statement
 #: model:ir.model.fields,field_description:servoo_finance.field_account_payment__bank_statement_id
+#: model:ir.model.fields,field_description:servoo_finance.field_account_payment_register__bank_statement_id
 #: model:ir.model.fields,field_description:servoo_finance.field_sale_order_payment_wizard__bank_statement_id
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_cash_return_wizard__bank_statement_id
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_payment_request_wizard__bank_statement_id
@@ -499,10 +500,11 @@ msgstr "Ligne de relevé bancaire"
 
 #. module: servoo_finance
 #: model:ir.model.fields,field_description:servoo_finance.field_account_payment__account_bank_statement_line_id
+#: model:ir.model.fields,field_description:servoo_finance.field_account_payment_register__account_bank_statement_line_id
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_cash_return__account_bank_statement_line_id
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_cashier_piece__account_bank_statement_line_id
 msgid "Bank statement line"
-msgstr ""
+msgstr "Ligne de relevé bancaire"
 
 #. module: servoo_finance
 #: model:ir.model.fields.selection,name:servoo_finance.selection__servoo_payment_request__payment_mode__bank

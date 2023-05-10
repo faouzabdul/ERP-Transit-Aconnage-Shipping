@@ -8,3 +8,4 @@ from . import cash_control_report_wizard
 from . import  sale_order_payment_wizard
 from . import cash_return_wizard
 from . import shipping_pda_payment_wizard
+from . import account_payment_registrer
