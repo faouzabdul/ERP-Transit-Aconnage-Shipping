@@ -9,6 +9,9 @@
                 <field name="vat" position="after">
                     <field name="commercial_register_number" />
                 </field>
+                <field name="vat" position="attributes">
+                    <attribute name="string">NIU</attribute>
+                </field>
             </field>
         </record>
     </data>

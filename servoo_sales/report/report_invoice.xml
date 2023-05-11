@@ -196,6 +196,11 @@
                                                 </t>
                                             </font>
                                         </br>
+                                        <br>
+                                            <t t-if="o.partner_id.phone">
+                                                TEL: <span t-field="o.partner_id.phone"/>
+                                            </t>
+                                        </br>
                                     </td>
                                 </tr>
                                 <tr valign="top">
@@ -483,7 +488,7 @@
 <!--                                </t>-->
                             </p>
                             <p style="text-transform:uppercase;">
-                                Issued by : <span t-field="o.user_id" />
+                                Issued by : <span t-field="o.create_uid" />
                             </p>
                                     </div>
                                     <div class="col-2" />
