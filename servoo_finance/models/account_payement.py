@@ -12,6 +12,21 @@ class AccountPayment(models.Model):
     bank_statement_id = fields.Many2one('account.bank.statement', 'Bank Statement')
     account_bank_statement_line_id = fields.Many2one('account.bank.statement.line', 'Bank statement line',
                                                      readonly=True)
+    receiver = fields.Selection([
+        ('pad', 'PAD'),
+        ('other', 'Other'),
+        ('apm', 'APM')
+    ], string='Receiver')
+    apm_invoice_number = fields.Char('APM Invoice Number', compute="_get_apm_invoice_number", strore=False)
+
+
+    def _get_apm_invoice_number(self):
+        account_move = self.env['account.move']
+        for record in self:
+            if record.ref:
+                move = account_move.search([('name', '=', record.ref)])
+                if move and move.apm_reference:
+                    record.apm_invoice_number = move.apm_reference
 
     @api.model
     def create(self, vals):
@@ -25,6 +40,7 @@ class AccountPayment(models.Model):
                 'amount': (-1 * payment.amount) if payment.payment_type == 'outbound' else payment.amount,
                 'journal_id': payment.journal_id.id,
                 'statement_id': vals['bank_statement_id'],
+                'receiver': vals['receiver']
                 # 'move_id': payment.move_id.id
             }
             payment.account_bank_statement_line_id = self.env['account.bank.statement.line'].create(bank_statement_line_vals)

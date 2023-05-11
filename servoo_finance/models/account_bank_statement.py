@@ -896,6 +896,15 @@ class AccountBankStatementLine(models.Model):
         ('other', 'Other'),
         ('apm', 'APM')
     ], string='Receiver')
+    apm_invoice_number = fields.Char('APM Invoice Number', compute="_get_apm_invoice_number", store=False)
+
+    def _get_apm_invoice_number(self):
+        account_move = self.env['account.move']
+        for record in self:
+            if record.ref:
+                move = account_move.search([('name', '=', record.ref)])
+                if move and move.apm_reference:
+                    record.apm_invoice_number = move.apm_reference
 
     def process_reconciliation(self, counterpart_aml_dicts=None, payment_aml_rec=None, new_aml_dicts=None):
         """Match statement lines with existing payments (eg. checks) and/or

@@ -16,6 +16,7 @@
         'report/report_cash_voucher.xml',
         'report/report_cashier_piece.xml',
         'report/report_cash_control.xml',
+        'report/report_payment_receipt.xml',
         'wizard/wizard_payment_request_view.xml',
         'wizard/wizard_cash_voucher_view.xml',
         'wizard/wizard_cashier_piece_view.xml',

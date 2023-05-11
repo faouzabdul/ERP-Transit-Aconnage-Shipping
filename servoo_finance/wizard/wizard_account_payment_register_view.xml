@@ -9,6 +9,7 @@
                 <field name="journal_id" position="after">
                     <field name="bank_statement_id" required="1" domain="[('journal_id', '=', journal_id), ('state', '=', 'open')]"/>
                     <field name="account_bank_statement_line_id" />
+                    <field name="receiver" required="0" />
                 </field>
             </field>
         </record>

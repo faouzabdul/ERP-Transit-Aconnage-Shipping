@@ -22,8 +22,27 @@
                     </button>
                 </button>
                 <field name="amount" position="before">
-                    <field name="beneficiary" optional="hidden"/>
-                    <field name="receiver" optional="hidden"/>
+                    <field name="beneficiary" />
+                    <field name="receiver" />
+                </field>
+                <button name="button_undo_reconciliation" position="after">
+                    <button name="%(action_report_payment_receipt)d" type="action" class="oe_stat_button" icon="fa-print"/>
+                </button>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_servoo_inherit_view_bank_statement_line_form">
+            <field name="name">servoo.account.bank.statement.line.form</field>
+            <field name="model">account.bank.statement.line</field>
+            <field name="inherit_id" ref="account.view_bank_statement_line_form" />
+            <field name="arch" type="xml">
+                <field name="sequence" position="before">
+                    <field name="beneficiary" />
+                    <field name="receiver" />
+                </field>
+                <field name="ref" position="after">
+                    <field name="apm_invoice_number" readonly="1" />
                 </field>
             </field>
         </record>

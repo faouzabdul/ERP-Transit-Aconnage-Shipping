@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_statement_receipt_document">
+        <t t-call="web.basic_layout">
+            <t t-set="doc" t-value="doc.with_context()"/>
+            <div class="page">
+                <div class="head">
+                    <div class="row">
+                        <div class="col-4" align="left">
+                            <font size="0" style="font-size: 5pt; padding:0">
+                                <table width="100%" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td>
+                                            <img style="width: 30%;" t-att-src="image_data_uri(doc.company_id.logo)"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <t t-esc="doc.company_id.street"/>
+                                        </td>
+                                    </tr>
+                                    <t t-if="doc.company_id.street2">
+                                        <tr>
+                                            <td>
+                                                <t t-esc="doc.company_id.street2"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                        <td>Tél.:
+                                            <t t-esc="doc.company_id.phone"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>BP:
+                                            <t t-esc="doc.company_id.zip"/>
+                                            <t t-esc="doc.company_id.city"/>
+                                            -
+                                            <t t-esc="doc.company_id.country_id.name"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email:
+                                            <t t-esc="doc.company_id.email"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </font>
+                        </div>
+                        <div class="col-8" align="center">
+                            <b>
+                                <font style="font-size: 20pt">A</font>GENCE DE <font style="font-size: 20pt">P</font>RESTATIONS <font
+                                    style="font-size: 20pt">M</font>ARITIMES S.A
+                                <br>Ports - Logistics - Projects - Supply chain</br>
+                            </b>
+                        </div>
+                    </div>
+                    <div align="center">
+                            <u>
+                                <b style="font-size: 15pt">REÇU D'ENCAISSEMENT</b>
+                            </u>
+                    </div>
+                </div>
+                <font size="0" style="font-size: 7pt; padding:0">
+                    <div align="right">
+                        N° Ordre:
+                        <span t-field="doc.move_id.name"/>
+
+                    </div>
+
+                    <br>
+                        Réglé le <span t-field="doc.date" t-options='{"widget": "date","format": "dd/MM/yyyy"}'/>
+                    </br>
+                    <br>
+                        Banque:
+                        <b><span t-field="doc.statement_id.journal_id.name"/></b>
+                    </br>
+                    <br>
+                        Porteur:
+                        <b><span t-field="doc.partner_id.name"/></b>
+
+                    </br>
+                    <br>
+                        N°: .................. Du .....................
+                    </br>
+
+                    <br>
+                        En lettres: <b><span /> </b>
+                    </br>
+                    <table style="border:1px solid #000000; text-align:center" width="100%">
+                        <thead>
+                            <tr>
+                                <th style="border:1px solid #000000; text-align:center">N° FACTURE</th>
+                                <th style="border:1px solid #000000; text-align:center">LIBELLE</th>
+                                <th style="border:1px solid #000000; text-align:center">MONTANT FACTURE</th>
+                                <th style="border:1px solid #000000; text-align:center">RET.TVA</th>
+                                <th style="border:1px solid #000000; text-align:center">RET.IR/IS</th>
+                                <th style="border:1px solid #000000; text-align:center">MONTANT PERÇU</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+<!--                            <t t-foreach="doc.piece_line" t-as="line">-->
+                                <tr>
+                                    <td style="border:1px solid #000000; text-align:center">
+                                        <t t-if="doc.apm_invoice_number">
+                                            <span t-field="doc.apm_invoice_number"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="doc.ref"/>
+                                        </t>
+                                    </td>
+                                    <td style="border:1px solid #000000; text-align:center">
+                                        <span t-field="doc.payment_ref"/>
+                                    </td>
+                                    <td />
+                                    <td />
+                                    <td />
+                                    <td style="border:1px solid #000000; text-align:center">
+                                        <span t-field="doc.amount"/>
+                                    </td>
+                                </tr>
+<!--                            </t>-->
+                            <tr>
+                                <td colspan="5" style="border:1px solid #000000; text-align:right">TOTAL</td>
+                                <td style="border:1px solid #000000; text-align:center">
+                                    <span t-field="doc.amount"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p />
+                    <table style="border: solid 1pt; padding: 0cm; text-align:center" border="1" cellspacing="0" cellpadding="0">
+                        <colgroup>
+                            <col width="512"/>
+                            <col width="60"/>
+                            <col width="552"/>
+                        </colgroup>
+                        <tr>
+                            <td>
+                                CONTRÔLE
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>LE SERVICE CAISSE</td>
+                        </tr>
+                        <tr>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td><p>
+                                <span t-field="doc.create_uid" />
+                            </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td />
+                            <td><img  t-if="doc.create_uid.digital_signature"
+                                              t-att-src="image_data_uri(doc.create_uid.digital_signature)"
+                                             style="width: 50%;"/></td>
+
+
+                        </tr>
+
+                    </table>
+                </font>
+            </div>
+        </t>
+    </template>
+
+
+    <template id="report_payment_receipt_document">
+        <t t-call="web.basic_layout">
+            <t t-set="doc" t-value="doc.with_context()"/>
+            <div class="page">
+                <div class="head">
+                    <div class="row">
+                        <div class="col-4" align="left">
+                            <font size="0" style="font-size: 5pt; padding:0">
+                                <table width="100%" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td>
+                                            <img style="width: 30%;" t-att-src="image_data_uri(doc.company_id.logo)"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <t t-esc="doc.company_id.street"/>
+                                        </td>
+                                    </tr>
+                                    <t t-if="doc.company_id.street2">
+                                        <tr>
+                                            <td>
+                                                <t t-esc="doc.company_id.street2"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                        <td>Tél.:
+                                            <t t-esc="doc.company_id.phone"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>BP:
+                                            <t t-esc="doc.company_id.zip"/>
+                                            <t t-esc="doc.company_id.city"/>
+                                            -
+                                            <t t-esc="doc.company_id.country_id.name"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email:
+                                            <t t-esc="doc.company_id.email"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </font>
+                        </div>
+                        <div class="col-8" align="center">
+                            <b>
+                                <font style="font-size: 20pt">A</font>GENCE DE <font style="font-size: 20pt">P</font>RESTATIONS <font
+                                    style="font-size: 20pt">M</font>ARITIMES S.A
+                                <br>Ports - Logistics - Projects - Supply chain</br>
+                            </b>
+                        </div>
+                    </div>
+                    <div align="center">
+                            <u>
+                                <b style="font-size: 15pt">REÇU D'ENCAISSEMENT</b>
+                            </u>
+                    </div>
+                </div>
+                <font size="0" style="font-size: 7pt; padding:0">
+                    <div align="right">
+                        N° Ordre:
+                        <span t-field="doc.move_id.name"/>
+
+                    </div>
+
+                    <br>
+                        Réglé le <span t-field="doc.date" t-options='{"widget": "date","format": "dd/MM/yyyy"}'/>
+                    </br>
+                    <br>
+                        Banque:
+                        <b><span t-field="doc.journal_id.name"/></b>
+                    </br>
+                    <br>
+                        Porteur:
+                        <b><span t-field="doc.partner_id.name"/></b>
+
+                    </br>
+                    <br>
+                        N°: .................. Du .....................
+                    </br>
+
+                    <br>
+                        En lettres: <b><span /> </b>
+                    </br>
+                    <table style="border:1px solid #000000; text-align:center" width="100%">
+                        <thead>
+                            <tr>
+                                <th style="border:1px solid #000000; text-align:center">N° FACTURE</th>
+                                <th style="border:1px solid #000000; text-align:center">LIBELLE</th>
+                                <th style="border:1px solid #000000; text-align:center">MONTANT FACTURE</th>
+                                <th style="border:1px solid #000000; text-align:center">RET.TVA</th>
+                                <th style="border:1px solid #000000; text-align:center">RET.IR/IS</th>
+                                <th style="border:1px solid #000000; text-align:center">MONTANT PERÇU</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+<!--                            <t t-foreach="doc.piece_line" t-as="line">-->
+                                <tr>
+                                    <td style="border:1px solid #000000; text-align:center">
+                                        <t t-if="doc.apm_invoice_number">
+                                            <span t-field="doc.apm_invoice_number"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="doc.ref"/>
+                                        </t>
+                                    </td>
+                                    <td />
+                                    <td />
+                                    <td />
+                                    <td />
+                                    <td style="border:1px solid #000000; text-align:center">
+                                        <span t-field="doc.amount"/>
+                                    </td>
+                                </tr>
+<!--                            </t>-->
+                            <tr>
+                                <td colspan="5" style="border:1px solid #000000; text-align:right">TOTAL</td>
+                                <td style="border:1px solid #000000; text-align:center">
+                                    <span t-field="doc.amount"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p />
+                    <table style="border: solid 1pt; padding: 0cm; text-align:center" border="1" cellspacing="0" cellpadding="0">
+                        <colgroup>
+                            <col width="512"/>
+                            <col width="60"/>
+                            <col width="552"/>
+                        </colgroup>
+                        <tr>
+                            <td>
+                                CONTRÔLE
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>LE SERVICE CAISSE</td>
+                        </tr>
+                        <tr>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td><p>
+                                <span t-field="doc.create_uid" />
+                            </p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td />
+                            <td><img  t-if="doc.create_uid.digital_signature"
+                                              t-att-src="image_data_uri(doc.create_uid.digital_signature)"
+                                             style="width: 50%;"/></td>
+
+
+                        </tr>
+
+                    </table>
+                </font>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_payment_receipt">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="servoo_finance.report_payment_receipt_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_statement_receipt">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="servoo_finance.report_statement_receipt_document"/>
+            </t>
+        </t>
+    </template>
+
+    <record id="paperformat_payment_receipt" model="report.paperformat">
+        <field name="name">Payment Receipt</field>
+        <field name="default" eval="False"/>
+        <field name="disable_shrinking" eval="True"/>
+        <field name="format">A5</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">8</field>
+        <field name="margin_bottom">8</field>
+        <field name="margin_left">8</field>
+        <field name="margin_right">8</field>
+        <field name="dpi">96</field>
+    </record>
+
+    <record id="action_report_payment_receipt" model="ir.actions.report">
+        <field name="name">Payment Receipt</field>
+        <field name="model">account.bank.statement.line</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">servoo_finance.report_statement_receipt</field>
+        <field name="report_file">servoo_finance.report_statement_receipt</field>
+        <field name="print_report_name">object.name</field>
+        <field name="binding_model_id" ref="model_account_bank_statement_line"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_payment_receipt"/>
+    </record>
+
+    <record id="action_report_print_payment_receipt" model="ir.actions.report">
+        <field name="name">APM Payment Receipt</field>
+        <field name="model">account.payment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">servoo_finance.report_payment_receipt</field>
+        <field name="report_file">servoo_finance.report_payment_receipt</field>
+        <field name="print_report_name">object.name</field>
+        <field name="binding_model_id" ref="model_account_payment"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_payment_receipt"/>
+    </record>
+</odoo>
