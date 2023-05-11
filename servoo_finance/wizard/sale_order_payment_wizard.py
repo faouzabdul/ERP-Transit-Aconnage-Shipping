@@ -50,6 +50,12 @@ class WizardSaleOrderPayment(models.TransientModel):
         ('other', 'Other'),
         ('apm', 'APM')
     ], string='Receiver')
+    payment_mode = fields.Selection([
+        ('cash', 'Cash'),
+        ('check', 'Check'),
+        ('bank_transfer', 'Bank Transfer'),
+        ('bank_draft', 'Bank Draft')
+    ], string='Payment Mode')
 
 
     @api.depends('journal_id')
@@ -109,6 +115,8 @@ class WizardSaleOrderPayment(models.TransientModel):
             'ref': self.order_id.name,
             'payment_method_line_id': self.payment_method_line_id.id,
             'bank_statement_id': self.bank_statement_id.id,
+            'payment_mode': self.payment_mode,
+            'receiver': self.receiver
         }
         vals['paid_amount'] = paid_amount + self.amount
         payment = self.env['account.payment'].create(payment_vals)

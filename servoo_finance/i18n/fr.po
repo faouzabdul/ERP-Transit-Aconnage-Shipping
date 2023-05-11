@@ -506,6 +506,14 @@ msgid "BP:"
 msgstr ""
 
 #. module: servoo_finance
+#: model:ir.model.fields.selection,name:servoo_finance.selection__account_payment__payment_mode__bank_draft
+#: model:ir.model.fields.selection,name:servoo_finance.selection__account_payment_register__payment_mode__bank_draft
+#: model:ir.model.fields.selection,name:servoo_finance.selection__sale_order_payment_wizard__payment_mode__bank_draft
+#: model:ir.model.fields.selection,name:servoo_finance.selection__servoo_shipping_pda_wizard__payment_mode__bank_draft
+msgid "Bank Draft"
+msgstr "Traite"
+
+#. module: servoo_finance
 #: model:ir.model.fields,help:servoo_finance.field_account_cash_control_report__balance_end
 #: model:ir.model.fields,help:servoo_finance.field_account_cash_control_report_create_wizard__balance_end
 msgid "Balance as calculated based on Opening Balance and transaction lines"
@@ -538,6 +546,14 @@ msgstr "Relevé bancaire"
 #: model:ir.model,name:servoo_finance.model_account_bank_statement_line
 msgid "Bank Statement Line"
 msgstr "Ligne de relevé bancaire"
+
+#. module: servoo_finance
+#: model:ir.model.fields.selection,name:servoo_finance.selection__account_payment__payment_mode__bank_transfer
+#: model:ir.model.fields.selection,name:servoo_finance.selection__account_payment_register__payment_mode__bank_transfer
+#: model:ir.model.fields.selection,name:servoo_finance.selection__sale_order_payment_wizard__payment_mode__bank_transfer
+#: model:ir.model.fields.selection,name:servoo_finance.selection__servoo_shipping_pda_wizard__payment_mode__bank_transfer
+msgid "Bank Transfer"
+msgstr "Virement"
 
 #. module: servoo_finance
 #: model:ir.model.fields,field_description:servoo_finance.field_account_payment__account_bank_statement_line_id
@@ -622,6 +638,14 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:servoo_finance.wizard_sale_order_payment_form
 msgid "Cancel"
 msgstr "Annuler"
+
+#. module: servoo_finance
+#: model:ir.model.fields.selection,name:servoo_finance.selection__account_payment__payment_mode__cash
+#: model:ir.model.fields.selection,name:servoo_finance.selection__account_payment_register__payment_mode__cash
+#: model:ir.model.fields.selection,name:servoo_finance.selection__sale_order_payment_wizard__payment_mode__cash
+#: model:ir.model.fields.selection,name:servoo_finance.selection__servoo_shipping_pda_wizard__payment_mode__cash
+msgid "Cash"
+msgstr "Espèces"
 
 #. module: servoo_finance
 #: model_terms:ir.ui.view,arch_db:servoo_finance.view_account_cash_control_report_form
@@ -903,6 +927,14 @@ msgstr "Chèque certifié"
 #: model:ir.ui.menu,name:servoo_finance.menu_action_account_form
 msgid "Chart of Accounts"
 msgstr "Plan comptable"
+
+#. module: servoo_finance
+#: model:ir.model.fields.selection,name:servoo_finance.selection__account_payment__payment_mode__check
+#: model:ir.model.fields.selection,name:servoo_finance.selection__account_payment_register__payment_mode__check
+#: model:ir.model.fields.selection,name:servoo_finance.selection__sale_order_payment_wizard__payment_mode__check
+#: model:ir.model.fields.selection,name:servoo_finance.selection__servoo_shipping_pda_wizard__payment_mode__check
+msgid "Check"
+msgstr "Chèque"
 
 #. module: servoo_finance
 #. openerp-web
@@ -2662,7 +2694,11 @@ msgid "Payment Method"
 msgstr "Mode de paiement"
 
 #. module: servoo_finance
+#: model:ir.model.fields,field_description:servoo_finance.field_account_payment__payment_mode
+#: model:ir.model.fields,field_description:servoo_finance.field_account_payment_register__payment_mode
+#: model:ir.model.fields,field_description:servoo_finance.field_sale_order_payment_wizard__payment_mode
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_payment_request__payment_mode
+#: model:ir.model.fields,field_description:servoo_finance.field_servoo_shipping_pda_wizard__payment_mode
 msgid "Payment Mode"
 msgstr "Mode de paiement"
 

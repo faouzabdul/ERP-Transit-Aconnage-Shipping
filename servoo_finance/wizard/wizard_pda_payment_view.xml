@@ -10,10 +10,11 @@
                     <field name="hide_payment_method_line" invisible="1" />
                     <field name="currency_id" invisible="1" />
                     <group col="4">
+                        <field name="payment_mode" required="1" />
                         <field name="journal_id" required="1" options="{'no_create': True, 'no_open': True}"/>
-                        <field name="amount" required="1"/>
                         <field name="bank_statement_id" domain="[('journal_id', '=', journal_id), ('state', '=', 'open')]"
                         options="{'no_create': True, 'no_open': True}" required="1"/>
+                        <field name="amount" required="1"/>
                         <field name="receiver" required="0" />
                         <field name="payment_date" required="1"/>
                         <field name="communication" required="1"/>

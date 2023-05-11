@@ -18,6 +18,12 @@ class AccountPayment(models.Model):
         ('apm', 'APM')
     ], string='Receiver')
     apm_invoice_number = fields.Char('APM Invoice Number', compute="_get_apm_invoice_number", strore=False)
+    payment_mode = fields.Selection([
+        ('cash', 'Cash'),
+        ('check', 'Check'),
+        ('bank_transfer', 'Bank Transfer'),
+        ('bank_draft', 'Bank Draft')
+    ], string='Payment Mode', default='cash')
 
 
     def _get_apm_invoice_number(self):
@@ -27,6 +33,10 @@ class AccountPayment(models.Model):
                 move = account_move.search([('name', '=', record.ref)])
                 if move and move.apm_reference:
                     record.apm_invoice_number = move.apm_reference
+                else:
+                    record.apm_invoice_number=''
+            else:
+                record.apm_invoice_number = ''
 
     @api.model
     def create(self, vals):

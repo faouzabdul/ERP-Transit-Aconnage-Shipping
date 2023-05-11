@@ -14,9 +14,17 @@ class AccountPaymentRegister(models.TransientModel):
         ('other', 'Other'),
         ('apm', 'APM')
     ], string='Receiver')
+    payment_mode = fields.Selection([
+        ('cash', 'Cash'),
+        ('check', 'Check'),
+        ('bank_transfer', 'Bank Transfer'),
+        ('bank_draft', 'Bank Draft')
+    ], string='Payment Mode')
 
     def _create_payment_vals_from_wizard(self):
         vals = super(AccountPaymentRegister, self)._create_payment_vals_from_wizard()
         vals['bank_statement_id'] = self.bank_statement_id.id
+        vals['payment_mode'] = self.payment_mode
+        vals['receiver'] = self.receiver
         return vals
 
