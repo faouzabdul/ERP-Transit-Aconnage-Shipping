@@ -14,6 +14,7 @@
                         <field name="amount" required="1"/>
                         <field name="bank_statement_id" domain="[('journal_id', '=', journal_id), ('state', '=', 'open')]"
                         options="{'no_create': True, 'no_open': True}" required="1"/>
+                        <field name="receiver" required="0" />
                         <field name="payment_date" required="1"/>
                         <field name="communication" required="1"/>
                     </group>

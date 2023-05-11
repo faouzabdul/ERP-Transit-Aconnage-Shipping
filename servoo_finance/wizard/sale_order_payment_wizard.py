@@ -45,6 +45,11 @@ class WizardSaleOrderPayment(models.TransientModel):
         compute='_compute_payment_method_line_fields',
         help="Technical field used to hide the payment method if the selected journal has only one available which is 'manual'")
     bank_statement_id = fields.Many2one('account.bank.statement', 'Bank Statement')
+    receiver = fields.Selection([
+        ('pad', 'PAD'),
+        ('other', 'Other'),
+        ('apm', 'APM')
+    ], string='Receiver')
 
 
     @api.depends('journal_id')
