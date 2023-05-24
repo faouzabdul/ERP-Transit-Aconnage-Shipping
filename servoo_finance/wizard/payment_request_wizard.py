@@ -51,6 +51,11 @@ class WizardPaymentRequest(models.TransientModel):
         compute='_compute_payment_method_line_fields',
         help="Technical field used to hide the payment method if the selected journal has only one available which is 'manual'")
     bank_statement_id = fields.Many2one('account.bank.statement', 'Bank Statement')
+    receiver = fields.Selection([
+        ('pad', 'PAD'),
+        ('other', 'Other'),
+        ('apm', 'APM')
+    ], string='Receiver')
     # display_payment_in_bank_statement = fields.Boolean('Display Payment in bank statement')
 
     @api.depends('available_payment_method_line_ids')
@@ -166,6 +171,7 @@ class WizardPaymentRequest(models.TransientModel):
                 'ref': self.ref,
                 'payment_method_line_id': self.payment_method_line_id.id,
                 'bank_statement_id': self.bank_statement_id.id,
+                'receiver': self.receiver
             }
             payment = self.env['account.payment'].create(payment_vals)
             payment.action_post()

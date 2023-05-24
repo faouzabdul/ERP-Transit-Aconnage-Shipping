@@ -17,6 +17,7 @@
                         <field name="amount" attrs="{'invisible': [('state', '!=', 'finance_approval')], 'required': [('state', '=', 'finance_approval')]}"/>
                         <field name="date" />
                         <field name="ref" attrs="{'invisible': [('state', '!=', 'finance_approval')], 'required': [('state', '=', 'finance_approval')]}"/>
+                        <field name="receiver" attrs="{'invisible': [('state', '!=', 'finance_approval')], 'required': [('state', '=', 'finance_approval')]}"/>
                         <field name="journal_id" options="{'no_create': True, 'no_open': True}"
                                attrs="{'invisible': [('state', '!=', 'finance_approval')], 'required': [('state', '=', 'finance_approval')]}"/>
                         <field name="payment_method_line_id" options="{'no_create': True, 'no_open': True}"

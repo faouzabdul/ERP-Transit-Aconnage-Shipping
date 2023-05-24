@@ -2855,6 +2855,9 @@ msgstr "Reçus"
 #: model:ir.model.fields,field_description:servoo_finance.field_account_bank_statement_line__receiver
 #: model:ir.model.fields,field_description:servoo_finance.field_account_payment__receiver
 #: model:ir.model.fields,field_description:servoo_finance.field_account_payment_register__receiver
+#: model:ir.model.fields,field_description:servoo_finance.field_sale_order_payment_wizard__receiver
+#: model:ir.model.fields,field_description:servoo_finance.field_servoo_payment_request_wizard__receiver
+#: model:ir.model.fields,field_description:servoo_finance.field_servoo_shipping_pda_wizard__receiver
 msgid "Receiver"
 msgstr "Destinataire"
 
