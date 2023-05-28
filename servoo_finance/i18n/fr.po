@@ -304,11 +304,14 @@ msgid "All cash vouchers"
 msgstr "Tous les bons de caisse"
 
 #. module: servoo_finance
-#: model:ir.actions.act_window,name:servoo_finance.action_all_cashier_piece
-#: model:ir.ui.menu,name:servoo_finance.account_all_cashier_piece_menu
-#: model:ir.ui.menu,name:servoo_finance.all_cashier_piece_menu
-msgid "All cashier pieces"
-msgstr "Toutes les pièces de caisse"
+#: model:ir.model.fields,field_description:servoo_finance.field_servoo_cash_voucher__cashier_piece_ids
+#: model_terms:ir.ui.view,arch_db:servoo_finance.view_cash_voucher_form
+#: model_terms:ir.ui.view,arch_db:servoo_finance.view_payment_logistic_form
+#: model_terms:ir.ui.view,arch_db:servoo_finance.view_payment_shipping_form
+#: model_terms:ir.ui.view,arch_db:servoo_finance.view_payment_stevedoring_form
+#: model_terms:ir.ui.view,arch_db:servoo_finance.view_payment_transit_form
+msgid "Cashier Pieces"
+msgstr "Pièces de caisse"
 
 #. module: servoo_finance
 #. openerp-web
@@ -2784,6 +2787,14 @@ msgstr "Demande de paiement approuvée"
 #: model:ir.ui.menu,name:servoo_finance.transit_payment_request_to_approve_menu
 msgid "Payment request to approve"
 msgstr "Demande de paiement à approuver"
+
+#. module: servoo_finance
+#: model_terms:ir.ui.view,arch_db:servoo_finance.view_payment_logistic_form
+#: model_terms:ir.ui.view,arch_db:servoo_finance.view_payment_shipping_form
+#: model_terms:ir.ui.view,arch_db:servoo_finance.view_payment_stevedoring_form
+#: model_terms:ir.ui.view,arch_db:servoo_finance.view_payment_transit_form
+msgid "Payment requests"
+msgstr "Demandes de paiement"
 
 #. module: servoo_finance
 #: model:ir.model,name:servoo_finance.model_account_payment

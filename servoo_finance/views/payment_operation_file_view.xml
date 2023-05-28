@@ -17,6 +17,23 @@
                             name="%(action_create_cashier_piece)d" attrs="{'invisible': [('state', '!=', 'open')]}"
                     />
                 </button>
+                <button name="return_action_to_open" position="after">
+                    <button name="return_action_finance_document_to_open"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-list-ul"
+                                string="Payment requests"
+                                context="{'xml_id':'servoo_finance.action_all_payment_request'}"
+                                help="Payment requests" />
+
+                    <button name="return_action_finance_document_to_open"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-list-ul"
+                                string="Cashier Pieces"
+                                context="{'xml_id':'servoo_finance.action_all_cashier_piece'}"
+                                help="Cashier Pieces" />
+                </button>
             </field>
         </record>
         <menuitem id="payment_transit_menu"  parent="servoo_transit.transit_menu_root" sequence="20" name="Finance">
@@ -58,6 +75,23 @@
                             name="%(action_create_cashier_piece)d" attrs="{'invisible': [('state', '!=', 'draft')]}"
                     />
 
+                </button>
+                <button name="return_action_to_open" position="after">
+                    <button name="return_action_finance_document_to_open"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-list-ul"
+                                string="Payment requests"
+                                context="{'xml_id':'servoo_finance.action_all_payment_request'}"
+                                help="Payment requests" />
+
+                    <button name="return_action_finance_document_to_open"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-list-ul"
+                                string="Cashier Pieces"
+                                context="{'xml_id':'servoo_finance.action_all_cashier_piece'}"
+                                help="Cashier Pieces" />
                 </button>
             </field>
         </record>
@@ -101,6 +135,23 @@
                             name="%(action_create_cashier_piece)d" attrs="{'invisible': [('state', '!=', 'draft')]}"
                     />
                 </button>
+                <button name="return_action_to_open" position="after">
+                    <button name="return_action_finance_document_to_open"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-list-ul"
+                                string="Payment requests"
+                                context="{'xml_id':'servoo_finance.action_all_payment_request'}"
+                                help="Payment requests" />
+
+                    <button name="return_action_finance_document_to_open"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-list-ul"
+                                string="Cashier Pieces"
+                                context="{'xml_id':'servoo_finance.action_all_cashier_piece'}"
+                                help="Cashier Pieces" />
+                </button>
             </field>
         </record>
         <menuitem id="payment_stevedoring_menu"  parent="servoo_stevedoring.stevedoring_menu_root" sequence="20" name="Finance">
@@ -140,6 +191,23 @@
                             context="{'default_file_reference': name}"
                             name="%(action_create_cashier_piece)d" attrs="{'invisible': [('state', '!=', 'draft')]}"
                     />
+                </button>
+                <button name="return_action_to_open" position="after">
+                    <button name="return_action_finance_document_to_open"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-list-ul"
+                                string="Payment requests"
+                                context="{'xml_id':'servoo_finance.action_all_payment_request'}"
+                                help="Payment requests" />
+
+                    <button name="return_action_finance_document_to_open"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-list-ul"
+                                string="Cashier Pieces"
+                                context="{'xml_id':'servoo_finance.action_all_cashier_piece'}"
+                                help="Cashier Pieces" />
                 </button>
             </field>
         </record>
