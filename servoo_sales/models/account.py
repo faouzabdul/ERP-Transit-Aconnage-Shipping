@@ -93,17 +93,31 @@ class AccountMove(models.Model):
             q = "SELECT apm_reference FROM account_move where invoice_origin = '%s' and apm_reference is not null" % source
             self._cr.execute(q)
             res = self._cr.fetchall()
-            if res:
-                # _logger.info('res : %s' % res)
+            if res and res[0][0]:
+                _logger.info('res : %s' % res)
                 ref = res[0][0] + "-" + str(len(res))
                 return ref
         if source and source[:2].isnumeric():
             ref = str(datetime.now().year)[-2:] + 'F' + source[2:-3]
         if ref:
-            query = "SELECT count(*) FROM account_move WHERE apm_reference LIKE '" + ref + "%'"
+            query = "SELECT apm_reference FROM account_move WHERE apm_reference LIKE '" + ref + "%' order by id desc limit 1"
+            # query = "SELECT count(*) FROM account_move WHERE apm_reference LIKE '" + ref + "%'"
             self._cr.execute(query)
-            res = self._cr.fetchone()
-            record_count = int(res[0]) + 1
+            # res = self._cr.fetchone()
+            # record_count = int(res[0]) + 1
+            # if len(str(record_count)) == 1:
+            #     ref += '00'
+            # elif len(str(record_count)) == 2:
+            #     ref += '0'
+            # ref += str(record_count)
+            res = self._cr.fetchall()
+            record_count = len(res) + 1
+            if res and res[0][0][-5:].isnumeric():
+                record_count = int(res[-1][0][-5:]) + 1
+            elif res and res[0][0][-4:].isnumeric():
+                record_count = int(res[-1][0][-4:]) + 1
+            elif res and res[0][0][-3:].isnumeric():
+                record_count = int(res[-1][0][-3:]) + 1
             if len(str(record_count)) == 1:
                 ref += '00'
             elif len(str(record_count)) == 2:
