@@ -19,6 +19,15 @@
                         <field name="payment_date" required="1"/>
                         <field name="communication" required="1"/>
                     </group>
+                    <group col="4" attrs="{'invisible': [('payment_mode', '=', 'cash')]}">
+                        <field name="bank_id" attrs="{'invisible': [('payment_mode', '=', 'cash')]}"/>
+                        <field name="carrier" attrs="{'invisible': [('payment_mode', '=', 'cash')]}"/>
+                        <field name="number" attrs="{'invisible': [('payment_mode', '=', 'cash')]}"/>
+                        <field name="date_payment" attrs="{'invisible': [('payment_mode', '=', 'cash')]}"/>
+                        <field name="invoice_amount" attrs="{'invisible': [('payment_mode', '=', 'cash')]}"/>
+                        <field name="ret_tva" attrs="{'invisible': [('payment_mode', '=', 'cash')]}"/>
+                        <field name="ret_ir_is" attrs="{'invisible': [('payment_mode', '=', 'cash')]}"/>
+                    </group>
                      <footer>
                         <button string="Create Payment" name="action_create_payments" type="object" class="oe_highlight" data-hotkey="q"/>
                         <button string="Cancel" class="btn btn-secondary" special="cancel" data-hotkey="z"/>

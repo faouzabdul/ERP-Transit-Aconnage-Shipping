@@ -67,8 +67,6 @@
                 <field name="name">Cashier</field>
                 <field name="category_id"
                        ref="module_category_servoo_finance"/>
-            <field name="implied_ids"
-                   eval="[(4, ref('th_caisse_externe.group_caisse_caissier')), (4, ref('group_finance_user'))]"/>
         </record>
 
         <record id="cash_report_controller_group_user" model="res.groups">

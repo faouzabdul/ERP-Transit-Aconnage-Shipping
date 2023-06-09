@@ -65,6 +65,9 @@
                     <div align="right">
                         N° Ordre:
                         <span t-field="doc.move_id.name"/>
+                        <br />
+                        <b><span t-field="doc.partner_id.name"/></b>
+
 
                     </div>
 
@@ -77,7 +80,7 @@
                     </br>
                     <br>
                         Porteur:
-                        <b><span t-field="doc.partner_id.name"/></b>
+<!--                        <b><span t-field="doc.carrier"/></b>-->
 
                     </br>
                     <br>
@@ -85,7 +88,7 @@
                     </br>
 
                     <br>
-                        En lettres: <b><span /> </b>
+                        En lettres: <b><span t-field="doc.amount_word"/> </b>
                     </br>
                     <table style="border:1px solid #000000; text-align:center" width="100%">
                         <thead>
@@ -238,6 +241,9 @@
                     <div align="right">
                         N° Ordre:
                         <span t-field="doc.move_id.name"/>
+                        <br />
+                        <b><span t-field="doc.partner_id.name"/></b>
+
 
                     </div>
 
@@ -246,19 +252,19 @@
                     </br>
                     <br>
                         Banque:
-                        <b><span t-field="doc.journal_id.name"/></b>
+                        <b><span t-field="doc.bank_id.name"/></b>
                     </br>
                     <br>
                         Porteur:
-                        <b><span t-field="doc.partner_id.name"/></b>
+                        <b><span t-field="doc.carrier"/></b>
 
                     </br>
                     <br>
-                        N°: .................. Du .....................
+                        N°: <b><span t-field="doc.number"/></b> Du <b><span t-field="doc.date_payment" t-options='{"widget": "date","format": "dd/MM/yyyy"}'/></b>
                     </br>
 
                     <br>
-                        En lettres: <b><span /> </b>
+                        En lettres: <b><span t-field="doc.amount_word"/> </b>
                     </br>
                     <table style="border:1px solid #000000; text-align:center" width="100%">
                         <thead>
@@ -282,10 +288,18 @@
                                             <span t-field="doc.ref"/>
                                         </t>
                                     </td>
-                                    <td />
-                                    <td />
-                                    <td />
-                                    <td />
+                                    <td style="border:1px solid #000000; text-align:center">
+                                        <span t-field="doc.payment_label"/>
+                                    </td>
+                                    <td style="border:1px solid #000000; text-align:center">
+                                        <span t-field="doc.invoice_amount"/>
+                                    </td>
+                                    <td style="border:1px solid #000000; text-align:center">
+                                        <span t-field="doc.ret_tva"/>
+                                    </td>
+                                    <td style="border:1px solid #000000; text-align:center">
+                                        <span t-field="doc.ret_ir_is"/>
+                                    </td>
                                     <td style="border:1px solid #000000; text-align:center">
                                         <span t-field="doc.amount"/>
                                     </td>
@@ -325,7 +339,6 @@
                             <td><p>
                                 <span t-field="doc.create_uid" />
                             </p>
-
                             </td>
                         </tr>
                         <tr>

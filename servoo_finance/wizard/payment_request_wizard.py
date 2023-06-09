@@ -32,62 +32,25 @@ class WizardPaymentRequest(models.TransientModel):
     state = fields.Selection(related='payment_request_id.state', store=True, readonly=True)
     # state = fields.Char('state', default=_get_default_state)
     observation = fields.Text('Notes')
-    date = fields.Date('Date', default=lambda self: fields.datetime.now(), required=True)
+    date = fields.Datetime('Date', default=lambda self: fields.datetime.now(), required=True)
     # account payment information
     partner_id = fields.Many2one('res.partner', string="Supplier", default=_get_default_partner)
     amount = fields.Float(string="Amount", default=_get_default_amount)
     journal_id = fields.Many2one('account.journal', 'Journal',
                                  domain="[('type', 'in', ('bank','cash'))]",)
-    ref = fields.Char('Memo')
-    # payment_method_line_id = fields.Many2one('account.payment.method.line', 'Payment Method')
-    payment_method_line_id = fields.Many2one('account.payment.method.line', string='Payment Method',
-                                             readonly=False, store=True,
-                                             compute='_compute_payment_method_line_id',
-                                             domain="[('id', 'in', available_payment_method_line_ids)]")
-
-    available_payment_method_line_ids = fields.Many2many('account.payment.method.line',
-                                                         compute='_compute_payment_method_line_fields')
-    hide_payment_method_line = fields.Boolean(
-        compute='_compute_payment_method_line_fields',
-        help="Technical field used to hide the payment method if the selected journal has only one available which is 'manual'")
+    payment_label = fields.Char('Label')
     bank_statement_id = fields.Many2one('account.bank.statement', 'Bank Statement')
     receiver = fields.Selection([
         ('pad', 'PAD'),
         ('other', 'Other'),
         ('apm', 'APM')
     ], string='Receiver')
-    # display_payment_in_bank_statement = fields.Boolean('Display Payment in bank statement')
-
-    @api.depends('available_payment_method_line_ids')
-    def _compute_payment_method_line_id(self):
-        ''' Compute the 'payment_method_line_id' field.
-        This field is not computed in '_compute_payment_method_line_fields' because it's a stored editable one.
-        '''
-        for pay in self:
-            available_payment_method_lines = pay.available_payment_method_line_ids
-            # Select the first available one by default.
-            if pay.payment_method_line_id in available_payment_method_lines:
-                pay.payment_method_line_id = pay.payment_method_line_id
-            elif available_payment_method_lines:
-                pay.payment_method_line_id = available_payment_method_lines[0]._origin
-            else:
-                pay.payment_method_line_id = False
-
-    @api.depends('journal_id')
-    def _compute_payment_method_line_fields(self):
-        for pay in self:
-            pay.available_payment_method_line_ids = pay.journal_id._get_available_payment_method_lines('outbound')
-            to_exclude = []
-            if to_exclude:
-                pay.available_payment_method_line_ids = pay.available_payment_method_line_ids.filtered(
-                    lambda x: x.code not in to_exclude)
-            if pay.payment_method_line_id.id not in pay.available_payment_method_line_ids.ids:
-                # In some cases, we could be linked to a payment method line that has been unlinked from the journal.
-                # In such cases, we want to show it on the payment.
-                pay.hide_payment_method_line = False
-            else:
-                pay.hide_payment_method_line = len(
-                    pay.available_payment_method_line_ids) == 1 and pay.available_payment_method_line_ids.code == 'manual'
+    payment_mode = fields.Selection([
+        ('cash', 'Cash'),
+        ('check', 'Check'),
+        ('bank_transfer', 'Bank Transfer'),
+        ('bank_draft', 'Bank Draft')
+    ], string='Payment Mode', default='cash')
 
 
     def action_validate(self):
@@ -168,10 +131,10 @@ class WizardPaymentRequest(models.TransientModel):
                 'amount': self.amount,
                 'date': self.date,
                 'journal_id': self.journal_id.id,
-                'ref': self.ref,
-                'payment_method_line_id': self.payment_method_line_id.id,
+                'ref': self.payment_request_id.file_reference,
                 'bank_statement_id': self.bank_statement_id.id,
-                'receiver': self.receiver
+                'receiver': self.receiver,
+                'payment_label': self.payment_label,
             }
             payment = self.env['account.payment'].create(payment_vals)
             payment.action_post()
@@ -188,7 +151,7 @@ class WizardPaymentRequest(models.TransientModel):
             #     'move_id': payment.move_id.id
             # }
             # self.env['account.bank.statement.line'].create(bank_statement_line_vals)
-            # vals['account_payment_id'] = payment.id
+            vals['account_payment_id'] = payment.id
         return self.payment_request_id.update(vals)
 
     def action_reject(self):

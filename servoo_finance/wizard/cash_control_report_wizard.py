@@ -36,7 +36,7 @@ class WizardCashControlReportCreate(models.TransientModel):
 
     cash_statement_id = fields.Many2one('account.bank.statement', 'Cash Statement', default=lambda self: self.env.context.get('active_id', None))
     name = fields.Char('Reference')
-    date = fields.Date('Date', default=lambda self: fields.datetime.now())
+    date = fields.Datetime('Date', default=lambda self: fields.datetime.now())
     journal_id = fields.Many2one(related='cash_statement_id.journal_id')
     currency_id = fields.Many2one('res.currency', related='journal_id.currency_id')
     cashbox_end_id = fields.Many2one(related='cash_statement_id.cashbox_end_id', string="Ending Cashbox")

@@ -18,6 +18,46 @@
             </field>
         </record>
 
+        <record id="action_account_cash_payments" model="ir.actions.act_window">
+            <field name="name">Payments</field>
+            <field name="res_model">account.payment</field>
+            <field name="view_mode">tree,kanban,form,graph</field>
+            <field name="context">{
+                'default_payment_type': 'inbound',
+                'default_partner_type': 'customer',
+                'search_default_inbound_filter': 1,
+                'default_move_journal_types': ('cash', 'cash'),
+            }</field>
+            <field name="view_id" ref="account.view_account_payment_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                  Register a payment
+                </p><p>
+                  Payments are used to register liquidity movements. You can process those payments by your own means or by using installed facilities.
+                </p>
+            </field>
+        </record>
+
+        <record id="action_account_cash_payments_payable" model="ir.actions.act_window">
+            <field name="name">Payments</field>
+            <field name="res_model">account.payment</field>
+            <field name="view_mode">tree,kanban,form,graph</field>
+            <field name="context">{
+                'default_payment_type': 'outbound',
+                'default_partner_type': 'supplier',
+                'search_default_outbound_filter': 1,
+                'default_move_journal_types': ('cash', 'cash'),
+            }</field>
+            <field name="view_id" ref="account.view_account_supplier_payment_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                  Register a payment
+                </p><p>
+                  Payments are used to register liquidity movements. You can process those payments by your own means or by using installed facilities.
+                </p>
+            </field>
+        </record>
+
 
         <menuitem id="finance_menu_root" name="Finance" web_icon="servoo_finance,static/description/icon.png" groups="servoo_finance.group_finance_user">
             <menuitem id="menu_board_journal_1" name="Dashboard Journals" action="account.open_account_journal_dashboard_kanban" sequence="0"/>
@@ -134,6 +174,69 @@
         </menuitem>
 
 
+        </menuitem>
+
+
+        <menuitem id="caisse_menu_root" name="Caisse" web_icon="servoo_finance,static/description/caisse.png" groups="servoo_finance.cashier_group_user">
+            <menuitem name="Cash Statement" id="cash_statement_sub_menu" action="account.action_view_bank_statement_tree" sequence="2"/>
+            <menuitem id="menu_cash_receivables" name="Customers" sequence="2">
+                <menuitem id="cash_shipping_pda_invoice_menu" action="servoo_shipping.action_shipping_pda_to_invoice" sequence="1"/>
+                <menuitem id="cash_menu_sale_order" name="Quotations" action="sale.action_quotations" sequence="1"/>
+                <menuitem id="cash_menu_action_move_out_invoice_type" action="action_readonly_move_out_invoice_type" sequence="2"/>
+                <menuitem id="cash_menu_action_account_payments_receivable" action="action_account_cash_payments" sequence="15"/>
+                <menuitem id="cash_menu_account_customer" name="Customers" action="account.res_partner_action_customer" sequence="110"/>
+            </menuitem>
+
+            <menuitem id="menu_cash_payables" name="Vendors" sequence="3">
+                <menuitem id="cash_menu_action_move_in_invoice_type" action="account.action_move_in_invoice_type" sequence="1"/>
+                <menuitem id="menu_action_account_payments_payable" action="action_account_cash_payments_payable" sequence="20"/>
+                <menuitem id="cash_menu_account_supplier" name="Vendors" action="account.res_partner_action_supplier" sequence="200"/>
+            </menuitem>
+<!--            <menuitem id="menu_cash_department_files" name="Department Files" sequence="4">-->
+<!--                <menuitem id="cash_shipping_invoice_menu" name="Shipping" sequence="4">-->
+<!--                    <menuitem id="cash_shipping_pda_invoice_menu" action="servoo_shipping.action_shipping_pda_to_invoice" />-->
+<!--                    <menuitem id="cash_shipping_file_invoice_menu" action="servoo_shipping.action_shipping_file_to_invoice" />-->
+<!--                </menuitem>-->
+<!--                <menuitem id="cash_stevedoring_invoice_menu" name="Stevedoring" sequence="5">-->
+<!--                    <menuitem id="cash_stevedoring_file_invoice_menu" action="servoo_stevedoring.action_stevedoring_file_to_invoice" />-->
+<!--                </menuitem>-->
+<!--                <menuitem id="cash_transit_invoice_menu" name="Customs Operations" sequence="5">-->
+<!--                    <menuitem id="cash_transit_order_invoice_menu" action="servoo_transit.action_transit_order_to_invoice" />-->
+<!--                </menuitem>-->
+<!--                <menuitem id="cash_logistic_invoice_menu" name="Logistic" sequence="6">-->
+<!--                    <menuitem id="cash_logistic_operation_invoice_menu" action="servoo_logistic.action_operations_to_invoice" />-->
+<!--                </menuitem>-->
+<!--            </menuitem>-->
+
+            <menuitem id="sub_menu_cash" name="Finance" sequence="5">
+<!--                <menuitem id="cash_payment_request_menu" name="Payment Request"  sequence="3">-->
+<!--                    <menuitem id="cash_our_payment_request_menu" action="servoo_finance.action_our_payment_request" />-->
+<!--                    <menuitem id="cash_payment_request_to_approve_menu" action="servoo_finance.action_payment_request_to_approve" />-->
+<!--                    <menuitem id="cash_payment_request_approved_menu" action="servoo_finance.action_payment_request_approved" />-->
+<!--                    <menuitem id="cash_all_payment_request_menu" action="servoo_finance.action_all_payment_request"/>-->
+<!--                </menuitem>-->
+
+                <menuitem id="cash_cash_voucher_menu" name="Cash Voucher" sequence="3">
+                    <menuitem id="cash_our_cash_voucher_menu" action="servoo_finance.action_our_cash_voucher" />
+                    <menuitem id="cash_cash_voucher_to_approve_menu" action="servoo_finance.action_cash_voucher_to_approve" />
+                    <menuitem id="cash_cash_voucher_approved_menu" action="servoo_finance.action_cash_voucher_approved" />
+                    <menuitem id="cash_all_cash_voucher_menu" action="servoo_finance.action_all_cash_voucher" />
+                </menuitem>
+
+                 <menuitem id="cash_cashier_piece_menu" name="Cashier Piece" sequence="3">
+                    <menuitem id="cash_our_cashier_piece_menu" action="servoo_finance.action_our_cashier_piece" />
+                    <menuitem id="cash_cashier_piece_to_approve_menu" action="servoo_finance.action_cashier_piece_to_approve" />
+                    <menuitem id="cash_cashier_piece_approved_menu" action="servoo_finance.action_cashier_piece_approved" />
+                    <menuitem id="cash_all_cashier_piece_menu" action="servoo_finance.action_all_cashier_piece" />
+                </menuitem>
+            </menuitem>
+
+            <menuitem id="menu_cash_cash_control" name="Cash control report">
+                <menuitem id="cash_cash_control_report_menu" action="servoo_finance.action_cash_control_report"
+                name="All cash control reports"/>
+                <menuitem action="servoo_finance.action_cash_control_report_to_control" id="cash_cash_control_report_to_control"
+                          name="Cash control to approve" />
+            </menuitem>
         </menuitem>
 
     </data>

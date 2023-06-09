@@ -23,6 +23,7 @@ class PaymentRequest(models.Model):
     our_requests = fields.Boolean('Our payment requests', compute='_compute_our_requests', readonly=True, search='_search_our_requests')
     amount_total = fields.Float(string='Total', store=True, compute='_amount_all', tracking=1)
     file_reference = fields.Char('File Reference')
+    file_client_id = fields.Many2one('res.partner', 'Client')
     object = fields.Text('Object')
     request_line = fields.One2many('servoo.payment.request.line', 'payment_request_id', 'Request Lines')
     create_uid = fields.Many2one('res.users', string='Created by', index=True, readonly=True)

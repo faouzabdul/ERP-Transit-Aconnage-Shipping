@@ -14,12 +14,16 @@
             <notebook position="inside">
                 <page string="Payments">
                     <field name="payment_ids" readonly="1" widget="one2many">
-<!--                        <tree>-->
-<!--                            <field name="date" />-->
-<!--                            <field name="name" />-->
-<!--                            <field name="journal_id" />-->
-<!--                            <field name="amount_company_currency_signed" widget="monetary" string="Amount"/>-->
-<!--                        </tree>-->
+                        <tree>
+                            <field name="date" />
+                            <field name="name" />
+                            <field name="journal_id" />
+                            <field name="payment_mode" />
+                            <field name="ref" />
+                            <field name="partner_id" />
+                            <field name="amount_company_currency_signed" widget="monetary" string="Amount"/>
+                            <button name="%(action_report_print_payment_receipt)d" type="action"  class="oe_stat_button" icon="fa-print"/>
+                        </tree>
                     </field>
                 </page>
             </notebook>

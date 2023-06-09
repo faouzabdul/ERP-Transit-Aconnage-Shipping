@@ -25,7 +25,7 @@ class WizardSaleOrderPayment(models.TransientModel):
     payment_date = fields.Date(string="Payment Date", required=True,
                                default=fields.Date.context_today)
     amount = fields.Monetary(currency_field='currency_id', default=_get_amount)
-    communication = fields.Char(string="Memo")
+    communication = fields.Char(string="Label")
 
     currency_id = fields.Many2one('res.currency', string='Currency', store=True, readonly=False,
                                   compute='_compute_currency_id',
@@ -56,6 +56,13 @@ class WizardSaleOrderPayment(models.TransientModel):
         ('bank_transfer', 'Bank Transfer'),
         ('bank_draft', 'Bank Draft')
     ], string='Payment Mode')
+    bank_id = fields.Many2one('res.bank', 'Bank')
+    carrier = fields.Char('Carrier')
+    number = fields.Char('N°')
+    date_payment = fields.Date('Date Check/Bank Transfer')
+    ret_tva = fields.Float('RET. TVA')
+    ret_ir_is = fields.Float('RET. IR/IS')
+    invoice_amount = fields.Float('Invoice Amount')
 
 
     @api.depends('journal_id')
@@ -111,12 +118,18 @@ class WizardSaleOrderPayment(models.TransientModel):
             'amount': self.amount,
             'date': self.payment_date,
             'journal_id': self.journal_id.id,
-            'payment_reference': self.communication,
+            'payment_label': self.communication,
             'ref': self.order_id.name,
             'payment_method_line_id': self.payment_method_line_id.id,
             'bank_statement_id': self.bank_statement_id.id,
             'payment_mode': self.payment_mode,
-            'receiver': self.receiver
+            'receiver': self.receiver,
+            'bank_id': self.bank_id.id,
+            'number': self.number,
+            'carrier': self.carrier,
+            'date_payment': self.date_payment,
+            'ret_tva': self.ret_tva,
+            'ret_ir_is': self.ret_ir_is,
         }
         vals['paid_amount'] = paid_amount + self.amount
         payment = self.env['account.payment'].create(payment_vals)

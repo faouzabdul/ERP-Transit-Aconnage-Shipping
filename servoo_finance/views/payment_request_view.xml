@@ -52,6 +52,7 @@
                             <field name="employee_parent_id" readonly="1" />
                             <field name="department_id" readonly="1" required="1" colspan="4"/>
                             <field name="file_reference" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="file_client_id" readonly="0" />
                             <field name="amount_total" />
                             <field name="payment_mode" attrs="{'readonly': [('state', '!=', 'draft')]}" colspan="4"/>
                             <field name="account_payment_id" groups="servoo_finance.group_finance_user" readonly="1"/>

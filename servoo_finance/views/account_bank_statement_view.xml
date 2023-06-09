@@ -22,8 +22,8 @@
                     </button>
                 </button>
                 <field name="amount" position="before">
-                    <field name="beneficiary" />
-                    <field name="receiver" />
+                    <field name="beneficiary" optional="show"/>
+                    <field name="receiver" optional="show"/>
                 </field>
                 <button name="button_undo_reconciliation" position="after">
                     <button name="%(action_report_payment_receipt)d" type="action" class="oe_stat_button" icon="fa-print"/>

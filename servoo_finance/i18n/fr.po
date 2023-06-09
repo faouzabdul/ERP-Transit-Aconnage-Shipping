@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220616\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-11 11:12+0000\n"
-"PO-Revision-Date: 2023-05-11 11:12+0000\n"
+"POT-Creation-Date: 2023-06-04 17:43+0000\n"
+"PO-Revision-Date: 2023-06-04 17:43+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -82,15 +82,10 @@ msgid ""
 msgstr ""
 
 #. module: servoo_finance
-#: model_terms:ir.ui.view,arch_db:servoo_finance.report_payment_receipt_document
 #: model_terms:ir.ui.view,arch_db:servoo_finance.report_statement_receipt_document
 msgid ""
 "<br>\n"
 "                        N°: .................. Du .....................\n"
-"                    </br>\n"
-"\n"
-"                    <br>\n"
-"                        En lettres: <b><span/> </b>\n"
 "                    </br>"
 msgstr ""
 
@@ -144,6 +139,9 @@ msgstr "Une ligne de mouvement sélectionnée a déjà été rapprochée."
 #: model:ir.model.fields.selection,name:servoo_finance.selection__account_bank_statement_line__receiver__apm
 #: model:ir.model.fields.selection,name:servoo_finance.selection__account_payment__receiver__apm
 #: model:ir.model.fields.selection,name:servoo_finance.selection__account_payment_register__receiver__apm
+#: model:ir.model.fields.selection,name:servoo_finance.selection__sale_order_payment_wizard__receiver__apm
+#: model:ir.model.fields.selection,name:servoo_finance.selection__servoo_payment_request_wizard__receiver__apm
+#: model:ir.model.fields.selection,name:servoo_finance.selection__servoo_shipping_pda_wizard__receiver__apm
 msgid "APM"
 msgstr ""
 
@@ -293,6 +291,7 @@ msgid "Aged Receivable"
 msgstr "Créances"
 
 #. module: servoo_finance
+#: model:ir.ui.menu,name:servoo_finance.cash_cash_control_report_menu
 #: model:ir.ui.menu,name:servoo_finance.cash_control_report_menu
 msgid "All cash control reports"
 msgstr "Tous les rapports de contrôle de trésorerie"
@@ -300,18 +299,17 @@ msgstr "Tous les rapports de contrôle de trésorerie"
 #. module: servoo_finance
 #: model:ir.actions.act_window,name:servoo_finance.action_all_cash_voucher
 #: model:ir.ui.menu,name:servoo_finance.all_cash_voucher_menu
+#: model:ir.ui.menu,name:servoo_finance.cash_all_cash_voucher_menu
 msgid "All cash vouchers"
 msgstr "Tous les bons de caisse"
 
 #. module: servoo_finance
-#: model:ir.model.fields,field_description:servoo_finance.field_servoo_cash_voucher__cashier_piece_ids
-#: model_terms:ir.ui.view,arch_db:servoo_finance.view_cash_voucher_form
-#: model_terms:ir.ui.view,arch_db:servoo_finance.view_payment_logistic_form
-#: model_terms:ir.ui.view,arch_db:servoo_finance.view_payment_shipping_form
-#: model_terms:ir.ui.view,arch_db:servoo_finance.view_payment_stevedoring_form
-#: model_terms:ir.ui.view,arch_db:servoo_finance.view_payment_transit_form
-msgid "Cashier Pieces"
-msgstr "Pièces de caisse"
+#: model:ir.actions.act_window,name:servoo_finance.action_all_cashier_piece
+#: model:ir.ui.menu,name:servoo_finance.account_all_cashier_piece_menu
+#: model:ir.ui.menu,name:servoo_finance.all_cashier_piece_menu
+#: model:ir.ui.menu,name:servoo_finance.cash_all_cashier_piece_menu
+msgid "All cashier pieces"
+msgstr "Toutes les pièces de caisse"
 
 #. module: servoo_finance
 #. openerp-web
@@ -321,13 +319,12 @@ msgid ""
 "All invoices and payments have been matched, your accounts' balances are "
 "clean."
 msgstr ""
-"Toutes les factures et tous les paiements ont été rapprochés, les soldes de vos comptes sont "
-"faire le ménage."
 
 #. module: servoo_finance
 #: model:ir.actions.act_window,name:servoo_finance.action_all_payment_request
 #: model:ir.ui.menu,name:servoo_finance.account_all_payment_request_menu
 #: model:ir.ui.menu,name:servoo_finance.all_payment_request_menu
+#: model:ir.ui.menu,name:servoo_finance.cash_all_payment_request_menu
 msgid "All payment requests"
 msgstr "Toutes les demandes de paiement"
 
@@ -343,9 +340,16 @@ msgstr "Toutes les demandes de paiement"
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_payment_request_line__amount
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_payment_request_wizard__amount
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_shipping_pda_wizard__amount
+#: model_terms:ir.ui.view,arch_db:servoo_finance.servoo_shipping_pda_finance_inherit_form
 #, python-format
 msgid "Amount"
 msgstr "Montant"
+
+#. module: servoo_finance
+#: model:ir.model.fields,field_description:servoo_finance.field_account_bank_statement_line__amount_word
+#: model:ir.model.fields,field_description:servoo_finance.field_account_payment__amount_word
+msgid "Amount In Words:"
+msgstr "Montant en lettres"
 
 #. module: servoo_finance
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_cash_voucher__amount_justified
@@ -509,18 +513,26 @@ msgid "BP:"
 msgstr ""
 
 #. module: servoo_finance
+#: model:ir.model.fields,help:servoo_finance.field_account_cash_control_report__balance_end
+#: model:ir.model.fields,help:servoo_finance.field_account_cash_control_report_create_wizard__balance_end
+msgid "Balance as calculated based on Opening Balance and transaction lines"
+msgstr ""
+
+#. module: servoo_finance
+#: model:ir.model.fields,field_description:servoo_finance.field_account_payment__bank_id
+#: model:ir.model.fields,field_description:servoo_finance.field_account_payment_register__bank_id
+#: model:ir.model.fields,field_description:servoo_finance.field_sale_order_payment_wizard__bank_id
+#: model:ir.model.fields,field_description:servoo_finance.field_servoo_shipping_pda_wizard__bank_id
+msgid "Bank"
+msgstr "Banque"
+
+#. module: servoo_finance
 #: model:ir.model.fields.selection,name:servoo_finance.selection__account_payment__payment_mode__bank_draft
 #: model:ir.model.fields.selection,name:servoo_finance.selection__account_payment_register__payment_mode__bank_draft
 #: model:ir.model.fields.selection,name:servoo_finance.selection__sale_order_payment_wizard__payment_mode__bank_draft
 #: model:ir.model.fields.selection,name:servoo_finance.selection__servoo_shipping_pda_wizard__payment_mode__bank_draft
 msgid "Bank Draft"
 msgstr "Traite"
-
-#. module: servoo_finance
-#: model:ir.model.fields,help:servoo_finance.field_account_cash_control_report__balance_end
-#: model:ir.model.fields,help:servoo_finance.field_account_cash_control_report_create_wizard__balance_end
-msgid "Balance as calculated based on Opening Balance and transaction lines"
-msgstr "Solde tel que calculé sur la base du solde d'ouverture et des lignes de transaction"
 
 #. module: servoo_finance
 #. openerp-web
@@ -585,9 +597,10 @@ msgstr ""
 #. module: servoo_finance
 #: model:ir.model.fields,field_description:servoo_finance.field_account_bank_statement_line__beneficiary
 msgid "Beneficiary"
-msgstr "Bénéficiaire"
+msgstr "Employé bénéficiaire"
 
 #. module: servoo_finance
+#: model:ir.ui.menu,name:servoo_finance.cash_menu_action_move_in_invoice_type
 #: model:ir.ui.menu,name:servoo_finance.menu_action_move_in_invoice_type
 msgid "Bills"
 msgstr "Factures"
@@ -632,6 +645,11 @@ msgid "CONTRÔLE"
 msgstr ""
 
 #. module: servoo_finance
+#: model:ir.ui.menu,name:servoo_finance.caisse_menu_root
+msgid "Caisse"
+msgstr ""
+
+#. module: servoo_finance
 #: model_terms:ir.ui.view,arch_db:servoo_finance.report_cash_voucher_document
 msgid "Caissier"
 msgstr ""
@@ -641,6 +659,14 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:servoo_finance.wizard_sale_order_payment_form
 msgid "Cancel"
 msgstr "Annuler"
+
+#. module: servoo_finance
+#: model:ir.model.fields,field_description:servoo_finance.field_account_payment__carrier
+#: model:ir.model.fields,field_description:servoo_finance.field_account_payment_register__carrier
+#: model:ir.model.fields,field_description:servoo_finance.field_sale_order_payment_wizard__carrier
+#: model:ir.model.fields,field_description:servoo_finance.field_servoo_shipping_pda_wizard__carrier
+msgid "Carrier"
+msgstr "Porteur"
 
 #. module: servoo_finance
 #: model:ir.model.fields.selection,name:servoo_finance.selection__account_payment__payment_mode__cash
@@ -699,6 +725,7 @@ msgstr "Arrondis en espèces"
 #. module: servoo_finance
 #: model:ir.model.fields,field_description:servoo_finance.field_account_cash_control_report__cash_statement_id
 #: model:ir.model.fields,field_description:servoo_finance.field_account_cash_control_report_create_wizard__cash_statement_id
+#: model:ir.ui.menu,name:servoo_finance.cash_statement_sub_menu
 msgid "Cash Statement"
 msgstr "Relevé de caisse"
 
@@ -711,6 +738,7 @@ msgstr "Relevé de caisse"
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_cash_voucher_wizard__cash_voucher_id
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_cashier_piece__cash_voucher_id
 #: model:ir.ui.menu,name:servoo_finance.account_cash_voucher_menu
+#: model:ir.ui.menu,name:servoo_finance.cash_cash_voucher_menu
 #: model:ir.ui.menu,name:servoo_finance.cash_voucher_menu
 #: model:ir.ui.menu,name:servoo_finance.hr_cash_voucher_menu
 #: model:ir.ui.menu,name:servoo_finance.invoice_cash_voucher_menu
@@ -735,6 +763,7 @@ msgid "Cash Vouchers"
 msgstr "Bons de caisse"
 
 #. module: servoo_finance
+#: model:ir.ui.menu,name:servoo_finance.menu_cash_cash_control
 #: model:ir.ui.menu,name:servoo_finance.menu_cash_control
 msgid "Cash control report"
 msgstr "Rapport de contrôle de trésorerie"
@@ -745,6 +774,7 @@ msgid "Cash control reporty"
 msgstr "Rapport de contrôle de trésorerie"
 
 #. module: servoo_finance
+#: model:ir.ui.menu,name:servoo_finance.cash_cash_control_report_to_control
 #: model:ir.ui.menu,name:servoo_finance.cash_control_report_to_control
 msgid "Cash control to approve"
 msgstr "Contrôle de trésorerie à approuver"
@@ -767,6 +797,7 @@ msgstr "Montant du bon de caisse"
 
 #. module: servoo_finance
 #: model:ir.actions.act_window,name:servoo_finance.action_cash_voucher_approved
+#: model:ir.ui.menu,name:servoo_finance.cash_cash_voucher_approved_menu
 #: model:ir.ui.menu,name:servoo_finance.cash_voucher_approved_menu
 msgid "Cash voucher approved"
 msgstr "Bon de caisse approuvé"
@@ -781,6 +812,7 @@ msgstr "Nombre de bons de caisse"
 #: model:ir.actions.act_window,name:servoo_finance.action_cash_voucher_to_approve
 #: model:ir.actions.act_window,name:servoo_finance.action_our_cash_voucher_to_approve
 #: model:ir.ui.menu,name:servoo_finance.account_cash_voucher_to_approve_menu
+#: model:ir.ui.menu,name:servoo_finance.cash_cash_voucher_to_approve_menu
 #: model:ir.ui.menu,name:servoo_finance.cash_voucher_to_approve_menu
 #: model:ir.ui.menu,name:servoo_finance.hr_cash_voucher_to_approve_menu
 #: model:ir.ui.menu,name:servoo_finance.invoice_cash_voucher_to_approve_menu
@@ -846,6 +878,7 @@ msgstr "Notes caissier"
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_cashier_piece_line__cashier_piece_id
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_cashier_piece_wizard__cashier_piece_id
 #: model:ir.ui.menu,name:servoo_finance.account_cashier_piece_menu
+#: model:ir.ui.menu,name:servoo_finance.cash_cashier_piece_menu
 #: model:ir.ui.menu,name:servoo_finance.cashier_piece_menu
 #: model:ir.ui.menu,name:servoo_finance.hr_cashier_piece_menu
 #: model:ir.ui.menu,name:servoo_finance.invoice_cashier_piece_menu
@@ -868,6 +901,10 @@ msgstr "Flux de travail des pièces de caisse"
 #. module: servoo_finance
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_cash_voucher__cashier_piece_ids
 #: model_terms:ir.ui.view,arch_db:servoo_finance.view_cash_voucher_form
+#: model_terms:ir.ui.view,arch_db:servoo_finance.view_payment_logistic_form
+#: model_terms:ir.ui.view,arch_db:servoo_finance.view_payment_shipping_form
+#: model_terms:ir.ui.view,arch_db:servoo_finance.view_payment_stevedoring_form
+#: model_terms:ir.ui.view,arch_db:servoo_finance.view_payment_transit_form
 msgid "Cashier Pieces"
 msgstr "Pièces de caisse"
 
@@ -897,6 +934,7 @@ msgstr "Pièce de caisse"
 
 #. module: servoo_finance
 #: model:ir.actions.act_window,name:servoo_finance.action_cashier_piece_approved
+#: model:ir.ui.menu,name:servoo_finance.cash_cashier_piece_approved_menu
 #: model:ir.ui.menu,name:servoo_finance.cashier_piece_approved_menu
 msgid "Cashier piece approved"
 msgstr "Pièce de caisse approuvée"
@@ -910,6 +948,7 @@ msgstr "Ligne de pièce de caissier"
 #: model:ir.actions.act_window,name:servoo_finance.action_cashier_piece_to_approve
 #: model:ir.actions.act_window,name:servoo_finance.action_our_cashier_piece_to_approve
 #: model:ir.ui.menu,name:servoo_finance.account_cashier_piece_to_approve_menu
+#: model:ir.ui.menu,name:servoo_finance.cash_cashier_piece_to_approve_menu
 #: model:ir.ui.menu,name:servoo_finance.cashier_piece_to_approve_menu
 #: model:ir.ui.menu,name:servoo_finance.hr_cashier_piece_to_approve_menu
 #: model:ir.ui.menu,name:servoo_finance.invoice_cashier_piece_to_approve_menu
@@ -959,6 +998,11 @@ msgstr "Vérifiez que vous n'avez pas de lignes de relevé bancaire à"
 #, python-format
 msgid "Choose counterpart or Create Write-off"
 msgstr "Choisissez la contrepartie ou créez une radiation"
+
+#. module: servoo_finance
+#: model:ir.model.fields,field_description:servoo_finance.field_servoo_payment_request__file_client_id
+msgid "Client"
+msgstr "Client"
 
 #. module: servoo_finance
 #. openerp-web
@@ -1204,12 +1248,15 @@ msgid "Customer/Vendor Matching"
 msgstr "Correspondance client/fournisseur"
 
 #. module: servoo_finance
+#: model:ir.ui.menu,name:servoo_finance.cash_menu_account_customer
 #: model:ir.ui.menu,name:servoo_finance.menu_account_customer
+#: model:ir.ui.menu,name:servoo_finance.menu_cash_receivables
 #: model:ir.ui.menu,name:servoo_finance.menu_finance_receivables
 msgid "Customers"
 msgstr "Clients"
 
 #. module: servoo_finance
+#: model:ir.ui.menu,name:servoo_finance.cash_transit_invoice_menu
 #: model:ir.ui.menu,name:servoo_finance.finance_transit_invoice_menu
 msgid "Customs Operations"
 msgstr "Opérations Douanières"
@@ -1281,6 +1328,14 @@ msgid "Date"
 msgstr ""
 
 #. module: servoo_finance
+#: model:ir.model.fields,field_description:servoo_finance.field_account_payment__date_payment
+#: model:ir.model.fields,field_description:servoo_finance.field_account_payment_register__date_payment
+#: model:ir.model.fields,field_description:servoo_finance.field_sale_order_payment_wizard__date_payment
+#: model:ir.model.fields,field_description:servoo_finance.field_servoo_shipping_pda_wizard__date_payment
+msgid "Date Check/Bank Transfer"
+msgstr "Date chèque/Virement"
+
+#. module: servoo_finance
 #: model_terms:ir.ui.view,arch_db:servoo_finance.report_cash_voucher_document
 msgid "Demandeur"
 msgstr ""
@@ -1293,6 +1348,7 @@ msgid "Department"
 msgstr "Département"
 
 #. module: servoo_finance
+#: model:ir.ui.menu,name:servoo_finance.menu_cash_department_files
 #: model:ir.ui.menu,name:servoo_finance.menu_finance_department_files
 msgid "Department Files"
 msgstr "Dossiers des départements"
@@ -1383,6 +1439,11 @@ msgid "Draft"
 msgstr "Brouillon"
 
 #. module: servoo_finance
+#: model_terms:ir.ui.view,arch_db:servoo_finance.report_payment_receipt_document
+msgid "Du"
+msgstr ""
+
+#. module: servoo_finance
 #. openerp-web
 #: code:addons/servoo_finance/static/src/xml/payment_matching.xml:0
 #, python-format
@@ -1406,6 +1467,12 @@ msgstr "Edité"
 #: model_terms:ir.ui.view,arch_db:servoo_finance.report_payment_request_document
 #: model_terms:ir.ui.view,arch_db:servoo_finance.report_statement_receipt_document
 msgid "Email:"
+msgstr ""
+
+#. module: servoo_finance
+#: model_terms:ir.ui.view,arch_db:servoo_finance.report_payment_receipt_document
+#: model_terms:ir.ui.view,arch_db:servoo_finance.report_statement_receipt_document
+msgid "En lettres:"
 msgstr ""
 
 #. module: servoo_finance
@@ -1468,6 +1535,7 @@ msgstr "Filtrer par compte, libellé, partenaire, montant,..."
 #: model:ir.ui.menu,name:servoo_finance.payment_shipping_menu
 #: model:ir.ui.menu,name:servoo_finance.payment_stevedoring_menu
 #: model:ir.ui.menu,name:servoo_finance.payment_transit_menu
+#: model:ir.ui.menu,name:servoo_finance.sub_menu_cash
 #: model:ir.ui.menu,name:servoo_finance.sub_menu_finance
 msgid "Finance"
 msgstr ""
@@ -1515,7 +1583,7 @@ msgstr "Abonnés (Partenaires)"
 #: model:ir.model.fields,help:servoo_finance.field_servoo_cashier_piece__activity_type_icon
 #: model:ir.model.fields,help:servoo_finance.field_servoo_payment_request__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
-msgstr "Font awesome icon e.g. fa-tasks"
+msgstr ""
 
 #. module: servoo_finance
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_cash_voucher__hinterland
@@ -1702,6 +1770,14 @@ msgid "Invoice"
 msgstr ""
 
 #. module: servoo_finance
+#: model:ir.model.fields,field_description:servoo_finance.field_account_payment__invoice_amount
+#: model:ir.model.fields,field_description:servoo_finance.field_account_payment_register__invoice_amount
+#: model:ir.model.fields,field_description:servoo_finance.field_sale_order_payment_wizard__invoice_amount
+#: model:ir.model.fields,field_description:servoo_finance.field_servoo_shipping_pda_wizard__invoice_amount
+msgid "Invoice Amount"
+msgstr "Montant de la facture"
+
+#. module: servoo_finance
 #: model:ir.ui.menu,name:servoo_finance.menu_action_account_invoice_report_all
 msgid "Invoice Analysis"
 msgstr "Analyse des factures"
@@ -1709,6 +1785,7 @@ msgstr "Analyse des factures"
 #. module: servoo_finance
 #: model:ir.actions.act_window,name:servoo_finance.action_readonly_move_out_invoice_type
 #: model:ir.model.fields,field_description:servoo_finance.field_account_bank_statement__cash_control_report_count
+#: model:ir.ui.menu,name:servoo_finance.cash_menu_action_move_out_invoice_type
 #: model:ir.ui.menu,name:servoo_finance.menu_action_move_out_invoice_type
 msgid "Invoices"
 msgstr "Factures"
@@ -1815,6 +1892,10 @@ msgstr ""
 #: code:addons/servoo_finance/static/src/js/payment_render.js:0
 #: code:addons/servoo_finance/static/src/xml/payment_matching.xml:0
 #: code:addons/servoo_finance/static/src/xml/payment_matching.xml:0
+#: model:ir.model.fields,field_description:servoo_finance.field_account_payment__payment_label
+#: model:ir.model.fields,field_description:servoo_finance.field_sale_order_payment_wizard__communication
+#: model:ir.model.fields,field_description:servoo_finance.field_servoo_payment_request_wizard__payment_label
+#: model:ir.model.fields,field_description:servoo_finance.field_servoo_shipping_pda_wizard__communication
 #, python-format
 msgid "Label"
 msgstr "Libellé"
@@ -1925,6 +2006,7 @@ msgid "Load more... ("
 msgstr "Charger plus... ("
 
 #. module: servoo_finance
+#: model:ir.ui.menu,name:servoo_finance.cash_logistic_invoice_menu
 #: model:ir.ui.menu,name:servoo_finance.finance_logistic_invoice_menu
 msgid "Logistic"
 msgstr "Logistique"
@@ -2037,11 +2119,9 @@ msgid "Match with entries that are not from receivable/payable accounts"
 msgstr "Correspondance avec des entrées qui ne proviennent pas de comptes débiteurs/fournisseurs"
 
 #. module: servoo_finance
-#: model:ir.model.fields,field_description:servoo_finance.field_sale_order_payment_wizard__communication
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_payment_request_wizard__ref
-#: model:ir.model.fields,field_description:servoo_finance.field_servoo_shipping_pda_wizard__communication
 msgid "Memo"
-msgstr "Memo"
+msgstr ""
 
 #. module: servoo_finance
 #: model:ir.model.fields,field_description:servoo_finance.field_account_cash_control_report__message_has_error
@@ -2520,6 +2600,7 @@ msgstr ""
 "au cas où vous voudriez l'annuler."
 
 #. module: servoo_finance
+#: model:ir.ui.menu,name:servoo_finance.cash_logistic_operation_invoice_menu
 #: model:ir.ui.menu,name:servoo_finance.logistic_operation_invoice_menu
 msgid "Operations"
 msgstr "Opérations"
@@ -2540,12 +2621,16 @@ msgstr ""
 #: model:ir.model.fields.selection,name:servoo_finance.selection__account_bank_statement_line__receiver__other
 #: model:ir.model.fields.selection,name:servoo_finance.selection__account_payment__receiver__other
 #: model:ir.model.fields.selection,name:servoo_finance.selection__account_payment_register__receiver__other
+#: model:ir.model.fields.selection,name:servoo_finance.selection__sale_order_payment_wizard__receiver__other
+#: model:ir.model.fields.selection,name:servoo_finance.selection__servoo_payment_request_wizard__receiver__other
+#: model:ir.model.fields.selection,name:servoo_finance.selection__servoo_shipping_pda_wizard__receiver__other
 msgid "Other"
 msgstr "Autre"
 
 #. module: servoo_finance
 #: model:ir.actions.act_window,name:servoo_finance.action_our_cash_voucher
 #: model:ir.ui.menu,name:servoo_finance.account_our_cash_voucher_menu
+#: model:ir.ui.menu,name:servoo_finance.cash_our_cash_voucher_menu
 #: model:ir.ui.menu,name:servoo_finance.hr_our_cash_voucher_menu
 #: model:ir.ui.menu,name:servoo_finance.invoice_our_cash_voucher_menu
 #: model:ir.ui.menu,name:servoo_finance.logistic_our_cash_voucher_menu
@@ -2561,6 +2646,7 @@ msgstr "Nos bons de caisse"
 #: model:ir.actions.act_window,name:servoo_finance.action_our_cashier_piece
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_cashier_piece__our_pieces
 #: model:ir.ui.menu,name:servoo_finance.account_our_cashier_piece_menu
+#: model:ir.ui.menu,name:servoo_finance.cash_our_cashier_piece_menu
 #: model:ir.ui.menu,name:servoo_finance.hr_our_cashier_piece_menu
 #: model:ir.ui.menu,name:servoo_finance.invoice_our_cashier_piece_menu
 #: model:ir.ui.menu,name:servoo_finance.logistic_our_cashier_piece_menu
@@ -2576,6 +2662,7 @@ msgstr "Nos pièces de caisse"
 #: model:ir.actions.act_window,name:servoo_finance.action_our_payment_request
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_payment_request__our_requests
 #: model:ir.ui.menu,name:servoo_finance.account_our_payment_request_menu
+#: model:ir.ui.menu,name:servoo_finance.cash_our_payment_request_menu
 #: model:ir.ui.menu,name:servoo_finance.hr_our_payment_request_menu
 #: model:ir.ui.menu,name:servoo_finance.invoice_our_payment_request_menu
 #: model:ir.ui.menu,name:servoo_finance.logistic_our_payment_request_menu
@@ -2598,6 +2685,9 @@ msgstr "Notre bon"
 #: model:ir.model.fields.selection,name:servoo_finance.selection__account_bank_statement_line__receiver__pad
 #: model:ir.model.fields.selection,name:servoo_finance.selection__account_payment__receiver__pad
 #: model:ir.model.fields.selection,name:servoo_finance.selection__account_payment_register__receiver__pad
+#: model:ir.model.fields.selection,name:servoo_finance.selection__sale_order_payment_wizard__receiver__pad
+#: model:ir.model.fields.selection,name:servoo_finance.selection__servoo_payment_request_wizard__receiver__pad
+#: model:ir.model.fields.selection,name:servoo_finance.selection__servoo_shipping_pda_wizard__receiver__pad
 #: model_terms:ir.ui.view,arch_db:servoo_finance.report_cash_control_document
 msgid "PAD"
 msgstr ""
@@ -2616,6 +2706,7 @@ msgstr ""
 
 #. module: servoo_finance
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_shipping_pda_wizard__pda_id
+#: model:ir.ui.menu,name:servoo_finance.cash_shipping_pda_invoice_menu
 #: model:ir.ui.menu,name:servoo_finance.finance_shipping_pda_invoice_menu
 #: model:ir.ui.menu,name:servoo_finance.shipping_pda_invoice_menu
 msgid "PDA"
@@ -2701,6 +2792,7 @@ msgstr "Mode de paiement"
 #: model:ir.model.fields,field_description:servoo_finance.field_account_payment_register__payment_mode
 #: model:ir.model.fields,field_description:servoo_finance.field_sale_order_payment_wizard__payment_mode
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_payment_request__payment_mode
+#: model:ir.model.fields,field_description:servoo_finance.field_servoo_payment_request_wizard__payment_mode
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_shipping_pda_wizard__payment_mode
 msgid "Payment Mode"
 msgstr "Mode de paiement"
@@ -2716,6 +2808,7 @@ msgstr "Reçu de paiement"
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_payment_request_document__payment_request_id
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_payment_request_line__payment_request_id
 #: model:ir.model.fields,field_description:servoo_finance.field_servoo_payment_request_wizard__payment_request_id
+#: model:ir.ui.menu,name:servoo_finance.cash_payment_request_menu
 #: model:ir.ui.menu,name:servoo_finance.payment_request_menu
 #: model:ir.ui.menu,name:servoo_finance.shipping_payment_request_menu
 #: model:ir.ui.menu,name:servoo_finance.stevedoring_payment_request_menu
@@ -2773,6 +2866,7 @@ msgstr "Documents demande de règlement"
 
 #. module: servoo_finance
 #: model:ir.actions.act_window,name:servoo_finance.action_payment_request_approved
+#: model:ir.ui.menu,name:servoo_finance.cash_payment_request_approved_menu
 #: model:ir.ui.menu,name:servoo_finance.payment_request_approved_menu
 msgid "Payment request approved"
 msgstr "Demande de paiement approuvée"
@@ -2780,6 +2874,7 @@ msgstr "Demande de paiement approuvée"
 #. module: servoo_finance
 #: model:ir.actions.act_window,name:servoo_finance.action_our_payment_request_to_approve
 #: model:ir.actions.act_window,name:servoo_finance.action_payment_request_to_approve
+#: model:ir.ui.menu,name:servoo_finance.cash_payment_request_to_approve_menu
 #: model:ir.ui.menu,name:servoo_finance.logistic_payment_request_to_approve_menu
 #: model:ir.ui.menu,name:servoo_finance.payment_request_to_approve_menu
 #: model:ir.ui.menu,name:servoo_finance.shipping_payment_request_to_approve_menu
@@ -2843,6 +2938,27 @@ msgstr "Catégories de services"
 #: model:ir.ui.menu,name:servoo_finance.product_product_menu_sellable
 msgid "Products"
 msgstr "Services"
+
+#. module: servoo_finance
+#: model:ir.ui.menu,name:servoo_finance.cash_menu_sale_order
+msgid "Quotations"
+msgstr "Devis"
+
+#. module: servoo_finance
+#: model:ir.model.fields,field_description:servoo_finance.field_account_payment__ret_ir_is
+#: model:ir.model.fields,field_description:servoo_finance.field_account_payment_register__ret_ir_is
+#: model:ir.model.fields,field_description:servoo_finance.field_sale_order_payment_wizard__ret_ir_is
+#: model:ir.model.fields,field_description:servoo_finance.field_servoo_shipping_pda_wizard__ret_ir_is
+msgid "RET. IR/IS"
+msgstr ""
+
+#. module: servoo_finance
+#: model:ir.model.fields,field_description:servoo_finance.field_account_payment__ret_tva
+#: model:ir.model.fields,field_description:servoo_finance.field_account_payment_register__ret_tva
+#: model:ir.model.fields,field_description:servoo_finance.field_sale_order_payment_wizard__ret_tva
+#: model:ir.model.fields,field_description:servoo_finance.field_servoo_shipping_pda_wizard__ret_tva
+msgid "RET. TVA"
+msgstr ""
 
 #. module: servoo_finance
 #: model_terms:ir.ui.view,arch_db:servoo_finance.report_payment_receipt_document
@@ -3093,11 +3209,13 @@ msgid "Settings"
 msgstr "Paramètres"
 
 #. module: servoo_finance
+#: model:ir.ui.menu,name:servoo_finance.cash_shipping_invoice_menu
 #: model:ir.ui.menu,name:servoo_finance.finance_shipping_invoice_menu
 msgid "Shipping"
 msgstr ""
 
 #. module: servoo_finance
+#: model:ir.ui.menu,name:servoo_finance.cash_shipping_file_invoice_menu
 #: model:ir.ui.menu,name:servoo_finance.shipping_file_invoice_menu
 msgid "Shipping Files"
 msgstr "Dossiers Shipping"
@@ -3181,11 +3299,18 @@ msgstr ""
 "Prévu : Activités futures."
 
 #. module: servoo_finance
+#: model:ir.ui.menu,name:servoo_finance.cash_stevedoring_invoice_menu
 #: model:ir.ui.menu,name:servoo_finance.finance_stevedoring_invoice_menu
 msgid "Stevedoring"
 msgstr "Acconage"
 
 #. module: servoo_finance
+#: model:ir.model,name:servoo_finance.model_servoo_stevedoring_file
+msgid "Stevedoring File"
+msgstr "Dossier de manutention"
+
+#. module: servoo_finance
+#: model:ir.ui.menu,name:servoo_finance.cash_stevedoring_file_invoice_menu
 #: model:ir.ui.menu,name:servoo_finance.stevedoring_file_invoice_menu
 msgid "Stevedoring Files"
 msgstr "Dossiers Acconage"
@@ -3436,6 +3561,7 @@ msgid "Transaction"
 msgstr ""
 
 #. module: servoo_finance
+#: model:ir.ui.menu,name:servoo_finance.cash_transit_order_invoice_menu
 #: model:ir.ui.menu,name:servoo_finance.transit_order_invoice_menu
 msgid "Transit Orders"
 msgstr "Ordre de transit"
@@ -3532,7 +3658,9 @@ msgid "Value should be True or False (not %s)"
 msgstr "La valeur doit être Vrai ou Faux (pas %s)"
 
 #. module: servoo_finance
+#: model:ir.ui.menu,name:servoo_finance.cash_menu_account_supplier
 #: model:ir.ui.menu,name:servoo_finance.menu_account_supplier
+#: model:ir.ui.menu,name:servoo_finance.menu_cash_payables
 #: model:ir.ui.menu,name:servoo_finance.menu_finance_payables
 msgid "Vendors"
 msgstr "Fournisseurs"
@@ -3722,6 +3850,21 @@ msgstr "restant)"
 #, python-format
 msgid "seconds per transaction."
 msgstr "secondes par transaction."
+
+#. module: servoo_finance
+#: model:ir.model,name:servoo_finance.model_servoo_logistic_operation
+msgid "servoo.logistic.operation"
+msgstr "Opération Logistique"
+
+#. module: servoo_finance
+#: model:ir.model,name:servoo_finance.model_servoo_shipping_file
+msgid "servoo.shipping.file"
+msgstr "Dossier Shipping"
+
+#. module: servoo_finance
+#: model:ir.model,name:servoo_finance.model_servoo_transit_order
+msgid "servoo.transit.order"
+msgstr "Ordre de transit"
 
 #. module: servoo_finance
 #: code:addons/servoo_finance/models/utils.py:0

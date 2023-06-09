@@ -887,6 +887,11 @@ class AccountBankStatementLine(models.Model):
 
     _inherit = "account.bank.statement.line"
 
+    def _amount_in_word(self):
+        for rec in self:
+            amount = rec.amount if rec.amount > 0 else -1* rec.amount
+            rec.amount_word = str(rec.currency_id.amount_to_text(amount))
+
     move_name = fields.Char(string='Journal Entry Name', readonly=True,
                             default=False, copy=False,
                             help="Technical field holding the number given to the journal entry, automatically set when the statement line is reconciled then stored to set the same number again if the line is cancelled, set to draft and re-processed again.")
@@ -897,6 +902,7 @@ class AccountBankStatementLine(models.Model):
         ('apm', 'APM')
     ], string='Receiver')
     apm_invoice_number = fields.Char('APM Invoice Number', compute="_get_apm_invoice_number", store=False)
+    amount_word = fields.Char(string="Amount In Words:", compute='_amount_in_word')
 
     def _get_apm_invoice_number(self):
         account_move = self.env['account.move']

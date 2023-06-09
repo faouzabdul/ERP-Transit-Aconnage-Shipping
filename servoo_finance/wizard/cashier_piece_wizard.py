@@ -17,7 +17,7 @@ class WizardCashierPiece(models.TransientModel):
     cashier_piece_id = fields.Many2one('servoo.cashier.piece', 'Cashier Piece', default=lambda self: self.env.context.get('active_id', None))
     state = fields.Selection(related='cashier_piece_id.state', store=True, readonly=True)
     observation = fields.Text('Notes')
-    date = fields.Date('Date', default=lambda self: fields.datetime.now(), required=True)
+    date = fields.Datetime('Date', default=lambda self: fields.datetime.now(), required=True)
 
     def action_validate(self):
         dp = self.get_department(self.sudo().env.user.employee_id.department_id)
@@ -71,7 +71,7 @@ class WizardCashierPiece(models.TransientModel):
             # get the active bank statement for the current journal and day
             bank_statement = self.env['account.bank.statement'].search([
                 ('journal_id', '=', self.cashier_piece_id.journal_id.id),
-                ('date', '=', datetime.now()),
+                ('date', '=', fields.datetime.now()),
                 ('state', '=', 'open'),
             ])
             # raise UserError('bank_statement %s' % bank_statement)
@@ -80,7 +80,7 @@ class WizardCashierPiece(models.TransientModel):
                 raise UserError(_("No %s cash statement is open for the day of %s. You must first open a cash statement for this day") % (self.cashier_piece_id.journal_id.name, date.today()))
             # prepare bank statement line
             bank_statement_line_vals = {
-                'date': datetime.now(),
+                'date': fields.datetime.now(),
                 'payment_ref': _('Payment of the cash piece %s' % self.cashier_piece_id.name),
                 'beneficiary': self.sudo().cashier_piece_id.employee_id.name,
                 'amount': -1 * self.cashier_piece_id.amount_total,
@@ -144,7 +144,7 @@ class WizardCashierPiece(models.TransientModel):
                 }))
             account_move_vals = {
                 'journal_id': self.cashier_piece_id.journal_id.id,
-                'date': datetime.now(),
+                'date': fields.datetime.now(),
                 'line_ids': lines,
                 'ref': self.cashier_piece_id.name
             }

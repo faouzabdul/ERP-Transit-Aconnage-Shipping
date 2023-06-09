@@ -7,8 +7,6 @@
             <form string="Payment Request">
                <sheet>
                    <field name="payment_request_id" invisible="1" />
-                   <field name="available_payment_method_line_ids" invisible="1" />
-                   <field name="hide_payment_method_line" invisible="1" />
                    <group string="Confirmation ?" attrs="{'invisible': [('state', '=', 'finance_approval')]}"/>
                    <group string="Make a payment ?" attrs="{'invisible': [('state', '!=', 'finance_approval')]}"/>
                     <group col="2">
@@ -16,11 +14,11 @@
                         <field name="partner_id" attrs="{'invisible': [('state', '!=', 'finance_approval')], 'required': [('state', '=', 'finance_approval')]}"/>
                         <field name="amount" attrs="{'invisible': [('state', '!=', 'finance_approval')], 'required': [('state', '=', 'finance_approval')]}"/>
                         <field name="date" />
-                        <field name="ref" attrs="{'invisible': [('state', '!=', 'finance_approval')], 'required': [('state', '=', 'finance_approval')]}"/>
-                        <field name="receiver" attrs="{'invisible': [('state', '!=', 'finance_approval')], 'required': [('state', '=', 'finance_approval')]}"/>
+                        <field name="payment_label" attrs="{'invisible': [('state', '!=', 'finance_approval')], 'required': [('state', '=', 'finance_approval')]}"/>
+<!--                        <field name="receiver" attrs="{'invisible': [('state', '!=', 'finance_approval')]}"/>-->
                         <field name="journal_id" options="{'no_create': True, 'no_open': True}"
                                attrs="{'invisible': [('state', '!=', 'finance_approval')], 'required': [('state', '=', 'finance_approval')]}"/>
-                        <field name="payment_method_line_id" options="{'no_create': True, 'no_open': True}"
+                        <field name="payment_mode"
                                attrs="{'invisible': [('state', '!=', 'finance_approval')], 'required': [('state', '=', 'finance_approval')]}"/>
                         <field name="bank_statement_id" options="{'no_create': True, 'no_open': True}"
                                domain="[('journal_id', '=', journal_id), ('state', '=', 'open')]"
