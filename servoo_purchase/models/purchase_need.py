@@ -16,7 +16,7 @@ class PurchaseNeed(models.Model):
 
     name = fields.Char(string='Reference', required=True, index=True, default=lambda self: _('New'), copy=False)
     description = fields.Text('Description')
-    date = fields.Datetime('Date', default=datetime.now())
+    date = fields.Datetime('Date', default=lambda self: fields.datetime.now())
     employee_id = fields.Many2one('hr.employee', 'Requesting employee', default=lambda self: self.env.user.employee_id)
     department_id = fields.Many2one(related='employee_id.department_id', related_sudo=False)
     employee_parent_id = fields.Many2one(related='employee_id.parent_id', readonly=False, related_sudo=False)

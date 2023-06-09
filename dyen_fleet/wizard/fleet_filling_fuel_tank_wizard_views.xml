@@ -26,7 +26,7 @@
         </record>
 
         <record id="fleet_filling_fuel_tank_wizard_action" model="ir.actions.act_window">
-            <field name="name"></field>
+            <field name="name">Filling tank</field>
             <field name="res_model">fleet.filling.fuel.tank.wizard</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>

@@ -9,6 +9,10 @@
                 <field name="average_price" position="after">
                     <button name="%(dyen_fleet.fleet_filling_fuel_tank_wizard_action)d" string="Add Fuel" type="action" class="btn-success"
                     groups="purchase.group_purchase_user"/>
+
+                    <button name="%(dyen_fleet.fleet_cleaning_fuel_tank_wizard_action)d" string="Clean Tank" type="action" class="btn-primary"
+                    groups="purchase.group_purchase_user"/>
+
                 </field>
             </field>
         </record>

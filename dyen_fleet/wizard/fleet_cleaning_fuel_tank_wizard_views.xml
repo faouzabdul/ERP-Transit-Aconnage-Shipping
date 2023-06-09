@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+     <record id="fleet_cleaning_fuel_tank_wizard_form" model="ir.ui.view">
+            <field name="name">fleet.cleaning.fuel.tank.wizard.view.form</field>
+            <field name="model">fleet.cleaning.fuel.tank.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Add Liters">
+                    <sheet>
+                        <group col="4">
+                            <field name="date" required="1"/>
+                            <field name="tank_id" readonly="1"/>
+                            <label for="old_fuel_level" />
+                             <div class="o_row">
+                                 <field name="old_fuel_level"/><span>Liters</span>
+                             </div>
+                            <label for="new_fuel_level" />
+                            <div class="o_row">
+                                 <field name="new_fuel_level"/><span>Liters</span>
+                             </div>
+                            <field name="description" colspan="4"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="action_cleaning_fuel_tank" string="Apply" type="object" class="oe_highlight" data-hotkey="q"/>
+                        <button string="Discard" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="fleet_cleaning_fuel_tank_wizard_action" model="ir.actions.act_window">
+            <field name="name">Cleaning Tank</field>
+            <field name="res_model">fleet.cleaning.fuel.tank.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+</odoo>

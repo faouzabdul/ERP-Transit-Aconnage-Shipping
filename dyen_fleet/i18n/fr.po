@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220616\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-06 12:39+0000\n"
-"PO-Revision-Date: 2022-09-06 12:39+0000\n"
+"POT-Creation-Date: 2023-06-08 23:59+0000\n"
+"PO-Revision-Date: 2023-06-08 23:59+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,6 +20,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_fuel_tank_view_form
 msgid "<span>Liters</span>"
 msgstr "<span>Litres</span>"
+
+#. module: dyen_fleet
+#: model:fleet.service.type,name:dyen_fleet.contract_type_assurance
+msgid "ASSURANCE"
+msgstr ""
 
 #. module: dyen_fleet
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__message_needaction
@@ -57,11 +62,6 @@ msgid "Activity Type Icon"
 msgstr ""
 
 #. module: dyen_fleet
-#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_fuel_tank_view_form
-msgid "Add Fuel"
-msgstr "Ajouter du carburant"
-
-#. module: dyen_fleet
 #: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_filling_fuel_tank_wizard_form
 msgid "Add Liters"
 msgstr "Ajouter des litres"
@@ -93,6 +93,11 @@ msgid "Average Price"
 msgstr "Prix moyen"
 
 #. module: dyen_fleet
+#: model:fleet.service.type,name:dyen_fleet.contract_type_carte_grise
+msgid "CARTE GRISE"
+msgstr ""
+
+#. module: dyen_fleet
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__capacity
 msgid "Capacity"
 msgstr "Capacité"
@@ -108,6 +113,17 @@ msgid "Consumption Details"
 msgstr "Détails de la consommation"
 
 #. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_fuel_tank_view_form
+msgid "Consumptions"
+msgstr "Consommations"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_cleaning__create_uid
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_filling__create_uid
+msgid "Create By"
+msgstr "Créé par"
+
+#. module: dyen_fleet
 #: model_terms:ir.actions.act_window,help:dyen_fleet.fleet_vehicle_log_fuel_action
 msgid "Create a new fuel log"
 msgstr "Créer l'historique des consommations de carburant"
@@ -120,7 +136,6 @@ msgstr "Créer un nouveau réservoir de carburant"
 #. module: dyen_fleet
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_filling_fuel_tank_wizard__create_uid
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__create_uid
-#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_filling__create_uid
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__create_uid
 msgid "Created by"
 msgstr "Créé par"
@@ -128,6 +143,7 @@ msgstr "Créé par"
 #. module: dyen_fleet
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_filling_fuel_tank_wizard__create_date
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__create_date
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_cleaning__create_date
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_filling__create_date
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__create_date
 msgid "Created on"
@@ -140,10 +156,11 @@ msgstr "Devise"
 
 #. module: dyen_fleet
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_filling_fuel_tank_wizard__date
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_cleaning__date
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_filling__date
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__date
 msgid "Date"
-msgstr "Date"
+msgstr ""
 
 #. module: dyen_fleet
 #: model:ir.model.fields,help:dyen_fleet.field_fleet_vehicle_log_fuel__date
@@ -151,14 +168,15 @@ msgid "Date when the cost has been executed"
 msgstr "Date à laquelle le coût a été exécuté"
 
 #. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_cleaning__description
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__description
 msgid "Description"
-msgstr "Description"
+msgstr ""
 
 #. module: dyen_fleet
 #: model:ir.model.fields.selection,name:dyen_fleet.selection__fleet_fuel_tank__fuel_type__diesel
 msgid "Diesel"
-msgstr "Diesel"
+msgstr ""
 
 #. module: dyen_fleet
 #: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_filling_fuel_tank_wizard_form
@@ -168,6 +186,7 @@ msgstr ""
 #. module: dyen_fleet
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_filling_fuel_tank_wizard__display_name
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__display_name
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_cleaning__display_name
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_filling__display_name
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__display_name
 msgid "Display Name"
@@ -176,7 +195,7 @@ msgstr "Nom Affiché"
 #. module: dyen_fleet
 #: model:ir.model.fields.selection,name:dyen_fleet.selection__fleet_fuel_tank__fuel_type__essence
 msgid "Essence"
-msgstr "Essence"
+msgstr ""
 
 #. module: dyen_fleet
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_filling_fuel_tank_wizard__name
@@ -193,6 +212,11 @@ msgstr "Remplissage du réservoir de carburant"
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__filling_ids
 msgid "Filling history"
 msgstr "Historique des remplissages"
+
+#. module: dyen_fleet
+#: model:ir.actions.act_window,name:dyen_fleet.fleet_filling_fuel_tank_wizard_action
+msgid "Filling tank"
+msgstr "Remplissage de la citerne"
 
 #. module: dyen_fleet
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__message_follower_ids
@@ -242,6 +266,7 @@ msgstr "Journal de carburant"
 #: model:ir.actions.act_window,name:dyen_fleet.fleet_fuel_tank_action
 #: model:ir.model,name:dyen_fleet.model_fleet_fuel_tank
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_filling_fuel_tank_wizard__tank_id
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_cleaning__tank_id
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_filling__tank_id
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__tank_id
 #: model:ir.ui.menu,name:dyen_fleet.fleet_fuel_tank_menu
@@ -249,6 +274,21 @@ msgstr "Journal de carburant"
 #: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_fuel_tank_view_tree
 msgid "Fuel Tank"
 msgstr "Réservoir de carburant"
+
+#. module: dyen_fleet
+#: model:ir.actions.act_window,name:dyen_fleet.fleet_fuel_tank_cleaning_action
+msgid "Fuel Tank Cleaning"
+msgstr "Nettoyage de la citerne"
+
+#. module: dyen_fleet
+#: model:ir.actions.act_window,name:dyen_fleet.fleet_fuel_tank_filling_action
+msgid "Fuel Tank Filling"
+msgstr "Remplissage de la citerne"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__consumption_count
+msgid "Fuel consumptions"
+msgstr "Consommations de carburant"
 
 #. module: dyen_fleet
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__fuel_level
@@ -259,6 +299,16 @@ msgstr "Niveau de carburant"
 #: model:ir.model,name:dyen_fleet.model_fleet_vehicle_log_fuel
 msgid "Fuel log for vehicles"
 msgstr "Carnet de carburant pour véhicules"
+
+#. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.view_fleet_fuel_tank_cleaning_tree
+msgid "Fuel tank cleaning"
+msgstr "Nettoyage de la citerne"
+
+#. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.view_fleet_fuel_tank_filling_tree
+msgid "Fuel tank filling"
+msgstr "Remplissage de la citerne"
 
 #. module: dyen_fleet
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__fuel_type
@@ -279,7 +329,9 @@ msgstr "A un message"
 #. module: dyen_fleet
 #: model_terms:ir.actions.act_window,help:dyen_fleet.fleet_vehicle_log_fuel_action
 msgid "Here you can add refuelling entries for all vehicles."
-msgstr "Ici, vous pouvez ajouter des entrées de ravitaillement pour tous les véhicules."
+msgstr ""
+"Ici, vous pouvez ajouter des entrées de ravitaillement pour tous les "
+"véhicules."
 
 #. module: dyen_fleet
 #: model:ir.model,name:dyen_fleet.model_fleet_fuel_tank_filling
@@ -289,10 +341,11 @@ msgstr "Historique du remplissage du réservoir de carburant"
 #. module: dyen_fleet
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_filling_fuel_tank_wizard__id
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__id
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_cleaning__id
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_filling__id
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: dyen_fleet
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__activity_exception_icon
@@ -312,7 +365,8 @@ msgstr "Icône pour indiquer une activité d'exception."
 #: model:ir.model.fields,help:dyen_fleet.field_fleet_vehicle_log_fuel__message_needaction
 #: model:ir.model.fields,help:dyen_fleet.field_fleet_vehicle_log_fuel__message_unread
 msgid "If checked, new messages require your attention."
-msgstr "Si cette case est cochée, de nouveaux messages nécessitent votre attention."
+msgstr ""
+"Si cette case est cochée, de nouveaux messages nécessitent votre attention."
 
 #. module: dyen_fleet
 #: model:ir.model.fields,help:dyen_fleet.field_fleet_fuel_tank__message_has_error
@@ -323,7 +377,9 @@ msgstr ""
 #. module: dyen_fleet
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__inv_ref
 msgid "Invoice Reference"
-msgstr "Si cette case est cochée, certains messages présentent une erreur de livraison."
+msgstr ""
+"Si cette case est cochée, certains messages présentent une erreur de "
+"livraison."
 
 #. module: dyen_fleet
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__message_is_follower
@@ -354,6 +410,7 @@ msgstr "Derniers détails de remplissage"
 #. module: dyen_fleet
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_filling_fuel_tank_wizard____last_update
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank____last_update
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_cleaning____last_update
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_filling____last_update
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel____last_update
 msgid "Last Modified on"
@@ -362,6 +419,7 @@ msgstr "Dernière modification le"
 #. module: dyen_fleet
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_filling_fuel_tank_wizard__write_uid
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__write_uid
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_cleaning__write_uid
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_filling__write_uid
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__write_uid
 msgid "Last Updated by"
@@ -370,6 +428,7 @@ msgstr "Dernière mise à jour par"
 #. module: dyen_fleet
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_filling_fuel_tank_wizard__write_date
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__write_date
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_cleaning__write_date
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_filling__write_date
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__write_date
 msgid "Last Updated on"
@@ -417,7 +476,7 @@ msgstr "Erreur de livraison du message"
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__message_ids
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__message_ids
 msgid "Messages"
-msgstr "Messages"
+msgstr ""
 
 #. module: dyen_fleet
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__my_activity_date_deadline
@@ -429,6 +488,11 @@ msgstr "Date limite de mon activité"
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__name
 msgid "Name"
 msgstr "Nom"
+
+#. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_cleaning__new_fuel_level
+msgid "New fuel level"
+msgstr "Nouveau niveau de carburant"
 
 #. module: dyen_fleet
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank__activity_calendar_event_id
@@ -511,6 +575,11 @@ msgid "Odometer measure of the vehicle at the moment of this log"
 msgstr "Mesure de du kilométrage du véhicule au moment de ce journal"
 
 #. module: dyen_fleet
+#: model:ir.model.fields,field_description:dyen_fleet.field_fleet_fuel_tank_cleaning__old_fuel_level
+msgid "Old fuel level"
+msgstr "Ancien niveau de carburant"
+
+#. module: dyen_fleet
 #: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_vehicle_log_fuel_view_search
 #: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_vehicle_log_fuel_view_tree
 msgid "Price"
@@ -542,7 +611,7 @@ msgstr "Utilisateur responsable"
 #. module: dyen_fleet
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__service_id
 msgid "Service"
-msgstr "Service"
+msgstr ""
 
 #. module: dyen_fleet
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__service_type_id
@@ -570,20 +639,48 @@ msgstr ""
 
 #. module: dyen_fleet
 #: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_fuel_tank_view_form
+msgid "Tank Cleaning"
+msgstr "Nettoyage de la citerne"
+
+#. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_fuel_tank_view_form
 msgid "Tank Details"
 msgstr "Détails du réservoir"
 
 #. module: dyen_fleet
+#: model_terms:ir.ui.view,arch_db:dyen_fleet.fleet_fuel_tank_view_form
+msgid "Tank Filling"
+msgstr "Remplissage de citerne"
+
+#. module: dyen_fleet
 #: code:addons/dyen_fleet/models/fleet_fuel_tank.py:0
+#: code:addons/dyen_fleet/wizard/fleet_cleaning_fuel_tank_wizard.py:0
 #, python-format
 msgid "Tank capacity must not be negative"
 msgstr "La capacité du réservoir ne doit pas être négative"
 
 #. module: dyen_fleet
+#: model:ir.model,name:dyen_fleet.model_fleet_fuel_tank_cleaning
+msgid "Tank cleaning"
+msgstr "Remplissage de citerne"
+
+#. module: dyen_fleet
 #: code:addons/dyen_fleet/models/fleet_vehicle_fuel.py:0
 #, python-format
 msgid "The amount of fuel in the tank cannot satisfy this request"
-msgstr "La quantité de carburant dans le réservoir ne peut pas satisfaire cette demande"
+msgstr ""
+"La quantité de carburant dans le réservoir ne peut pas satisfaire cette "
+"demande"
+
+#. module: dyen_fleet
+#: model_terms:ir.actions.act_window,help:dyen_fleet.fleet_fuel_tank_cleaning_action
+msgid "There is no item of tank cleaning"
+msgstr "Il n'y a aucun historique de nettoyage de la citerne"
+
+#. module: dyen_fleet
+#: model_terms:ir.actions.act_window,help:dyen_fleet.fleet_fuel_tank_filling_action
+msgid "There is no item of tank filling"
+msgstr "Il n'y a aucun historique de remplissage de la citerne"
 
 #. module: dyen_fleet
 #: model:ir.model.fields,help:dyen_fleet.field_fleet_fuel_tank__activity_exception_decoration
@@ -612,6 +709,11 @@ msgstr "Messages non lus"
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__message_unread_counter
 msgid "Unread Messages Counter"
 msgstr "Compteur de messages non lus"
+
+#. module: dyen_fleet
+#: model:fleet.service.type,name:dyen_fleet.contract_type_visite_technique
+msgid "VISITE TECHNIQUE"
+msgstr ""
 
 #. module: dyen_fleet
 #: model:ir.model.fields,field_description:dyen_fleet.field_fleet_vehicle_log_fuel__vehicle_id
@@ -650,4 +752,6 @@ msgstr "Écrivez ici toute autre information"
 #: code:addons/dyen_fleet/wizard/fleet_filling_fuel_tank_wizard.py:0
 #, python-format
 msgid "You cannot add fuel beyond the tank's maximum capacity"
-msgstr "Vous ne pouvez pas ajouter de carburant au-delà de la capacité maximale du réservoir"
+msgstr ""
+"Vous ne pouvez pas ajouter de carburant au-delà de la capacité maximale du "
+"réservoir"

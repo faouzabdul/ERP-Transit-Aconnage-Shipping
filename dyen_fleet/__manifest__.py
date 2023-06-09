@@ -11,6 +11,7 @@
     'data': [
         'security/ir.model.access.csv',
         'wizard/fleet_filling_fuel_tank_wizard_views.xml',
+        'wizard/fleet_cleaning_fuel_tank_wizard_views.xml',
         'views/fleet_fuel_tank_views.xml',
         'views/fleet_vehicle_log_fuel_views.xml',
         'data/fleet_data.xml',

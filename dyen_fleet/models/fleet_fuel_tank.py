@@ -66,6 +66,7 @@ class FleetFuelTank(models.Model):
 class FleetFuelTankFilling(models.Model):
     _name = 'fleet.fuel.tank.filling'
     _description = 'History of fuel tank filling'
+    _order = 'id desc'
 
     date = fields.Date('Date')
     liter = fields.Float('Liters')
@@ -73,6 +74,19 @@ class FleetFuelTankFilling(models.Model):
     name = fields.Char('External Reference')
     tank_id = fields.Many2one('fleet.fuel.tank', 'Fuel Tank')
     create_uid = fields.Many2one('res.users', 'Create By')
+
+
+class FleetFuelTankCleaning(models.Model):
+    _name = 'fleet.fuel.tank.cleaning'
+    _description = 'Tank cleaning'
+    _order = 'id desc'
+
+    date = fields.Datetime('Date')
+    description = fields.Text('Description')
+    tank_id = fields.Many2one('fleet.fuel.tank', 'Fuel Tank')
+    create_uid = fields.Many2one('res.users', 'Create By')
+    old_fuel_level = fields.Float('Old fuel level')
+    new_fuel_level = fields.Float('New fuel level')
 
 
 

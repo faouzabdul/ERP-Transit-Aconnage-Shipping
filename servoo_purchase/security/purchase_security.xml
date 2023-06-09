@@ -30,22 +30,32 @@
         <record model="res.groups" id="group_purchase_applicant_service">
             <field name="name">Signature Applicant Service</field>
             <field name="category_id" ref="base.module_category_inventory_purchase"/>
+            <field name="implied_ids"
+                   eval="[(4, ref('purchase_need_validator_group_user'))]"/>
         </record>
         <record model="res.groups" id="group_purchase_supply">
             <field name="name">Signature Supply Department</field>
             <field name="category_id" ref="base.module_category_inventory_purchase"/>
+            <field name="implied_ids"
+                   eval="[(4, ref('purchase_need_validator_group_user'))]"/>
         </record>
         <record model="res.groups" id="group_purchase_accounting">
             <field name="name">Signature Accounting Department</field>
             <field name="category_id" ref="base.module_category_inventory_purchase"/>
+            <field name="implied_ids"
+                   eval="[(4, ref('purchase_need_validator_group_user'))]"/>
         </record>
         <record model="res.groups" id="group_purchase_applicant_direction">
             <field name="name">Signature Applicant Direction</field>
             <field name="category_id" ref="base.module_category_inventory_purchase"/>
+            <field name="implied_ids"
+                   eval="[(4, ref('purchase_need_validator_group_user'))]"/>
         </record>
         <record model="res.groups" id="group_purchase_management_control">
             <field name="name">Signature Management Control</field>
             <field name="category_id" ref="base.module_category_inventory_purchase"/>
+            <field name="implied_ids"
+                   eval="[(4, ref('purchase_need_validator_group_user'))]"/>
         </record>
 
     </data>

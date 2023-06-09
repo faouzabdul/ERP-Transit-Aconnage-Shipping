@@ -3,6 +3,7 @@ access_fleet_fuel_tank,fleet.fuel.tank,model_fleet_fuel_tank,fleet.fleet_group_u
 access_fleet_fuel_tank_filling,fleet.fuel.tank.filling,model_fleet_fuel_tank_filling,fleet.fleet_group_user,1,1,1,0
 access_fleet_vehicle_log_fuel,fleet.vehicle.log.fuel,model_fleet_vehicle_log_fuel,fleet.fleet_group_user,1,1,1,0
 dyen_fleet.access_fleet_filling_fuel_tank_wizard,access_fleet_filling_fuel_tank_wizard,dyen_fleet.model_fleet_filling_fuel_tank_wizard,fleet.fleet_group_user,1,1,1,0
-
+dyen_fleet.access_fleet_fuel_tank_cleaning,access_fleet_fuel_tank_cleaning,dyen_fleet.model_fleet_fuel_tank_cleaning,base.group_user,1,1,1,0
+dyen_fleet.access_fleet_cleaning_fuel_tank_wizard,access_fleet_cleaning_fuel_tank_wizard,dyen_fleet.model_fleet_cleaning_fuel_tank_wizard,base.group_user,1,1,1,1
 
 

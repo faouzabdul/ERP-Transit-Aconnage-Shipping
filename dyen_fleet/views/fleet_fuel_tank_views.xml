@@ -17,6 +17,13 @@
                         <button name="return_action_to_open"
                             type="object"
                             class="oe_stat_button"
+                            icon="fa-flask"
+                                context="{'xml_id':'dyen_fleet.fleet_fuel_tank_cleaning_action'}"
+                                string="Tank Cleaning"
+                        />
+                        <button name="return_action_to_open"
+                            type="object"
+                            class="oe_stat_button"
                             icon="fa-adjust"
                                 context="{'xml_id':'dyen_fleet.fleet_vehicle_log_fuel_action'}"
                             attrs="{'invisible': [('consumption_count', '=', 0)]}">
@@ -151,6 +158,32 @@
         <field name="help" type="html">
           <p class="o_view_nocontent_smiling_face">
             There is no item of tank filling
+          </p>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="view_fleet_fuel_tank_cleaning_tree">
+        <field name="name">fleet.fuel.tank.cleaning.tree</field>
+        <field name="model">fleet.fuel.tank.cleaning</field>
+        <field name="arch" type="xml">
+            <tree string="Fuel tank cleaning" create="0">
+                <field name="description" />
+                <field name="date" />
+                <field name="tank_id" />
+                <field name="old_fuel_level" />
+                <field name="new_fuel_level" />
+                <field name="create_uid" />
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="fleet_fuel_tank_cleaning_action">
+        <field name="name">Fuel Tank Cleaning</field>
+        <field name="res_model">fleet.fuel.tank.cleaning</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            There is no item of tank cleaning
           </p>
         </field>
     </record>
