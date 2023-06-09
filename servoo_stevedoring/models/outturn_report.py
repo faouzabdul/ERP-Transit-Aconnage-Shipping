@@ -10,12 +10,12 @@ class OutturnReport(models.Model):
     _description = 'Outturn Report'
     _order = 'id desc'
 
-    name = fields.Char('Name', required=True, index=True, default=lambda self: _('New'), copy=False)
+    name = fields.Char('Name', required=True, tracking=1, default=lambda self: _('New'), copy=False)
     consignee_id = fields.Many2one('res.partner', 'Client')
     date_debut = fields.Datetime('Date of commence')
     date_end = fields.Datetime('Date of complete')
     date = fields.Date('Date', default=lambda self: fields.datetime.now())
-    create_uid = fields.Many2one('res.users', string='Created by', index=True, readonly=True)
+    create_uid = fields.Many2one('res.users', string='Created by', tracking=1, readonly=True)
     line_ids = fields.One2many('servoo.stevedoring.outturn.report.line', 'outturn_id', string='Lines',
                                auto_join=True, copy=True)
     stevedoring_file_id = fields.Many2one('servoo.stevedoring.file', 'Stevedoring File')

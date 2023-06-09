@@ -20,7 +20,7 @@ class StevedoringFile(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'id desc'
 
-    name = fields.Char(string='Reference', required=True, index=True, default=lambda self: _('New'), copy=False)
+    name = fields.Char(string='Reference', required=True, tracking=1, default=lambda self: _('New'), copy=False)
     file_type_id = fields.Many2one('servoo.stevedoring.file.type', 'File Type', required=True, tracking=1)
     partner_id = fields.Many2one('res.partner', 'Client')
     partner_ids = fields.Many2many('res.partner', string='Clients', tracking=1)

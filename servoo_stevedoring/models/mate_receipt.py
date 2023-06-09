@@ -10,7 +10,7 @@ class MateReceipt(models.Model):
     _description = 'Mate Receipt'
     _order = 'id desc'
 
-    name = fields.Char('Reference', required=True, index=True, default=lambda self: _('New'), copy=False)
+    name = fields.Char('Reference', required=True, tracking=1, default=lambda self: _('New'), copy=False)
     customs_declaration_id = fields.Many2one('servoo.customs.declaration', 'Customs Declaration', required=True)
     charger_id = fields.Many2one('res.partner', related='customs_declaration_id.charger_id')
     loading_port = fields.Many2one('res.locode', related='customs_declaration_id.loading_port')

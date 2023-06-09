@@ -12,7 +12,7 @@ class StevedoringOperation(models.Model):
     _order = 'id desc'
 
     user_id = fields.Many2one('res.users', 'User')
-    name = fields.Char(string='Reference', required=True, index=True, default=lambda self: _('New'), copy=False)
+    name = fields.Char(string='Reference', required=True, tracking=1, default=lambda self: _('New'), copy=False)
     date_debut = fields.Datetime('Date debut', default=lambda self: fields.datetime.now())
     date_end = fields.Datetime('Date end')
     stevedoring_file_id = fields.Many2one('servoo.stevedoring.file', 'Stevedoring File')
@@ -21,13 +21,13 @@ class StevedoringOperation(models.Model):
         ('loading', 'Loading'),
         ('unloading', 'Unloading'),
         ('transportation', 'Transportation')
-    ], string='Operation nature', index=True, required=True)
+    ], string='Operation nature', tracking=1, required=True)
     name_of_responsible = fields.Char('Name of responsible')
     operation_line_ids = fields.One2many('servoo.stevedoring.operation.line', 'operation_id', string='Operation lines')
     shift = fields.Selection([
         ('day', 'Day'),
         ('night', 'Night')
-    ], string='Shift', index=True)
+    ], string='Shift', tracking=1)
 
     @api.model
     def create(self, vals):

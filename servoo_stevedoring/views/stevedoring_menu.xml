@@ -19,7 +19,8 @@
                 <menuitem id="stevedoring_formality_menu" action="servoo_stevedoring.action_formalities" parent="stevedoring_op_menu" sequence="19"/>
                 <menuitem id="stevedoring_document_menu" action="servoo_stevedoring.action_documents" parent="stevedoring_op_menu" sequence="20"/>
 
-            <menuitem id="menu_stevedoring_config"
+        <menuitem id="stevedoring_transit_order_menu" name="Transit Order" parent="stevedoring_menu_root" sequence="22" action="servoo_transit.action_transit_order_no_create"/>
+        <menuitem id="menu_stevedoring_config"
                 name="Configuration"
                 parent="stevedoring_menu_root"
                 sequence="35"

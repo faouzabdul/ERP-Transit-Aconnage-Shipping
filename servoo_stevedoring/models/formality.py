@@ -23,7 +23,7 @@ class Formality(models.Model):
     start_date = fields.Datetime('Start Date', default=lambda self: fields.datetime.now())
     end_date = fields.Datetime('End Date')
     amount = fields.Float('Amount', digits='Product Price')
-    file_id = fields.Many2one('servoo.stevedoring.file', 'File', required=True, ondelete='cascade', index=True, copy=False)
+    file_id = fields.Many2one('servoo.stevedoring.file', 'File', required=True, ondelete='cascade', tracking=1, copy=False)
     attachment_ids = fields.Many2many(
         'ir.attachment', 'servoo_stevedoring_formality_attachment_rel',
         'formality_id', 'attachment_id',
