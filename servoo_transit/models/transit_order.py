@@ -132,7 +132,9 @@ class TransitOrder(models.Model):
             # res = self._cr.fetchone()
             res = self._cr.fetchall()
             record_count = len(res) + 1
-            if res and res[0][0][-4:].isnumeric():
+            if res and res[0][0][-5:].isnumeric():
+                record_count = int(res[-1][0][-5:]) + 1
+            elif res and res[0][0][-4:].isnumeric():
                 record_count = int(res[-1][0][-4:]) + 1
             elif res and res[0][0][-3:].isnumeric():
                 record_count = int(res[-1][0][-3:]) + 1
@@ -284,3 +286,14 @@ class TransitOrder(models.Model):
             })
         action['context'] = context
         return action
+
+
+class AccountIncoterm(models.Model):
+    _inherit = "account.incoterms"
+
+    def name_get(self):
+        res = []
+        for record in self:
+            name = record.code + "-" + record.name
+            res.append((record.id, name))
+        return res

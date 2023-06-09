@@ -23,5 +23,9 @@
         <menuitem id="transit_invoice_menu" parent="account.menu_finance" name="Customs Operations" sequence="5">
             <menuitem id="transit_order_invoice_menu" action="servoo_transit.action_transit_order_to_invoice" />
         </menuitem>
+        <menuitem id="department_operation_sub_menu" name="Department Files" sequence="2" parent="transit_menu_root">
+            <menuitem id="shipping_sub_file_menu"  action="servoo_shipping.action_shipping_file_no_create"  sequence="1"/>
+            <menuitem id="stevedoring_sub_file_menu"  action="servoo_stevedoring.action_stevedoring_file_no_create"  sequence="1"/>
+        </menuitem>
     </data>
 </odoo>

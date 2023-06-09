@@ -328,6 +328,11 @@ msgid "Delivery place"
 msgstr "Lieu de livraison"
 
 #. module: servoo_transit
+#: model:ir.ui.menu,name:servoo_transit.department_operation_sub_menu
+msgid "Department Files"
+msgstr "Dossiers des départements"
+
+#. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__departure_country_id
 msgid "Departure Country"
 msgstr "Pays de départ"
@@ -838,12 +843,12 @@ msgstr "Ouvert"
 #. module: servoo_transit
 #: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_search
 msgid "Operation Type"
-msgstr ""
+msgstr "Type d'opération"
 
 #. module: servoo_transit
 #: model_terms:ir.ui.view,arch_db:servoo_transit.view_operation_sub_type_tree
 msgid "Operation sub type"
-msgstr ""
+msgstr "Sous-type d'opération"
 
 #. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_formality__other_reference
@@ -963,6 +968,11 @@ msgid ""
 msgstr ""
 
 #. module: servoo_transit
+#: model:ir.ui.menu,name:servoo_transit.stevedoring_sub_file_menu
+msgid "Stevedoring Files"
+msgstr "Dossiers de manutention"
+
+#. module: servoo_transit
 #: model:ir.actions.act_window,name:servoo_transit.action_operation_sub_type
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__sub_operation_type
 #: model:ir.ui.menu,name:servoo_transit.operation_sub_type_config_menu
@@ -977,7 +987,7 @@ msgstr ""
 #. module: servoo_transit
 #: model:ir.model.constraint,message:servoo_transit.constraint_servoo_transit_order_bill_of_lading_uniq
 msgid "The bill of lading must be unique !"
-msgstr ""
+msgstr "Le connaissement doit être unique !"
 
 #. module: servoo_transit
 #: model_terms:ir.actions.act_window,help:servoo_transit.action_transit_order_to_invoice
