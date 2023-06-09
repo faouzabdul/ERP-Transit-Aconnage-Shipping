@@ -23,7 +23,7 @@
     </record>
 
     <record id="action_wizard_shipping_delivery_order" model="ir.actions.act_window">
-            <field name="name"></field>
+            <field name="name">Generate a Delivery Order</field>
             <field name="res_model">servoo.shipping.bl.delivery.order</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>

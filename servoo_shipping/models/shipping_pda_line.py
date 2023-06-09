@@ -212,7 +212,7 @@ class ShippingPdaLine(models.Model):
         result = super(ShippingPdaLine, self).write(values)
         return result
 
-    shipping_pda_id = fields.Many2one('servoo.shipping.pda', string='PDA Reference', required=True, ondelete='cascade', index=True, copy=False)
+    shipping_pda_id = fields.Many2one('servoo.shipping.pda', string='PDA Reference', required=True, ondelete='cascade', tracking=1, copy=False)
     name = fields.Text(string='Description', required=True)
     sequence = fields.Integer(string='Sequence', default=10)
 
@@ -255,8 +255,8 @@ class ShippingPdaLine(models.Model):
 
     salesman_id = fields.Many2one(related='shipping_pda_id.user_id', store=True, string='Salesperson')
     currency_id = fields.Many2one(related='shipping_pda_id.currency_id', depends=['shipping_pda_id.currency_id'], store=True, string='Currency')
-    company_id = fields.Many2one(related='shipping_pda_id.company_id', string='Company', store=True, index=True)
-    shipping_pda_partner_id = fields.Many2one(related='shipping_pda_id.partner_id', store=True, string='Customer', index=True)
+    company_id = fields.Many2one(related='shipping_pda_id.company_id', string='Company', store=True, tracking=1)
+    shipping_pda_partner_id = fields.Many2one(related='shipping_pda_id.partner_id', store=True, string='Customer', tracking=1)
     analytic_tag_ids = fields.Many2many(
         'account.analytic.tag', string='Analytic Tags',
         compute='_compute_analytic_tag_ids', store=True, readonly=False,

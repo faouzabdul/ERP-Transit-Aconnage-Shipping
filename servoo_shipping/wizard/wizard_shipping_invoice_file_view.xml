@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="wizard_shipping_invoice_file_form">
+        <field name="name">servoo.shipping.invoice.file.form</field>
+        <field name="model">servoo.shipping.invoice.file</field>
+        <field name="arch" type="xml">
+            <form string="Invoice Shipping File">
+                <sheet>
+                    <group col="4" >
+                        <field name="shipping_file_id" readonly="1" colspan="4"/>
+                        <field name="currency_id" />
+                        <field name="invoice_mode" />
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_validate" string="Validate" type="object" class="oe_highlight" data-hotkey="q"/>
+                    <button string="Discard" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizard_shipping_invoice_file" model="ir.actions.act_window">
+            <field name="name">Invoicing shipping file</field>
+            <field name="res_model">servoo.shipping.invoice.file</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+</odoo>

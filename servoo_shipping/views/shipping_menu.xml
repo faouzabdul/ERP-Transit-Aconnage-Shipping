@@ -32,6 +32,11 @@
         </menuitem>
 
 
+        <menuitem id="shipping_delivery_order_menu_root" name="Delivery Order"
+                  groups="servoo_shipping.shipping_group_delivery_order"
+                  web_icon="servoo_shipping,static/description/bad.jpg" />
+
+
 
     </data>
 </odoo>

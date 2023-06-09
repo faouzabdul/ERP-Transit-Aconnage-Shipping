@@ -14,6 +14,7 @@
         'wizard/shipping_pda_cancel_views.xml',
         'wizard/wizard_delivery_order_view.xml',
         'wizard/wizard_cancel_shipping_file_view.xml',
+        'wizard/wizard_shipping_invoice_file_view.xml',
         'report/shipping_pda_report_templates.xml',
         'report/shipping_pda_report.xml',
         'report/shipping_delivery_order_report_templates.xml',

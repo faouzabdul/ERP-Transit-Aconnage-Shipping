@@ -10,26 +10,33 @@ class BillOfLading(models.Model):
     _description = 'Bill of lading'
     _order = 'id desc'
 
-    name = fields.Char('Reference', required=True, index=True, default=lambda self: _('New'), copy=False)
+    name = fields.Char('Reference', required=True, tracking=1, default=lambda self: _('New'), copy=False)
     date = fields.Date('Date')
-    shipper_id = fields.Many2one('res.partner', 'Shipper', required=True, index=True)
-    consignee_id = fields.Many2one('res.partner', 'Consignee', index=True)
-    notify_id = fields.Many2one('res.partner', 'Notify address', index=True)
+    shipper_id = fields.Many2one('res.partner', 'Shipper', required=True, tracking=1)
+    consignee_id = fields.Many2one('res.partner', 'Consignee', tracking=1)
+    stevedore_id = fields.Many2one('res.partner', 'Stevedore', tracking=1)
+    notify_id = fields.Many2one('res.partner', 'Notify address', tracking=1)
     shipping_file_id = fields.Many2one('servoo.shipping.file', 'Shipping file')
-    vessel_id = fields.Many2one('res.transport.means', string="Vessel", index=True)
-    loading_port = fields.Many2one('res.locode', 'Port of loading', index=True)
-    discharge_port = fields.Many2one('res.locode', 'Port of discharge', index=True)
+    vessel_id = fields.Many2one('res.transport.means', string="Vessel", tracking=1)
+    loading_port = fields.Many2one('res.locode', 'Port of loading', tracking=1)
+    discharge_port = fields.Many2one('res.locode', 'Port of discharge', tracking=1)
     voyage_number = fields.Char('Voyage Number')
     cargo_description = fields.Char('Cargo Description')
     state = fields.Selection([
         ('saved', 'Saved'),
         ('delivered', 'Delivered')
-    ], default='saved', string='State', index=True)
+    ], default='saved', string='State', tracking=1)
     good_ids = fields.One2many('servoo.shipping.good', 'bl_id', string='Goods',
-                               auto_join=True, index=True, copy=True)
+                               auto_join=True, tracking=1, copy=True)
 
     delivery_order_count = fields.Integer(compute="_get_delivery_orders", string='Delivery Orders')
     cargo_weight = fields.Float(string='Cargo weight', compute="_get_cargo_weight")
+    operation_type = fields.Selection([
+        ('import', 'Import'),
+        ('export', 'Export'),
+        ('transit', 'Transit'),
+        ('transhipment', 'Transhipment')
+    ], string='Operation Type', tracking=1)
 
     def _get_delivery_orders(self):
         orders = self.env['servoo.shipping.delivery.order']

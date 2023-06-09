@@ -11,7 +11,7 @@ class DeliveryOrder(models.Model):
     _description = 'Delivery Order'
     _order = 'id desc'
 
-    name = fields.Char('Name', required=True, index=True, default=lambda self: _('New'), copy=False)
+    name = fields.Char('Name', required=True, tracking=1, default=lambda self: _('New'), copy=False)
     date = fields.Date('Date', default=lambda self: fields.datetime.now())
     validity_date = fields.Date('Validity Date', default=lambda self: fields.datetime.now() + timedelta(days=3))
     bl_id = fields.Many2one('servoo.shipping.bl', 'Bill of lading', required=True)

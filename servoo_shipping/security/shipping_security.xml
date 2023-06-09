@@ -24,6 +24,18 @@
                           (4, ref('base.user_admin'))]"/>
           </record>
 
+        <record model="ir.module.category" id="module_category_shipping_delivery_order">
+            <field name="name">Delivery Order</field>
+            <field name="description">Delivery Order</field>
+            <field name="sequence">4</field>
+        </record>
+
+        <record model="res.groups" id="shipping_group_delivery_order">
+            <field name="name">Manage Delivery order</field>
+            <field name="category_id"
+                   ref="module_category_shipping_delivery_order"/>
+        </record>
+
 
     </data>
 </odoo>

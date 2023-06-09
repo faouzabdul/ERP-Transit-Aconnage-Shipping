@@ -8,6 +8,7 @@
                 <tree string="Bill of lading">
                     <field name="name" />
                     <field name="date" />
+                    <field name="operation_type" />
                     <field name="shipper_id" />
                     <field name="consignee_id" />
                     <field name="notify_id" />
@@ -45,9 +46,11 @@
                             <field name="name" />
                             <field name="date" />
                             <field name="shipper_id" />
-                            <field name="consignee_id" />
+                            <field name="stevedore_id" />
+                            <field name="consignee_id" required="1"/>
                             <field name="notify_id"  required="1"/>
                             <field name="shipping_file_id" />
+                            <field name="operation_type" required="1"/>
                             <field name="vessel_id" />
                             <field name="voyage_number" />
                             <field name="loading_port" />
@@ -108,5 +111,7 @@
         </record>
 
         <menuitem id="shipping_bl_menu" parent="servoo_shipping.shipping_menu" action="action_shipping_bl" />
+        <menuitem id="shipping_bl_delivery_order_menu" parent="servoo_shipping.shipping_delivery_order_menu_root" action="action_shipping_bl" />
+
     </data>
 </odoo>

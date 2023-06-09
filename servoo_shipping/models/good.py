@@ -9,7 +9,7 @@ class ShippingGood(models.Model):
 
     name = fields.Char("Marks and Numbers")
     hscode_id = fields.Many2one('res.hs.code', 'SH Code')
-    quantity = fields.Float('Quantity', digits=(12, 3))
+    quantity = fields.Float('Quantity', digits=(12, 3), default=1.0)
     volume = fields.Float('Volume (m3)', digits=(12, 3))
     gross_weight = fields.Float('Gross Weight (kg)', digits=(12, 3))
     net_weight = fields.Float('Net Weight (kg)', digits=(12, 3))

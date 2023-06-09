@@ -167,7 +167,7 @@ class ShippingFile(models.Model):
 
     file_type_id = fields.Many2one('servoo.shipping.file.type', 'File Type', required=True)
     good_type_id = fields.Many2one('servoo.shipping.file.good.type', 'Good Type')
-    name = fields.Char(string='Reference', required=True, index=True, default=lambda self: _('New'), copy=False)
+    name = fields.Char(string='Reference', required=True, tracking=1, default=lambda self: _('New'), copy=False)
     shipping_pda_id = fields.Many2one('servoo.shipping.pda', 'PDA')
     partner_id = fields.Many2one('res.partner', 'Client', required=True)
     shipowner_id = fields.Many2one('res.partner', 'Shipowner')
@@ -378,7 +378,7 @@ class ShippingFile(models.Model):
         moves = self.env['account.move'].sudo().with_context(default_move_type='out_invoice').create(invoice_vals_list)
         action = self.env["ir.actions.actions"]._for_xml_id("account.action_move_out_invoice_type")
         if len(moves) > 1:
-            action['domain'] = [('id', 'in', invoices.ids)]
+            action['domain'] = [('id', 'in', moves.ids)]
         elif len(moves) == 1:
             form_view = [(self.env.ref('account.view_move_form').id, 'form')]
             if 'views' in action:

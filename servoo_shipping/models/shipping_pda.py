@@ -169,7 +169,7 @@ class ShippingPda(models.Model):
             return [('id', 'not in', shipping_pda_ids)]
         return []
 
-    name = fields.Char(string='Reference', required=True, copy=False, readonly=True, states={'draft': [('readonly', False)]}, index=True, default=lambda self: _('New'))
+    name = fields.Char(string='Reference', required=True, copy=False, readonly=True, states={'draft': [('readonly', False)]}, tracking=1, default=lambda self: _('New'))
     origin = fields.Char(string='Source Document', help="Reference of the document that generated this sales order request.")
     client_order_ref = fields.Char(string='Customer Reference', copy=False)
     reference = fields.Char(string='Payment Ref.', copy=False,
@@ -191,9 +191,9 @@ class ShippingPda(models.Model):
         ('lost', 'Lost'),
         ('cancel', 'Cancelled'),
         ], string='Status', readonly=True, copy=False, index=True, tracking=3, default='draft')
-    date_pda = fields.Datetime(string='PDA Date', required=True, readonly=True, index=True, states={'draft': [('readonly', False)], 'sent': [('readonly', False)]}, copy=False, default=fields.Datetime.now, help="Creation date of draft/sent pdas,\nConfirmation date of confirmed pdas.")
+    date_pda = fields.Datetime(string='PDA Date', required=True, readonly=True, tracking=2, states={'draft': [('readonly', False)], 'sent': [('readonly', False)]}, copy=False, default=fields.Datetime.now, help="Creation date of draft/sent pdas,\nConfirmation date of confirmed pdas.")
 
-    create_date = fields.Datetime(string='Creation Date', readonly=True, index=True, help="Date on which PDA is created.")
+    create_date = fields.Datetime(string='Creation Date', readonly=True, tracking=1, help="Date on which PDA is created.")
 
     user_id = fields.Many2one(
         'res.users', string='Salesperson', index=True, tracking=2, default=lambda self: self.env.user,
@@ -255,7 +255,7 @@ class ShippingPda(models.Model):
         comodel_name='res.country',
         compute_sudo=True,
         help="Technical field to filter the available taxes depending on the fiscal country and fiscal position.")
-    company_id = fields.Many2one('res.company', 'Company', required=True, index=True, default=lambda self: self.env.company)
+    company_id = fields.Many2one('res.company', 'Company', required=True, tracking=1, default=lambda self: self.env.company)
 
     commitment_date = fields.Datetime('Delivery Date', copy=False,
                                       states={'won': [('readonly', True)], 'cancel': [('readonly', True)], 'lost': [('readonly', True)]},

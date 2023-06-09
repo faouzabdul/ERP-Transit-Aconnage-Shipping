@@ -104,8 +104,8 @@ class ShippingPdaTemplateLine(models.Model):
                               default=10)
     shipping_pda_template_id = fields.Many2one(
         'servoo.shipping.pda.template', 'Quotation Template Reference',
-        required=True, ondelete='cascade', index=True)
-    company_id = fields.Many2one('res.company', related='shipping_pda_template_id.company_id', store=True, index=True)
+        required=True, ondelete='cascade', tracking=1)
+    company_id = fields.Many2one('res.company', related='shipping_pda_template_id.company_id', store=True, tracking=1)
     code = fields.Char('Code')
     name = fields.Text('Description', required=True, translate=True)
     product_id = fields.Many2one(

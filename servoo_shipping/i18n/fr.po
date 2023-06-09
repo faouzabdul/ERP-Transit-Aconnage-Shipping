@@ -709,7 +709,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.view_servoo_shipping_file_form
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.view_shipping_bl_form
 msgid "Create Delivery Order"
-msgstr "Créer un bon de livraison"
+msgstr "Créer un bon à délivrer"
 
 #. module: servoo_shipping
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.view_servoo_shipping_file_form
@@ -729,7 +729,7 @@ msgstr "Créez un nouveau connaissement !"
 #. module: servoo_shipping
 #: model_terms:ir.actions.act_window,help:servoo_shipping.action_delivery_order
 msgid "Create a new delivery order!"
-msgstr "Créez un nouveau bon de livraison !"
+msgstr "Créez un nouveau bon à délivrer !"
 
 #. module: servoo_shipping
 #: model_terms:ir.actions.act_window,help:servoo_shipping.action_shipping_file_good_type
@@ -973,11 +973,14 @@ msgstr "Date de livraison"
 #: model:ir.actions.report,name:servoo_shipping.action_report_delivery_order
 #: model:ir.model,name:servoo_shipping.model_servoo_shipping_bl_delivery_order
 #: model:ir.model,name:servoo_shipping.model_servoo_shipping_delivery_order
+#: model:ir.module.category,description:servoo_shipping.module_category_shipping_delivery_order
+#: model:ir.module.category,name:servoo_shipping.module_category_shipping_delivery_order
+#: model:ir.ui.menu,name:servoo_shipping.shipping_delivery_order_menu_root
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.view_shipping_delivery_order_form
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.view_shipping_delivery_order_tree
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.wizard_shipping_delivery_order_form
 msgid "Delivery Order"
-msgstr "Bon de livraison"
+msgstr "Bon à délivrer"
 
 #. module: servoo_shipping
 #: model:ir.actions.act_window,name:servoo_shipping.action_delivery_order
@@ -985,7 +988,7 @@ msgstr "Bon de livraison"
 #: model:ir.ui.menu,name:servoo_shipping.shipping_delivery_order_menu
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.view_shipping_bl_form
 msgid "Delivery Orders"
-msgstr "Bons de livraison"
+msgstr "Bons à délivrer"
 
 #. module: servoo_shipping
 #: model:ir.model.fields,help:servoo_shipping.field_servoo_shipping_pda__expected_date
@@ -2022,6 +2025,7 @@ msgid "Open yard / Warehouse:"
 msgstr ""
 
 #. module: servoo_shipping
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_bl__operation_type
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__operation_type
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__operation_type
 msgid "Operation Type"
@@ -2636,6 +2640,11 @@ msgid ""
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
+
+#. module: servoo_shipping
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_bl__stevedore_id
+msgid "Stevedore"
+msgstr "Acconier"
 
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_dangerous_good__stowage

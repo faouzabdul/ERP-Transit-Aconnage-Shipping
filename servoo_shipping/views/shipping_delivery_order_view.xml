@@ -69,5 +69,6 @@
             </field>
         </record>
         <menuitem id="shipping_delivery_order_menu" parent="servoo_shipping.shipping_menu" action="action_delivery_order" />
+        <menuitem id="shipping_menu_delivery_order_sub_menu" parent="servoo_shipping.shipping_delivery_order_menu_root" action="action_delivery_order" />
     </data>
 </odoo>
