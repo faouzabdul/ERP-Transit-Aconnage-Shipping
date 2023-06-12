@@ -47,6 +47,11 @@ msgid "Activity Type Icon"
 msgstr ""
 
 #. module: servoo_logistic
+#: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_invoice_file__additional_invoice
+msgid "Additional Invoice"
+msgstr "Facture complémentaire"
+
+#. module: servoo_logistic
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__agency_name
 msgid "Agency"
 msgstr "Agence"
@@ -187,6 +192,11 @@ msgid "Created on"
 msgstr "Créé le "
 
 #. module: servoo_logistic
+#: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_invoice_file__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: servoo_logistic
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__date_debut
 msgid "Date Debut"
 msgstr "Date début"
@@ -235,6 +245,7 @@ msgstr "Pays de destination"
 
 #. module: servoo_logistic
 #: model_terms:ir.ui.view,arch_db:servoo_logistic.wizard_logistic_operation_cancel_form
+#: model_terms:ir.ui.view,arch_db:servoo_logistic.wizard_logistic_invoice_file_form
 msgid "Discard"
 msgstr "Annuler"
 
@@ -438,6 +449,11 @@ msgid "Invoice State"
 msgstr "Etat de facturation"
 
 #. module: servoo_logistic
+#: model_terms:ir.ui.view,arch_db:servoo_logistic.wizard_logistic_invoice_file_form
+msgid "Invoice logistic File"
+msgstr "Facturation dossier logistique"
+
+#. module: servoo_logistic
 #: model:ir.model.fields.selection,name:servoo_logistic.selection__servoo_logistic_operation__invoice_state__invoiced
 #: model_terms:ir.ui.view,arch_db:servoo_logistic.view_servoo_logistic_form
 msgid "Invoiced"
@@ -453,6 +469,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:servoo_logistic.view_servoo_logistic_form
 msgid "Invoices"
 msgstr "Factures"
+
+#. module: servoo_logistic
+#: model:ir.actions.act_window,name:servoo_logistic.action_wizard_logistic_invoice_file
+msgid "Invoicing logistic file"
+msgstr "Facturation dossier logistique"
 
 #. module: servoo_logistic
 #: model:ir.model.fields,field_description:servoo_logistic.field_servoo_logistic_operation__message_is_follower
@@ -816,6 +837,7 @@ msgstr ""
 
 #. module: servoo_logistic
 #: model_terms:ir.ui.view,arch_db:servoo_logistic.view_servoo_logistic_form
+#: model_terms:ir.ui.view,arch_db:servoo_logistic.wizard_logistic_invoice_file_form
 msgid "Validate"
 msgstr "Valider"
 

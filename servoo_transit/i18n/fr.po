@@ -128,6 +128,11 @@ msgid "Agency"
 msgstr ""
 
 #. module: servoo_transit
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_invoice_file__additional_invoice
+msgid "Additional Invoice"
+msgstr "Facture complémentaire"
+
+#. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_formality__agent_id
 msgid "Agent"
 msgstr ""
@@ -281,6 +286,7 @@ msgid "Created on"
 msgstr "Créé le"
 
 #. module: servoo_transit
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_invoice_file__currency_id
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__currency_id
 msgid "Currency"
 msgstr "Devise"
@@ -353,6 +359,7 @@ msgid "Destination Country"
 msgstr "Pays de destination"
 
 #. module: servoo_transit
+#: model_terms:ir.ui.view,arch_db:servoo_transit.wizard_transit_invoice_file_form
 #: model_terms:ir.ui.view,arch_db:servoo_transit.wizard_transit_order_cancel_form
 msgid "Discard"
 msgstr "Annuler"
@@ -631,6 +638,11 @@ msgid "Invoice State"
 msgstr "Etat de facturation"
 
 #. module: servoo_transit
+#: model_terms:ir.ui.view,arch_db:servoo_transit.wizard_transit_invoice_file_form
+msgid "Invoice transit File"
+msgstr "Facturation dossier DoD"
+
+#. module: servoo_transit
 #: model:ir.model.fields.selection,name:servoo_transit.selection__servoo_transit_order__invoice_state__invoiced
 #: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_form
 msgid "Invoiced"
@@ -641,6 +653,11 @@ msgstr "Facturé"
 #: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_form
 msgid "Invoices"
 msgstr "Factures"
+
+#. module: servoo_transit
+#: model:ir.actions.act_window,name:servoo_transit.action_wizard_transit_invoice_file
+msgid "Invoicing transit file"
+msgstr "Facturation dossier DoD"
 
 #. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__message_is_follower
@@ -1118,6 +1135,7 @@ msgstr ""
 
 #. module: servoo_transit
 #: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_form
+#: model_terms:ir.ui.view,arch_db:servoo_transit.wizard_transit_invoice_file_form
 msgid "Validate"
 msgstr "Valider"
 

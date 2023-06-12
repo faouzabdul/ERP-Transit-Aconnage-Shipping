@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="wizard_stevedoring_invoice_file_form">
+        <field name="name">servoo.stevedoring.invoice.file.form</field>
+        <field name="model">servoo.stevedoring.invoice.file</field>
+        <field name="arch" type="xml">
+            <form string="Invoice stevedoring File">
+                <sheet>
+                    <group col="4" >
+                        <field name="stevedoring_file_id" readonly="1" colspan="4"/>
+                        <field name="currency_id" />
+                        <field name="additional_invoice"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_validate" string="Validate" type="object" class="oe_highlight" data-hotkey="q"/>
+                    <button string="Discard" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizard_stevedoring_invoice_file" model="ir.actions.act_window">
+            <field name="name">Invoicing stevedoring file</field>
+            <field name="res_model">servoo.stevedoring.invoice.file</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+</odoo>

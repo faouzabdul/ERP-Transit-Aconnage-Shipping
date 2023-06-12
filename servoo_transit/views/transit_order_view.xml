@@ -33,13 +33,22 @@
                     <header>
                         <button name="action_open" states="draft" type="object" string="Validate" groups="servoo_transit.transit_group_user"/>
                         <button name="action_done" states="open" type="object" string="Done" groups="servoo_transit.transit_group_manager"/>
-                        <button name="create_invoices" string="Create Invoice"
-                        type="object" class="btn-primary" data-hotkey="q" groups="account.group_account_invoice"
-                        attrs="{'invisible': ['|',('state', 'not in', ('open', 'done')), ('invoice_count','&gt;=',1)]}"/>
+                        <button name="%(action_wizard_transit_invoice_file)d" type="action" string="Create Invoice"
+                                data-hotkey="q" groups="account.group_account_invoice" class="btn-primary"
+                                attrs="{'invisible': ['|',('state', 'not in', ('open', 'done')), ('invoice_count','&gt;=',1)]}"/>
+
+                        <button name="%(action_wizard_transit_invoice_file)d" type="action" string="Create Invoice"
+                                data-hotkey="q"  groups="account.group_account_invoice"
+                                attrs="{'invisible': ['|',('state', 'not in', ('open', 'done')), ('invoice_count','=',0)]}"/>
 
                         <button name="create_invoices" string="Create Invoice"
-                        type="object" data-hotkey="q" groups="account.group_account_invoice"
-                        attrs="{'invisible': ['|',('state', 'not in', ('open', 'done')), ('invoice_count','=',0)]}"/>
+                                type="object" class="btn-primary" data-hotkey="q" groups="account.group_account_invoice"
+                                invisible="1"/>
+
+
+<!--                        <button name="create_invoices" string="Create Invoice"-->
+<!--                        type="object" data-hotkey="q" groups="account.group_account_invoice"-->
+<!--                        attrs="{'invisible': ['|',('state', 'not in', ('open', 'done')), ('invoice_count','=',0)]}"/>-->
 
                         <button name="action_draft" states="cancel" type="object" string="Open" groups="servoo_transit.transit_group_manager"/>
                         <button name="%(action_wizard_transit_order_cancel)d" states="open,done" type="action" string="Cancel" groups="servoo_transit.transit_group_manager"/>

@@ -18,3 +18,5 @@ servoo_transit.access_account_journal_agent,account.journal,account.model_accoun
 servoo_transit.access_fleet_vehicle_agent,fleet.vehicle,fleet.model_fleet_vehicle,transit_group_user,1,0,0,0
 servoo_transit.access_account_move_line_agent,account.move.line,account.model_account_move_line,transit_group_user,1,0,0,0
 servoo_transit.access_servoo_transit_order_cancel_wizard,access_servoo_transit_order_cancel_wizard,servoo_transit.model_servoo_transit_order_cancel_wizard,base.group_user,1,1,1,0
+
+servoo_transit.access_servoo_transit_invoice_file,access_servoo_transit_invoice_file,servoo_transit.model_servoo_transit_invoice_file,base.group_user,1,1,1,1

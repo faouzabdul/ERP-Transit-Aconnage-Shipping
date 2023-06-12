@@ -16,3 +16,5 @@ access_fleet_vehicle_agent,fleet.vehicle,fleet.model_fleet_vehicle,logistic_grou
 access_account_move_line_agent,account.move.line,account.model_account_move_line,logistic_group_user,1,0,0,0
 
 servoo_logistic.access_servoo_logistic_operation_cancel_wizard,access_servoo_logistic_operation_cancel_wizard,servoo_logistic.model_servoo_logistic_operation_cancel_wizard,base.group_user,1,1,1,1
+
+servoo_logistic.access_servoo_logistic_invoice_file,access_servoo_logistic_invoice_file,servoo_logistic.model_servoo_logistic_invoice_file,base.group_user,1,1,1,1

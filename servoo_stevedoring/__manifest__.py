@@ -18,6 +18,7 @@
         'wizard/wizard_outturn_report_view.xml',
         'wizard/wizard_mate_receipt_view.xml',
         'wizard/wizard_cancel_stevedoring_file_view.xml',
+        'wizard/wizard_invoice_file_view.xml',
         # 'views/shipping_bl_view.xml',
         'views/shipping_file_view.xml',
         'views/operation_view.xml',
