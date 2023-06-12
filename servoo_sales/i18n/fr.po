@@ -462,6 +462,13 @@ msgid "Accounting Approval"
 msgstr "Approbation comptabilité"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__additional_invoice
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__additional_invoice
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__additional_invoice
+msgid "Additional Invoice"
+msgstr "Facture complémentaire"
+
+#. module: servoo_sales
 #: model:res.groups,name:servoo_sales.group_supplier_invoice_admissibility
 msgid "Admissibility"
 msgstr "Recevabilité"
@@ -684,6 +691,13 @@ msgid "Export"
 msgstr ""
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__export_pad_invoice
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__export_pad_invoice
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__export_pad_invoice
+msgid "Export PAD Invoice"
+msgstr "Facture PAD Export"
+
+#. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "FCFA"
@@ -738,6 +752,13 @@ msgstr ""
 #: model:ir.model.fields.selection,name:servoo_sales.selection__servoo_handling_rate__operation__import
 msgid "Import"
 msgstr ""
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__import_pad_invoice
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__import_pad_invoice
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__import_pad_invoice
+msgid "Import PAD Invoice"
+msgstr "Facture PAD Import"
 
 #. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__include_tax_for_handling

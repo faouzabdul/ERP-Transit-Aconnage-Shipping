@@ -13,19 +13,19 @@ _logger = logging.getLogger(__name__)
 class AccountMove(models.Model):
     _inherit = 'account.move'
 
-    transport_means_id = fields.Many2one('res.transport.means', string="Means of transportation")
+    transport_means_id = fields.Many2one('res.transport.means', string="Means of transportation", tracking=3)
     travel_date = fields.Date('Travel Date')
-    loading_place_id = fields.Many2one('res.locode', string='Loading place')
-    unloading_place_id = fields.Many2one('res.locode', string='Unloading place')
-    transport_letter = fields.Char('N° BL / N° LTA', index=True)
+    loading_place_id = fields.Many2one('res.locode', string='Loading place', tracking=3)
+    unloading_place_id = fields.Many2one('res.locode', string='Unloading place', tracking=3)
+    transport_letter = fields.Char('N° BL / N° LTA', index=True, tracking=3)
     volume = fields.Float('Volume (m3)', digits=(12, 3))
     weight = fields.Float('Weight', digits=(12, 3))
     unit_id = fields.Many2one('res.unit', 'Unit')
-    custom_declaration_reference = fields.Char('Custom Declaration Reference')
+    custom_declaration_reference = fields.Char('Custom Declaration Reference', tracking=3)
     custom_declaration_date = fields.Date('Custom Declaration Date')
-    assessed_value = fields.Float('Assessed Value', digits=(12, 3), help='Valeur imposable')
-    object = fields.Text('Object')
-    number_of_packages = fields.Char('Number of packages/TC')
+    assessed_value = fields.Float('Assessed Value', digits=(12, 3), help='Valeur imposable', tracking=3)
+    object = fields.Text('Object', tracking=3)
+    number_of_packages = fields.Char('Number of packages/TC', tracking=3)
     amount_total_signed_letter = fields.Char('Total Signed letter', compute='_compute_display_amount_letter',
                                                store=True)
     amount_total_in_currency_signed_letter = fields.Char('Total in Currency Signed letter', compute='_compute_display_amount_letter',
@@ -46,6 +46,9 @@ class AccountMove(models.Model):
     #     domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
     department_id = fields.Many2one('hr.department', 'Department')
     observation = fields.Text('Observation', tracking=2)
+    import_pad_invoice = fields.Boolean('Import PAD Invoice', tracking=3)
+    export_pad_invoice = fields.Boolean('Export PAD Invoice', tracking=3)
+    additional_invoice = fields.Boolean('Additional Invoice', tracking=3)
     state = fields.Selection(selection_add=[
         ('draft', 'Draft'),
         ('direction_routing', 'Submitted'),
@@ -69,7 +72,7 @@ class AccountMove(models.Model):
                                                'accounting_approval': [('readonly', False)],
                                                'management_control_approval': [('readonly', False)],
                                                })
-    apm_reference = fields.Char('APM Reference')
+    apm_reference = fields.Char('APM Reference', tracking=3)
 
     @api.depends('amount_total', 'currency_id')
     def _compute_display_amount_letter(self):
@@ -87,9 +90,13 @@ class AccountMove(models.Model):
     def action_submit(self):
         return self.write({'state': 'direction_routing'})
 
-    def _generate_APM_reference(self, source):
+    def _generate_APM_reference(self, source, import_pad_invoice=None, export_pad_invoice=None, additional_invoice=None):
+        if import_pad_invoice:
+            return self.env['ir.sequence'].next_by_code('servoo.import.invoice.pad.apm.number')
+        elif export_pad_invoice:
+            return self.env['ir.sequence'].next_by_code('servoo.import.invoice.pad.apm.number')
         ref=''
-        if source:
+        if source and additional_invoice:
             q = "SELECT apm_reference FROM account_move where invoice_origin = '%s' and apm_reference is not null" % source
             self._cr.execute(q)
             res = self._cr.fetchall()
@@ -128,7 +135,7 @@ class AccountMove(models.Model):
     @api.model
     def create(self, vals):
         if vals.get('move_type') == 'out_invoice':
-            vals['apm_reference'] = self._generate_APM_reference(vals.get('invoice_origin'))
+            vals['apm_reference'] = self._generate_APM_reference(vals.get('invoice_origin'), vals.get('import_pad_invoice'), vals.get('export_pad_invoice'), vals.get('additional_invoice'))
         return super(AccountMove, self).create(vals)
 
     api.model
@@ -136,7 +143,10 @@ class AccountMove(models.Model):
         # _logger.info('apm_reference : %s - invoice_origin: %s' % (self.apm_reference, self.invoice_origin))
         if not self.apm_reference:
             origin = vals['invoice_origin'] if vals.get('invoice_origin') else self.invoice_origin
-            vals['apm_reference'] = self._generate_APM_reference(origin)
+            additional_invoice = vals['additional_invoice'] if vals.get('additional_invoice') else self.additional_invoice
+            import_pad_invoice = vals['import_pad_invoice'] if vals.get('import_pad_invoice') else self.import_pad_invoice
+            export_pad_invoice = vals['export_pad_invoice'] if vals.get('export_pad_invoice') else self.export_pad_invoice
+            vals['apm_reference'] = self._generate_APM_reference(origin, import_pad_invoice, export_pad_invoice, additional_invoice)
         return super(AccountMove, self).write(vals)
 
     def _get_total_disbursement(self):
@@ -146,6 +156,19 @@ class AccountMove(models.Model):
                 if line.product_id.detailed_type == 'disbursement':
                     amount += line.price_subtotal
         return amount
+
+    @api.onchange('import_pad_invoice', 'export_pad_invoice', 'additional_invoice')
+    def onchange_invoice_boolean_params(self):
+        if self.additional_invoice:
+            self.import_pad_invoice = False
+            self.export_pad_invoice = False
+        if self.export_pad_invoice:
+            self.import_pad_invoice = False
+            self.additional_invoice = False
+        if self.import_pad_invoice:
+            self.export_pad_invoice = False
+            self.additional_invoice = False
+
 
 
 

@@ -39,7 +39,13 @@
                         </div>
                 </field>
                 <notebook position="before">
+
+
                     <group col="4" attrs="{'invisible': [('move_type', '!=', 'out_invoice')]}">
+                        <field name="import_pad_invoice" attrs="{'invisible': [('additional_invoice', '=', True)]}"/>
+                        <field name="export_pad_invoice" attrs="{'invisible': [('additional_invoice', '=', True)]}"/>
+                        <field name="additional_invoice" colspan="4" attrs="{'readonly': ['|',('import_pad_invoice', '=', True), ('export_pad_invoice', '=', True)]}"/>
+
                         <field name="loading_place_id" />
                         <field name="unloading_place_id" />
                         <field name="transport_means_id" />
@@ -89,4 +95,15 @@
                 </button>
             </field>
         </record>
+
+    <record model="ir.ui.view" id="servoo_account_move_search">
+        <field name="name">account.move.search</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter" />
+        <field name="arch" type="xml">
+            <field name="journal_id" position="before">
+                <field name="apm_reference" />
+            </field>
+        </field>
+    </record>
 </odoo>
