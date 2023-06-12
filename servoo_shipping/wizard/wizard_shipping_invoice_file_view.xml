@@ -10,6 +10,9 @@
                         <field name="shipping_file_id" readonly="1" colspan="4"/>
                         <field name="currency_id" />
                         <field name="invoice_mode" />
+                        <field name="import_pad_invoice" attrs="{'invisible': [('invoice_mode', '!=', 'bl')]}"/>
+                        <field name="export_pad_invoice" attrs="{'invisible': [('invoice_mode', '!=', 'bl')]}"/>
+                        <field name="additional_invoice" attrs="{'invisible': [('invoice_mode', '=', 'bl')]}"/>
                     </group>
                 </sheet>
                 <footer>

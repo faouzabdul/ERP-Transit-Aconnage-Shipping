@@ -426,6 +426,12 @@ msgid "Additional Information"
 msgstr "Informations additionnelles"
 
 #. module: servoo_shipping
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_invoice_file__additional_invoice
+msgid "Additional Invoice"
+msgstr "Facture complémentaire"
+
+
+#. module: servoo_shipping
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.report_delivery_order_document
 msgid "Address:"
 msgstr ""
@@ -534,6 +540,7 @@ msgstr "Connaissement"
 
 #. module: servoo_shipping
 #: model:ir.actions.act_window,name:servoo_shipping.action_shipping_bl
+#: model:ir.ui.menu,name:servoo_shipping.shipping_bl_delivery_order_menu
 #: model:ir.ui.menu,name:servoo_shipping.shipping_bl_menu
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.view_servoo_shipping_file_form
 msgid "Bills of lading"
@@ -855,6 +862,7 @@ msgid "Crew's effects"
 msgstr "Effets de l'équipage"
 
 #. module: servoo_shipping
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_invoice_file__currency_id
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__currency_id
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda_line__currency_id
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda_template__currency_id
@@ -1026,6 +1034,7 @@ msgstr "Rem.%"
 #. module: servoo_shipping
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.wizard_shipping_delivery_order_form
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.wizard_shipping_file_cancel_form
+#: model_terms:ir.ui.view,arch_db:servoo_shipping.wizard_shipping_invoice_file_form
 msgid "Discard"
 msgstr "Annuler"
 
@@ -1177,6 +1186,11 @@ msgid "Export"
 msgstr ""
 
 #. module: servoo_shipping
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_invoice_file__export_pad_invoice
+msgid "Export PAD Invoice"
+msgstr "Facture PAD Export"
+
+#. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda_line__product_no_variant_attribute_value_ids
 msgid "Extra Values"
 msgstr ""
@@ -1261,6 +1275,7 @@ msgid "Forbidden values on non-accountable shipping pda line"
 msgstr ""
 
 #. module: servoo_shipping
+#: model:ir.model.fields.selection,name:servoo_shipping.selection__servoo_shipping_invoice_file__invoice_mode__formalities
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.view_servoo_shipping_file_form
 msgid "Formalities"
 msgstr "Formalités"
@@ -1503,6 +1518,11 @@ msgid "Import"
 msgstr ""
 
 #. module: servoo_shipping
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_invoice_file__import_pad_invoice
+msgid "Import PAD Invoice"
+msgstr "Facture PAD Import"
+
+#. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda__partner_invoice_id
 msgid "Invoice Address"
 msgstr ""
@@ -1521,6 +1541,16 @@ msgstr "Nombre de factures"
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_pda_line__invoice_lines
 msgid "Invoice Lines"
 msgstr "Lignes de facture"
+
+#. module: servoo_shipping
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_invoice_file__invoice_mode
+msgid "Invoice Mode"
+msgstr "Mode de facturation"
+
+#. module: servoo_shipping
+#: model_terms:ir.ui.view,arch_db:servoo_shipping.wizard_shipping_invoice_file_form
+msgid "Invoice Shipping File"
+msgstr "Facturation dossier shipping"
 
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_file__invoice_state
@@ -1562,6 +1592,11 @@ msgstr "Factures"
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.view_shipping_pda_form
 msgid "Invoicing"
 msgstr "Facturation"
+
+#. module: servoo_shipping
+#: model:ir.actions.act_window,name:servoo_shipping.action_wizard_shipping_invoice_file
+msgid "Invoicing shipping file"
+msgstr "Facturation dossier shipping"
 
 #. module: servoo_shipping
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_bl__message_is_follower
@@ -2555,6 +2590,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_container__file_id
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_crew__file_id
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_crew_effect__file_id
+#: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_invoice_file__shipping_file_id
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_passenger__file_id
 #: model:ir.model.fields,field_description:servoo_shipping.field_servoo_shipping_ship_store__file_id
 msgid "Shipping File"
@@ -3022,6 +3058,7 @@ msgstr ""
 #. module: servoo_shipping
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.view_servoo_shipping_file_form
 #: model_terms:ir.ui.view,arch_db:servoo_shipping.wizard_shipping_delivery_order_form
+#: model_terms:ir.ui.view,arch_db:servoo_shipping.wizard_shipping_invoice_file_form
 msgid "Validate"
 msgstr "Valider"
 

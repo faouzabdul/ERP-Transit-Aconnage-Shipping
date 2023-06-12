@@ -15,6 +15,9 @@ class ShippingInvoiceFile(models.Model):
         ('bl', 'Bill of lading'),
         ('formalities', 'Formalities')
     ], string='Invoice Mode', required=True)
+    import_pad_invoice = fields.Boolean('Import PAD Invoice')
+    export_pad_invoice = fields.Boolean('Export PAD Invoice')
+    additional_invoice = fields.Boolean('Additional Invoice')
 
 
     def _prepare_invoice(self):
@@ -72,6 +75,8 @@ class ShippingInvoiceFile(models.Model):
                     volume += good.volume
                     weight += good.gross_weight
                     net_weight += good.net_weight
+                invoice_vals['import_pad_invoice'] = self.import_pad_invoice
+                invoice_vals['export_pad_invoice'] = self.export_pad_invoice
                 invoice_vals['volume'] = volume
                 invoice_vals['weight'] = weight or net_weight
                 invoice_vals['partner_id'] = bl.notify_id.id if bl.notify_id else bl.shipper_id.id
@@ -91,6 +96,7 @@ class ShippingInvoiceFile(models.Model):
                 invoice_vals_list.append(invoice_vals)
         else:
             invoice_vals = self._prepare_invoice()
+            invoice_vals['additional_invoice'] = self.additional_invoice
             invoiceable_lines = self._get_invoiceable_lines()
             invoice_line_vals = []
             for line in invoiceable_lines:
@@ -134,3 +140,15 @@ class ShippingInvoiceFile(models.Model):
 
     def action_validate(self):
         return self.create_invoices()
+
+    @api.onchange('import_pad_invoice', 'export_pad_invoice', 'additional_invoice')
+    def onchange_invoice_boolean_params(self):
+        if self.additional_invoice:
+            self.import_pad_invoice = False
+            self.export_pad_invoice = False
+        if self.export_pad_invoice:
+            self.import_pad_invoice = False
+            self.additional_invoice = False
+        if self.import_pad_invoice:
+            self.export_pad_invoice = False
+            self.additional_invoice = False
