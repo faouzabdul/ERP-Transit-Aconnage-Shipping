@@ -58,7 +58,7 @@ class AccountPayment(models.Model):
         if vals['bank_statement_id']:
             bank_statement_line_vals = {
                 'date': payment.date,
-                'payment_ref': payment.ref,
+                'payment_ref': payment.ref or payment.payment_label,
                 'narration': payment.payment_label,
                 'partner_id': payment.partner_id.id,
                 'amount': (-1 * payment.amount) if payment.payment_type == 'outbound' else payment.amount,
