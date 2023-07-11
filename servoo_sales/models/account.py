@@ -73,12 +73,41 @@ class AccountMove(models.Model):
                                                'management_control_approval': [('readonly', False)],
                                                })
     apm_reference = fields.Char('APM Reference', tracking=3)
+    handling = fields.Float('Rate')
+    include_tax_for_handling = fields.Boolean('Include Taxes')
+    quantity = fields.Float('Quantity')
+    handling_rate_id = fields.Many2one('servoo.handling.rate', 'Good Type')
+    rate_type = fields.Selection(related='handling_rate_id.rate_type', string='Rate Type')
+
+    handling2 = fields.Float('Rate 2')
+    include_tax_for_handling2 = fields.Boolean('Include Taxes 2')
+    quantity2 = fields.Float('Quantity 2')
+    handling_rate_2_id = fields.Many2one('servoo.handling.rate', 'Good Type 2')
+    rate_type_2 = fields.Selection(related='handling_rate_2_id.rate_type', string='Rate Type 2')
+
+    handling3 = fields.Float('Rate 3')
+    include_tax_for_handling3 = fields.Boolean('Include Taxes 3')
+    quantity3 = fields.Float('Quantity 3')
+    handling_rate_3_id = fields.Many2one('servoo.handling.rate', 'Good Type 3')
+    rate_type_3 = fields.Selection(related='handling_rate_3_id.rate_type', string='Rate Type 3')
+
+    distribute_ht_amount = fields.Boolean('Distribute HT Amount')
+
+    @api.onchange('distribute_ht_amount', 'amount_untaxed')
+    def onchange_distribute_ht_amount(self):
+        narration = ''
+        if self.distribute_ht_amount:
+            part = self.amount_untaxed / 2
+            narration = """50%% APM SA: %s %s<br />
+            50%% PAK: %s %s
+            """ % (part, self.currency_id.symbol, part, self.currency_id.symbol)
+        self.narration = narration
 
     @api.depends('amount_total', 'currency_id')
     def _compute_display_amount_letter(self):
         for move in self:
-            move.amount_total_signed_letter = utils.translate(move.amount_total_signed if move.amount_total_signed > -1 else (-1*move.amount_total_signed)).upper()
-            move.amount_total_in_currency_signed_letter = utils.translate(move.amount_total_in_currency_signed if move.amount_total_in_currency_signed > -1 else (-1 * move.amount_total_in_currency_signed)).upper()
+            move.amount_total_signed_letter = utils.translate(move.amount_total_signed if move.amount_total_signed > -1 else (-1*move.amount_total_signed), currency=move.currency_id.name).upper()
+            move.amount_total_in_currency_signed_letter = utils.translate(move.amount_total_in_currency_signed if move.amount_total_in_currency_signed > -1 else (-1 * move.amount_total_in_currency_signed), currency=move.currency_id.name).upper()
             currency_code = 'XAF'
             if move.currency_id.name == 'XAF':
                 currency_code = 'EUR'
@@ -90,47 +119,79 @@ class AccountMove(models.Model):
     def action_submit(self):
         return self.write({'state': 'direction_routing'})
 
+    def _get_sequence_name(self, code):
+        return self.env['ir.sequence'].next_by_code(code)
+
+    def _get_root(self, source):
+        res = ''
+        if source and source[:2].isnumeric():
+            if not source[-1].isnumeric():
+                if source[-7:-1].isnumeric():
+                    res = source[2:-7]
+                elif source[-6:-1].isnumeric():
+                    res = source[2:-6]
+                elif source[-5:-1].isnumeric():
+                    res = source[2:-5]
+                elif source[-4:-1].isnumeric():
+                    res = source[2:-4]
+            if source[-6:].isnumeric():
+                res = source[2:-6]
+            elif source[-5:].isnumeric():
+                res = source[2:-5]
+            elif source[-4:].isnumeric():
+                res = source[2:-4]
+            elif source[-3:].isnumeric():
+                res = source[2:-3]
+        if res:
+            if res in ('DDMI', 'DDME', 'DDAI', 'DDAE', 'DTRI', 'DTRE', 'DTAI', 'DTAE','KDMI', 'KDME', 'KDAI', 'KDAE', 'KTRI', 'KTRE', 'KTAI', 'KTAE', 'TDMI', 'TDME', 'TDAI', 'TDAE', 'TTRI', 'TTRE', 'TTAI', 'TTAE', 'DLOG'):
+                res = 'F' + res[1:]
+            else:
+                res = 'F'+ res
+        return res
+
     def _generate_APM_reference(self, source, import_pad_invoice=None, export_pad_invoice=None, additional_invoice=None):
         if import_pad_invoice:
-            return self.env['ir.sequence'].next_by_code('servoo.import.invoice.pad.apm.number')
+            return self._get_sequence_name('servoo.import.invoice.pad.apm.number')
         elif export_pad_invoice:
-            return self.env['ir.sequence'].next_by_code('servoo.import.invoice.pad.apm.number')
-        ref=''
+            return self._get_sequence_name('servoo.import.invoice.pad.apm.number')
+        # ref=''
         if source and additional_invoice:
-            q = "SELECT apm_reference FROM account_move where invoice_origin = '%s' and apm_reference is not null" % source
+            q = "SELECT apm_reference FROM account_move where invoice_origin = '%s' and apm_reference is not null order by id desc" % source
             self._cr.execute(q)
             res = self._cr.fetchall()
             if res and res[0][0]:
                 _logger.info('res : %s' % res)
                 ref = res[0][0] + "-" + str(len(res))
                 return ref
-        if source and source[:2].isnumeric():
-            ref = str(datetime.now().year)[-2:] + 'F' + source[2:-3]
-        if ref:
-            query = "SELECT apm_reference FROM account_move WHERE apm_reference LIKE '" + ref + "%' order by id desc limit 1"
-            # query = "SELECT count(*) FROM account_move WHERE apm_reference LIKE '" + ref + "%'"
-            self._cr.execute(query)
-            # res = self._cr.fetchone()
-            # record_count = int(res[0]) + 1
+        ref = self._get_root(source)
+        sequence = self._get_sequence_name(ref)
+        # if source and source[:2].isnumeric():
+        #     ref = str(datetime.now().year)[-2:] + 'F' + source[2:-3]
+        # if ref:
+            # query = "SELECT apm_reference FROM account_move WHERE apm_reference LIKE '" + ref + "%' order by id desc limit 1"
+            # # query = "SELECT count(*) FROM account_move WHERE apm_reference LIKE '" + ref + "%'"
+            # self._cr.execute(query)
+            # # res = self._cr.fetchone()
+            # # record_count = int(res[0]) + 1
+            # # if len(str(record_count)) == 1:
+            # #     ref += '00'
+            # # elif len(str(record_count)) == 2:
+            # #     ref += '0'
+            # # ref += str(record_count)
+            # res = self._cr.fetchall()
+            # record_count = len(res) + 1
+            # if res and res[0][0][-5:].isnumeric():
+            #     record_count = int(res[-1][0][-5:]) + 1
+            # elif res and res[0][0][-4:].isnumeric():
+            #     record_count = int(res[-1][0][-4:]) + 1
+            # elif res and res[0][0][-3:].isnumeric():
+            #     record_count = int(res[-1][0][-3:]) + 1
             # if len(str(record_count)) == 1:
             #     ref += '00'
             # elif len(str(record_count)) == 2:
             #     ref += '0'
             # ref += str(record_count)
-            res = self._cr.fetchall()
-            record_count = len(res) + 1
-            if res and res[0][0][-5:].isnumeric():
-                record_count = int(res[-1][0][-5:]) + 1
-            elif res and res[0][0][-4:].isnumeric():
-                record_count = int(res[-1][0][-4:]) + 1
-            elif res and res[0][0][-3:].isnumeric():
-                record_count = int(res[-1][0][-3:]) + 1
-            if len(str(record_count)) == 1:
-                ref += '00'
-            elif len(str(record_count)) == 2:
-                ref += '0'
-            ref += str(record_count)
-        return ref
+        return sequence
 
     @api.model
     def create(self, vals):
@@ -241,6 +302,8 @@ class AccountMove(models.Model):
 
 class AccountMoveLine(models.Model):
     _inherit = 'account.move.line'
+
+    no_days = fields.Integer('Days', help='Number of days')
 
     @api.onchange('product_id')
     def _onchange_product_id(self):

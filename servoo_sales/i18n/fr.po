@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220616\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-24 08:15+0000\n"
-"PO-Revision-Date: 2023-03-24 08:15+0000\n"
+"POT-Creation-Date: 2023-07-11 17:27+0000\n"
+"PO-Revision-Date: 2023-07-11 17:27+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -46,6 +46,7 @@ msgstr ""
 "                Voici l'erreur reçue:\n"
 "                %s\n"
 "                "
+
 #. module: servoo_sales
 #: model:ir.model.fields,help:servoo_sales.field_sale_order_template_line__quantity_python_compute
 msgid ""
@@ -109,6 +110,12 @@ msgstr " et"
 #. module: servoo_sales
 #: code:addons/servoo_sales/models/utils.py:0
 #, python-format
+msgid " and "
+msgstr " et "
+
+#. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
 msgid " billion"
 msgstr " milliard"
 
@@ -130,6 +137,16 @@ msgstr ""
 #, python-format
 msgid " thousand"
 msgstr " mille"
+
+#. module: servoo_sales
+#: model:ir.actions.report,print_report_name:servoo_sales.action_report_pro_forma_parking
+msgid "'PRO-FORMA PARKING - %s' % (object.name)"
+msgstr "'PRO-FORMA STATIONNEMENT - %s' % (object.name)"
+
+#. module: servoo_sales
+#: model:ir.actions.report,print_report_name:servoo_sales.account_invoices_parking
+msgid "(object._get_report_base_filename())"
+msgstr ""
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
@@ -154,8 +171,8 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid ""
 "<font color=\"#ffffff\">\n"
-"                                            <font>SP</font>\n"
-"                                        </font>"
+"                                                <font>SP</font>\n"
+"                                            </font>"
 msgstr ""
 
 #. module: servoo_sales
@@ -164,14 +181,6 @@ msgid ""
 "<font color=\"#ffffff\">\n"
 "                                    <font>ES</font>\n"
 "                                </font>"
-msgstr ""
-
-#. module: servoo_sales
-#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
-#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
-msgid ""
-"<font size=\"0\" style=\"font-size: 5pt; padding:0\"><span>Page </span><span"
-" class=\"page\"/>/<span class=\"topage\"/></font>"
 msgstr ""
 
 #. module: servoo_sales
@@ -273,7 +282,6 @@ msgstr ""
 "                                <span colspan=\"2\">ROYALTY2, ROYALTY3: le taux de redevance pour le deuxième et le troisième type de marchandise</span>\n"
 "                                <span colspan=\"2\">rules: objet contenant les code des règles (précédement calculées)</span>"
 
-
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_sale_order_template_form
 msgid ""
@@ -316,6 +324,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "<span>Base</span>"
 msgstr ""
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "<span>Days</span>"
+msgstr "<span>Jours</span>"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
@@ -442,12 +456,12 @@ msgstr "Numéro référence APM"
 
 #. module: servoo_sales
 #: model:res.groups,name:servoo_sales.group_account_user
-msgid "Accountant"
+msgid "Accountant user"
 msgstr "Comptable"
 
 #. module: servoo_sales
 #: model:ir.module.category,name:servoo_sales.module_category_servoo_account
-msgid "Accounting"
+msgid "Accounting APM"
 msgstr "Comptabilité"
 
 #. module: servoo_sales
@@ -543,11 +557,18 @@ msgid "Category"
 msgstr "Catégorie"
 
 #. module: servoo_sales
+#: code:addons/servoo_sales/models/utils.py:0
+#, python-format
+msgid "Cents"
+msgstr "Centimes"
+
+#. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order_template_line__code
 msgid "Code"
 msgstr ""
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_education_student__commercial_register_number
 #: model:ir.model.fields,field_description:servoo_sales.field_res_partner__commercial_register_number
 #: model:ir.model.fields,field_description:servoo_sales.field_res_users__commercial_register_number
 msgid "Commercial Register Number"
@@ -557,6 +578,11 @@ msgstr "N° Registre de commerce"
 #: model:ir.model.fields.selection,name:servoo_sales.selection__servoo_handling_rate__rate_type__commodity_fee
 msgid "Commodity Fee"
 msgstr "Redevance marchandise"
+
+#. module: servoo_sales
+#: model:ir.model,name:servoo_sales.model_res_partner
+msgid "Contact"
+msgstr ""
 
 #. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_servoo_account_move_wizard__create_uid
@@ -615,6 +641,12 @@ msgid "Customs office"
 msgstr "Bureau Douane"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move_line__no_days
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order_line__no_days
+msgid "Days"
+msgstr "Jours"
+
+#. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__department_id
 #: model:ir.model.fields,field_description:servoo_sales.field_account_move__department_id
 #: model:ir.model.fields,field_description:servoo_sales.field_account_payment__department_id
@@ -651,6 +683,14 @@ msgstr "Annuler"
 #: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate_category__display_name
 msgid "Display Name"
 msgstr ""
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__distribute_ht_amount
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__distribute_ht_amount
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__distribute_ht_amount
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__distribute_ht_amount
+msgid "Distribute HT Amount"
+msgstr "Répartir le montant HT"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.wizard_supplier_invoice_form
@@ -704,16 +744,25 @@ msgid "FCFA"
 msgstr ""
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__handling_rate_id
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__handling_rate_id
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__handling_rate_id
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__handling_rate_id
 msgid "Good Type"
 msgstr "Type de marchandise"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__handling_rate_2_id
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__handling_rate_2_id
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__handling_rate_2_id
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__handling_rate_2_id
 msgid "Good Type 2"
 msgstr "Type de marchandise 2"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__handling_rate_3_id
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__handling_rate_3_id
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__handling_rate_3_id
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__handling_rate_3_id
 msgid "Good Type 3"
 msgstr "Type de marchandise 3"
@@ -721,15 +770,11 @@ msgstr "Type de marchandise 3"
 #. module: servoo_sales
 #: model:ir.actions.act_window,name:servoo_sales.action_handling_rate
 #: model:ir.model,name:servoo_sales.model_servoo_handling_rate
+#: model:ir.model.fields.selection,name:servoo_sales.selection__servoo_handling_rate__rate_type__handling_rate
 #: model:ir.ui.menu,name:servoo_sales.menu_sale_handling_rate
 #: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_handling_rate_tree
 msgid "Handling Rate"
 msgstr "Tarif"
-
-#. module: servoo_sales
-#: model:ir.model.fields.selection,name:servoo_sales.selection__servoo_handling_rate__rate_type__handling_rate
-msgid "Handling Rate"
-msgstr "Tarif manutention"
 
 #. module: servoo_sales
 #: model:ir.model,name:servoo_sales.model_servoo_handling_rate_category
@@ -761,16 +806,25 @@ msgid "Import PAD Invoice"
 msgstr "Facture PAD Import"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__include_tax_for_handling
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__include_tax_for_handling
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__include_tax_for_handling
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__include_tax_for_handling
 msgid "Include Taxes"
 msgstr "Inclure la taxe"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__include_tax_for_handling2
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__include_tax_for_handling2
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__include_tax_for_handling2
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__include_tax_for_handling2
 msgid "Include Taxes 2"
 msgstr "Inclure la taxe 2"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__include_tax_for_handling3
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__include_tax_for_handling3
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__include_tax_for_handling3
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__include_tax_for_handling3
 msgid "Include Taxes 3"
 msgstr "Inclure la taxe 3"
@@ -791,6 +845,11 @@ msgstr "Lignes de facture"
 #: model:ir.ui.menu,name:servoo_sales.menu_action_move_out_invoice_type
 msgid "Invoices"
 msgstr "Factures"
+
+#. module: servoo_sales
+#: model:ir.actions.report,name:servoo_sales.account_invoices_parking
+msgid "Invoices Parking"
+msgstr "Factures stationnement"
 
 #. module: servoo_sales
 #: model:ir.module.category,name:servoo_sales.module_category_servoo_Invoice
@@ -885,6 +944,11 @@ msgid "Means of transportation"
 msgstr "Moyens de transport"
 
 #. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.view_res_partner_servoo_inherit_form
+msgid "NIU"
+msgstr ""
+
+#. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "NIU :"
@@ -895,6 +959,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate_category__name
 msgid "Name"
 msgstr "Nom"
+
+#. module: servoo_sales
+#: model:ir.model.fields,help:servoo_sales.field_account_move_line__no_days
+#: model:ir.model.fields,help:servoo_sales.field_sale_order_line__no_days
+msgid "Number of days"
+msgstr "Nombre de jours"
 
 #. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__number_of_packages
@@ -970,6 +1040,11 @@ msgid "PDA"
 msgstr ""
 
 #. module: servoo_sales
+#: model:ir.actions.report,name:servoo_sales.action_report_pro_forma_parking
+msgid "PROFORMA Parking"
+msgstr "PROFORMA Stationnement"
+
+#. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
 msgid "Paid on"
 msgstr "Payé le"
@@ -1006,16 +1081,25 @@ msgid "QUOTATION"
 msgstr "DEVIS"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__quantity
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__quantity
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__quantity
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__quantity
 msgid "Quantity"
 msgstr "Quantité"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__quantity2
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__quantity2
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__quantity2
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__quantity2
 msgid "Quantity 2"
 msgstr "Qunatité 2"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__quantity3
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__quantity3
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__quantity3
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__quantity3
 msgid "Quantity 3"
 msgstr "Quantité 3"
@@ -1036,42 +1120,65 @@ msgid "Quotation Template Line"
 msgstr "Ligne Modèle de devis"
 
 #. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid ""
+"RC N°:DLA/2019/M/1483 - NIU: M010400017218T - CNPS: 351-0103989-E - Société Anonyme au capital de 1 256 340 000 FCFA\n"
+"                                  <br>CBC Douala 1008 00020 371 2080100 94 - BGFI Douala 10035 01 100 40001084011 34 - BICEC Douala 10001 06805 39057205001 64</br>"
+msgstr ""
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "RCCM :"
+msgstr ""
+
+#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__handling
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__handling
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__handling
+#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__handling
 #: model:ir.model.fields,field_description:servoo_sales.field_servoo_handling_rate__rate
 #: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
 msgid "Rate"
 msgstr "Tarif"
 
 #. module: servoo_sales
-#: model:ir.ui.menu,name:servoo_sales.menu_action_move_out_receipt_type
-msgid "Receipts"
-msgstr "Reçus"
-
-#. module: servoo_sales
-#: model:ir.model.fields,field_description:servoo_sales.field_sale_order__handling
-msgid "Rate"
-msgstr "Tarif"
-
-#. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__handling2
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__handling2
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__handling2
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__handling2
 msgid "Rate 2"
 msgstr "Tarif 2"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__handling3
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__handling3
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__handling3
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__handling3
 msgid "Rate 3"
 msgstr "Tarif 3"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__rate_type
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__rate_type
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__rate_type
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__rate_type
 msgid "Rate Type"
 msgstr "Type de tarif"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__rate_type_2
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__rate_type_2
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__rate_type_2
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__rate_type_2
 msgid "Rate Type 2"
 msgstr "Type de tarif 2"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__rate_type_3
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__rate_type_3
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__rate_type_3
 #: model:ir.model.fields,field_description:servoo_sales.field_sale_order__rate_type_3
 msgid "Rate Type 3"
 msgstr "Type de tarif 3"
@@ -1082,9 +1189,19 @@ msgid "Rate type"
 msgstr "Type de tarif"
 
 #. module: servoo_sales
+#: model:ir.ui.menu,name:servoo_sales.menu_action_move_out_receipt_type
+msgid "Receipts"
+msgstr "Reçus"
+
+#. module: servoo_sales
 #: model:ir.model,name:servoo_sales.model_sale_order
 msgid "Sales Order"
 msgstr "Bon de commande"
+
+#. module: servoo_sales
+#: model:ir.model,name:servoo_sales.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Ligne de bons de commande"
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_order_form
@@ -1186,6 +1303,12 @@ msgstr "Facture fournisseur Wizard"
 #: model_terms:ir.ui.view,arch_db:servoo_sales.wizard_supplier_invoice_form
 msgid "Supplier Invoice validation"
 msgstr "Validation facture fournisseur"
+
+#. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.report_servoo_saleorder_document
+#: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document
+msgid "TEL:"
+msgstr ""
 
 #. module: servoo_sales
 #: model_terms:ir.ui.view,arch_db:servoo_sales.servoo_report_invoice_document

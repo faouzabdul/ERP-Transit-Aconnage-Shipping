@@ -27,6 +27,10 @@
 <!--                />-->
                 </field>
                 <field name="payment_reference" position="replace" />
+                <field name="narration" position="before">
+                    <label for="distribute_ht_amount" colspan="2" />
+                    <field name="distribute_ht_amount"  colspan="2" nolabel="1"/>
+                </field>
                 <field name="narration" position="after">
                     <label for="amount_total_in_currency_signed_letter" string="Stopped this invoice for the sum" colspan="2"/>
                     <field name="amount_total_in_currency_signed_letter" readonly="1" nolabel="1" colspan="2"/>
@@ -93,6 +97,9 @@
                             groups="servoo_sales.group_supplier_invoice_management_control"
                             attrs="{'invisible': ['|',('move_type', '!=', 'in_invoice'), ('state', '!=', 'management_control_approval')]}" />
                 </button>
+                <field name="price_unit" position="after">
+                    <field name="no_days" optional="hide"/>
+                </field>
             </field>
         </record>
 

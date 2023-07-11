@@ -12,6 +12,8 @@ Note : traduction franco-française, avec unités variables, orthographe géré, uni
 """
 
 from odoo import _
+import logging
+_logger = logging.getLogger(__name__)
 
 
 def tradd(num):
@@ -82,7 +84,7 @@ def tradn(num):
     return ch
 
 
-def translate(nb, unite="", decim=""):
+def translate(nb, unite="", decim="", currency=None):
     global t1, t2
     nb = round(nb, 2)
     t1 = ["", _("one"), _("two"), _("three"), _("four"), _("five"), _("six"), _("seven"), _("eight"), _("nine"),
@@ -103,7 +105,18 @@ def translate(nb, unite="", decim=""):
     else:
         ch = ch + " " + unite
     if z2 > 0:
-        ch = ch + tradn(z2)
+        _logger.info('Currency : %s' % currency)
+        if currency:
+            label=currency
+            cent = _("Cents")
+            if currency != 'XAF':
+                if currency == 'EUR':
+                    label = 'euros'
+                if currency == 'USD':
+                    label = 'dollars'
+            ch = ch + " " + label + _(' and ') + tradn(z2) + " " + cent
+        else:
+            ch = ch + tradn(z2)
         if z2 > 1 or z2 < -1:
             if decim != '':
                 ch = ch + " " + decim + 's' if decim else ''

@@ -60,312 +60,314 @@
                                 </div>
                             </div>
                         </div>
-                        <font size="0" style="font-size: 7pt">
-                            <table width="100%" cellspacing="0" cellpadding="0">
-                                <colgroup>
-                                    <col/>
-                                </colgroup>
-                                <colgroup>
-                                    <col/>
-                                </colgroup>
-                                <colgroup>
-                                    <col/>
-                                    <col/>
-                                    <col/>
-                                </colgroup>
-                                <colgroup>
-                                    <col/>
-                                    <col/>
-                                </colgroup>
-                                <tr valign="top">
-                                    <td rowspan="3" colspan="3" style="border: none; padding: 0cm">
+<!--                        <div t-attf-style="background-image:url('/servoo_sales/static/description/logo_apm.jpeg'); absolute; z-index: -1; background-size:195mm 250mm; ">-->
+                        <div>
+                            <font size="0" style="font-size: 7pt">
+                                <table width="100%" cellspacing="0" cellpadding="0">
+                                    <colgroup>
+                                        <col/>
+                                    </colgroup>
+                                    <colgroup>
+                                        <col/>
+                                    </colgroup>
+                                    <colgroup>
+                                        <col/>
+                                        <col/>
+                                        <col/>
+                                    </colgroup>
+                                    <colgroup>
+                                        <col/>
+                                        <col/>
+                                    </colgroup>
+                                    <tr valign="top">
+                                        <td rowspan="3" colspan="3" style="border: none; padding: 0cm">
 
-                                    </td>
-                                    <td rowspan="12" style="border: none; padding: 0cm">
-                                        <font color="#ffffff">
-                                            <font>SP</font>
-                                        </font>
-                                    </td>
-                                    <td colspan="3" style="border: none; padding: 0cm; text-align: center">
-                                        <font style="text-transform: uppercase; font-size: 12pt">
-                                            <b>
+                                        </td>
+                                        <td rowspan="12" style="border: none; padding: 0cm">
+                                            <font color="#ffffff">
+                                                <font>SP</font>
+                                            </font>
+                                        </td>
+                                        <td colspan="3" style="border: none; padding: 0cm; text-align: center">
+                                            <font style="text-transform: uppercase; font-size: 12pt">
+                                                <b>
+                                                    <span t-if="o.move_type == 'out_invoice' and o.state == 'posted'">Invoice</span>
+                                                    <span t-if="o.move_type == 'out_invoice' and o.state == 'draft'">Draft Invoice</span>
+                                                    <span t-if="o.move_type == 'out_invoice' and o.state == 'cancel'">Cancelled Invoice</span>
+                                                    <span t-if="o.move_type == 'out_refund'">Credit Note</span>
+                                                    <span t-if="o.move_type == 'in_refund'">Vendor Credit Note</span>
+                                                    <span t-if="o.move_type == 'in_invoice'">Vendor Bill</span>
+                                                </b>
+                                            </font>
+                                        </td>
+                                    </tr>
+                                    <tr valign="top">
+                                        <td
+                                                style="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <font>N° ACCOUNT</font>
+                                        </td>
+                                        <td
+                                                style="text-align: center; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <font style="text-transform: uppercase;">N°
                                                 <span t-if="o.move_type == 'out_invoice' and o.state == 'posted'">Invoice</span>
                                                 <span t-if="o.move_type == 'out_invoice' and o.state == 'draft'">Draft Invoice</span>
                                                 <span t-if="o.move_type == 'out_invoice' and o.state == 'cancel'">Cancelled Invoice</span>
                                                 <span t-if="o.move_type == 'out_refund'">Credit Note</span>
                                                 <span t-if="o.move_type == 'in_refund'">Vendor Credit Note</span>
                                                 <span t-if="o.move_type == 'in_invoice'">Vendor Bill</span>
-                                            </b>
-                                        </font>
-                                    </td>
-                                </tr>
-                                <tr valign="top">
-                                    <td
-                                            style="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
-                                        <font>N° ACCOUNT</font>
-                                    </td>
-                                    <td
-                                            style="text-align: center; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
-                                        <font style="text-transform: uppercase;">N°
-                                            <span t-if="o.move_type == 'out_invoice' and o.state == 'posted'">Invoice</span>
-                                            <span t-if="o.move_type == 'out_invoice' and o.state == 'draft'">Draft Invoice</span>
-                                            <span t-if="o.move_type == 'out_invoice' and o.state == 'cancel'">Cancelled Invoice</span>
-                                            <span t-if="o.move_type == 'out_refund'">Credit Note</span>
-                                            <span t-if="o.move_type == 'in_refund'">Vendor Credit Note</span>
-                                            <span t-if="o.move_type == 'in_invoice'">Vendor Bill</span>
-                                        </font>
-                                    </td>
-                                    <td style="border: 1px solid #000000; padding: 0.1cm; text-align: center">
-                                        <font style="text-transform:uppercase;"><span t-field="o.agency_name" /> ON</font>
-                                    </td>
-                                </tr>
-                                <tr valign="top">
-                                    <td
-                                            style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            </font>
+                                        </td>
+                                        <td style="border: 1px solid #000000; padding: 0.1cm; text-align: center">
+                                            <font style="text-transform:uppercase;"><span t-field="o.agency_name" /> ON</font>
+                                        </td>
+                                    </tr>
+                                    <tr valign="top">
+                                        <td
+                                                style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
 
-                                    </td>
-                                    <td
-                                            style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
-                                        <font>
-                                            <b>
-                                                <span t-field="o.apm_reference"/>
-                                            </b>
-                                        </font>
-                                    </td>
-                                    <td
-                                            style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
-                                        <font>
-                                            <b>
-                                                <span t-field="o.invoice_date"/>
-                                            </b>
-                                        </font>
-                                    </td>
-                                </tr>
-                                <tr valign="top">
-                                    <td
-                                            style="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
-                                        <font>LOADING PORT</font>
-                                    </td>
-                                    <td colspan="2"
-                                        style="text-align: center;border: 1px solid #000000; padding: 0.1cm">
-                                        <font>UNLOADING PORT</font>
-                                    </td>
-                                    <td rowspan="6" colspan="3"
-                                        style="text-left: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
-                                        <font>
-                                            <b>
-                                                <span t-field="o.partner_id.name"/>
-                                            </b>
-                                        </font>
-                                        <br>
+                                        </td>
+                                        <td
+                                                style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
                                             <font>
-                                                <t t-if="o.partner_id.zip">
-                                                    P.O.BOX :
-                                                    <span t-field="o.partner_id.zip"/>
-                                                </t>
-                                                <t t-if="o.partner_id.city">
-                                                    <span t-field="o.partner_id.city"/>
-                                                </t>
-                                                <t t-if="o.partner_id.country_id">
-                                                    -
-                                                    <span t-field="o.partner_id.country_id.name"/>
-                                                </t>
+                                                <b>
+                                                    <span t-field="o.apm_reference"/>
+                                                </b>
                                             </font>
-                                        </br>
-                                        <br>
+                                        </td>
+                                        <td
+                                                style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
                                             <font>
-                                                <t t-if="o.partner_id.email">
-                                                    MAIL :
-                                                    <span t-field="o.partner_id.email"/>
-                                                </t>
+                                                <b>
+                                                    <span t-field="o.invoice_date"/>
+                                                </b>
                                             </font>
-                                        </br>
-                                        <br>
+                                        </td>
+                                    </tr>
+                                    <tr valign="top">
+                                        <td
+                                                style="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <font>LOADING PORT</font>
+                                        </td>
+                                        <td colspan="2"
+                                            style="text-align: center;border: 1px solid #000000; padding: 0.1cm">
+                                            <font>UNLOADING PORT</font>
+                                        </td>
+                                        <td rowspan="6" colspan="3"
+                                            style="text-left: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
                                             <font>
-                                                <t t-if="o.partner_id.vat">
-                                                    NIU :
-                                                    <span t-field="o.partner_id.vat"/>
-                                                </t>
+                                                <b>
+                                                    <span t-field="o.partner_id.name"/>
+                                                </b>
                                             </font>
-                                        </br>
-                                        <br>
+                                            <br>
+                                                <font>
+                                                    <t t-if="o.partner_id.zip">
+                                                        P.O.BOX :
+                                                        <span t-field="o.partner_id.zip"/>
+                                                    </t>
+                                                    <t t-if="o.partner_id.city">
+                                                        <span t-field="o.partner_id.city"/>
+                                                    </t>
+                                                    <t t-if="o.partner_id.country_id">
+                                                        -
+                                                        <span t-field="o.partner_id.country_id.name"/>
+                                                    </t>
+                                                </font>
+                                            </br>
+                                            <br>
+                                                <font>
+                                                    <t t-if="o.partner_id.email">
+                                                        MAIL :
+                                                        <span t-field="o.partner_id.email"/>
+                                                    </t>
+                                                </font>
+                                            </br>
+                                            <br>
+                                                <font>
+                                                    <t t-if="o.partner_id.vat">
+                                                        NIU :
+                                                        <span t-field="o.partner_id.vat"/>
+                                                    </t>
+                                                </font>
+                                            </br>
+                                            <br>
+                                                <font>
+                                                    <t t-if="o.partner_id.commercial_register_number">
+                                                        RCCM :
+                                                        <span t-field="o.partner_id.commercial_register_number"/>
+                                                    </t>
+                                                </font>
+                                            </br>
+                                            <br>
+                                                <t t-if="o.partner_id.phone">
+                                                    TEL: <span t-field="o.partner_id.phone"/>
+                                                </t>
+                                            </br>
+                                        </td>
+                                    </tr>
+                                    <tr valign="top">
+                                        <td
+                                                style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
                                             <font>
-                                                <t t-if="o.partner_id.commercial_register_number">
-                                                    RCCM :
-                                                    <span t-field="o.partner_id.commercial_register_number"/>
-                                                </t>
+                                                <b>
+                                                    <span t-field="o.loading_place_id.name"/>
+                                                </b>
                                             </font>
-                                        </br>
-                                        <br>
-                                            <t t-if="o.partner_id.phone">
-                                                TEL: <span t-field="o.partner_id.phone"/>
-                                            </t>
-                                        </br>
-                                    </td>
-                                </tr>
-                                <tr valign="top">
-                                    <td
-                                            style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
-                                        <font>
-                                            <b>
-                                                <span t-field="o.loading_place_id.name"/>
-                                            </b>
-                                        </font>
-                                    </td>
-                                    <td colspan="2"
-                                        style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
-                                        <font>
-                                            <b>
-                                                <span t-field="o.unloading_place_id.name"/>
-                                            </b>
-                                        </font>
-                                    </td>
-                                </tr>
-                                <tr valign="top">
-                                    <td
-                                            style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
-                                        <font>VESSEL</font>
-                                    </td>
-                                    <td colspan="2"
-                                        style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
-                                        <font>DATE</font>
-                                    </td>
-                                </tr>
-                                <tr valign="top">
-                                    <td
-                                            style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
-                                        <font>
-                                            <b>
-                                                <span t-field="o.transport_means_id.name"/>
-                                            </b>
-                                        </font>
-                                    </td>
-                                    <td colspan="2"
-                                        style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
-                                        <font>
-                                            <b>
-                                                <span t-field="o.travel_date"/>
-                                            </b>
-                                        </font>
-                                    </td>
-                                </tr>
-                                <tr valign="top">
-                                    <td
-                                            style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
-                                        <font>N° BL/LTA</font>
-                                    </td>
-                                    <td
-                                            style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
-                                        <t t-if="o.unit_id"><font>WEIGHT (<span t-field="o.unit_id" />)</font></t>
-                                        <t t-else=""><font>WEIGHT (Kg)</font></t>
-                                    </td>
-                                    <td
+                                        </td>
+                                        <td colspan="2"
                                             style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
-                                        <font>VOLUME (m3)</font>
-                                    </td>
-                                </tr>
-                                <tr valign="top">
-                                    <td
-                                            style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
-                                        <font>
-                                            <b>
-                                                <span t-field="o.transport_letter"/>
-                                            </b>
-                                        </font>
-                                    </td>
-                                    <td
-                                            style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
-                                        <font>
-                                            <b>
-                                                <span t-field="o.weight"/>
-                                            </b>
-                                        </font>
-                                    </td>
-                                    <td
+                                            <font>
+                                                <b>
+                                                    <span t-field="o.unloading_place_id.name"/>
+                                                </b>
+                                            </font>
+                                        </td>
+                                    </tr>
+                                    <tr valign="top">
+                                        <td
+                                                style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <font>VESSEL</font>
+                                        </td>
+                                        <td colspan="2"
                                             style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
-                                        <font>
-                                            <b>
-                                                <span t-field="o.volume"/>
-                                            </b>
-                                        </font>
-                                    </td>
-                                </tr>
-                                <tr valign="top">
-                                    <td colspan="2"
-                                        style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
-                                        <font>CUSTOMS DECLARATION</font>
-                                    </td>
-                                    <td
+                                            <font>DATE</font>
+                                        </td>
+                                    </tr>
+                                    <tr valign="top">
+                                        <td
+                                                style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <font>
+                                                <b>
+                                                    <span t-field="o.transport_means_id.name"/>
+                                                </b>
+                                            </font>
+                                        </td>
+                                        <td colspan="2"
                                             style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
-                                        <font>ON</font>
-                                    </td>
-                                    <td colspan="3" style="border: none; padding: 0cm">
-                                        <br/>
-                                    </td>
-                                </tr>
-                                <tr valign="top">
-                                    <td colspan="2"
-                                        style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
-                                        <font>
-                                            <b>
-                                                <span t-field="o.custom_declaration_reference"/>
-                                            </b>
-                                        </font>
-                                    </td>
-                                    <td
-                                            style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
-                                        <font>
-                                            <b>
-                                                <span t-field="o.custom_declaration_date"/>
-                                            </b>
-                                        </font>
-                                    </td>
-                                    <td
-                                            style="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
-                                        <font>O/FILE N°</font>
-                                    </td>
-                                    <td colspan="2" style="text-align: center;border: 1px solid #000000; padding: 0.1cm">
-                                        <font>
-                                            <b><span t-field="o.invoice_origin" /> </b>
-                                        </font>
-                                    </td>
-                                    <td style="border: none; padding: 0cm">
-                                        <br/>
-                                    </td>
-                                </tr>
-                                <tr valign="top">
-                                    <td
+                                            <font>
+                                                <b>
+                                                    <span t-field="o.travel_date"/>
+                                                </b>
+                                            </font>
+                                        </td>
+                                    </tr>
+                                    <tr valign="top">
+                                        <td
+                                                style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <font>N° BL/LTA</font>
+                                        </td>
+                                        <td
+                                                style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <t t-if="o.unit_id"><font>WEIGHT (<span t-field="o.unit_id" />)</font></t>
+                                            <t t-else=""><font>WEIGHT (Kg)</font></t>
+                                        </td>
+                                        <td
+                                                style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                            <font>VOLUME (m3)</font>
+                                        </td>
+                                    </tr>
+                                    <tr valign="top">
+                                        <td
+                                                style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <font>
+                                                <b>
+                                                    <span t-field="o.transport_letter"/>
+                                                </b>
+                                            </font>
+                                        </td>
+                                        <td
+                                                style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <font>
+                                                <b>
+                                                    <span t-field="o.weight"/>
+                                                </b>
+                                            </font>
+                                        </td>
+                                        <td
+                                                style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                            <font>
+                                                <b>
+                                                    <span t-field="o.volume"/>
+                                                </b>
+                                            </font>
+                                        </td>
+                                    </tr>
+                                    <tr valign="top">
+                                        <td colspan="2"
                                             style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
-                                        <font>ASSESSED VALUE</font>
-                                    </td>
-                                    <td colspan="2"
-                                        style="text-align: right;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
-                                        <font>
-                                            <b>
-                                                <t t-if="o.assessed_value > 0" ><span t-field="o.assessed_value"/>
-                                                FCFA</t>
-                                            </b>
-                                        </font>
-                                    </td>
-                                    <td
+                                            <font>CUSTOMS DECLARATION</font>
+                                        </td>
+                                        <td
+                                                style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                            <font>ON</font>
+                                        </td>
+                                        <td colspan="3" style="border: none; padding: 0cm; align: right">
+                                            <br />
+                                        </td>
+                                    </tr>
+                                    <tr valign="top">
+                                        <td colspan="2"
                                             style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
-                                        <font>Number of packages/TC</font>
-                                    </td>
-                                    <td colspan="2"
-                                        style="text-align: center;border: 1px solid #000000; padding: 0.1cm">
-                                        <b>
-                                            <t t-if="o.number_of_packages">
-                                                <span t-field="o.number_of_packages" />
-                                            </t>
-                                        </b>
-                                    </td>
-                                </tr>
-                            </table>
-                        </font>
-                        <p style="margin-bottom: 0cm; line-height: 100%">
-                            <br/>
-                        </p>
-                        <font size="0" style="font-size: 7pt">
+                                            <font>
+                                                <b>
+                                                    <span t-field="o.custom_declaration_reference"/>
+                                                </b>
+                                            </font>
+                                        </td>
+                                        <td
+                                                style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                            <font>
+                                                <b>
+                                                    <span t-field="o.custom_declaration_date"/>
+                                                </b>
+                                            </font>
+                                        </td>
+                                        <td
+                                                style="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <font>O/FILE N°</font>
+                                        </td>
+                                        <td colspan="2" style="text-align: center;border: 1px solid #000000; padding: 0.1cm">
+                                            <font>
+                                                <b><span t-field="o.invoice_origin" /> </b>
+                                            </font>
+                                        </td>
+                                        <td style="border: none; padding: 0cm">
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                    <tr valign="top">
+                                        <td
+                                                style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <font>ASSESSED VALUE</font>
+                                        </td>
+                                        <td colspan="2"
+                                            style="text-align: right;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                            <font>
+                                                <b>
+                                                    <t t-if="o.assessed_value > 0" ><span t-field="o.assessed_value"/>
+                                                    FCFA</t>
+                                                </b>
+                                            </font>
+                                        </td>
+                                        <td
+                                                style="text-align: center;border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <font>Number of packages/TC</font>
+                                        </td>
+                                        <td colspan="2"
+                                            style="text-align: center;border: 1px solid #000000; padding: 0.1cm">
+                                            <b>
+                                                <t t-if="o.number_of_packages">
+                                                    <span t-field="o.number_of_packages" />
+                                                </t>
+                                            </b>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </font>
+                            <p style="margin-bottom: 0cm; line-height: 100%">
+                                <br/>
+                            </p>
+                            <font size="0" style="font-size: 7pt">
                             <div class="row mt32 mb32" id="informations">
                                 <div t-if="o.object" class="col-6 mw-100 mb-2">
                                     <strong>CONCERN:</strong>
@@ -387,6 +389,12 @@
                                         <th name="th_quantity" class="text-right">
                                             <span>Base</span>
                                         </th>
+
+                                         <th name="th_days" t-if="display_days"
+                                            t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+                                            <span>Days</span>
+                                        </th>
+
                                         <th name="th_priceunit"
                                             t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
                                             <span>Rate</span>
@@ -427,6 +435,10 @@
 <!--                                                    <t t-else=""><span t-field="line.quantity"/></t>-->
                                                     <span t-field="line.quantity"/>
 <!--                                                    <span t-field="line.product_uom_id" groups="uom.group_uom"/>-->
+                                                </td>
+                                                <td t-if="display_days"
+                                                    t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+                                                    <span class="text-nowrap" t-field="line.no_days"/>
                                                 </td>
                                                 <td t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
                                                     <t t-if="line.price_unit &lt; 1 and line.price_unit &gt; 0"><span class="text-nowrap" t-esc="line.price_unit * 100"/>%</t>
@@ -547,6 +559,7 @@
                                 <span t-field="o.invoice_payment_term_id.note"/>
                             </p>
                             <div t-if="not is_html_empty(o.narration)" name="comment">
+                                <br />
                                 <span t-field="o.narration"/>
                             </div>
                             <p t-if="not is_html_empty(o.fiscal_position_id.note)" name="note">
@@ -567,11 +580,16 @@
                                 </p>
                             </div>
                         </font>
+                        </div>
                     </div>
                     <div class="footer">
-              <div class="row" align="right">
-                  <font size="0" style="font-size: 5pt; padding:0"><span>Page </span><span class="page" />/<span class="topage" /></font>
-              </div>
+                      <div style="text-align: center; border-top: 1px solid black;">
+                          <font size="0" style="font-size: 7pt; padding:0">
+                              <p>RC N°:DLA/2019/M/1483 - NIU: M010400017218T - CNPS: 351-0103989-E - Société Anonyme au capital de 1 256 340 000 FCFA
+                                  <br>CBC Douala 1008 00020 371 2080100 94 - BGFI Douala 10035 01 100 40001084011 34 - BICEC Douala 10001 06805 39057205001 64</br></p>
+<!--                              <span>Page </span><span class="page" />/<span class="topage" />-->
+                          </font>
+                      </div>
             </div>
                 </t>
                 <t t-if="o.move_type != 'out_invoice'">
@@ -883,6 +901,17 @@
             </t>
         </template>
 
+        <template id="report_invoice_parking">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-set="lang" t-value="o.partner_id.lang"/>
+                    <t t-set="display_days" t-value="True"/>
+                    <t t-if="o._get_name_invoice_report() == 'account.report_invoice_document'"
+                        t-call="account.report_invoice_document" t-lang="lang"/>
+                </t>
+            </t>
+        </template>
+
         <record id="paperformat_invoice" model="report.paperformat">
         <field name="name">Invoice</field>
         <field name="default" eval="False"/>
@@ -904,6 +933,18 @@
 
         <record id="account.account_invoices_without_payment" model="ir.actions.report">
             <field name="paperformat_id" ref="paperformat_invoice"/>
+        </record>
+
+        <record id="account_invoices_parking" model="ir.actions.report">
+            <field name="name">Invoices Parking</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">servoo_sales.report_invoice_parking</field>
+            <field name="report_file">servoo_sales.report_invoice_parking</field>
+            <field name="print_report_name">(object._get_report_base_filename())</field>
+            <field name="attachment">(object.state == 'posted') and ((object.name or 'INV').replace('/','_')+'.pdf')</field>
+            <field name="binding_model_id" ref="model_account_move"/>
+            <field name="binding_type">report</field>
         </record>
     </data>
 </odoo>

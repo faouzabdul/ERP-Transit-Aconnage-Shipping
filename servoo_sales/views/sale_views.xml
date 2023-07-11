@@ -6,8 +6,15 @@
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form" />
             <field name="arch" type="xml">
+                <xpath expr="//page[@name='order_lines']/field/tree/field[@name='price_unit']" position="after">
+                    <field name="no_days" optional="hide"/>
+                </xpath>
                 <field name="partner_id" position="before">
                     <field name="agency_name" required="1" />
+                </field>
+                <field name="note" position="before">
+                    <label for="distribute_ht_amount" colspan="2" />
+                    <field name="distribute_ht_amount"  colspan="2" nolabel="1"/>
                 </field>
                 <field name="note" position="after">
                     <label for="amount_total_letter" string="Stopped this invoice for the sum" colspan="2"/>

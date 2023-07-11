@@ -195,8 +195,8 @@
                                     </font>
                                 </br>
                                 <br>
-                                    <t t-if="o.partner_id.phone">
-                                        TEL: <span t-field="o.partner_id.phone"/>
+                                    <t t-if="doc.partner_id.phone">
+                                        TEL: <span t-field="doc.partner_id.phone"/>
                                     </t>
                                 </br>
                             </td>
@@ -391,6 +391,9 @@
                             <tr>
                                 <th name="th_description" class="text-left">Description</th>
                                 <th name="th_quantity" class="text-right">Base</th>
+                                <th name="th_days" t-if="display_days" class="text-right">
+                                    <span>Days</span>
+                                </th>
                                 <th name="th_priceunit" class="text-right">Rate</th>
                                 <th name="th_discount" t-if="display_discount" class="text-right"
                                     groups="product.group_discount_per_so_line">
@@ -428,6 +431,9 @@
 <!--                                            </t>-->
                                             <!--                                            <span t-field="line.product_uom_qty" t-options='{"widget": "percentage"}'/>-->
                                                                                     <span t-field="line.product_uom_qty"/>
+                                        </td>
+                                        <td t-if="display_days" name="td_days" class="text-right">
+                                            <span class="text-nowrap" t-field="line.no_days"/>
                                         </td>
                                         <td name="td_priceunit" class="text-right">
                                             <t t-if="line.price_unit &lt; 1 and line.price_unit &gt; 0"><span
@@ -545,9 +551,13 @@
                 </font>
             </div>
             <div class="footer">
-              <div class="row" align="right">
-                  <font size="0" style="font-size: 5pt; padding:0"><span>Page </span><span class="page" />/<span class="topage" /></font>
-              </div>
+                      <div style="text-align: center; border-top: 1px solid black;">
+                          <font size="0" style="font-size: 7pt; padding:0">
+                              <p>RC N°:DLA/2019/M/1483 - NIU: M010400017218T - CNPS: 351-0103989-E - Société Anonyme au capital de 1 256 340 000 FCFA
+                                  <br>CBC Douala 1008 00020 371 2080100 94 - BGFI Douala 10035 01 100 40001084011 34 - BICEC Douala 10001 06805 39057205001 64</br></p>
+        <!--                      <span>Page </span><span class="page" />/<span class="topage" />-->
+                          </font>
+                      </div>
             </div>
         </t>
     </template>
@@ -564,6 +574,17 @@
     <template id="report_servoo_saleorder_pro_forma">
         <t t-call="web.html_container">
             <t t-set="is_pro_forma" t-value="True"/>
+            <t t-set="docs" t-value="docs.with_context(proforma=True)"/>
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="servoo_sales.report_servoo_saleorder_document" t-lang="doc.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_servoo_saleorder_pro_forma_parking">
+        <t t-call="web.html_container">
+            <t t-set="is_pro_forma" t-value="True"/>
+            <t t-set="display_days" t-value="True"/>
             <t t-set="docs" t-value="docs.with_context(proforma=True)"/>
             <t t-foreach="docs" t-as="doc">
                 <t t-call="servoo_sales.report_servoo_saleorder_document" t-lang="doc.partner_id.lang"/>
@@ -606,6 +627,19 @@
         <field name="report_name">servoo_sales.report_servoo_saleorder_pro_forma</field>
         <field name="report_file">servoo_sales.report_servoo_saleorder_pro_forma</field>
         <field name="print_report_name">'PRO-FORMA - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_sale_order"/>
+        <field name="binding_type">report</field>
+        <field name="groups_id" eval="[(4, ref('sale.group_proforma_sales'))]"/>
+        <field name="paperformat_id" ref="paperformat_sale_order"/>
+    </record>
+
+    <record id="action_report_pro_forma_parking" model="ir.actions.report">
+        <field name="name">PROFORMA Parking</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">servoo_sales.report_servoo_saleorder_pro_forma_parking</field>
+        <field name="report_file">servoo_sales.report_servoo_saleorder_pro_forma_parking</field>
+        <field name="print_report_name">'PRO-FORMA PARKING - %s' % (object.name)</field>
         <field name="binding_model_id" ref="model_sale_order"/>
         <field name="binding_type">report</field>
         <field name="groups_id" eval="[(4, ref('sale.group_proforma_sales'))]"/>

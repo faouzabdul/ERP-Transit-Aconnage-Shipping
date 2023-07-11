@@ -2,7 +2,7 @@
 <odoo>
     <data>
         <record model="ir.module.category" id="base.module_category_accounting_accounting">
-            <field name="visible" eval="False" />
+            <field name="visible" eval="False"/>
         </record>
 
         <record model="ir.module.category" id="module_category_servoo_account">
@@ -20,9 +20,9 @@
         <record id="group_account_accountant_manager" model="res.groups">
             <field name="name">Accounting Administrator</field>
             <field name="category_id" ref="module_category_servoo_account"/>
-            <field name="implied_ids" eval="[(4, ref('account.group_account_manager')), (4, ref('group_account_user'))]"/>
+            <field name="implied_ids"
+                   eval="[(4, ref('account.group_account_manager')), (4, ref('group_account_user'))]"/>
         </record>
-
 
 
         <record model="ir.module.category" id="module_category_servoo_Invoice">
@@ -40,7 +40,8 @@
         <record id="group_account_manager" model="res.groups">
             <field name="name">Billing Administrator</field>
             <field name="category_id" ref="module_category_servoo_Invoice"/>
-            <field name="implied_ids" eval="[(4, ref('account.group_account_manager')), (4, ref('group_account_invoice'))]"/>
+            <field name="implied_ids"
+                   eval="[(4, ref('account.group_account_manager')), (4, ref('group_account_invoice'))]"/>
         </record>
 
         <record model="ir.module.category" id="module_category_servoo_supplier_invoice">
@@ -83,5 +84,147 @@
             <field name="padding">3</field>
             <field name="company_id" eval="False"/>
         </record>
+
+        <record id="seq_servoo_apm_number_FDMI" model="ir.sequence">
+            <field name="name">Douane Maritime Import</field>
+            <field name="code">FDMI</field>
+            <field name="prefix">%(y)sFDMI</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FDME" model="ir.sequence">
+            <field name="name">Douane Maritime Export</field>
+            <field name="code">FDME</field>
+            <field name="prefix">%(y)sFDME</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FDAI" model="ir.sequence">
+            <field name="name">Douane Aérien Import</field>
+            <field name="code">FDAI</field>
+            <field name="prefix">%(y)sFDAI</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FDAE" model="ir.sequence">
+            <field name="name">Douane Aérien Export</field>
+            <field name="code">FDAE</field>
+            <field name="prefix">%(y)sFDAE</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FTRI" model="ir.sequence">
+            <field name="name">Transit Import</field>
+            <field name="code">FTRI</field>
+            <field name="prefix">%(y)sFTRI</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FTRE" model="ir.sequence">
+            <field name="name">Transit Export</field>
+            <field name="code">FTRE</field>
+            <field name="prefix">%(y)sFTRE</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FTAI" model="ir.sequence">
+            <field name="name">Transit Aérien Import</field>
+            <field name="code">FTAI</field>
+            <field name="prefix">%(y)sFTAI</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FTAE" model="ir.sequence">
+            <field name="name">Transit Aérien Export</field>
+            <field name="code">FTAE</field>
+            <field name="prefix">%(y)sFTAE</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FCGC" model="ir.sequence">
+            <field name="name">Clinker – Gypse – Calcaire</field>
+            <field name="code">FCGC</field>
+            <field name="prefix">%(y)sFCGC</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FDIV" model="ir.sequence">
+            <field name="name">Divers</field>
+            <field name="code">FDIV</field>
+            <field name="prefix">%(y)sFDIV</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FVRA" model="ir.sequence">
+            <field name="name">Vrac</field>
+            <field name="code">FVRA</field>
+            <field name="prefix">%(y)sFVRA</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FBOD" model="ir.sequence">
+            <field name="name">Bois (Douala)</field>
+            <field name="code">FBOD</field>
+            <field name="prefix">%(y)sFBOD</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FBOK" model="ir.sequence">
+            <field name="name">Bois (Kribi)</field>
+            <field name="code">FBOK</field>
+            <field name="prefix">%(y)sFBOK</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FSAC" model="ir.sequence">
+            <field name="name">Sacherie</field>
+            <field name="code">FSAC</field>
+            <field name="prefix">%(y)sFSAC</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FDAPA" model="ir.sequence">
+            <field name="name">DAP Aérien</field>
+            <field name="code">FDAPA</field>
+            <field name="prefix">%(y)sFDAPA</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FDAPM" model="ir.sequence">
+            <field name="name">DAP Maritime</field>
+            <field name="code">FDAPM</field>
+            <field name="prefix">%(y)sFDAPM</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FDAPT" model="ir.sequence">
+            <field name="name">DAP Transit</field>
+            <field name="code">FDAPT</field>
+            <field name="prefix">%(y)sFDAPT</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FCDOM" model="ir.sequence">
+            <field name="name">Cession Documentaire Maritime</field>
+            <field name="code">FCDOM</field>
+            <field name="prefix">%(y)sFCDOM</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FCDOA" model="ir.sequence">
+            <field name="name">Cession Documentaire Aérien</field>
+            <field name="code">FCDOA</field>
+            <field name="prefix">%(y)sFCDOA</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FLOG" model="ir.sequence">
+            <field name="name">Logistique</field>
+            <field name="code">FLOG</field>
+            <field name="prefix">%(y)sFLOG</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
     </data>
 </odoo>

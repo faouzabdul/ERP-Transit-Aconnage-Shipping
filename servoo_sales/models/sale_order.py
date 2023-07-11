@@ -38,27 +38,39 @@ class SaleOrder(models.Model):
     ], string='Agency', default='Douala')
     handling = fields.Float('Rate')
     include_tax_for_handling = fields.Boolean('Include Taxes')
-    quantity = fields.Integer('Quantity')
+    quantity = fields.Float('Quantity')
     handling_rate_id = fields.Many2one('servoo.handling.rate', 'Good Type')
     rate_type = fields.Selection(related='handling_rate_id.rate_type', string='Rate Type')
 
     handling2 = fields.Float('Rate 2')
     include_tax_for_handling2 = fields.Boolean('Include Taxes 2')
-    quantity2 = fields.Integer('Quantity 2')
+    quantity2 = fields.Float('Quantity 2')
     handling_rate_2_id = fields.Many2one('servoo.handling.rate', 'Good Type 2')
     rate_type_2 = fields.Selection(related='handling_rate_2_id.rate_type', string='Rate Type 2')
 
     handling3 = fields.Float('Rate 3')
     include_tax_for_handling3 = fields.Boolean('Include Taxes 3')
-    quantity3 = fields.Integer('Quantity 3')
+    quantity3 = fields.Float('Quantity 3')
     handling_rate_3_id = fields.Many2one('servoo.handling.rate', 'Good Type 3')
     rate_type_3 = fields.Selection(related='handling_rate_3_id.rate_type', string='Rate Type 3')
+
+    distribute_ht_amount = fields.Boolean('Distribute HT Amount')
+
+    @api.onchange('distribute_ht_amount', 'amount_untaxed')
+    def onchange_distribute_ht_amount(self):
+        narration = ''
+        if self.distribute_ht_amount:
+            part = self.amount_untaxed / 2
+            narration = """50%% APM SA: %s %s<br />
+                50%% PAK: %s %s
+                """ % (part, self.currency_id.symbol, part, self.currency_id.symbol)
+        self.note = narration
 
 
     @api.depends('amount_total', 'currency_id')
     def _compute_display_amount_letter(self):
         for order in self:
-            order.amount_total_letter = utils.translate(order.amount_total).upper()
+            order.amount_total_letter = utils.translate(order.amount_total, currency=order.currency_id.name).upper()
             currency_code = 'XAF'
             if order.currency_id.name == 'XAF':
                 currency_code = 'EUR'
@@ -215,3 +227,9 @@ class SaleOrder(models.Model):
         if self.origin:
             vals['invoice_origin'] = self.origin
         return vals
+
+
+class SaleOrderLine(models.Model):
+    _inherit = 'sale.order.line'
+
+    no_days = fields.Integer('Days', help='Number of days')
