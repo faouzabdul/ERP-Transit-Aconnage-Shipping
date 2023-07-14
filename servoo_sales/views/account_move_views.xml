@@ -21,10 +21,10 @@
                     <field name="apm_reference" readonly="1" />
                     <field name="agency_name" required="1" />
                     <field name="department_id" readonly="1" attrs="{'invisible': [('move_type', '!=', 'in_invoice')]}"  />
-<!--                    <field name="sale_order_template_id" context="{'company_id': company_id}"-->
-<!--                    options="{'no_create': True, 'no_open': True}"-->
-<!--                    groups="sale_management.group_sale_order_template"-->
-<!--                />-->
+                    <field name="sale_order_template_id" attrs="{'invisible': [('move_type', '!=', 'out_invoice')]}"
+                        options="{'no_create': True, 'no_open': True}"
+                        groups="sale_management.group_sale_order_template"
+                    />
                 </field>
                 <field name="payment_reference" position="replace" />
                 <field name="narration" position="before">
@@ -65,9 +65,28 @@
                         <field name="custom_declaration_reference" />
                         <field name="custom_declaration_date" />
                         <field name="number_of_packages" />
+                         <field name="object" colspan="4"/>
                     </group>
-                    <group>
-                        <field name="object" colspan="4"/>
+                    <group string="Main rate" col="4" attrs="{'invisible': [('move_type', '!=', 'out_invoice')]}">
+                        <field name="handling_rate_id" colspan="4"/>
+                        <field name="rate_type" readonly="1" />
+                        <field name="include_tax_for_handling" />
+                        <field name="handling" />
+                        <field name="quantity" />
+                    </group>
+                    <group string="Second rate" col="4" attrs="{'invisible': [('move_type', '!=', 'out_invoice')]}">
+                        <field name="handling_rate_2_id" colspan="4"/>
+                        <field name="rate_type_2" readonly="1" />
+                        <field name="include_tax_for_handling2" />
+                        <field name="handling2" />
+                        <field name="quantity2" />
+                    </group>
+                    <group string="Third rate" col="4" attrs="{'invisible': [('move_type', '!=', 'out_invoice')]}">
+                        <field name="handling_rate_3_id" colspan="4"/>
+                        <field name="rate_type_3" readonly="1" />
+                        <field name="include_tax_for_handling3" />
+                        <field name="handling3" />
+                        <field name="quantity3" />
                     </group>
                 </notebook>
 <!--                <field name="state" position="replace">-->

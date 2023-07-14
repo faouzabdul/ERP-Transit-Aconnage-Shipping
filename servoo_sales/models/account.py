@@ -39,11 +39,11 @@ class AccountMove(models.Model):
         ('Kribi', 'Kribi'),
         ('Tchad', 'Tchad'),
     ], string='Agency', default='Douala')
-    # sale_order_template_id = fields.Many2one(
-    #     'sale.order.template', 'Invoice Template',
-    #     readonly=True, check_company=True,
-    #     states={'draft': [('readonly', False)], 'sent': [('readonly', False)]},
-    #     domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
+    sale_order_template_id = fields.Many2one(
+        'sale.order.template', 'Invoice Template',
+        readonly=True, check_company=True,
+        states={'draft': [('readonly', False)], 'sent': [('readonly', False)]},
+        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
     department_id = fields.Many2one('hr.department', 'Department')
     observation = fields.Text('Observation', tracking=2)
     import_pad_invoice = fields.Boolean('Import PAD Invoice', tracking=3)
@@ -160,37 +160,11 @@ class AccountMove(models.Model):
             self._cr.execute(q)
             res = self._cr.fetchall()
             if res and res[0][0]:
-                _logger.info('res : %s' % res)
+                # _logger.info('res : %s' % res)
                 ref = res[0][0] + "-" + str(len(res))
                 return ref
         ref = self._get_root(source)
         sequence = self._get_sequence_name(ref)
-        # if source and source[:2].isnumeric():
-        #     ref = str(datetime.now().year)[-2:] + 'F' + source[2:-3]
-        # if ref:
-            # query = "SELECT apm_reference FROM account_move WHERE apm_reference LIKE '" + ref + "%' order by id desc limit 1"
-            # # query = "SELECT count(*) FROM account_move WHERE apm_reference LIKE '" + ref + "%'"
-            # self._cr.execute(query)
-            # # res = self._cr.fetchone()
-            # # record_count = int(res[0]) + 1
-            # # if len(str(record_count)) == 1:
-            # #     ref += '00'
-            # # elif len(str(record_count)) == 2:
-            # #     ref += '0'
-            # # ref += str(record_count)
-            # res = self._cr.fetchall()
-            # record_count = len(res) + 1
-            # if res and res[0][0][-5:].isnumeric():
-            #     record_count = int(res[-1][0][-5:]) + 1
-            # elif res and res[0][0][-4:].isnumeric():
-            #     record_count = int(res[-1][0][-4:]) + 1
-            # elif res and res[0][0][-3:].isnumeric():
-            #     record_count = int(res[-1][0][-3:]) + 1
-            # if len(str(record_count)) == 1:
-            #     ref += '00'
-            # elif len(str(record_count)) == 2:
-            #     ref += '0'
-            # ref += str(record_count)
         return sequence
 
     @api.model
@@ -231,74 +205,150 @@ class AccountMove(models.Model):
             self.additional_invoice = False
 
 
+    def _compute_line_data_for_template_change(self, line):
+        return {
+            # 'sequence': line.sequence,
+            'display_type': line.display_type,
+            'name': line.name,
+        }
+
+    def _sum_rule_amount(self, localdict, line, amount):
+        # _logger.info('line.code : %s = %s' % (line.code, amount))
+        localdict['rules'].dict[line.code] = line.code in localdict['rules'].dict and localdict['rules'].dict[line.code] + amount or amount
+        return localdict
+
+    def init_dicts(self):
+        class BrowsableObject(object):
+            def __init__(self, dict, env):
+                self.dict = dict
+                self.env = env
+
+            def __getattr__(self, attr):
+                return attr in self.dict and self.dict.__getitem__(attr) or 0.0
+
+        rules_dict = {}
+        rules = BrowsableObject(rules_dict, self.env)
+        var_dict = {
+            'VOLUME': self.volume,
+            'TONNAGE': self.weight,
+            'ROYALTY': self.handling,
+            'ROYALTY2': self.handling2,
+            'ROYALTY3': self.handling3,
+            'QUANTITY': self.quantity,
+            'QUANTITY2': self.quantity2,
+            'QUANTITY3': self.quantity3,
+            'rules': rules
+        }
+        return dict(var_dict)
+
+    def _get_computed_account(self, product_id):
+        if not product_id:
+            return
+        accounts = product_id.product_tmpl_id.get_product_accounts()
+        return accounts['income']
+
+    def _apply_added_lines(self):
+        for line in self.invoice_line_ids:
+            # qty = line.quantity
+            # price_unit = line.price_unit
+            # line._onchange_product_id()
+            # line.quantity = qty
+            # line.price_unit = price_unit
+            line.account_id = line._get_computed_account()
+            taxes = line._get_computed_taxes()
+            if taxes and line.move_id.fiscal_position_id:
+                taxes = line.move_id.fiscal_position_id.map_tax(taxes)
+            line.tax_ids = taxes
+
+    def _get_template_lines(self, template_id, localdict):
+        # invoice_lines = [(5, 0, 0)]
+        invoice_lines = []
+        self.invoice_line_ids = [(5, 0, 0)]
+        self.line_ids = [(5, 0, 0)]
+        template = self.env['sale.order.template'].browse(template_id)
+        for line in template.sale_order_template_line_ids:
+            data = self._compute_line_data_for_template_change(line)
+            localdict['result'] = None
+            localdict['result_qty'] = 1.0
+            if line.product_id:
+                amount, qty = line._compute_rule(localdict)
+                if line.code:
+                    total_rule = amount * qty
+                    localdict[line.code] = total_rule
+                    localdict = self._sum_rule_amount(localdict, line, total_rule)
+                price = amount
+                data.update({
+                    'price_unit': price,
+                    'quantity': qty,
+                    'product_id': line.product_id.id,
+                    'product_uom_id': line.product_uom_id.id,
+                    'currency_id': self.currency_id.id,
+                })
+            invoice_lines.append((0, 0, data))
+        self.invoice_line_ids = invoice_lines
+        self._apply_added_lines()
+        self.invoice_line_ids._onchange_price_subtotal()
+        self._onchange_tax_totals_json()
 
 
-    # def _compute_line_data_for_template_change(self, line):
-    #     return {
-    #         'sequence': line.sequence,
-    #         'display_type': line.display_type,
-    #         'name': line.name,
-    #     }
-    #
-    # def _sum_rule_amount(self, localdict, line, amount):
-    #     localdict['rules'].dict[line.code] = line.code in localdict['rules'].dict and localdict['rules'].dict[line.code] + amount or amount
-    #     return localdict
-    #
-    # def init_dicts(self):
-    #     class BrowsableObject(object):
-    #         def __init__(self, dict, env):
-    #             self.dict = dict
-    #             self.env = env
-    #
-    #         def __getattr__(self, attr):
-    #             return attr in self.dict and self.dict.__getitem__(attr) or 0.0
-    #
-    #     rules_dict = {}
-    #     rules = BrowsableObject(rules_dict, self.env)
-    #     var_dict = {
-    #         'VOLUME': self.volume,
-    #         'TONNAGE': self.weight,
-    #         'rules': rules
-    #     }
-    #     return dict(var_dict)
-    #
-    # def _get_template_lines(self, template_id, localdict):
-    #     invoice_lines = [(5, 0, 0)]
-    #     template = self.env['sale.order.template'].browse(template_id)
-    #     for line in template.sale_order_template_line_ids:
-    #         data = self._compute_line_data_for_template_change(line)
-    #         localdict['result'] = None
-    #         localdict['result_qty'] = 1.0
-    #         if line.product_id:
-    #             amount, qty = line._compute_rule(localdict)
-    #             if line.code:
-    #                 total_rule = amount * qty
-    #                 localdict[line.code] = total_rule
-    #                 localdict = self._sum_rule_amount(localdict, line, total_rule)
-    #             price = amount
-    #             discount = 0
-    #             data.update({
-    #                 'price_unit': price,
-    #                 'discount': discount,
-    #                 'quantity': qty,
-    #                 'product_id': line.product_id.id,
-    #                 'product_uom_id': line.product_uom_id.id,
-    #             })
-    #         invoice_lines.append((0, 0, data))
-    #     self.invoice_line_ids = invoice_lines
-    #
-    # @api.onchange('sale_order_template_id')
-    # def onchange_sale_order_template_id(self):
-    #     template = self.sale_order_template_id.with_context(lang=self.partner_id.lang)
-    #     localdict = self.init_dicts()
-    #     self._get_template_lines(self.sale_order_template_id.id, localdict)
-    #     if not is_html_empty(template.note):
-    #         self.note = template.note
-    #
-    # @api.onchange('weight', 'volume')
-    # def onchange_variables(self):
-    #     localdict = self.init_dicts()
-    #     self._get_template_lines(self.sale_order_template_id.id, localdict)
+    @api.onchange('sale_order_template_id')
+    def onchange_sale_order_template_id(self):
+        template = self.sale_order_template_id.with_context(lang=self.partner_id.lang)
+        localdict = self.init_dicts()
+        self._get_template_lines(self.sale_order_template_id.id, localdict)
+        if not is_html_empty(template.note):
+            self.note = template.note
+
+    @api.onchange('weight', 'volume', 'handling', 'quantity','handling2', 'quantity2','handling3', 'quantity3', 'include_tax_for_handling', 'include_tax_for_handling2', 'include_tax_for_handling3', 'handling_rate_id', 'handling_rate_2_id', 'handling_rate_3_id')
+    def onchange_variables(self):
+        # _logger.info('handling/quantity : %s/%s\nhandling2/quantity2 : %s/%s\nhandling3/quantity3 : %s/%s\n' % (self.handling, self.quantity, self.handling2, self.quantity2, self.handling3, self.quantity3))
+        localdict = self.init_dicts()
+        self._get_template_lines(self.sale_order_template_id.id, localdict)
+
+    @api.onchange('handling_rate_id')
+    def onchange_hanlding_rate(self):
+        self.handling = self.handling_rate_id.rate
+
+    @api.onchange('handling_rate_2_id')
+    def onchange_hanlding_rate2(self):
+        self.handling2 = self.handling_rate_2_id.rate
+
+    @api.onchange('handling_rate_3_id')
+    def onchange_hanlding_rate3(self):
+        self.handling3 = self.handling_rate_3_id.rate
+
+    @api.onchange('include_tax_for_handling')
+    def onchange_include_tax(self):
+        if self.handling == 0.0:
+            return
+        rate = self.handling
+        if self.include_tax_for_handling:
+            rate += rate * 0.1925
+        else:
+            rate = self.handling_rate_id.rate
+        self.handling = rate
+
+    @api.onchange('include_tax_for_handling2')
+    def onchange_include_tax2(self):
+        if self.handling2 == 0.0:
+            return
+        rate = self.handling2
+        if self.include_tax_for_handling2:
+            rate += rate * 0.1925
+        else:
+            rate = self.handling_rate_2_id.rate
+        self.handling2 = rate
+
+    @api.onchange('include_tax_for_handling3')
+    def onchange_include_tax3(self):
+        if self.handling3 == 0.0:
+            return
+        rate = self.handling3
+        if self.include_tax_for_handling3:
+            rate += rate * 0.1925
+        else:
+            rate = self.handling_rate_3_id.rate
+        self.handling3 = rate
 
 class AccountMoveLine(models.Model):
     _inherit = 'account.move.line'

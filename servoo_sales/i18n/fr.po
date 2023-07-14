@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220616\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-11 17:27+0000\n"
-"PO-Revision-Date: 2023-07-11 17:27+0000\n"
+"POT-Creation-Date: 2023-07-14 10:43+0000\n"
+"PO-Revision-Date: 2023-07-14 10:43+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -580,6 +580,11 @@ msgid "Commodity Fee"
 msgstr "Redevance marchandise"
 
 #. module: servoo_sales
+#: model:ir.ui.menu,name:servoo_sales.config_menu
+msgid "Configuration"
+msgstr ""
+
+#. module: servoo_sales
 #: model:ir.model,name:servoo_sales.model_res_partner
 msgid "Contact"
 msgstr ""
@@ -835,6 +840,13 @@ msgid "Invoice"
 msgstr "Facture"
 
 #. module: servoo_sales
+#: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__sale_order_template_id
+#: model:ir.model.fields,field_description:servoo_sales.field_account_move__sale_order_template_id
+#: model:ir.model.fields,field_description:servoo_sales.field_account_payment__sale_order_template_id
+msgid "Invoice Template"
+msgstr "Modèle de facture"
+
+#. module: servoo_sales
 #: model:ir.model.fields,field_description:servoo_sales.field_account_bank_statement_line__invoice_line_ids
 #: model:ir.model.fields,field_description:servoo_sales.field_account_move__invoice_line_ids
 #: model:ir.model.fields,field_description:servoo_sales.field_account_payment__invoice_line_ids
@@ -850,6 +862,11 @@ msgstr "Factures"
 #: model:ir.actions.report,name:servoo_sales.account_invoices_parking
 msgid "Invoices Parking"
 msgstr "Factures stationnement"
+
+#. module: servoo_sales
+#: model:ir.ui.menu,name:servoo_sales.sale_order_template_menu
+msgid "Invoices Templates"
+msgstr "Modèles de facture"
 
 #. module: servoo_sales
 #: model:ir.module.category,name:servoo_sales.module_category_servoo_Invoice
@@ -925,6 +942,7 @@ msgid "MAIL :"
 msgstr ""
 
 #. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_move_form
 #: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_order_form
 msgid "Main rate"
 msgstr "Tarif principal"
@@ -1204,6 +1222,7 @@ msgid "Sales Order Line"
 msgstr "Ligne de bons de commande"
 
 #. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_move_form
 #: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_order_form
 msgid "Second rate"
 msgstr "Tarif secondaire"
@@ -1327,6 +1346,7 @@ msgid "Tchad"
 msgstr ""
 
 #. module: servoo_sales
+#: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_move_form
 #: model_terms:ir.ui.view,arch_db:servoo_sales.view_servoo_order_form
 msgid "Third rate"
 msgstr "Tarif tertiaire"
