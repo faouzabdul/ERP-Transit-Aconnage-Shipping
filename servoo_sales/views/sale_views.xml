@@ -7,7 +7,7 @@
             <field name="inherit_id" ref="sale.view_order_form" />
             <field name="arch" type="xml">
                 <xpath expr="//page[@name='order_lines']/field/tree/field[@name='price_unit']" position="after">
-                    <field name="no_days" optional="hide"/>
+                    <field name="no_days" optional="hide" force_save="1"/>
                 </xpath>
                 <field name="partner_id" position="before">
                     <field name="agency_name" required="1" />

@@ -117,8 +117,11 @@
                             attrs="{'invisible': ['|',('move_type', '!=', 'in_invoice'), ('state', '!=', 'management_control_approval')]}" />
                 </button>
                 <field name="price_unit" position="after">
-                    <field name="no_days" optional="hide"/>
+                    <field name="no_days" optional="hide" force_save="1"/>
                 </field>
+                <xpath expr="//field[@name='line_ids']/tree/field[@name='account_id']" position="before">
+                    <field name="no_days" invisible="1"/>
+                </xpath>
             </field>
         </record>
 
