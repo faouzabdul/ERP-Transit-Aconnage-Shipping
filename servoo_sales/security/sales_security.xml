@@ -85,6 +85,72 @@
             <field name="company_id" eval="False"/>
         </record>
 
+        <record id="seq_servoo_apm_number_FKDMI" model="ir.sequence">
+            <field name="name">Kribi Douane Maritime Import</field>
+            <field name="code">FKDMI</field>
+            <field name="prefix">%(y)sFKDMI</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FKDME" model="ir.sequence">
+            <field name="name">Kribi Douane Maritime Export</field>
+            <field name="code">FKDME</field>
+            <field name="prefix">%(y)sFKDME</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FKDAI" model="ir.sequence">
+            <field name="name">Kribi Douane Aérien Import</field>
+            <field name="code">FKDAI</field>
+            <field name="prefix">%(y)sFKDAI</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FKDAE" model="ir.sequence">
+            <field name="name">Kribi Douane Aérien Export</field>
+            <field name="code">FKDAE</field>
+            <field name="prefix">%(y)sFKDAE</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_servoo_apm_number_FKPAB" model="ir.sequence">
+            <field name="name">Kribi Export Bois</field>
+            <field name="code">FKPAB</field>
+            <field name="prefix">%(y)FKPAB</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_servoo_apm_number_FKTRI" model="ir.sequence">
+            <field name="name">Kribi Transit Import</field>
+            <field name="code">FKTRI</field>
+            <field name="prefix">%(y)sFKTRI</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FKTRE" model="ir.sequence">
+            <field name="name">Kribi Transit Export</field>
+            <field name="code">FKTRE</field>
+            <field name="prefix">%(y)sFKTRE</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FKTAI" model="ir.sequence">
+            <field name="name">Kribi Transit Aérien Import</field>
+            <field name="code">FKTAI</field>
+            <field name="prefix">%(y)sFKTAI</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_FKTAE" model="ir.sequence">
+            <field name="name">Kribi Transit Aérien Export</field>
+            <field name="code">FKTAE</field>
+            <field name="prefix">%(y)sFKTAE</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
         <record id="seq_servoo_apm_number_FDMI" model="ir.sequence">
             <field name="name">Douane Maritime Import</field>
             <field name="code">FDMI</field>
