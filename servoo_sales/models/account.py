@@ -122,7 +122,7 @@ class AccountMove(models.Model):
     def _get_sequence_name(self, code):
         return self.env['ir.sequence'].next_by_code(code)
 
-    def _get_root(self, source):
+    def _get_root(self, source, move_type=None):
         res = ''
         if source and source[:2].isnumeric():
             if not source[-1].isnumeric():
@@ -142,18 +142,41 @@ class AccountMove(models.Model):
                 res = source[2:-4]
             elif source[-3:].isnumeric():
                 res = source[2:-3]
+        _logger.info('res : %s' % res)
         if res:
-            if res in ('DDMI', 'DDME', 'DDAI', 'DDAE', 'DTRI', 'DTRE', 'DTAI', 'DTAE','KDMI', 'KDME', 'KDAI', 'KDAE', 'KTRI', 'KTRE', 'KTAI', 'KTAE', 'TDMI', 'TDME', 'TDAI', 'TDAE', 'TTRI', 'TTRE', 'TTAI', 'TTAE', 'DLOG'):
-                res = 'F' + res[1:]
+            if res in ('DDMI', 'DDME', 'DDAI', 'DDAE', 'DTRI', 'DTRE', 'DTAI', 'DTAE', 'TDMI', 'TDME', 'TDAI', 'TDAE', 'TTRI', 'TTRE', 'TTAI', 'TTAE', 'DLOG'):
+                if move_type and move_type == 'out_refund':
+                    res = 'A' + res
+                else:
+                    res = 'F' + res[1:]
             else:
-                res = 'F'+ res
+                if move_type and move_type == 'out_refund':
+                    res = 'A' + res
+                else:
+                    res = 'F' + res
+                # res = 'F'+ res
             # res = 'F' + res
         return res
 
-    def _generate_APM_reference(self, source, import_pad_invoice=None, export_pad_invoice=None, additional_invoice=None):
+    def _generate_APM_Credit_Debit_Note_reference(self, move_type):
+        code = ''
+        if move_type == 'out_refund':
+            code = 'APMCN'
+        elif move_type == 'in_refund':
+            code = 'APMDN'
+        if not code:
+            return
+        return self._get_sequence_name(code)
+
+
+    def _generate_APM_reference(self, source, import_pad_invoice=None, export_pad_invoice=None, additional_invoice=None, move_type = None):
         if import_pad_invoice:
+            if move_type and move_type == 'out_refund':
+                return self._get_sequence_name('servoo.import.avoir.pad.apm.number')
             return self._get_sequence_name('servoo.import.invoice.pad.apm.number')
         elif export_pad_invoice:
+            if move_type and move_type == 'out_refund':
+                return self._get_sequence_name('servoo.export.avoir.pad.apm.number')
             return self._get_sequence_name('servoo.export.invoice.pad.apm.number')
         # ref=''
         if source and additional_invoice:
@@ -163,14 +186,17 @@ class AccountMove(models.Model):
             if res and res[0][0]:
                 ref = res[0][0] + "-" + str(len(res))
                 return ref
-        ref = self._get_root(source)
+        ref = self._get_root(source, move_type)
         sequence = self._get_sequence_name(ref)
         return sequence
 
     @api.model
     def create(self, vals):
-        if vals.get('move_type') == 'out_invoice':
-            vals['apm_reference'] = self._generate_APM_reference(vals.get('invoice_origin'), vals.get('import_pad_invoice'), vals.get('export_pad_invoice'), vals.get('additional_invoice'))
+        move_type = vals.get('move_type')
+        if move_type in ('out_invoice', 'out_refund'):
+            vals['apm_reference'] = self._generate_APM_reference(vals.get('invoice_origin'), vals.get('import_pad_invoice'), vals.get('export_pad_invoice'), vals.get('additional_invoice'), move_type)
+        else:
+            vals['apm_reference'] = self._generate_APM_Credit_Debit_Note_reference(move_type)
         return super(AccountMove, self).create(vals)
 
     api.model
@@ -180,7 +206,10 @@ class AccountMove(models.Model):
             additional_invoice = vals['additional_invoice'] if vals.get('additional_invoice') else self.additional_invoice
             import_pad_invoice = vals['import_pad_invoice'] if vals.get('import_pad_invoice') else self.import_pad_invoice
             export_pad_invoice = vals['export_pad_invoice'] if vals.get('export_pad_invoice') else self.export_pad_invoice
-            vals['apm_reference'] = self._generate_APM_reference(origin, import_pad_invoice, export_pad_invoice, additional_invoice)
+            if self.move_type =='in_refund':
+                vals['apm_reference'] = self._generate_APM_Credit_Debit_Note_reference(self.move_type)
+            else:
+                vals['apm_reference'] = self._generate_APM_reference(origin, import_pad_invoice, export_pad_invoice, additional_invoice, self.move_type)
         return super(AccountMove, self).write(vals)
 
     def _get_total_disbursement(self):
@@ -342,7 +371,7 @@ class AccountMove(models.Model):
             rate = self.handling_rate_3_id.rate
         self.handling3 = rate
 
-    def _recompute_tax_lines(self, recompute_tax_base_amount=False):
+    def _recompute_tax_lines(self, recompute_tax_base_amount=False, tax_rep_lines_to_recompute=None):
         """ Compute the dynamic tax lines of the journal entry.
 
         :param recompute_tax_base_amount: Flag forcing only the recomputation of the `tax_base_amount` field.
@@ -478,22 +507,33 @@ class AccountMove(models.Model):
                 self.company_id,
                 self.date or fields.Date.context_today(self),
             )
+            amount_currency = currency.round(taxes_map_entry['amount'])
+            sign = -1 if self.is_inbound() else 1
             to_write_on_line = {
-                'amount_currency': taxes_map_entry['amount'],
+                'amount_currency': amount_currency,
                 'currency_id': taxes_map_entry['grouping_dict']['currency_id'],
                 'debit': balance > 0.0 and balance or 0.0,
                 'credit': balance < 0.0 and -balance or 0.0,
                 'tax_base_amount': tax_base_amount,
+                'price_total': sign * amount_currency,
+                'price_subtotal': sign * amount_currency,
             }
 
             if taxes_map_entry['tax_line']:
                 # Update an existing tax line.
+                if tax_rep_lines_to_recompute and taxes_map_entry['tax_line'].tax_repartition_line_id not in tax_rep_lines_to_recompute:
+                    continue
+
                 taxes_map_entry['tax_line'].update(to_write_on_line)
             else:
                 # Create a new tax line.
                 create_method = in_draft_mode and self.env['account.move.line'].new or self.env['account.move.line'].create
                 tax_repartition_line_id = taxes_map_entry['grouping_dict']['tax_repartition_line_id']
                 tax_repartition_line = self.env['account.tax.repartition.line'].browse(tax_repartition_line_id)
+
+                if tax_rep_lines_to_recompute and tax_repartition_line not in tax_rep_lines_to_recompute:
+                    continue
+
                 tax = tax_repartition_line.invoice_tax_id or tax_repartition_line.refund_tax_id
                 taxes_map_entry['tax_line'] = create_method({
                     **to_write_on_line,

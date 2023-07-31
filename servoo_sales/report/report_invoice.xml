@@ -5,7 +5,7 @@
             <xpath expr="//t[@t-call='web.external_layout']" position="replace">
                 <t t-call="web.basic_layout">
                 <t t-set="o" t-value="o.with_context(lang=lang)"/>
-                <t t-if="o.move_type == 'out_invoice'">
+                <t t-if="o.move_type in ('out_invoice', 'out_refund')">
                     <div class="page">
                         <div class="head">
                             <div class="row">
@@ -592,7 +592,7 @@
                       </div>
             </div>
                 </t>
-                <t t-if="o.move_type != 'out_invoice'">
+                <t t-if="o.move_type not in ('out_invoice', 'out_refund')">
                     <t t-set="forced_vat"
                        t-value="o.fiscal_position_id.foreign_vat"/> <!-- So that it appears in the footer of the report instead of the company VAT if it's set -->
                     <t t-set="address">

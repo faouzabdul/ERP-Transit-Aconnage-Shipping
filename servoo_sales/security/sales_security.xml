@@ -85,6 +85,38 @@
             <field name="company_id" eval="False"/>
         </record>
 
+        <record id="seq_servoo_export_avoir_pad_apm_number" model="ir.sequence">
+            <field name="name">Export Avoir PAD APM Number</field>
+            <field name="code">servoo.export.avoir.pad.apm.number</field>
+            <field name="prefix">%(y)sAPADE</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_servoo_import_avoir_pad_apm_number" model="ir.sequence">
+            <field name="name">Import Avoir PAD APM Number</field>
+            <field name="code">servoo.import.avoir.pad.apm.number</field>
+            <field name="prefix">%(y)sAPADI</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_servoo_apm_number_credit_note" model="ir.sequence">
+            <field name="name">APM Number Credit Note</field>
+            <field name="code">APMCN</field>
+            <field name="prefix">%(y)sAPMCN</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_servoo_apm_number_debit_note" model="ir.sequence">
+            <field name="name">APM Number Debit Note</field>
+            <field name="code">APMDN</field>
+            <field name="prefix">%(y)sAPMDN</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
         <record id="seq_servoo_apm_number_FKDMI" model="ir.sequence">
             <field name="name">Kribi Douane Maritime Import</field>
             <field name="code">FKDMI</field>
@@ -288,6 +320,214 @@
             <field name="name">Logistique</field>
             <field name="code">FLOG</field>
             <field name="prefix">%(y)sFLOG</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+<!--        Avoir-->
+        <record id="seq_servoo_apm_number_AKDMI" model="ir.sequence">
+            <field name="name">Avoir Kribi Douane Maritime Import</field>
+            <field name="code">AKDMI</field>
+            <field name="prefix">%(y)sAKDMI</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_AKDME" model="ir.sequence">
+            <field name="name">Avoir Kribi Douane Maritime Export</field>
+            <field name="code">AKDME</field>
+            <field name="prefix">%(y)AFKDME</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_AKDAI" model="ir.sequence">
+            <field name="name">Avoir Kribi Douane Aérien Import</field>
+            <field name="code">AKDAI</field>
+            <field name="prefix">%(y)sAKDAI</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_AKDAE" model="ir.sequence">
+            <field name="name">Avoir Kribi Douane Aérien Export</field>
+            <field name="code">AKDAE</field>
+            <field name="prefix">%(y)sAKDAE</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_servoo_apm_number_AKPAB" model="ir.sequence">
+            <field name="name">Avoir Kribi Export Bois</field>
+            <field name="code">AKPAB</field>
+            <field name="prefix">%(y)AKPAB</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_servoo_apm_number_AKTRI" model="ir.sequence">
+            <field name="name">Avoir Kribi Transit Import</field>
+            <field name="code">AKTRI</field>
+            <field name="prefix">%(y)sAKTRI</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_AKTRE" model="ir.sequence">
+            <field name="name">Avoir Kribi Transit Export</field>
+            <field name="code">AKTRE</field>
+            <field name="prefix">%(y)sAKTRE</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_AKTAI" model="ir.sequence">
+            <field name="name">Avoir Kribi Transit Aérien Import</field>
+            <field name="code">AKTAI</field>
+            <field name="prefix">%(y)sAKTAI</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_AKTAE" model="ir.sequence">
+            <field name="name">Avoir Kribi Transit Aérien Export</field>
+            <field name="code">AKTAE</field>
+            <field name="prefix">%(y)sAKTAE</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_servoo_apm_number_ADDMI" model="ir.sequence">
+            <field name="name">Avoir Douala Douane Maritime Import</field>
+            <field name="code">ADDMI</field>
+            <field name="prefix">%(y)sADDMI</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_ADDME" model="ir.sequence">
+            <field name="name">Avior Douala Douane Maritime Export</field>
+            <field name="code">ADDME</field>
+            <field name="prefix">%(y)sADDME</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_ADDAI" model="ir.sequence">
+            <field name="name">Avoir Douala Douane Aérien Import</field>
+            <field name="code">ADDAI</field>
+            <field name="prefix">%(y)sADDAI</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_ADDAE" model="ir.sequence">
+            <field name="name">Avoir Douala Douane Aérien Export</field>
+            <field name="code">ADDAE</field>
+            <field name="prefix">%(y)sADDAE</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_ADTRI" model="ir.sequence">
+            <field name="name">Avoir Douala Transit Import</field>
+            <field name="code">ADTRI</field>
+            <field name="prefix">%(y)sADTRI</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_ADTRE" model="ir.sequence">
+            <field name="name">Avoir Douala Transit Export</field>
+            <field name="code">ADTRE</field>
+            <field name="prefix">%(y)sADTRE</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_ADTAI" model="ir.sequence">
+            <field name="name">Avoir Douala Transit Aérien Import</field>
+            <field name="code">ADTAI</field>
+            <field name="prefix">%(y)sADTAI</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_ADTAE" model="ir.sequence">
+            <field name="name">Avoir Douala Transit Aérien Export</field>
+            <field name="code">ADTAE</field>
+            <field name="prefix">%(y)sADTAE</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_ACGC" model="ir.sequence">
+            <field name="name">Avoir Clinker – Gypse – Calcaire</field>
+            <field name="code">ACGC</field>
+            <field name="prefix">%(y)sACGC</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_ADIV" model="ir.sequence">
+            <field name="name">Avoir Divers</field>
+            <field name="code">ADIV</field>
+            <field name="prefix">%(y)sADIV</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_AVRA" model="ir.sequence">
+            <field name="name">Avoir Vrac</field>
+            <field name="code">AVRA</field>
+            <field name="prefix">%(y)sAVRA</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_ABOD" model="ir.sequence">
+            <field name="name">Avoir Bois (Douala)</field>
+            <field name="code">ABOD</field>
+            <field name="prefix">%(y)sABOD</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_ABOK" model="ir.sequence">
+            <field name="name">Avoir Bois (Kribi)</field>
+            <field name="code">ABOK</field>
+            <field name="prefix">%(y)sABOK</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_ASAC" model="ir.sequence">
+            <field name="name">Avoir Sacherie</field>
+            <field name="code">ASAC</field>
+            <field name="prefix">%(y)sASAC</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_ADAPA" model="ir.sequence">
+            <field name="name">Avoir DAP Aérien</field>
+            <field name="code">ADAPA</field>
+            <field name="prefix">%(y)sADAPA</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_ADAPM" model="ir.sequence">
+            <field name="name">Avoir DAP Maritime</field>
+            <field name="code">ADAPM</field>
+            <field name="prefix">%(y)sFDAPM</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_ADAPT" model="ir.sequence">
+            <field name="name">Avoir DAP Transit</field>
+            <field name="code">ADAPT</field>
+            <field name="prefix">%(y)sADAPT</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_ACDOM" model="ir.sequence">
+            <field name="name">Avoir Cession Documentaire Maritime</field>
+            <field name="code">ACDOM</field>
+            <field name="prefix">%(y)sACDOM</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_ACDOA" model="ir.sequence">
+            <field name="name">Avoir Cession Documentaire Aérien</field>
+            <field name="code">ACDOA</field>
+            <field name="prefix">%(y)sACDOA</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_servoo_apm_number_ALOG" model="ir.sequence">
+            <field name="name">Avoir Logistique</field>
+            <field name="code">ALOG</field>
+            <field name="prefix">%(y)sALOG</field>
             <field name="padding">3</field>
             <field name="company_id" eval="False"/>
         </record>

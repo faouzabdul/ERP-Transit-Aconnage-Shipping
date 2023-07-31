@@ -45,7 +45,7 @@
                 <notebook position="before">
 
 
-                    <group col="4" attrs="{'invisible': [('move_type', '!=', 'out_invoice')]}">
+                    <group col="4" attrs="{'invisible': [('move_type', 'not in', ('out_invoice', 'out_refund'))]}">
                         <field name="import_pad_invoice" attrs="{'invisible': [('additional_invoice', '=', True)]}"/>
                         <field name="export_pad_invoice" attrs="{'invisible': [('additional_invoice', '=', True)]}"/>
                         <field name="additional_invoice" colspan="4" attrs="{'readonly': ['|',('import_pad_invoice', '=', True), ('export_pad_invoice', '=', True)]}"/>
@@ -67,21 +67,21 @@
                         <field name="number_of_packages" />
                          <field name="object" colspan="4"/>
                     </group>
-                    <group string="Main rate" col="4" attrs="{'invisible': [('move_type', '!=', 'out_invoice')]}">
+                    <group string="Main rate" col="4" attrs="{'invisible': [('move_type', 'not in', ('out_invoice', 'out_refund'))]}">
                         <field name="handling_rate_id" colspan="4"/>
                         <field name="rate_type" readonly="1" />
                         <field name="include_tax_for_handling" />
                         <field name="handling" />
                         <field name="quantity" />
                     </group>
-                    <group string="Second rate" col="4" attrs="{'invisible': [('move_type', '!=', 'out_invoice')]}">
+                    <group string="Second rate" col="4" attrs="{'invisible': [('move_type', 'not in', ('out_invoice', 'out_refund'))]}">
                         <field name="handling_rate_2_id" colspan="4"/>
                         <field name="rate_type_2" readonly="1" />
                         <field name="include_tax_for_handling2" />
                         <field name="handling2" />
                         <field name="quantity2" />
                     </group>
-                    <group string="Third rate" col="4" attrs="{'invisible': [('move_type', '!=', 'out_invoice')]}">
+                    <group string="Third rate" col="4" attrs="{'invisible': [('move_type', 'not in', ('out_invoice', 'out_refund'))]}">
                         <field name="handling_rate_3_id" colspan="4"/>
                         <field name="rate_type_3" readonly="1" />
                         <field name="include_tax_for_handling3" />
@@ -96,7 +96,7 @@
                 <button name="action_post" position="after">
                     <button name="action_submit" class="oe_highlight" string="Send to Direction" type="object"
                             groups="servoo_sales.group_supplier_invoice_admissibility"
-                            states="draft" attrs="{'invisible': ['|',('move_type', '!=', 'in_invoice'), ('state', '!=', 'draft')]}" />
+                            attrs="{'invisible': ['|',('move_type', '!=', 'in_invoice'), ('state', '!=', 'draft')]}" />
                     <button name="%(action_wizard_supplier_invoice)d" string="Send to Department" class="oe_highlight" type="action"
                             groups="servoo_sales.group_supplier_invoice_general_direction"
                             attrs="{'invisible': ['|',('move_type', '!=', 'in_invoice'), ('state', '!=', 'direction_routing')]}" />
