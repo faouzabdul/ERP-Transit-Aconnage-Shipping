@@ -9,6 +9,13 @@
             <field name="invoice_origin" position="before">
                 <field name="apm_reference"/>
             </field>
+            <field name="invoice_origin" position="after">
+                <field name="transport_letter" optional="show" />
+                <field name="transport_means_id" optional="hide" />
+            </field>
+            <field name="invoice_date" position="before">
+                <field name="pc_partner_id" optional="hide" />
+            </field>
         </field>
     </record>
 
@@ -18,6 +25,7 @@
             <field name="inherit_id" ref="account.view_move_form" />
             <field name="arch" type="xml">
                 <field name="invoice_origin" position="before">
+                    <field name="pc_partner_id" attrs="{'invisible': [('move_type', 'not in', ('out_invoice', 'out_refund'))]}" />
                     <field name="apm_reference" readonly="1" />
                     <field name="agency_name" required="1" />
                     <field name="department_id" readonly="1" attrs="{'invisible': [('move_type', '!=', 'in_invoice')]}"  />

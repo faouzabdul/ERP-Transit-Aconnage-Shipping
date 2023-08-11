@@ -12,6 +12,9 @@
                 <field name="partner_id" position="before">
                     <field name="agency_name" required="1" />
                 </field>
+                <field name="partner_id" position="after">
+                     <field name="pc_partner_id" />
+                </field>
                 <field name="note" position="before">
                     <label for="distribute_ht_amount" colspan="2" />
                     <field name="distribute_ht_amount"  colspan="2" nolabel="1"/>

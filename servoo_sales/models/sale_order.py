@@ -56,6 +56,7 @@ class SaleOrder(models.Model):
     rate_type_3 = fields.Selection(related='handling_rate_3_id.rate_type', string='Rate Type 3')
 
     distribute_ht_amount = fields.Boolean('Distribute HT Amount')
+    pc_partner_id = fields.Many2one('res.partner', 'P/C')
 
     @api.onchange('distribute_ht_amount', 'amount_untaxed')
     def onchange_distribute_ht_amount(self):

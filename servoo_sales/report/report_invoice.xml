@@ -158,6 +158,9 @@
                                                 <b>
                                                     <span t-field="o.partner_id.name"/>
                                                 </b>
+                                                <t t-if="o.pc_partner_id">
+                                                    <br><b>P/C <span t-field="o.pc_partner_id.name"/></b></br>
+                                                </t>
                                             </font>
                                             <br>
                                                 <font>
