@@ -158,9 +158,6 @@
                                                 <b>
                                                     <span t-field="o.partner_id.name"/>
                                                 </b>
-                                                <t t-if="o.pc_partner_id">
-                                                    <br><b>P/C <span t-field="o.pc_partner_id.name"/></b></br>
-                                                </t>
                                             </font>
                                             <br>
                                                 <font>
@@ -206,6 +203,9 @@
                                                     TEL: <span t-field="o.partner_id.phone"/>
                                                 </t>
                                             </br>
+                                            <t t-if="o.pc_partner_id">
+                                                <div align="center"> <br><b>P/C <span t-field="o.pc_partner_id.name"/></b></br></div>
+                                            </t>
                                         </td>
                                     </tr>
                                     <tr valign="top">
