@@ -14,6 +14,14 @@ class StevedoringFileType(models.Model):
     sequence_code = fields.Char('Sequence Code')
 
 
+class GoodType(models.Model):
+    _name = 'servoo.stevedoring.file.good.type'
+    _description = 'Good type of stevedoring files'
+
+    name = fields.Char('Name', required=True)
+    sequence_code = fields.Char('Sequence Code', required=True)
+
+
 class StevedoringFile(models.Model):
     _name = 'servoo.stevedoring.file'
     _description = 'Stevedoring File'
@@ -78,16 +86,30 @@ class StevedoringFile(models.Model):
         ('not_invoiced', 'Not Invoiced'),
         ('invoiced', 'Invoiced')
     ], string='Invoice State', default='not_invoiced')
+    good_type_id = fields.Many2one('servoo.stevedoring.file.good.type', 'Good Type', tracking=3)
+    operation_type = fields.Selection([('import', 'Import'), ('export', 'Export')], tracking=6, string="Operation sens")
 
     @api.model
     def create(self, vals):
         if vals.get('name', _('New')) == _('New'):
-            if 'company_id' in vals:
-                vals['name'] = self.env['ir.sequence'].with_context(force_company=vals['company_id']).next_by_code(
-                    'servoo.stevedoring.file') or _('New')
-            else:
-                vals['name'] = self.env['ir.sequence'].next_by_code('servoo.stevedoring.file') or _('New')
+            # if 'company_id' in vals:
+            #     vals['name'] = self.env['ir.sequence'].with_context(force_company=vals['company_id']).next_by_code(
+            #         'servoo.stevedoring.file') or _('New')
+            # else:
+            #     vals['name'] = self.env['ir.sequence'].next_by_code('servoo.stevedoring.file') or _('New')
+            vals['name'] = self.generate_reference(vals)
         return super().create(vals)
+
+    def generate_reference(self, vals):
+        reference = "I" if vals['operation_type'] == 'import' else "E"
+        good_type = self.env['servoo.stevedoring.file.good.type'].search([('id', '=', vals['good_type_id'])])
+        if good_type:
+            reference += good_type.sequence_code
+        name = self.env['ir.sequence'].next_by_code(reference)
+        if name:
+            return name
+        return self.env['ir.sequence'].next_by_code('servoo.stevedoring.file')
+
 
     def name_get(self):
         result = []

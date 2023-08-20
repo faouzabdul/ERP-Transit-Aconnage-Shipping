@@ -10,6 +10,57 @@
             <field name="company_id" eval="False"/>
         </record>
 
+        <record id="seq_stevedoring_import_vrac_file" model="ir.sequence">
+            <field name="name">Stevedoring Import Vrac File</field>
+            <field name="code">IVRA</field>
+            <field name="prefix">APM/IMP/%(month)s/%(y)s/VRAC/</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_stevedoring_export_vrac_file" model="ir.sequence">
+            <field name="name">Stevedoring Export Vrac File</field>
+            <field name="code">EVRA</field>
+            <field name="prefix">APM/EXP/%(month)s/%(y)s/VRAC/</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_stevedoring_import_sac_file" model="ir.sequence">
+            <field name="name">Stevedoring Import Sac File</field>
+            <field name="code">ISAC</field>
+            <field name="prefix">APM/IMP/%(month)s/%(y)s/SAC/</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_stevedoring_export_sac_file" model="ir.sequence">
+            <field name="name">Stevedoring Export Sac File</field>
+            <field name="code">ESAC</field>
+            <field name="prefix">APM/EXP/%(month)s/%(y)s/SAC/</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_stevedoring_import_cg_file" model="ir.sequence">
+            <field name="name">Stevedoring Import General Cargo File</field>
+            <field name="code">IGC</field>
+            <field name="prefix">APM/IMP/%(month)s/%(y)s/GC/</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_stevedoring_export_gc_file" model="ir.sequence">
+            <field name="name">Stevedoring Export General Cargo File</field>
+            <field name="code">EGC</field>
+            <field name="prefix">APM/EXP/%(month)s/%(y)s/GC/</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_stevedoring_export_wood_file" model="ir.sequence">
+            <field name="name">Stevedoring Export Wood File</field>
+            <field name="code">EBOIS</field>
+            <field name="prefix">APM/EXP/%(month)s/%(y)s/BOIS/</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
         <record id="seq_stevedoring_operation" model="ir.sequence">
             <field name="name">Stevedoring operation</field>
             <field name="code">servoo.stevedoring.operation</field>

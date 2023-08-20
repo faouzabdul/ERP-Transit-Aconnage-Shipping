@@ -29,6 +29,33 @@
 
         <menuitem id="stevedoring_file_type_menu" parent="servoo_stevedoring.menu_stevedoring_config" action="action_stevedoring_file_type" />
 
+        <record model="ir.ui.view" id="view_stevedoring_file_good_type_tree">
+            <field name="name">view.stevedoring.file.good.type.tree</field>
+            <field name="model">servoo.stevedoring.file.good.type</field>
+            <field name="arch" type="xml">
+                <tree string="Good Type" editable="top">
+                    <field name="name" />
+                    <field name="sequence_code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_stevedoring_file_good_type">
+            <field name="name">Good Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">servoo.stevedoring.file.good.type</field>
+            <field name="view_mode">tree</field>
+            <field name="context">{}</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new good type!
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem id="stevedoring_file_good_type_menu" parent="servoo_stevedoring.menu_stevedoring_config" action="action_stevedoring_file_good_type" />
 
         <record model="ir.ui.view" id="view_servoo_stevedoring_file_tree">
             <field name="name">servoo.stevedoring.file.tree</field>
@@ -111,12 +138,14 @@
                         <widget name="web_ribbon" title="Invoiced" attrs="{'invisible': [('invoice_state', '!=', 'invoiced')]}"/>
                         <group>
                             <group col="4">
-                                <group colspan="2">
-                                    <field name="name" readonly="1"/>
+                                <group colspan="4">
+                                    <field name="name" readonly="1" colspan="4"/>
+                                    <field name="operation_type" required="1"/>
                                     <field name="file_type_id" required="1"/>
+                                    <field name="good_type_id" required="1"/>
                                     <field name="external_reference" />
-                                    <field name="shipping_file_id" />
                                     <field name="date" />
+                                    <field name="shipping_file_id" invisible="1"/>
                                 </group>
                                 <group colspan="2">
                                     <field name="partner_ids" widget="many2many_tags" required="1"/>

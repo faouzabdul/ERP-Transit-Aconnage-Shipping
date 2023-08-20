@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220616\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-02 08:06+0000\n"
-"PO-Revision-Date: 2023-05-02 08:06+0000\n"
+"POT-Creation-Date: 2023-08-20 17:02+0000\n"
+"PO-Revision-Date: 2023-08-20 17:02+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -311,6 +311,11 @@ msgid "Create a new formality!"
 msgstr "Créez une nouvelle formalité !"
 
 #. module: servoo_stevedoring
+#: model_terms:ir.actions.act_window,help:servoo_stevedoring.action_stevedoring_file_good_type
+msgid "Create a new good type!"
+msgstr "Créér un nouveau type de marchandises !"
+
+#. module: servoo_stevedoring
 #: model_terms:ir.actions.act_window,help:servoo_stevedoring.actions_mate_receipt
 msgid "Create a new mate receipt!"
 msgstr "Créér un nouveau mate receipt !"
@@ -344,9 +349,11 @@ msgstr "Créez une nouvelle opération de manutention !"
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document_type__create_uid
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__create_uid
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_cancel_wizard__create_uid
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_good_type__create_uid
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_type__create_uid
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__create_uid
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality_type__create_uid
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_invoice_file__create_uid
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_mate_receipt_wizard__create_uid
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__create_uid
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation_line__create_uid
@@ -368,9 +375,11 @@ msgstr "Créé par"
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document_type__create_date
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__create_date
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_cancel_wizard__create_date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_good_type__create_date
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_type__create_date
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__create_date
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality_type__create_date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_invoice_file__create_date
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_mate_receipt__create_date
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_mate_receipt_wizard__create_date
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__create_date
@@ -526,9 +535,11 @@ msgstr "Port de déchargement"
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document_type__display_name
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__display_name
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_cancel_wizard__display_name
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_good_type__display_name
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_type__display_name
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__display_name
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality_type__display_name
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_invoice_file__display_name
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_mate_receipt__display_name
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_mate_receipt_wizard__display_name
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__display_name
@@ -603,6 +614,11 @@ msgstr "Date de fin"
 #: model_terms:ir.ui.view,arch_db:servoo_stevedoring.report_outturn_report_document
 msgid "Excess"
 msgstr ""
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields.selection,name:servoo_stevedoring.selection__servoo_stevedoring_file__operation_type__export
+msgid "Export"
+msgstr "Export"
 
 #. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__external_reference
@@ -711,11 +727,24 @@ msgid "Good"
 msgstr "Marchandise"
 
 #. module: servoo_stevedoring
+#: model:ir.actions.act_window,name:servoo_stevedoring.action_stevedoring_file_good_type
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__good_type_id
+#: model:ir.ui.menu,name:servoo_stevedoring.stevedoring_file_good_type_menu
+#: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_stevedoring_file_good_type_tree
+msgid "Good Type"
+msgstr "Type de marchandise"
+
+#. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_shipping_outturn_report_bl_line_wizard__good_description
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report_bl_line__good_description
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report_bl_line_wizard__good_description
 msgid "Good description"
-msgstr ""
+msgstr "Description de la marchandise"
+
+#. module: servoo_stevedoring
+#: model:ir.model,name:servoo_stevedoring.model_servoo_stevedoring_file_good_type
+msgid "Good type of stevedoring files"
+msgstr "Type de marchandise pour les dossiers de manutention"
 
 #. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_customs_declaration__good_ids
@@ -765,9 +794,11 @@ msgstr "Vous aide à gérer vos opérations de manutention."
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document_type__id
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__id
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_cancel_wizard__id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_good_type__id
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_type__id
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__id
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality_type__id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_invoice_file__id
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_mate_receipt__id
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_mate_receipt_wizard__id
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__id
@@ -824,6 +855,11 @@ msgid "If checked, some messages have a delivery error."
 msgstr ""
 "Si cette case est cochée, certains messages présentent une erreur de "
 "livraison."
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields.selection,name:servoo_stevedoring.selection__servoo_stevedoring_file__operation_type__import
+msgid "Import"
+msgstr "Import"
 
 #. module: servoo_stevedoring
 #: model_terms:ir.ui.view,arch_db:servoo_stevedoring.view_servoo_stevedoring_file_form
@@ -883,9 +919,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document_type____last_update
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file____last_update
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_cancel_wizard____last_update
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_good_type____last_update
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_type____last_update
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality____last_update
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality_type____last_update
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_invoice_file____last_update
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_mate_receipt____last_update
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_mate_receipt_wizard____last_update
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation____last_update
@@ -908,9 +946,11 @@ msgstr "Dernière modification le"
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document_type__write_uid
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__write_uid
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_cancel_wizard__write_uid
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_good_type__write_uid
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_type__write_uid
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__write_uid
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality_type__write_uid
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_invoice_file__write_uid
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_mate_receipt__write_uid
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_mate_receipt_wizard__write_uid
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__write_uid
@@ -933,9 +973,11 @@ msgstr "Dernière mise à jour par"
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document_type__write_date
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__write_date
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_cancel_wizard__write_date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_good_type__write_date
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_type__write_date
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality__write_date
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality_type__write_date
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_invoice_file__write_date
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_mate_receipt__write_date
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_mate_receipt_wizard__write_date
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__write_date
@@ -1075,6 +1117,7 @@ msgstr ""
 
 #. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_document_type__name
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_good_type__name
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_type__name
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_formality_type__name
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__name
@@ -1100,8 +1143,6 @@ msgstr "Nom du responsable"
 #: code:addons/servoo_stevedoring/models/stevedoring_file.py:0
 #: code:addons/servoo_stevedoring/models/stevedoring_file.py:0
 #: code:addons/servoo_stevedoring/models/stevedoring_file.py:0
-#: code:addons/servoo_stevedoring/models/stevedoring_file.py:0
-#: code:addons/servoo_stevedoring/models/stevedoring_file.py:0
 #: code:addons/servoo_stevedoring/models/stevedoring_operation.py:0
 #: code:addons/servoo_stevedoring/models/stevedoring_operation.py:0
 #: code:addons/servoo_stevedoring/models/stevedoring_operation.py:0
@@ -1112,7 +1153,7 @@ msgstr "Nom du responsable"
 #: code:addons/servoo_stevedoring/wizard/wizard_outturn_report.py:0
 #, python-format
 msgid "New"
-msgstr ""
+msgstr "Nouveau"
 
 #. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_customs_declaration__activity_calendar_event_id
@@ -1143,14 +1184,14 @@ msgid "Next Activity Type"
 msgstr "Type d'activité suivant"
 
 #. module: servoo_stevedoring
-#: model:ir.model.fields.selection,name:servoo_stevedoring.selection__servoo_stevedoring_file__invoice_state__not_invoiced
-msgid "Not Invoiced"
-msgstr "Non facturé"
-
-#. module: servoo_stevedoring
 #: model:ir.model.fields.selection,name:servoo_stevedoring.selection__servoo_stevedoring_operation__shift__night
 msgid "Night"
 msgstr "Nuit"
+
+#. module: servoo_stevedoring
+#: model:ir.model.fields.selection,name:servoo_stevedoring.selection__servoo_stevedoring_file__invoice_state__not_invoiced
+msgid "Not Invoiced"
+msgstr "Non facturé"
 
 #. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_shipping_outturn_report_line_wizard__note
@@ -1273,6 +1314,11 @@ msgid "Operation nature"
 msgstr "Nature de l'opération"
 
 #. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__operation_type
+msgid "Operation sens"
+msgstr "Sens de l'opération"
+
+#. module: servoo_stevedoring
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_shipping_file__operation_ids
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__operation_count
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file__operation_ids
@@ -1360,6 +1406,7 @@ msgstr "Partenaire"
 
 #. module: servoo_stevedoring
 #: code:addons/servoo_stevedoring/models/stevedoring_file.py:0
+#: code:addons/servoo_stevedoring/wizard/wizard_invoice_file.py:0
 #, python-format
 msgid "Please define an accounting sales journal for the company %s (%s)."
 msgstr ""
@@ -1491,6 +1538,7 @@ msgid "SMS Delivery error"
 msgstr "Erreur de livraison SMS"
 
 #. module: servoo_stevedoring
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_good_type__sequence_code
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_type__sequence_code
 msgid "Sequence Code"
 msgstr "Code de la séquence"
@@ -1620,6 +1668,7 @@ msgstr ""
 #: model:ir.model,name:servoo_stevedoring.model_servoo_stevedoring_file
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_customs_declaration__stevedoring_file_id
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_file_cancel_wizard__stevedoring_file_id
+#: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_invoice_file__stevedoring_file_id
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_operation__stevedoring_file_id
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report__stevedoring_file_id
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report_wizard__stevedoring_file_id
@@ -1640,6 +1689,7 @@ msgstr "Type de dossier de manutention"
 
 #. module: servoo_stevedoring
 #: model:ir.actions.act_window,name:servoo_stevedoring.action_stevedoring_file
+#: model:ir.actions.act_window,name:servoo_stevedoring.action_stevedoring_file_no_create
 #: model:ir.actions.act_window,name:servoo_stevedoring.action_stevedoring_file_to_invoice
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_shipping_file__stevedoring_file_count
 #: model:ir.ui.menu,name:servoo_stevedoring.stevedoring_file_invoice_menu
@@ -1726,6 +1776,11 @@ msgstr "Tonnage manifesté"
 #: model:ir.model.fields,field_description:servoo_stevedoring.field_servoo_stevedoring_outturn_report_line_wizard__shortage_weight
 msgid "Tonnage Shortage"
 msgstr "Tonnage manquant"
+
+#. module: servoo_stevedoring
+#: model:ir.ui.menu,name:servoo_stevedoring.stevedoring_transit_order_menu
+msgid "Transit Order"
+msgstr "Ordre de transit"
 
 #. module: servoo_stevedoring
 #: model:ir.model.fields.selection,name:servoo_stevedoring.selection__servoo_stevedoring_operation__operation_nature__transportation
@@ -1882,6 +1937,11 @@ msgstr "Poids (kg)"
 #: model:ir.model,name:servoo_stevedoring.model_servoo_stevedoring_file_cancel_wizard
 msgid "Wizard for cancel stevedoring file"
 msgstr ""
+
+#. module: servoo_stevedoring
+#: model:ir.model,name:servoo_stevedoring.model_servoo_stevedoring_invoice_file
+msgid "Wizard to invoice stevedoring file"
+msgstr "Assistant de facturation des dossiers d'acconage"
 
 #. module: servoo_stevedoring
 #: model:ir.model,name:servoo_stevedoring.model_servoo_shipping_file
