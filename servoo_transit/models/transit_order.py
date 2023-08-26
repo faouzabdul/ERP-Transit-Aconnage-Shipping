@@ -102,6 +102,17 @@ class TransitOrder(models.Model):
         ('not_invoiced', 'Not Invoiced'),
         ('invoiced', 'Invoiced')
     ], string='Invoice State', default='not_invoiced')
+    date_debut_operation = fields.Datetime('Date of commence operations', tracking=4)
+    date_end_operation = fields.Datetime('Date of complete operations', tracking=4)
+
+    manifested_quantity = fields.Float('Manifested quantity', digits=(6, 3), tracking=4)
+    unloaded_quantity = fields.Float('Unloaded quantity', digits=(6, 3), tracking=4)
+    transported_quantity = fields.Float('Transported quantity', digits=(6, 3), tracking=4)
+    unit_id = fields.Many2one('res.unit', 'Unit', tracking=4)
+
+    manifested_tonnage = fields.Float('Manifested Tonnage (kg)', digits=(6, 3), tracking=4)
+    unloaded_tonnage = fields.Float('Unloaded Tonnage (kg)', digits=(6, 3), tracking=4)
+    transported_tonnage = fields.Float('Transported Tonnage (kg)', digits=(6, 3), tracking=4)
 
     @api.returns('self', lambda value: value.id)
     def copy(self, default=None):

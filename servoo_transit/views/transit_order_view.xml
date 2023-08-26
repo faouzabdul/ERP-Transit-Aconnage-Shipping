@@ -116,8 +116,28 @@
                                 <field name="net_weight" />
                                 <field name="volume" />
                             </group>
-
-
+                            <group string="Stevedoring" col="4">
+                                <field name="date_debut_operation" />
+                                <field name="date_end_operation" />
+                                <label for="manifested_quantity" />
+                                <div class="o_row">
+                                     <field name="manifested_quantity" />
+                                     <field name="unit_id" options="{'no_open': True, 'no_create': False}" />
+                                </div>
+                                <field name="manifested_tonnage" />
+                                <label for="unloaded_quantity" />
+                                <div class="o_row">
+                                     <field name="unloaded_quantity" />
+                                     <field name="unit_id" options="{'no_open': True, 'no_create': False}"  readonly="1"/>
+                                </div>
+                                <field name="unloaded_tonnage" />
+                                <label for="transported_quantity" />
+                                <div class="o_row">
+                                     <field name="transported_quantity" />
+                                     <field name="unit_id" options="{'no_open': True, 'no_create': False}"  readonly="1"/>
+                                </div>
+                                <field name="transported_tonnage" />
+                            </group>
                         </group>
                         <notebook>
                             <page string="Goods Details">

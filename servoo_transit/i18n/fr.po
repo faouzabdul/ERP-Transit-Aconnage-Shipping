@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220616\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 20:36+0000\n"
-"PO-Revision-Date: 2023-04-15 20:36+0000\n"
+"POT-Creation-Date: 2023-08-26 14:21+0000\n"
+"PO-Revision-Date: 2023-08-26 14:21+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -123,14 +123,14 @@ msgid "Activity Type Icon"
 msgstr ""
 
 #. module: servoo_transit
-#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__agency_name
-msgid "Agency"
-msgstr ""
-
-#. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_invoice_file__additional_invoice
 msgid "Additional Invoice"
 msgstr "Facture complémentaire"
+
+#. module: servoo_transit
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__agency_name
+msgid "Agency"
+msgstr ""
 
 #. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_formality__agent_id
@@ -264,6 +264,7 @@ msgstr "Créer un nouvel ordre de transit!"
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_formality__create_uid
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_formality_type__create_uid
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_good__create_uid
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_invoice_file__create_uid
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_operation_sub_type__create_uid
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__create_uid
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order_cancel_wizard__create_uid
@@ -278,6 +279,7 @@ msgstr "Créé par"
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_formality__create_date
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_formality_type__create_date
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_good__create_date
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_invoice_file__create_date
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_operation_sub_type__create_date
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__create_date
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order_cancel_wizard__create_date
@@ -317,6 +319,16 @@ msgstr "Date de début"
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__date_end
 msgid "Date End"
 msgstr "Date de fin"
+
+#. module: servoo_transit
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__date_debut_operation
+msgid "Date of commence operations"
+msgstr "Date de début des opérations"
+
+#. module: servoo_transit
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__date_end_operation
+msgid "Date of complete operations"
+msgstr "Date de fin des opérations"
 
 #. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__delivery_country_id
@@ -371,6 +383,7 @@ msgstr "Annuler"
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_formality__display_name
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_formality_type__display_name
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_good__display_name
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_invoice_file__display_name
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_operation_sub_type__display_name
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__display_name
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order_cancel_wizard__display_name
@@ -587,6 +600,7 @@ msgstr "Gérer vos opérations douanières."
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_formality__id
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_formality_type__id
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_good__id
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_invoice_file__id
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_operation_sub_type__id
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__id
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order_cancel_wizard__id
@@ -625,7 +639,12 @@ msgstr ""
 #. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__incoterm_id
 msgid "Incoterm"
-msgstr ""
+msgstr "Terme de vente"
+
+#. module: servoo_transit
+#: model:ir.model,name:servoo_transit.model_account_incoterms
+msgid "Incoterms"
+msgstr "Termes de vente"
 
 #. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__insurance_amount
@@ -676,6 +695,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_formality____last_update
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_formality_type____last_update
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_good____last_update
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_invoice_file____last_update
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_operation_sub_type____last_update
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order____last_update
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order_cancel_wizard____last_update
@@ -690,6 +710,7 @@ msgstr "Dernière modification le"
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_formality__write_uid
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_formality_type__write_uid
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_good__write_uid
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_invoice_file__write_uid
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_operation_sub_type__write_uid
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__write_uid
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order_cancel_wizard__write_uid
@@ -704,6 +725,7 @@ msgstr "Dernière modification par"
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_formality__write_date
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_formality_type__write_date
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_good__write_date
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_invoice_file__write_date
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_operation_sub_type__write_date
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__write_date
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order_cancel_wizard__write_date
@@ -740,6 +762,16 @@ msgstr "Responsable"
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__manifest_number
 msgid "Manifest Number"
 msgstr "Numéro Manifeste"
+
+#. module: servoo_transit
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__manifested_tonnage
+msgid "Manifested Tonnage (kg)"
+msgstr "Tonnage manifesté (Kg)"
+
+#. module: servoo_transit
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__manifested_quantity
+msgid "Manifested quantity"
+msgstr "Quantité manifestée"
 
 #. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__transport_means_id
@@ -894,6 +926,7 @@ msgstr "Partenaire"
 
 #. module: servoo_transit
 #: code:addons/servoo_transit/models/transit_order.py:0
+#: code:addons/servoo_transit/wizard/wizard_invoice_file.py:0
 #, python-format
 msgid "Please define an accounting sales journal for the company %s (%s)."
 msgstr "Veuillez définir un journal de ventes pour la company %s (%s)."
@@ -955,6 +988,11 @@ msgid "Service"
 msgstr ""
 
 #. module: servoo_transit
+#: model:ir.ui.menu,name:servoo_transit.shipping_sub_file_menu
+msgid "Shipping Files"
+msgstr "Dossiers Shipping"
+
+#. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_container__size_type_id
 msgid "Size"
 msgstr "Taille"
@@ -983,6 +1021,11 @@ msgid ""
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
+
+#. module: servoo_transit
+#: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_form
+msgid "Stevedoring"
+msgstr "Acconage"
 
 #. module: servoo_transit
 #: model:ir.ui.menu,name:servoo_transit.stevedoring_sub_file_menu
@@ -1083,6 +1126,16 @@ msgid "Transport Mode"
 msgstr "Mode de transport"
 
 #. module: servoo_transit
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__transported_tonnage
+msgid "Transported Tonnage (kg)"
+msgstr "Tonnage transporté (kg)"
+
+#. module: servoo_transit
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__transported_quantity
+msgid "Transported quantity"
+msgstr "Quantité transportée"
+
+#. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__travel_reference
 msgid "Travel Number"
 msgstr "Numéro de voyage"
@@ -1099,9 +1152,20 @@ msgstr ""
 
 #. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_good__unit_id
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__unit_id
 #: model:ir.ui.menu,name:servoo_transit.unit_config_menu
 msgid "Unit"
 msgstr "Unité"
+
+#. module: servoo_transit
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__unloaded_tonnage
+msgid "Unloaded Tonnage (kg)"
+msgstr "Tonnage déchargé (kg)"
+
+#. module: servoo_transit
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__unloaded_quantity
+msgid "Unloaded quantity"
+msgstr "Quantité déchargée"
 
 #. module: servoo_transit
 #: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_order__unloading_place_id
@@ -1167,6 +1231,11 @@ msgid "Wizard for cancel transit order"
 msgstr ""
 
 #. module: servoo_transit
+#: model:ir.model,name:servoo_transit.model_servoo_transit_invoice_file
+msgid "Wizard to invoice transit file"
+msgstr "Assistant de facturation d'un ordre de transit"
+
+#. module: servoo_transit
 #: model_terms:ir.ui.view,arch_db:servoo_transit.report_transit_order_document
 msgid "Y/REF."
 msgstr ""
@@ -1200,3 +1269,8 @@ msgstr "Type de confitionnement"
 #: model_terms:ir.ui.view,arch_db:servoo_transit.view_servoo_transit_form
 msgid "show the invoices for this transit order"
 msgstr "Afficher les factures pour cet ordre de transit"
+
+#. module: servoo_transit
+#: model:ir.model.fields,field_description:servoo_transit.field_servoo_transit_invoice_file__transit_file_id
+msgid "transit File"
+msgstr "Ordre de transit"
