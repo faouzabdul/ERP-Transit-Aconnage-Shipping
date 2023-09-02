@@ -14,15 +14,15 @@ class AccountMove(models.Model):
     _inherit = 'account.move'
 
     transport_means_id = fields.Many2one('res.transport.means', string="Means of transportation", tracking=3)
-    travel_date = fields.Date('Travel Date')
+    travel_date = fields.Date('Travel Date', tracking=3)
     loading_place_id = fields.Many2one('res.locode', string='Loading place', tracking=3)
     unloading_place_id = fields.Many2one('res.locode', string='Unloading place', tracking=3)
     transport_letter = fields.Char('N° BL / N° LTA', index=True, tracking=3)
-    volume = fields.Float('Volume (m3)', digits=(12, 3))
-    weight = fields.Float('Weight', digits=(12, 3))
-    unit_id = fields.Many2one('res.unit', 'Unit')
+    volume = fields.Float('Volume (m3)', digits=(12, 3), tracking=3)
+    weight = fields.Float('Weight', digits=(12, 3), tracking=3)
+    unit_id = fields.Many2one('res.unit', 'Unit', tracking=3)
     custom_declaration_reference = fields.Char('Custom Declaration Reference', tracking=3)
-    custom_declaration_date = fields.Date('Custom Declaration Date')
+    custom_declaration_date = fields.Date('Custom Declaration Date', tracking=3)
     assessed_value = fields.Float('Assessed Value', digits=(12, 3), help='Valeur imposable', tracking=3)
     object = fields.Text('Object', tracking=3)
     number_of_packages = fields.Char('Number of packages/TC', tracking=3)
@@ -38,12 +38,12 @@ class AccountMove(models.Model):
         ('Douala', 'Douala'),
         ('Kribi', 'Kribi'),
         ('Tchad', 'Tchad'),
-    ], string='Agency', default='Douala')
+    ], string='Agency', default='Douala', tracking=3)
     sale_order_template_id = fields.Many2one(
         'sale.order.template', 'Invoice Template',
         readonly=True, check_company=True,
         states={'draft': [('readonly', False)], 'sent': [('readonly', False)]},
-        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
+        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]", tracking=3)
     department_id = fields.Many2one('hr.department', 'Department')
     observation = fields.Text('Observation', tracking=2)
     import_pad_invoice = fields.Boolean('Import PAD Invoice', tracking=3)
@@ -92,7 +92,7 @@ class AccountMove(models.Model):
     rate_type_3 = fields.Selection(related='handling_rate_3_id.rate_type', string='Rate Type 3')
 
     distribute_ht_amount = fields.Boolean('Distribute HT Amount')
-    pc_partner_id = fields.Many2one('res.partner', 'P/C')
+    pc_partner_id = fields.Many2one('res.partner', 'P/C', tracking=3)
 
     @api.onchange('distribute_ht_amount', 'amount_untaxed')
     def onchange_distribute_ht_amount(self):
@@ -143,6 +143,16 @@ class AccountMove(models.Model):
                 res = source[2:-4]
             elif source[-3:].isnumeric():
                 res = source[2:-3]
+        elif source and source[:4] == 'APM/':
+            rac = source[14:-4]
+            if rac == 'VRAC':
+                res = 'VRA'
+            elif rac == 'GC':
+                res = 'GCC'
+            elif rac == 'SAC':
+                res = 'SAC'
+            elif rac == 'BOIS':
+                res = 'BOD'
         _logger.info('res : %s' % res)
         if res:
             if res in ('DDMI', 'DDME', 'DDAI', 'DDAE', 'DTRI', 'DTRE', 'DTAI', 'DTAE', 'TDMI', 'TDME', 'TDAI', 'TDAE', 'TTRI', 'TTRE', 'TTAI', 'TTAE', 'DLOG'):

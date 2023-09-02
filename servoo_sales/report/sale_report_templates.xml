@@ -155,6 +155,16 @@
                                         <span t-field="doc.partner_id.name"/>
                                     </b>
                                 </font>
+                                <t t-if="doc.partner_id.street">
+                                    <br>
+                                        <span t-field="doc.partner_id.street" />
+                                    </br>
+                                </t>
+                                <t t-if="doc.partner_id.street2">
+                                    <br>
+                                        <span t-field="doc.partner_id.street2" />
+                                    </br>
+                                </t>
                                 <br>
                                     <font>
                                         <t t-if="doc.partner_id.zip">
@@ -503,7 +513,7 @@
                         </b>
                     </p>
                     <p style="text-transform:uppercase;">
-                        Issued by : <span t-field="doc.create_uid" />
+                        Issued by : <span t-field="doc.write_uid" />
                     </p>
                             </div>
                             <div class="col-2" />

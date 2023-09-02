@@ -159,6 +159,16 @@
                                                     <span t-field="o.partner_id.name"/>
                                                 </b>
                                             </font>
+                                            <t t-if="o.partner_id.street">
+                                                <br>
+                                                    <span t-field="o.partner_id.street" />
+                                                </br>
+                                            </t>
+                                            <t t-if="o.partner_id.street2">
+                                                <br>
+                                                    <span t-field="o.partner_id.street2" />
+                                                </br>
+                                            </t>
                                             <br>
                                                 <font>
                                                     <t t-if="o.partner_id.zip">
@@ -174,14 +184,15 @@
                                                     </t>
                                                 </font>
                                             </br>
-                                            <br>
-                                                <font>
-                                                    <t t-if="o.partner_id.email">
-                                                        MAIL :
-                                                        <span t-field="o.partner_id.email"/>
-                                                    </t>
-                                                </font>
-                                            </br>
+                                            <t t-if="o.partner_id.email">
+                                                <br>
+                                                    <font>
+                                                            MAIL :
+                                                            <span t-field="o.partner_id.email"/>
+
+                                                    </font>
+                                                </br>
+                                            </t>
                                             <br>
                                                 <font>
                                                     <t t-if="o.partner_id.vat">
@@ -503,7 +514,7 @@
 <!--                                </t>-->
                             </p>
                             <p style="text-transform:uppercase;">
-                                Issued by : <span t-field="o.create_uid" />
+                                Issued by : <span t-field="o.write_uid" />
                             </p>
                                     </div>
                                     <div class="col-2" />
